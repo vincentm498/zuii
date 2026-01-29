@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/vincentm498/zuii/compare/v1.1.0...v1.2.0) (2026-01-29)
+
+
+### Features
+
+* Ajout du composant Icon et refonte complète du composant Button avec un nouveau système de tokens Sass pour la gestion des styles. ([f7d4ff4](https://github.com/vincentm498/zuii/commit/f7d4ff4f89aee98a8eb51d9463c3193edf845b93))
+
 # [1.1.0](https://github.com/vincentm498/zuii/compare/v1.0.0...v1.1.0) (2026-01-29)
 
 
