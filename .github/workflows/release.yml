@@ -8,6 +8,11 @@ jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+      id-token: write # Nécessaire pour la "provenance" npm si tu l'utilises
     steps:
       - name: Checkout
         uses: actions/checkout@v4
