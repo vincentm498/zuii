@@ -2,7 +2,7 @@ name: Release
 on:
   push:
     branches:
-      - main # ou 'master' selon ta branche principale
+      - main
 
 jobs:
   release:
@@ -12,20 +12,24 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Important pour que semantic-release puisse lire l'historique des commits
+          fetch-depth: 0
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9 # ou la version que tu utilises localement
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 'lts/*'
-          cache: 'npm'
-          registry-url: 'https://registry.npmjs.org'
+          cache: 'pnpm' # On dit à setup-node d'utiliser le cache pnpm
 
       - name: Install dependencies
-        run: npm ci
+        run: pnpm install
 
       - name: Release
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Créé automatiquement par GitHub
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}     # À ajouter manuellement (voir ci-dessous)
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npx semantic-release
