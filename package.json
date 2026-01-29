@@ -1,0 +1,12 @@
+{
+	"name": "zuii",
+	"version": "0.0.1",
+	"description": "Bibliothèque de composants UI légère, intuitive et modulaire pour les interfaces web modernes.",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [],
+	"author": "Vincent Moreau",
+	"license": "MIT"
+}
