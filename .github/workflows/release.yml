@@ -1,0 +1,31 @@
+name: Release
+on:
+  push:
+    branches:
+      - main # ou 'master' selon ta branche principale
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Important pour que semantic-release puisse lire l'historique des commits
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+          cache: 'npm'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Créé automatiquement par GitHub
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}     # À ajouter manuellement (voir ci-dessous)
+        run: npx semantic-release
