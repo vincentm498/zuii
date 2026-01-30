@@ -1,3 +1,10 @@
+## [1.2.7](https://github.com/vincentm498/zuii/compare/v1.2.6...v1.2.7) (2026-01-30)
+
+
+### Bug Fixes
+
+* Ajouter les définitions d'exports pour les modules du package. ([429a665](https://github.com/vincentm498/zuii/commit/429a665d9dbd69a54db290b6b622e56d979f8a73))
+
 ## [1.2.6](https://github.com/vincentm498/zuii/compare/v1.2.5...v1.2.6) (2026-01-30)
 
 
