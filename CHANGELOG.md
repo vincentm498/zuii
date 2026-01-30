@@ -1,3 +1,10 @@
+## [1.2.6](https://github.com/vincentm498/zuii/compare/v1.2.5...v1.2.6) (2026-01-30)
+
+
+### Bug Fixes
+
+* Mettre à jour la génération et l'importation des tokens, ajouter des alias de chemin TypeScript, améliorer la configuration de build Vite et inclure une couche CSS `utilities`. ([c0cacab](https://github.com/vincentm498/zuii/commit/c0cacabc7c97d9dbc490b23099cb1a95c1dadb86))
+
 ## [1.2.5](https://github.com/vincentm498/zuii/compare/v1.2.4...v1.2.5) (2026-01-30)
 
 

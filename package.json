@@ -1,6 +1,6 @@
 {
 	"name": "zuii",
-	"version": "1.2.5",
+	"version": "1.2.6",
 	"description": "Bibliothèque de composants UI légère, intuitive et modulaire pour les interfaces web modernes.",
 	"type": "module",
 	"main": "./dist/index.js",
