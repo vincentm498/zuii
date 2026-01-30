@@ -1,4 +1,4 @@
-import "../style/icon.scss";
+import "../style/index.scss";
 
 /**
  * Propriétés du composant Icon.

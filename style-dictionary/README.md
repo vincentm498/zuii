@@ -30,6 +30,7 @@ Cela générera les fichiers dans `src/styles/` :
 - `src/styles/_tokens.scss` - Variables SCSS avec maps
 - `src/styles/tokens.css` - Variables CSS custom properties
 - `src/styles/tokens.ts` - Constantes TypeScript
+- `src/styles/main.scss` - Squelette de styles (wrapper Bootstrap par défaut, ou autre framework CSS)
 
 #### Spécifier le chemin des tokens source
 
@@ -93,3 +94,6 @@ Variables CSS custom properties (CSS variables) pour une utilisation directe dan
 
 ### `tokens.ts`
 Constantes TypeScript pour une utilisation dans votre code JavaScript/TypeScript.
+
+### `main.scss`
+Squelette de styles incluant le wrapper Bootstrap par défaut, ou autre framework CSS. Ce fichier est généré uniquement s'il n'existe pas déjà, pour vous permettre de le personnaliser sans qu'il soit écrasé.

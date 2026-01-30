@@ -1,5 +1,5 @@
 import { Button as BootstrapButton, ButtonProps } from "react-bootstrap";
-import '../style/button.scss';
+import '../style/index.scss';
 import { Icon } from "../../Icon/react";
 
 interface Props extends Omit<ButtonProps, "size"> {
