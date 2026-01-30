@@ -27,8 +27,14 @@
 	"license": "MIT",
 	"peerDependencies": {
 		"react": ">=16.8.0",
-		"react-dom": ">=16.8.0",
-		"react-bootstrap": ">=2.10.10"
+		"react-dom": ">=16.8.0"
+	},
+	"dependencies": {
+		"bootstrap": "^5.3.8",
+		"colord": "^2.9.3",
+		"lucide-static": "^0.563.0",
+		"react-bootstrap": "^2.10.10",
+		"style-dictionary": "^4.2.0"
 	},
 	"devDependencies": {
 		"@semantic-release/changelog": "^6.0.3",
@@ -40,17 +46,12 @@
 		"@types/react-dom": "^19.2.3",
 		"@vitejs/plugin-react": "^5.1.2",
 		"react": "^19.2.4",
-		"react-bootstrap": "^2.10.10",
 		"react-dom": "^19.2.4",
 		"sass": "^1.97.3",
 		"semantic-release": "^25.0.2",
 		"typescript": "^5.9.3",
 		"vite": "^7.3.1",
 		"vite-plugin-dts": "^4.5.4",
-		"vite-plugin-lib-inject-css": "^2.2.2",
-		"bootstrap": "^5.3.8",
-		"lucide-static": "^0.563.0",
-		"style-dictionary": "^4.2.0",
-		"colord": "^2.9.3"
+		"vite-plugin-lib-inject-css": "^2.2.2"
 	}
 }
