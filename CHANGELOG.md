@@ -1,3 +1,10 @@
+## [1.2.5](https://github.com/vincentm498/zuii/compare/v1.2.4...v1.2.5) (2026-01-30)
+
+
+### Bug Fixes
+
+* restructure les styles des composants Button et Icon en utilisant `index.scss` et `[@layer](https://github.com/layer) components`. ([bc545ad](https://github.com/vincentm498/zuii/commit/bc545ad8d16c91a1ba8b655688c264d843c83464))
+
 ## [1.2.4](https://github.com/vincentm498/zuii/compare/v1.2.3...v1.2.4) (2026-01-30)
 
 
