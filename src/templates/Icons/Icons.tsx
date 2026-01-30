@@ -1,5 +1,5 @@
 import { Icon, Group } from '../../index';
-import { tokens } from '@core/tokens-data';
+import { tokens } from '@core/tokens';
 
 interface Props {
 	/** Jetons de marque personnalisés */

@@ -12,9 +12,11 @@ export default defineConfig({
 	libInjectCss(),
     dts({
       insertTypesEntry: true,
-      include: ['../src'],
-      exclude: ['../src/playground.tsx', '**/playground/**'],
-      outDir: resolve(__dirname, 'dist')
+      include: [resolve(__dirname, 'src')],
+      entryRoot: resolve(__dirname, 'src'),
+      exclude: ['src/playground.tsx', '**/playground/**'],
+      outDir: resolve(__dirname, 'dist'),
+      staticImport: true
     })
   ],
   resolve: {
@@ -32,6 +34,7 @@ export default defineConfig({
       name: 'zuii',
       entry: {
         index: resolve(__dirname, 'src/index.ts'),
+        templates: resolve(__dirname, 'src/templates/index.ts'),
       },
       formats: ['es'],
     },

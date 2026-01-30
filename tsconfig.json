@@ -13,8 +13,14 @@
     "isolatedModules": true,
     "noEmit": true,
 
-    /* JSX - C'est ici que ça se passe */
-    "jsx": "react-jsx", // <--- Ajoute cette ligne
+    /* Path mapping */
+    "baseUrl": ".",
+    "paths": {
+      "@core/*": ["src/core/styles/*"]
+    },
+
+    /* JSX */
+    "jsx": "react-jsx",
 
     /* Linting */
     "strict": true,

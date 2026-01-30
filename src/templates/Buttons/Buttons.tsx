@@ -1,5 +1,5 @@
 import { Button } from '../../index';
-import { tokens } from '@core/tokens-data';
+import { tokens } from '@core/tokens';
 
 
 
