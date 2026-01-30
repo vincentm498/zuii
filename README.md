@@ -25,6 +25,45 @@ npm install zuii
 
 ---
 
+## 🎨 Gestion des Styles (CSS Layers)
+
+**zuii** utilise les [CSS Cascade Layers](https://developer.mozilla.org/en-US/docs/Learn/CSS/Howto/Cascade_layers) pour vous donner un contrôle total sur la priorité des styles et faciliter la personnalisation sans conflits.
+
+### Structure recommandée
+
+**zuii** définit trois couches principales pour organiser les priorités :
+
+1.  **`vendor`** (Priorité basse) : Pour les frameworks externes (ex: Bootstrap).
+2.  **`components`** : Pour les composants **zuii**.
+3.  **`utilities`** : Pour les classes utilitaires de **zuii**.
+
+#### Exemple d'implémentation dans votre `main.scss` :
+
+```scss
+@layer vendor, components, utilities;
+
+@layer vendor {
+  @import "bootstrap/scss/bootstrap";
+}
+
+// Les styles zuii s'insèrent automatiquement dans les couches 'components' ou 'utilities'
+@import "votre-chemin/tokens";
+```
+
+### 🎯 Personnalisation et Surclassement
+L'énorme avantage de cette structure est que **tous les styles écrits en dehors d'une couche (`@layer`) auront la priorité maximale**.
+
+Cela vous permet de surcharger n'importe quelle classe de la bibliothèque sans effort et sans `!important` :
+
+```css
+/* Ce style surclassera toujours les composants zuii */
+.btn-primary {
+  background-color: purple;
+}
+```
+
+---
+
 ## 🗺️ Roadmap
 
 Le développement de **zuii** est structuré en plusieurs phases. Vous pouvez suivre l'avancement détaillé dans notre fichier dédié :

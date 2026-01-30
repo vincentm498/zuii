@@ -82,5 +82,11 @@ export const formats = {
 			}).join('\n');
 		output += `\n}`;
 		return output;
+	},
+	/**
+	 * Format JS qui exporte l'objet complet des tokens
+	 */
+	'javascript/structured-object': ({ dictionary }) => {
+		return `/**\n * Auto-generated\n */\n\nexport const tokens = ${JSON.stringify(dictionary.tokens, null, 2)};\n`;
 	}
 };

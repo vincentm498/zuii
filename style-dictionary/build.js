@@ -44,7 +44,7 @@ const parseArgs = () => {
  * @param {string} outputPath
  */
 const generateMainStyle = (outputPath) => {
-	const content = `@layer vendor, components;
+	const content = `@layer vendor, components, utilities;
 
 $variable-prefix: "";
 $prefix: "";

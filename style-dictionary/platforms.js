@@ -42,9 +42,11 @@ export const getPlatforms = (buildPath) => ({
 			'color/hex'
 		],
 		buildPath,
-		files: [{
-			destination: 'tokens.ts',
-			format: 'javascript/es6'
-		}]
+		files: [
+			{
+				destination: 'tokens.ts',
+				format: 'javascript/structured-object'
+			},
+		]
 	}
 });

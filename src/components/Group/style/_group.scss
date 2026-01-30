@@ -1,0 +1,22 @@
+	.group {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+
+		&--vertical {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+		&--horizontal {
+			flex-direction: row;
+			align-items: center;
+		}
+		&--no-wrap {
+			flex-wrap: nowrap;
+		}
+
+		&--gap-none {
+			gap: 0;
+		}
+	}
+
