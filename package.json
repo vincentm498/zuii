@@ -17,9 +17,9 @@
 		"dev": "vite",
 		"prebuild": "pnpm run tokens:build",
 		"build": "vite build",
-		"postbuild": "cp src/core/styles/_tokens.scss src/core/styles/tokens.css src/core/styles/tokens.ts dist/core/styles/",
+		"postbuild": "mkdir -p dist/core/styles && cp src/core/styles/_tokens.scss src/core/styles/tokens.css src/core/styles/tokens.ts dist/core/styles/",
 		"preview": "vite preview",
-		"prepublishOnly": "npm run build",
+		"prepublishOnly": "pnpm run build",
 		"tokens:build": "node style-dictionary/build.js --output src/core/styles"
 	},
 	"keywords": [],

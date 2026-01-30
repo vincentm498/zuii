@@ -34,7 +34,9 @@ jobs:
         run: pnpm install
 
       - name: Build library
-        run: pnpm build
+        run: |
+          pnpm run tokens:build
+          pnpm run build
 
       - name: Release
         env:
