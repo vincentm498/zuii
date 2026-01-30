@@ -10,6 +10,17 @@
 		"dist",
 		"style-dictionary"
 	],
+	"exports": {
+		".": {
+			"import": "./dist/index.js",
+			"types": "./dist/index.d.ts"
+		},
+		"./templates": {
+			"import": "./dist/templates.js",
+			"types": "./dist/templates.d.ts"
+		},
+		"./core/*": "./dist/core/*"
+	},
 	"bin": {
 		"zuii-tokens": "./style-dictionary/build.js"
 	},
