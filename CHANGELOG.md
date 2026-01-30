@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/vincentm498/zuii/compare/v1.2.0...v1.2.1) (2026-01-30)
+
+
+### Bug Fixes
+
+* Met à jour les scripts de build pour créer le répertoire de destination, utilise pnpm pour la prépublication et ajoute la génération des tokens au workflow de CI. ([5bd0467](https://github.com/vincentm498/zuii/commit/5bd04673724f9c138cdacc206886b9a3088d65d4))
+
 # [1.2.0](https://github.com/vincentm498/zuii/compare/v1.1.0...v1.2.0) (2026-01-29)
 
 
