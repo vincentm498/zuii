@@ -1,3 +1,10 @@
+## [1.2.3](https://github.com/vincentm498/zuii/compare/v1.2.2...v1.2.3) (2026-01-30)
+
+
+### Bug Fixes
+
+* générer le fichier `main.scss` avec Bootstrap et externaliser dynamiquement les dépendances dans la configuration Vite. ([5f967e7](https://github.com/vincentm498/zuii/commit/5f967e774032b07f5694665a4227f6d4f2ce4c51))
+
 ## [1.2.2](https://github.com/vincentm498/zuii/compare/v1.2.1...v1.2.2) (2026-01-30)
 
 
