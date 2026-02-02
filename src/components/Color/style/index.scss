@@ -1,0 +1,5 @@
+@use "colors";
+
+@layer utilities {
+	@include colors.generate-color-utilities;
+}

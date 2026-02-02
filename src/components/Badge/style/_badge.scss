@@ -1,0 +1,72 @@
+@use "@core/tokens.scss" as *;
+@use "../../Color/style/colors.scss";
+
+.badge {
+	--badge-border-radius: var(--border-radius-pill);
+	--badge-font-size: var(--font-size-xs);
+
+	font-size: var(--badge-font-size);
+	line-height: initial;
+	margin: 0.2rem;
+	border: 1px solid transparent;
+	height: fit-content;
+	display: flex;
+	gap: var(--spacing-xs);
+	align-items: center;
+
+	@each $color, $value in $brands {
+		&--#{$color} {
+			@include colors.bg-variant($color);
+			border-color: var(--#{$color});
+		}
+
+		&--outline {
+			--bg-opacity: 0;
+			background-color: transparent;
+			color: inherit;
+
+			@each $color, $value in $brands {
+				&-#{$color} {
+					// --badge-color: #{$value};
+					border-color: #{$value};
+					color: #{$value};
+				}
+			}
+		}
+	}
+
+
+	&--xs {
+		--badge-padding-x: 0.5em;
+		--badge-padding-y: 0.3em;
+		--badge-font-size: 0.5em;
+	}
+
+	&--sm {
+		--badge-padding-x: 0.5em;
+		--badge-padding-y: 0.3em;
+		--badge-font-size: 0.6em;
+	}
+
+	&--md {
+		--badge-padding-x: 0.65em;
+		--badge-padding-y: 0.35em;
+		--badge-font-size: 0.7rem;
+	}
+
+	&--lg {
+		--badge-padding-x: 0.7em;
+		--badge-padding-y: 0.45em;
+		--badge-font-size: 0.8rem;
+	}
+
+	&--xl {
+		--badge-padding-x: 0.75em;
+		--badge-padding-y: 0.55em;
+		--badge-font-size: 0.9rem;
+	}
+
+	&__content {
+		display: inline-block;
+	}
+}

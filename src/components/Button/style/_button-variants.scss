@@ -1,52 +1,63 @@
 @use "@core/tokens.scss" as *;
-@use "button-mixins";
+@use "../../Color/style/colors.scss";
 
-	@each $variant, $value in $brands {
-		.btn-#{$variant} {
-			@include button-mixins.button-variant($variant);
-		}
+@each $variant, $value in $brands {
 
-		.btn-#{$variant}-light {
-			@include button-mixins.button-variant($variant, "#{$variant}-light", "light");
-			--btn-hover-bg: var(--#{$variant});
-			--btn-hover-border-color: var(--#{$variant});
-		}
-
-		.btn-#{$variant}-dark {
-			@include button-mixins.button-variant($variant, "#{$variant}-dark", "dark");
-			--btn-hover-bg: var(--#{$variant});
-			--btn-hover-border-color: var(--#{$variant});
-		}
-
-		.btn-outline-#{$variant} {
-			@include button-mixins.button-outline($variant);
-		}
-
-		.btn-outline-#{$variant}-light {
-			@include button-mixins.button-outline($variant, "#{$variant}-light", "light");
-			--btn-hover-bg: var(--#{$variant}-light);
-		}
-
-		.btn-outline-#{$variant}-dark {
-			@include button-mixins.button-outline($variant, "#{$variant}-dark", "dark");
-			--btn-hover-bg: var(--#{$variant}-dark);
-		}
+	.btn-#{$variant} {
+		@include colors.bg-variant($variant);
+		--btn-border-color: var(--#{$variant});
+		--btn-hover-border-color: var(--#{$variant});
 	}
 
-	.btn-transparent {
-		--btn-bg: transparent;
-		--btn-border-color: transparent;
-		--btn-hover-bg: transparent;
-		--btn-hover-border-color: transparent;
-		--btn-hover-color: var(--primary);
-		--btn-active-bg: transparent;
-		--btn-active-border-color: transparent;
-		--btn-active-color: var(--primary);
-
-		&:hover {
-			box-shadow: none;
-
-		}
-
+	.btn-#{$variant}-light {
+		@include colors.bg-variant-light($variant);
+		--btn-border-color: var(--#{$variant}-light);
+		--btn-hover-bg: var(--#{$variant});
+		--btn-hover-border-color: var(--#{$variant});
 	}
 
+	.btn-#{$variant}-dark {
+		@include colors.bg-variant-dark($variant);
+		--btn-border-color: var(--#{$variant}-dark);
+		--btn-hover-bg: var(--#{$variant});
+		--btn-hover-border-color: var(--#{$variant}-dark);
+	}
+
+
+	.btn-outline-#{$variant} {
+		@include colors.bg-variant($variant);
+		background: transparent;
+		color: var(--#{$variant});
+		--btn-border-color: var(--#{$variant});
+		--btn-hover-border-color: var(--#{$variant});
+	}
+
+	.btn-outline-#{$variant}-light {
+		@include colors.bg-variant-light($variant);
+		background: transparent;
+		color: var(--#{$variant});
+		--btn-border-color: var(--#{$variant}-light);
+		--btn-hover-bg: var(--#{$variant});
+		--btn-hover-border-color: var(--#{$variant});
+	}
+
+	.btn-outline-#{$variant}-dark {
+		@include colors.bg-variant-dark($variant);
+		background: transparent;
+		color: var(--#{$variant}-dark);
+		--btn-border-color: var(--#{$variant}-dark);
+		--btn-hover-bg: var(--#{$variant});
+		--btn-hover-border-color: var(--#{$variant}-dark);
+	}
+
+}
+
+.btn-transparent {
+	background: transparent;
+	border: none;
+	color: currentColor;
+
+	&:hover {
+		box-shadow: none;
+	}
+}

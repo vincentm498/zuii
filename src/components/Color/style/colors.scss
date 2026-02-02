@@ -1,0 +1,46 @@
+@use "sass:map";
+@use "@core/tokens.scss" as *;
+
+
+@mixin bg-variant($name) {
+	background-color: rgba(var(--#{$name}-rgb), var(--bg-opacity, 1));
+	color: var(--#{$name}-contrast);
+}
+
+@mixin bg-variant-light($name) {
+	background-color: rgba(var(--#{$name}-light-rgb), var(--bg-opacity, 1));
+	color: var(--#{$name}-light-contrast);
+}
+
+@mixin bg-variant-dark($name) {
+	background-color: rgba(var(--#{$name}-dark-rgb), var(--bg-opacity, 1));
+	color: var(--#{$name}-dark-contrast);
+}
+
+@mixin generate-color-utilities {
+	@each $color, $value in $brands {
+		.bg-#{$color} {
+			@include bg-variant($color);
+		}
+
+		.bg-#{$color}-light {
+			@include bg-variant-light($color);
+		}
+
+		.bg-#{$color}-dark {
+			@include bg-variant-dark($color);
+		}
+	}
+
+
+	@if map.has-key($color, "gray") {
+		$grays: map.get($color, "gray");
+
+		@each $shade, $value in $grays {
+			.bg-gray-#{$shade} {
+				background-color: var(--gray-#{$shade});
+				color: var(--gray-#{$shade}-contrast);
+			}
+		}
+	}
+}
