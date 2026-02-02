@@ -41,6 +41,7 @@
 		"react-dom": ">=16.8.0"
 	},
 	"dependencies": {
+		"apca-w3": "^0.1.9",
 		"bootstrap": "^5.3.8",
 		"colord": "^2.9.3",
 		"lucide-static": "^0.563.0",

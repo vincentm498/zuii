@@ -1,5 +1,6 @@
 import { colord, extend } from 'colord';
 import mixPlugin from 'colord/plugins/mix';
+import { calcAPCA } from 'apca-w3';
 
 extend([mixPlugin]);
 
@@ -44,6 +45,21 @@ export const transforms = {
 				});
 			}
 			return color.toHex();
+		}
+	},
+	/**
+	 * Transformation pour générer une couleur de contraste (noir/blanc)
+	 */
+	'color/contrast': {
+		type: 'value',
+		transitive: true,
+		matcher: (token) => {
+			return (token.path[0] === 'color' || token.path[0] === 'brands') && token.value.startsWith('#');
+		},
+		transform: (token) => {
+			const whiteContrast = Math.abs(Number(calcAPCA('#ffffff', token.value)));
+			const blackContrast = Math.abs(Number(calcAPCA('#000000', token.value)));
+			return whiteContrast > blackContrast ? '#ffffff' : '#000000';
 		}
 	}
 };

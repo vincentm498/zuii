@@ -15,6 +15,7 @@ L'objectif est de poser des bases solides pour la librairie.
 - [x] Architecture de fichiers modulaire (CSS Layers).
 - [x] Licence MIT.
 - [x] **Design Tokens** : Couleurs, Typographie, Espacement (via Style Dictionary).
+- [x] **Gestion automatique du contraste** (A11y).
 - [ ] **Base Components** :
   - [x] `Button`
   - [x] `Icon`
