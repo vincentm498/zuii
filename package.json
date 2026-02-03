@@ -24,8 +24,8 @@
 			"types": "./dist/index.d.ts"
 		},
 		"./templates": {
-			"import": "./dist/templates.js",
-			"types": "./dist/templates.d.ts"
+			"import": "./dist/templates/index.ts",
+			"types": "./dist/templates/index.d.ts"
 		},
 		"./core/*": "./dist/core/*"
 	},
@@ -36,7 +36,7 @@
 		"dev": "vite",
 		"prebuild": "pnpm run tokens:build",
 		"build": "vite build",
-		"postbuild": "mkdir -p dist/core/styles && cp src/core/styles/_tokens.scss src/core/styles/tokens.css src/core/styles/tokens.ts dist/core/styles/",
+		"postbuild": "mkdir -p dist/core/styles && cp src/core/styles/_tokens.scss src/core/styles/tokens.css src/core/styles/tokens.ts dist/core/styles/ && cp -r src/templates dist/",
 		"preview": "vite preview",
 		"prepublishOnly": "pnpm run build",
 		"tokens:build": "node style-dictionary/build.js --output src/core/styles"
