@@ -1,3 +1,15 @@
+# [1.4.0](https://github.com/vincentm498/zuii/compare/v1.3.7...v1.4.0) (2026-02-03)
+
+
+### Bug Fixes
+
+* Supprime le déclencheur `workflow_dispatch` du workflow de publication. ([6356b81](https://github.com/vincentm498/zuii/commit/6356b812d72f9b37abda6870ee5a6532b7a1db16))
+
+
+### Features
+
+* Ajouter le déclenchement manuel du workflow de publication. ([feb52ee](https://github.com/vincentm498/zuii/commit/feb52eeab9f50c10c20107ba06a5e9395bd82faa))
+
 ## [1.3.7](https://github.com/vincentm498/zuii/compare/v1.3.6...v1.3.7) (2026-02-03)
 
 
