@@ -45,8 +45,11 @@ npm install zuii
 ```scss
 @layer vendor, components, utilities;
 
+$prefix: "";
+$enable-important-utilities: false;
+
 @layer vendor {
-  @import "bootstrap/scss/bootstrap";
+	@import "bootstrap/scss/bootstrap";
 }
 
 // Les styles zuii s'insèrent automatiquement dans les couches 'components' ou 'utilities'
