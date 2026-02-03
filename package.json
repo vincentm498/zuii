@@ -3,6 +3,14 @@
 	"version": "1.3.5",
 	"description": "Bibliothèque de composants UI légère, intuitive et modulaire pour les interfaces web modernes.",
 	"type": "module",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/vincentm498/zuii.git"
+	},
+	"bugs": {
+		"url": "https://github.com/vincentm498/zuii/issues"
+	},
+	"homepage": "https://github.com/vincentm498/zuii#readme",
 	"main": "./dist/index.js",
 	"module": "./dist/index.js",
 	"types": "./dist/index.d.ts",
