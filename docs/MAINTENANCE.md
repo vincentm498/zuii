@@ -26,7 +26,7 @@ rm -rf dist
 ```
 
 ### Vérification du build
-Avant de pousser sur `dev`, vérifiez toujours que le build passe localement :
+Avant de pousser sur `dev`, vérifiez toujours que le build passe localement:
 ```bash
 pnpm install
 pnpm build
