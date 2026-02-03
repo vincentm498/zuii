@@ -1,3 +1,10 @@
+## [1.3.2](https://github.com/vincentm498/zuii/compare/v1.3.1...v1.3.2) (2026-02-03)
+
+
+### Bug Fixes
+
+* mise à jour des dépendances pnpm. ([f1588ec](https://github.com/vincentm498/zuii/commit/f1588ecdb09ff10550aa0bda5a6bd48ed9af186d))
+
 ## [1.3.1](https://github.com/vincentm498/zuii/compare/v1.3.0...v1.3.1) (2026-02-03)
 
 
