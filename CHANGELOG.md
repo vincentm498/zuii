@@ -1,3 +1,10 @@
+## [1.3.3](https://github.com/vincentm498/zuii/compare/v1.3.2...v1.3.3) (2026-02-03)
+
+
+### Bug Fixes
+
+* déplace apca-w3 vers devDependencies et ajoute publishConfig pour résoudre l'échec de publication npm ([7851a47](https://github.com/vincentm498/zuii/commit/7851a4761dd43f65fa0d6965859140e16a3fc19a))
+
 ## [1.3.2](https://github.com/vincentm498/zuii/compare/v1.3.1...v1.3.2) (2026-02-03)
 
 
