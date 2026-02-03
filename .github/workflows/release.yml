@@ -28,7 +28,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 'lts/*'
-          cache: 'pnpm' # On dit à setup-node d'utiliser le cache pnpm
+          cache: 'pnpm'
+          registry-url: 'https://registry.npmjs.org/'
 
       - name: Install dependencies
         run: pnpm install
@@ -42,4 +43,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: pnpm dlx semantic-release
