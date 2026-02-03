@@ -40,8 +40,11 @@
 		"react": ">=16.8.0",
 		"react-dom": ">=16.8.0"
 	},
+	"publishConfig": {
+		"access": "public",
+		"registry": "https://registry.npmjs.org/"
+	},
 	"dependencies": {
-		"apca-w3": "^0.1.9",
 		"bootstrap": "^5.3.8",
 		"colord": "^2.9.3",
 		"lucide-static": "^0.563.0",
@@ -50,6 +53,7 @@
 		"style-dictionary": "^4.2.0"
 	},
 	"devDependencies": {
+		"apca-w3": "^0.1.9",
 		"@semantic-release/changelog": "^6.0.3",
 		"@semantic-release/git": "^10.0.1",
 		"@semantic-release/github": "^12.0.2",
