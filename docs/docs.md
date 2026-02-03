@@ -29,7 +29,7 @@ Par défaut, ces types ne déclenchent **pas** de nouvelle version :
 
 Pour déclencher une version **Major** (ex: 2.0.0), tu as deux options :
 
-1. **Le point d'exclamation** : Ajouter un `!` après le type.
+1. **Le point d'exclamation** : Ajouter un `!` après le type .
    - Exemple : `feat!: changement majeur de l'API`
 2. **Le footer** : Ajouter `BREAKING CHANGE:` au début du pied de page du commit.
 
