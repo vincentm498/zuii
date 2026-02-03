@@ -10,6 +10,13 @@
         "npmPublish": false
       }
     ],
+    [
+      "@semantic-release/exec",
+      {
+        "prepareCmd": "pnpm install --lockfile-only",
+        "publishCmd": "pnpm publish --no-git-checks --access public"
+      }
+    ],
     "@semantic-release/github",
     [
       "@semantic-release/git",

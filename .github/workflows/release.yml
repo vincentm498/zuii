@@ -39,20 +39,9 @@ jobs:
           pnpm run tokens:build
           pnpm run build
 
-      - name: Verify NPM Auth
-        run: pnpm whoami
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
       - name: Release
-        id: semantic
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npx semantic-release
-
-      - name: Explicit PNPM Publish
-        if: success()
-        env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: pnpm publish --no-git-checks --access public
+        run: npx semantic-release
