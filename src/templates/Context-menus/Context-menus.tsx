@@ -1,4 +1,4 @@
-import { ContextMenu, Badge } from '../../index';
+import { ContextMenu } from '../../index';
 
 /**
  * Template de démonstration pour le composant ContextMenu.
