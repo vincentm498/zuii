@@ -1,6 +1,10 @@
 {
 	"name": "zuii",
 	"version": "0.0.0-development",
+	"publishConfig": {
+		"access": "public",
+		"registry": "https://registry.npmjs.org/"
+	},
 	"description": "Bibliothèque de composants UI légère, intuitive et modulaire pour les interfaces web modernes.",
 	"type": "module",
 	"main": "./dist/index.js",
