@@ -9,8 +9,8 @@ extend([mixPlugin]);
  * APCA (Accessible Perceptual Contrast Algorithm) est plus précis que le WCAG 2.1 car il prend en compte
  * la perception humaine de la luminosité.
  *
- * @param {string} color - La couleur au format hexadécimal, RGB ou HSL.
- * @returns {string} La couleur de contraste recommandée (teintée de blanc ou noir).
+ * @param {string} color - La couleur au format hexadécimal, RGB, RGBA ou HSL.
+ * @returns {string} La couleur de contraste recommandée (teintée de blanc ou de noir).
  */
 export const getContrastColor = (color: string): string => {
 	const whiteContrast = Math.abs(Number(calcAPCA('#ffffff', color)));
