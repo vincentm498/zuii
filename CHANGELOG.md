@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/vincentm498/zuii/compare/v1.3.0...v1.3.1) (2026-02-03)
+
+
+### Bug Fixes
+
+* ajoute une étape pour mettre à jour pnpm-lock.yaml dans le workflow de release. ([b7c0a26](https://github.com/vincentm498/zuii/commit/b7c0a2691b06a0cd794447a717e5cf8e2a89432e))
+
 # [1.3.0](https://github.com/vincentm498/zuii/compare/v1.2.8...v1.3.0) (2026-02-03)
 
 
