@@ -21,7 +21,12 @@ L'objectif est de poser des bases solides pour la librairie.
   - [x] `Icon`
   - [x] `Group`
   - [x] `Avatar`
+  - [x] `Color`
+  - [x] `Badge`
   - [x] `Divider`
+  - [x] `Context-menu`
+  - [x] `Lang-selector`
+  - [ ] `Multi-select` (avec Tom Select)
   - [ ] `Input`
   - [ ] `Checkbox`
   - [ ] `Radio`

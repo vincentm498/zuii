@@ -24,8 +24,8 @@
 			"types": "./dist/index.d.ts"
 		},
 		"./templates": {
-			"import": "./dist/templates.js",
-			"types": "./dist/templates.d.ts"
+			"import": "./dist/templates/index.ts",
+			"types": "./dist/templates/index.d.ts"
 		},
 		"./core/*": "./dist/core/*"
 	},
@@ -36,7 +36,7 @@
 		"dev": "vite",
 		"prebuild": "pnpm run tokens:build",
 		"build": "vite build",
-		"postbuild": "mkdir -p dist/core/styles && cp src/core/styles/_tokens.scss src/core/styles/tokens.css src/core/styles/tokens.ts dist/core/styles/",
+		"postbuild": "mkdir -p dist/core/styles && cp src/core/styles/_tokens.scss src/core/styles/tokens.css src/core/styles/tokens.ts dist/core/styles/ && cp -r src/templates dist/",
 		"preview": "vite preview",
 		"prepublishOnly": "pnpm run build",
 		"tokens:build": "node style-dictionary/build.js --output src/core/styles"
@@ -55,13 +55,14 @@
 	"dependencies": {
 		"bootstrap": "^5.3.8",
 		"colord": "^2.9.3",
+		"flag-icons": "^7.5.0",
 		"lucide-static": "^0.563.0",
 		"react-bootstrap": "^2.10.10",
 		"sass-embedded": "^1.97.3",
-		"style-dictionary": "^4.2.0"
+		"style-dictionary": "^4.2.0",
+		"tom-select": "^2.4.5"
 	},
 	"devDependencies": {
-		"apca-w3": "^0.1.9",
 		"@semantic-release/changelog": "^6.0.3",
 		"@semantic-release/git": "^10.0.1",
 		"@semantic-release/github": "^12.0.2",
@@ -70,6 +71,7 @@
 		"@types/react": "^19.2.10",
 		"@types/react-dom": "^19.2.3",
 		"@vitejs/plugin-react": "^5.1.2",
+		"apca-w3": "^0.1.9",
 		"react": "^19.2.4",
 		"react-dom": "^19.2.4",
 		"sass": "^1.97.3",

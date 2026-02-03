@@ -1,0 +1,6 @@
+<div class="lang-selector__wrapper">
+	<select id="language-select" class="lang-selector" placeholder="Choisir une langue...">
+		<option value="fr" data-src="fr" {% if app.request.locale == 'fr' %}selected{% endif %}>{{ 'lang.fr'|trans }}</option>
+		<option value="en" data-src="gb" {% if app.request.locale == 'en' %}selected{% endif %}>{{ 'lang.en'|trans }}</option>
+	</select>
+</div>

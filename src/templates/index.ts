@@ -5,4 +5,5 @@ export * from './Badges/Badges';
 export * from './Colors/Colors';
 export * from './Dividers/Dividers';
 export * from './Context-menus/Context-menus';
+export * from './Lang-selector/LangSelectors';
 

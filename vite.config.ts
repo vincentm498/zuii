@@ -34,7 +34,6 @@ export default defineConfig({
       name: 'zuii',
       entry: {
         index: resolve(__dirname, 'src/index.ts'),
-        templates: resolve(__dirname, 'src/templates/index.ts'),
       },
       formats: ['es'],
     },
