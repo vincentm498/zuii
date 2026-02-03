@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      apca-w3:
-        specifier: ^0.1.9
-        version: 0.1.9
       bootstrap:
         specifier: ^5.3.8
         version: 5.3.8(@popperjs/core@2.11.8)
@@ -54,6 +51,9 @@ importers:
       '@vitejs/plugin-react':
         specifier: ^5.1.2
         version: 5.1.2(vite@7.3.1(@types/node@25.1.0)(sass-embedded@1.97.3)(sass@1.97.3)(yaml@2.8.2))
+      apca-w3:
+        specifier: ^0.1.9
+        version: 0.1.9
       react:
         specifier: ^19.2.4
         version: 19.2.4
