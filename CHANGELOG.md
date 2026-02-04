@@ -1,3 +1,10 @@
+## [1.4.2](https://github.com/vincentm498/zuii/compare/v1.4.1...v1.4.2) (2026-02-04)
+
+
+### Bug Fixes
+
+* Ajout d'un ensemble de composants de formulaire (NumberInput, TelInput, PasswordInput, RangeInput, Select, FileInput, PasswordConfirm) et refonte du sélecteur de langue pour utiliser Choices.js. ([43cd4ec](https://github.com/vincentm498/zuii/commit/43cd4eca555c119fdfe0861cde676e1ee72b9368))
+
 ## [1.4.1](https://github.com/vincentm498/zuii/compare/v1.4.0...v1.4.1) (2026-02-04)
 
 
