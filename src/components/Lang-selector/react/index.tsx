@@ -1,85 +1,67 @@
 import { useEffect, useRef } from 'react';
-import '../style/index.scss';
-import { initLanguageSelector } from '../js/language-selector';
+import { initLanguageSelector, LanguageOption } from '../js/language-selector';
+import '../style/_language-selector.scss';
 
-/**
- * Interface pour les options de langue
- */
-interface Language {
-	code: string;
-	label: string;
-	flag: string;
-}
-
-/**
- * Props du composant LangSelector
- */
 interface Props {
-	languages: Language[];
-	currentLanguage: string;
+	/**
+	 * Liste des langues disponibles.
+	 */
+	options: LanguageOption[];
+	/**
+	 * Valeur sélectionnée par défaut.
+	 */
+	defaultValue?: string;
+	/**
+	 * Callback appelé lors du changement de langue.
+	 */
 	onChange?: (value: string) => void;
+	/**
+	 * Classe CSS additionnelle.
+	 */
+	className?: string;
 }
 
 /**
- * Composant de sélection de langue
+ * Composant sélecteur de langue utilisant Choices.js.
  *
- * @param {Props} props - Les propriétés du composant
- * @returns {JSX.Element}
+ * @param {Props} props - Les propriétés du composant.
+ * @returns {JSX.Element} Le composant rendu.
  */
-export const LangSelector = ({ languages, currentLanguage, onChange }: Props) => {
+export const LangSelector = ({
+	options,
+	defaultValue,
+	onChange,
+	className = ''
+}: Props) => {
 	const selectRef = useRef<HTMLSelectElement>(null);
-	const tsInstance = useRef<any>(null);
+	const choicesRef = useRef<any>(null);
 
-	/**
-	 * Met à jour l'attribut lang de la balise html
-	 */
 	useEffect(() => {
-		if (currentLanguage) {
-			document.documentElement.lang = currentLanguage;
-		}
-	}, [currentLanguage]);
+		if (!options || options.length === 0) return;
 
-	/**
-	 * Initialise TomSelect
-	 */
-	useEffect(() => {
-		if (selectRef.current && !tsInstance.current) {
-			tsInstance.current = initLanguageSelector(selectRef.current, (value) => {
-				if (onChange) onChange(value);
-			});
+		if (selectRef.current) {
+			// Nettoyer le select avant d'initialiser (évite les doublons)
+			selectRef.current.innerHTML = '';
+
+			const updatedOptions = options.map(opt => ({
+				...opt,
+				selected: opt.value === defaultValue
+			}));
+
+			choicesRef.current = initLanguageSelector(selectRef.current, updatedOptions, onChange);
 		}
 
 		return () => {
-			if (tsInstance.current) {
-				tsInstance.current.destroy();
-				tsInstance.current = null;
+			if (choicesRef.current) {
+				choicesRef.current.destroy();
+				choicesRef.current = null;
 			}
 		};
-	}, [onChange]);
-
-	/**
-	 * Synchronise la valeur de TomSelect si currentLanguage change de l'extérieur
-	 */
-	useEffect(() => {
-		if (tsInstance.current && tsInstance.current.getValue() !== currentLanguage) {
-			tsInstance.current.setValue(currentLanguage, true);
-		}
-	}, [currentLanguage]);
+	}, [options, defaultValue, onChange]);
 
 	return (
-		<div className="lang-selector__wrapper">
-			<select
-				ref={selectRef}
-				id="language-select"
-				className="lang-selector"
-				defaultValue={currentLanguage}
-			>
-				{languages.map((lang) => (
-					<option key={lang.code} value={lang.code} data-src={lang.flag}>
-						{lang.label}
-					</option>
-				))}
-			</select>
+		<div className={`lang-selector ${className}`.trim()}>
+			<select ref={selectRef} className="lang-selector__select" />
 		</div>
 	);
 };

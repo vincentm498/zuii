@@ -1,119 +1,57 @@
-@use 'flag-icons/sass/flag-icons' with ($flag-icons-path: 'https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.5.0/flags'
-);
-
 .lang-selector {
-	position: relative;
-
-	&.ts-hidden-accessible {
-		display: none !important;
-	}
-
-	&__wrapper {
-		display: flex;
-		align-items: center;
-		z-index: 50;
-	}
+	display: inline-block;
+	min-width: 150px;
+	width: 100%;
 
 	&__flag {
 		margin-right: 8px;
-		vertical-align: middle;
 		border-radius: 2px;
 	}
 
-	&__label {
-		font-weight: 500;
-		color: var(--ts-color-text, #333);
-	}
-}
+	// Surcharge des styles de choices.js pour coller au design zuii
+	.choices {
+		margin-bottom: 0;
+		font-family: inherit;
 
-/* Personnalisation Tom Select pour un rendu Premium */
-.ts-wrapper.lang-selector {
-	.ts-control {
-		padding-right: 40px;
-		cursor: pointer;
-		position: relative;
+		&[data-type*="select-one"] {
+			.choices__inner {
+				padding-bottom: 5px;
+				background-color: var(--zuii-bg-surface, #fff);
+				border: 1px solid var(--zuii-border-color, #dee2e6);
+				border-radius: 4px;
+				min-height: 40px;
+				display: flex;
+				align-items: center;
+			}
 
-		&::after {
-			content: "";
-			display: block;
-			position: absolute;
-			top: 50%;
-			right: 13px;
-			width: 1rem;
-			height: 1rem;
-			transition: transform 0.2s;
-			mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path d="M297.4 566.6C309.9 579.1 330.2 579.1 342.7 566.6L502.7 406.6C515.2 394.1 515.2 373.8 502.7 361.3C490.2 348.8 469.9 348.8 457.4 361.3L352 466.7L352 96C352 78.3 337.7 64 320 64C302.3 64 288 78.3 288 96L288 466.7L182.6 361.3C170.1 348.8 149.8 348.8 137.3 361.3C124.8 373.8 124.8 394.1 137.3 406.6L297.3 566.6z"/></svg>');
-			mask-position: center;
-			mask-repeat: no-repeat;
-			mask-size: cover;
-			background: var(--primary-color);
-			transform: translateY(-50%);
-		}
-
-		&:hover {
-			border-color: #cbd5e1;
-		}
-	}
-
-	&.dropdown-active .ts-control::after {
-		transform: translateY(-50%) rotate(180deg);
-	}
-
-	.ts-dropdown {
-		border: 1px solid #e2e8f0;
-		position: absolute;
-		left: 0;
-		right: 0;
-		background: white;
-
-		.option {
-			padding: 8px 12px;
-			display: flex;
-			align-items: center;
-
-			&.active {
-				font-family: var(--bs-body-font-family);
-				font-style: italic;
+			.choices__item {
+				display: flex;
+				align-items: center;
 			}
 		}
 
+		&__list--dropdown {
+			border-radius: 4px;
+			box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+			border: 1px solid var(--zuii-border-color, #dee2e6);
+			margin-top: 4px;
+			z-index: 9999;
 
+			.choices__item--choice {
+				display: flex;
+				align-items: center;
+				padding: 8px 12px;
+
+				&.is-highlighted {
+					background-color: var(--zuii-primary-light, #e9ecef);
+					color: var(--zuii-primary, #0d6efd);
+				}
+			}
+		}
+
+		&__inner {
+			padding: 4px 8px !important;
+		}
 	}
 }
 
-#language-select-ts-control:focus,
-#language-select-ts-control:focus-visible {
-	box-shadow: none;
-
-	&[aria-expanded="true"] {
-		border-end-end-radius: 0;
-		border-end-start-radius: 0;
-	}
-}
-
-
-@media screen and (max-width: 639px) {
-
-	.lang-selector__item .lang-selector__label,
-	.ts-wrapper.lang-selector .ts-control::after {
-		display: none;
-		visibility: hidden;
-	}
-
-	#language-select-ts-control {
-		display: flex;
-		align-items: center;
-	}
-
-	.lang-selector__flag {
-		margin: 0;
-	}
-
-	.lang-selector,
-	#language-select-ts-control {
-		height: 100%;
-	}
-
-
-
-}

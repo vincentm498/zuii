@@ -25,8 +25,9 @@ L'objectif est de poser des bases solides pour la librairie.
   - [x] `Badge`
   - [x] `Divider`
   - [x] `Context-menu`
-  - [x] `Lang-selector`
-  - [ ] `Multi-select` (avec Tom Select)
+  - [x] `Lang-selector` (Choices.js)
+  - [x] `FloatingLabel` (Option Form)
+  - [ ] `Multi-select` (avec Choices.js)
   - [ ] `Input`
   - [ ] `Checkbox`
   - [ ] `Radio`

@@ -20,12 +20,12 @@ export const LangSelectors = () => {
 			<section>
 				<h2>Sélecteur de Langue Standard</h2>
 				<p>
-					Un composant de sélection de langue utilisant Tom Select et flag-icons.
+					Un composant de sélection de langue utilisant Slim Select et flag-icons.
 				</p>
 
 				<LangSelector
-					languages={languages}
-					currentLanguage={lang}
+					options={languages.map(l => ({ value: l.code, label: l.label, flag: l.flag }))}
+					defaultValue={lang}
 					onChange={setLang}
 				/>
 

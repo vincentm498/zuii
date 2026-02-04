@@ -1,85 +1,80 @@
-import TomSelect from 'tom-select';
+import Choices from 'choices.js';
+import 'choices.js/public/assets/styles/choices.css';
+import 'flag-icons/css/flag-icons.min.css';
 
 /**
- * Interface pour les options de langue dans Tom Select
+ * Interface pour les options de langue.
  */
 export interface LanguageOption {
 	value: string;
-	text: string;
-	src?: string;
+	label: string;
+	flag: string;
+	selected?: boolean;
 }
 
 /**
- * Initialise le sélecteur de langue avec Tom Select
+ * Initialise le sélecteur de langue avec Choices.js.
  *
- * @param {string | HTMLSelectElement} target - Le sélecteur CSS ou l'élément select
- * @param {(value: string) => void} [onChange] - Callback optionnel lors du changement
- * @returns {TomSelect | null} L'instance de TomSelect
+ * @param {HTMLSelectElement} element - L'élément select à transformer.
+ * @param {LanguageOption[]} options - Liste des langues disponibles.
+ * @param {(value: string) => void} onChange - Callback appelé lors du changement de langue.
+ * @returns {Choices} L'instance de Choices.js.
  */
 export const initLanguageSelector = (
-	target: string | HTMLSelectElement,
+	element: HTMLSelectElement,
+	options: LanguageOption[],
 	onChange?: (value: string) => void
-): TomSelect | null => {
-	const selectElement = typeof target === 'string' ? document.querySelector<HTMLSelectElement>(target) : target;
-	if (!selectElement) return null;
+): Choices => {
+	// S'assurer que l'élément est vide pour éviter les doublons si Choices est ré-initialisé
+	element.innerHTML = '';
 
-	// Éviter la double initialisation
-	if ((selectElement as any).tomselect) {
-		return (selectElement as any).tomselect;
+	const choices = new Choices(element, {
+		choices: options.map(opt => ({
+			value: opt.value,
+			label: opt.label,
+			selected: opt.selected,
+			customProperties: {
+				flag: opt.flag
+			}
+		})),
+		searchEnabled: false,
+		itemSelectText: '',
+		shouldSort: false,
+		callbackOnCreateTemplates: function(template) {
+			const classNames: any = (this as any).config.classNames;
+			const itemSelectText: string = (this as any).config.itemSelectText;
+			return {
+				item: (_: any, data: any) => {
+					return template(`
+						<div class="${classNames.item} ${data.highlighted ? classNames.highlightedState : classNames.itemSelectable}" data-item data-id="${data.id}" data-value="${data.value}" ${data.active ? 'aria-selected="true"' : ''} ${data.disabled ? 'aria-disabled="true"' : ''}>
+							<span class="fi fi-${data.customProperties.flag} lang-selector__flag"></span>
+							${data.label}
+						</div>
+					`) as any;
+				},
+				choice: (_: any, data: any) => {
+					return template(`
+						<div class="${classNames.item} ${classNames.itemChoice} ${data.disabled ? classNames.itemDisabled : classNames.itemSelectable}" data-select-text="${itemSelectText}" data-choice ${data.disabled ? 'data-choice-disabled aria-disabled="true"' : 'data-choice-selectable'} data-id="${data.id}" data-value="${data.value}" role="option">
+							<span class="fi fi-${data.customProperties.flag} lang-selector__flag"></span>
+							${data.label}
+						</div>
+					`) as any;
+				},
+			};
+		},
+	});
+
+	if (onChange) {
+		const handleChange = (event: any) => {
+			const value = event.detail.value;
+			document.documentElement.lang = value;
+			onChange(value);
+		};
+		element.addEventListener('change', handleChange);
+
+		// Stocker la fonction pour pouvoir la supprimer (optionnel si Choices.destroy() suffit)
+		(choices as any)._handleChange = handleChange;
 	}
 
-	return new TomSelect(selectElement, {
-		valueField: 'value',
-		labelField: 'text',
-		searchField: ['text'],
-		controlInput: undefined,
-		controlClass: 'ts-control btn btn-outline-primary',
-		hideSelected: true,
-		options: Array.from(selectElement.options).map((opt: HTMLOptionElement) => ({
-			value: opt.value,
-			text: opt.text,
-			src: opt.dataset.src
-		})),
-		render: {
-			option: (data: LanguageOption, escape: (str: string) => string) => {
-				return `<div class="lang-selector__item">
-					<span class="fi fi-${escape(data.src || '')} lang-selector__flag"></span>
-					<span class="lang-selector__label">${escape(data.text)}</span>
-				</div>`;
-			},
-			item: (data: LanguageOption, escape: (str: string) => string) => {
-				return `<div class="lang-selector__item">
-					<span class="fi fi-${escape(data.src || '')} lang-selector__flag"></span>
-					<span class="lang-selector__label">${escape(data.text)}</span>
-				</div>`;
-			}
-		},
-		onChange: (value: string) => {
-			if (onChange) {
-				onChange(value);
-				return;
-			}
-
-			// Logique par défaut (redirection)
-			const currentPath = window.location.pathname;
-			const pathWithoutPrefix = currentPath.replace(/^\/(fr|de)(\/|$)/, '/');
-			let newPath = value === 'en' ? pathWithoutPrefix : `/${value}${pathWithoutPrefix === '/' ? '' : pathWithoutPrefix}`;
-
-			newPath = newPath.replace(/\/+/g, '/');
-
-			if (currentPath !== newPath) {
-				window.location.href = newPath;
-			}
-		}
-	});
+	return choices;
 };
-
-// Auto-initialisation pour le mode non-React
-if (typeof document !== 'undefined') {
-	document.addEventListener('DOMContentLoaded', () => {
-		const el = document.querySelector('#language-select');
-		if (el && !(el as any).tomselect) {
-			initLanguageSelector(el as HTMLSelectElement);
-		}
-	});
-}
