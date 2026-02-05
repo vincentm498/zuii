@@ -1,5 +1,5 @@
 import { Icon } from '../../index';
-import { tokens } from '@core/tokens';
+import { tokens } from '../../core/styles/tokens';
 import { Group } from '../../index';
 
 interface Props {
