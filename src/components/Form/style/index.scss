@@ -1,0 +1,14 @@
+@layer vendor {
+	// @import "tel-input";
+
+}
+@import "choices.js/public/assets/styles/choices.css" layer(vendor);
+
+@layer components {
+	@import "form";
+	@import "select";
+
+	// @import "number-input";
+	// @import "range-input";
+	// @import "file-input";
+}

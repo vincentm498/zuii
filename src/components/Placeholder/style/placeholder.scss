@@ -1,0 +1,79 @@
+@use "@core/tokens.scss" as *;
+
+.placeholder {
+	width: 100%;
+
+	&--filled {
+		width: auto;
+	}
+
+
+
+	// Items (BEM)
+	&__item {
+		@extend .placeholder;
+	}
+
+	&--image {
+		width: 100px;
+		height: 100px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-color: var(--primary, #f1f5f9);
+		border: var(--border-width, 1px) solid var(--border-color, #94a3b8);
+		position: relative;
+		overflow: hidden;
+
+		&::after {
+			content: "";
+			width: 40%;
+			height: 40%;
+			background-color: var(--gray-200, #94a3b8);
+			mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>');
+			mask-size: contain;
+			mask-repeat: no-repeat;
+			mask-position: center;
+		}
+	}
+
+}
+
+// Animations Bootstrap
+.placeholder-glow {
+	&.placeholder, &.placeholder__item,
+	.placeholder, .placeholder__item {
+		animation: placeholder-glow 2s ease-in-out infinite;
+	}
+}
+
+.placeholder-wave {
+	&.placeholder, &.placeholder__item,
+	.placeholder, .placeholder__item {
+		mask-image: linear-gradient(130deg, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 1) 60%);
+		mask-size: 200% 100%;
+		animation: placeholder-wave 2s linear infinite;
+	}
+}
+
+@keyframes placeholder-glow {
+	0%, 100% { opacity: 0.6; }
+	50% { opacity: 0.3; }
+}
+
+@keyframes placeholder-wave {
+	100% { mask-position: -200% 0%; }
+}
+
+// Tailles
+.placeholder-xs { min-height: 0.6em; }
+.placeholder-sm { min-height: 0.8em; }
+.placeholder-lg { min-height: 1.25em; }
+
+// Couleurs (Variantes)
+@each $color, $value in  $brands {
+	[variant="#{$color}"] {
+		background-color: var(--#{$color}, #{$value}) !important;
+		opacity: 0.5; // Légère transparence pour les couleurs
+	}
+}

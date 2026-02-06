@@ -1,0 +1,60 @@
+@use "../../Menu/style/menu-base" as *;
+
+.choices{
+	width: 100%;
+	display: flex;
+}
+.choices__inner,
+.choices__input{
+	padding: 0;
+	background-color: transparent;
+	padding: 0;
+	border: none;
+	border-radius: 0;
+	min-height: initial;
+	margin: 0;
+}
+
+.choices:not([data-type="select-multiple"]) .choices__inner{
+	display: flex;
+	align-items: center;
+	gap: var(--spacing-xs);
+}
+
+.choices__list--single{
+	padding: 0;
+}
+
+.choices[data-type*="select-one"]::after{
+	content: "";
+	mask-image: var(--icons-chevron-down);
+	mask-size: contain;
+	mask-repeat: no-repeat;
+	mask-position: center;
+	width: 24px;
+	height: 24px;
+	background: currentColor;
+	border: none;
+	display: block;
+	top: 0;
+	position: relative;
+	right: 0;
+	margin-top: 0;
+}
+
+
+
+.choices__list--multiple .choices__item{
+	border-radius: var(--radius-pill);
+	background-color: var(--accent);
+	border: var(--border-width) solid var(--accent-dark);
+}
+
+.choices__list--dropdown {
+	@include menu-container-base;
+	position: absolute;
+	width: 100%;
+	margin-top: 4px;
+	padding: 4px;
+}
+

@@ -1,4 +1,4 @@
-import '@core/main.scss';
+import './core/styles/main.scss';
 export * from './components/Color/react';
 export * from './components/Button/react';
 export * from './components/Icon/react';
@@ -8,3 +8,11 @@ export * from './components/Badge/react';
 export * from './components/Divider/react';
 export * from './components/Context-menu/react';
 export * from './components/Lang-selector/react';
+export * from './components/Form/react';
+export * from './components/Shadow/react';
+export * from './components/Radius/react';
+export * from './components/Dropdown/react';
+export * from './components/Logo/react';
+export * from './components/Modal/react';
+export * from './components/Placeholder/react';
+export * from './components/Tooltip/react';

@@ -26,6 +26,11 @@ export default defineConfig({
   },
   css: {
     devSourcemap: true,
+    preprocessorOptions: {
+      scss: {
+        silenceDeprecations: ['color-functions', 'import', 'global-builtin', 'if-function'],
+      },
+    },
   },
   build: {
     outDir: resolve(__dirname, 'dist'),

@@ -6,4 +6,12 @@ export * from './Colors/Colors';
 export * from './Dividers/Dividers';
 export * from './Context-menus/Context-menus';
 export * from './Lang-selector/LangSelectors';
-
+export * from './Forms/Forms';
+export * from './Forms/Forms-elements';
+export * from './Shadows/Shadows';
+export * from './Radius/Radius';
+export * from './Dropdowns/Dropdowns';
+export * from './Logos/Logos';
+export * from './Modals/Modals';
+export * from './Placeholders/Placeholders';
+export * from './Tooltips/Tooltips';

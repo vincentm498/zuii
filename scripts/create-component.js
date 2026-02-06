@@ -166,9 +166,12 @@ export const init${componentName} = () => {
  */
 export const ${pluralComponentName} = () => {
 	return (
-		<div className="flex flex-col gap-8">
-			<section>
-				<h3 className="mb-4">Usage de base</h3>
+		<div className="${pluralComponentName}-demo">
+			<section className="mb-5">
+				<h3>${pluralComponentName}</h3>
+				<p className="text-muted mb-4">Le composant <code>${componentName}</code> permet de ... .</p>
+				<h5 className='mt-4'>Exemple</h5>
+				<p className="text-muted mb-4">Voici un exemple de composant ${componentName}.</p>
 				<${componentName} />
 			</section>
 		</div>

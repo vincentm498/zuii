@@ -1,0 +1,31 @@
+.number-input {
+	/* Chrome, Safari, Edge, Opera */
+	&__control::-webkit-outer-spin-button,
+	&__control::-webkit-inner-spin-button {
+		-webkit-appearance: none;
+		margin: 0;
+	}
+
+	/* Firefox */
+	&__control[type=number] {
+		-moz-appearance: textfield;
+		appearance: textfield;
+	}
+
+	&__addon {
+		cursor: pointer;
+		user-select: none;
+		transition: background-color 0.2s;
+
+		&:hover {
+			background-color: var(--bs-gray-200);
+		}
+		&:active {
+			background-color: var(--bs-gray-300);
+		}
+	}
+
+	&__control {
+		text-align: center;
+	}
+}

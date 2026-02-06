@@ -1,0 +1,29 @@
+
+
+.logo {
+
+	&__img {
+		height: 32px;
+		max-width: 180px;
+		width: auto;
+		font-size: 1rem;
+		display: block; // Assure un bon rendu
+	}
+
+	&__link {
+		text-decoration: none;
+		color: inherit;
+	}
+
+	&--small {
+		.logo__img {
+			height: 24px;
+		}
+	}
+
+	&--large {
+		.logo__img {
+			height: 48px;
+		}
+	}
+}

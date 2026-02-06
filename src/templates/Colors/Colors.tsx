@@ -7,7 +7,7 @@ import { tokens } from '../../core/styles/tokens';
  * @returns {JSX.Element} La démo Colors.
  */
 export const Colors = () => {
-	const brandColors = Object.keys(tokens.brands) as (keyof typeof tokens.brands)[];
+	const brandColors = tokens?.brands ? Object.keys(tokens.brands) as (keyof typeof tokens.brands)[] : [];
 
 	return (
 		<div className="section">
