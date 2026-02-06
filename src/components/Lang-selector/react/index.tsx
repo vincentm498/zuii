@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { initLanguageSelector, LanguageOption } from '../js/language-selector';
-import '../style/_language-selector.scss';
+
 
 interface Props {
 	/**
@@ -60,7 +60,7 @@ export const LangSelector = ({
 	}, [options, defaultValue, onChange]);
 
 	return (
-		<div className={`lang-selector ${className}`.trim()}>
+		<div className={`form__input lang-selector ${className}`.trim()}>
 			<select ref={selectRef} className="lang-selector__select" />
 		</div>
 	);

@@ -1,0 +1,29 @@
+@use "../../Menu/style/menu-base" as *;
+@use "../../Menu/style/menu-item" as *;
+
+.dropdown {
+	&__menu {
+		@include menu-container-base;
+		position: absolute; // Surcharge fixed du mixin car Bootstrap gère le placement
+		margin-top: 4px;
+	}
+
+	&__item {
+		@include menu-item-base;
+	}
+
+	&__toggle {
+		&::after {
+			mask-image: var(--icons-chevron-down);
+			mask-size: contain;
+			mask-repeat: no-repeat;
+			mask-position: center;
+			width: 24px;
+			height: 24px;
+			background: currentColor;
+			border: none;
+			margin: 0;
+		}
+	}
+}
+

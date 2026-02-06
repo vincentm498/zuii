@@ -23,12 +23,16 @@ L'objectif est de poser des bases solides pour la librairie.
   - [x] `Avatar`
   - [x] `Color`
   - [x] `Badge`
+  - [x] `Logo`
   - [x] `Divider`
   - [x] `Context-menu`
+  - [x] `Placeholder`
+  - [x] **Unification des styles de menu** (Dropdown, Context-menu, Select)
   - [x] `Lang-selector` (Choices.js)
   - [x] `FloatingLabel` (Option Form)
   - [x] `Multi-select` (avec Choices.js)
   - [x] `TelInput` (avec intl-tel-input)
+  - [x] `Dropdown` (React Bootstrap)
   - [ ] `Input`
   - [ ] `Checkbox`
   - [ ] `Radio`
@@ -39,7 +43,7 @@ L'objectif est de poser des bases solides pour la librairie.
 - [ ] **Navigation** : `Navbar`, `Tabs`, `Breadcrumbs`.
 
 ### 🔵 Phase 3 : Composants Avancés
-- [ ] **Overlays** : `Modal`, `Popover`, `Tooltip`.
+- [x] **Overlays** : `Modal`, `Popover`, `Tooltip`.
 - [ ] **Feedback** : `Toast`, `Alert`, `Spinner`.
 - [ ] **Data Display** : `Table`, `Badge`, `Card`.
 

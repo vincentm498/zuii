@@ -1,11 +1,10 @@
 {
 	"radius": {
-		"base": { "value": "var(--size-1)" },
-		"sm": { "value": "var(--size-2)" },
-		"md": { "value": "var(--size-4)" },
-		"lg": { "value": "var(--size-8)" },
-		"xl": { "value": "var(--size-16)" },
-		"2xl": { "value": "var(--size-32)" },
+		"none": { "value": "0" },
+		"base": { "value": "var(--size-xs)" },
+		"sm": { "value": "var(--size-sm)" },
+		"md": { "value": "var(--size-md)" },
+		"lg": { "value": "var(--size-lg)" },
 		"pill": { "value": "999rem" }
 	}
 }

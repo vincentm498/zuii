@@ -1,0 +1,19 @@
+
+@use "@core/tokens.scss" as *;
+
+.radius {
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 1rem;
+	border: var(--border-width) solid var(--border-color);
+}
+
+@each $variant, $value in $radius {
+	.radius--#{$variant} {
+		border-radius: $value;
+	}
+}
+

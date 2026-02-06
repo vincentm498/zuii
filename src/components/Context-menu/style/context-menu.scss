@@ -1,16 +1,8 @@
-@use "@core/tokens.scss" as tokens;
+@use "../../Menu/style/menu-base" as *;
 @use "../../Menu/style/menu-item" as *;
+
 .context-menu {
-	position: fixed;
-	z-index: 1000;
-	min-width: 160px;
-	background-color: var(--white, #fff);
-	border: 1px solid var(--gray-200, #e2e8f0);
-	border-radius: var(--border-radius-md, 0.375rem);
-	box-shadow: var(--shadow-lg, 0 10px 15px -3px rgba(0, 0, 0, 0.1));
-	padding: 4px;
-	outline: none;
-	animation: context-menu-fade-in 0.1s ease-out;
+	@include menu-container-base;
 
 	&-wrapper{
 		height: fit-content;
@@ -21,6 +13,8 @@
 		@include menu-item-base;
 		color: var(--gray-700, #4a5568); // Garde la couleur par défaut si pas de survol
 		position: relative;
+
+
 	}
 
 	&__separator {
@@ -52,13 +46,3 @@
 	}
 }
 
-@keyframes context-menu-fade-in {
-	from {
-		opacity: 0;
-		transform: scale(0.95);
-	}
-	to {
-		opacity: 1;
-		transform: scale(1);
-	}
-}

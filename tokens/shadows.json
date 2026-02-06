@@ -1,13 +1,14 @@
 {
 	"box-shadow": {
-		"xs": { "value": "0 1px 2px 0 rgba(0, 0, 0, 0.05)" },
-		"sm": { "value": "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1)" },
-		"md": { "value": "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.1)" },
-		"lg": { "value": "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.2)" },
-		"xl": { "value": "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.2)" },
-		"2xl": { "value": "0 25px 50px -12px rgba(0, 0, 0, 0.25)" },
-		"outline": { "value": "0 0 2px 4px color-mix(in srgb, var(--primary), transparent 80%)" },
-		"inset": { "value": "inset 0 0 6px 0 rgba(0, 0, 0, 0.2)" },
-		"none": { "value": "0 0 0 0 rgba(0, 0, 0, 0)" }
+		"color": { "value": "var(--primary)" },
+		"xs": { "value": "0 1px 2px 0 color-mix(in srgb, var(--box-shadow-color), transparent 80%)" },
+		"sm": { "value": "0 1px 3px 0 color-mix(in srgb, var(--box-shadow-color), transparent 80%)" },
+		"md": { "value": "0 4px 6px -1px color-mix(in srgb, var(--box-shadow-color), transparent 80%)" },
+		"lg": { "value": "0 10px 15px -3px color-mix(in srgb, var(--box-shadow-color), transparent 80%)" },
+		"xl": { "value": "0 20px 25px -5px color-mix(in srgb, var(--box-shadow-color), transparent 80%)" },
+		"2xl": { "value": "0 25px 50px -12px color-mix(in srgb, var(--box-shadow-color), transparent 80%)" },
+		"outline": { "value": "0 0 2px 4px color-mix(in srgb, var(--box-shadow-color), transparent 80%)" },
+		"inset": { "value": "inset 0 0 6px 0 color-mix(in srgb, var(--box-shadow-color), transparent 80%)" },
+		"none": { "value": "0 0 0 0 color-mix(in srgb, var(--box-shadow-color), transparent 80%)" }
 	}
 }

@@ -16,9 +16,11 @@ interface Props {
 export const Buttons = ({ brands }: Props) => {
 	const brandsToUse = brands || tokens.brands;
 	const brandKeys = Object.keys(brandsToUse);
-	const sizes = Object.keys(tokens.size).filter(key =>
-		["xs", "sm", "md", "lg", "xl"].includes(key)
-	);
+	const sizes = tokens?.size
+		? Object.keys(tokens.size).filter(key =>
+			["xs", "sm", "md", "lg", "xl"].includes(key)
+		)
+		: ["sm", "md", "lg"];
 
 	return (
 		<div className="flex flex-col gap-8">
