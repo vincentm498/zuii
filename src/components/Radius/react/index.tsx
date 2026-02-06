@@ -11,7 +11,7 @@ interface Props {
 	/**
 	* Variants.
 	*/
-	variant?: 'base' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'pill';
+	variant?: 'none' | 'base' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'pill';
 	/**
 	* Value.
 	*/

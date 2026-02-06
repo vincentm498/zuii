@@ -33,6 +33,7 @@ L'objectif est de poser des bases solides pour la librairie.
   - [x] `Multi-select` (avec Choices.js)
   - [x] `TelInput` (avec intl-tel-input)
   - [x] `Dropdown` (React Bootstrap)
+  - [x] `Radius`
   - [ ] `Input`
   - [ ] `Checkbox`
   - [ ] `Radio`
