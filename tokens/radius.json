@@ -5,6 +5,8 @@
 		"sm": { "value": "var(--size-sm)" },
 		"md": { "value": "var(--size-md)" },
 		"lg": { "value": "var(--size-lg)" },
+		"xl": { "value": "var(--size-xl)" },
+		"2xl": { "value": "var(--size-2xl)" },
 		"pill": { "value": "999rem" }
 	}
 }

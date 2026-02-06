@@ -5,7 +5,7 @@ import { tokens } from '../../core/styles/tokens';
  * Template de démonstration pour le composant Radius.
  */
 export const Radius = () => {
-	const radiusVariants = Object.keys(tokens.radius) as Array<keyof typeof tokens.radius>;
+	const radiusVariants = tokens?.radius ? Object.keys(tokens.radius) as Array<keyof typeof tokens.radius> : [];
 
 	return (
 		<div className="flex flex-col gap-8">
