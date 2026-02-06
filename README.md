@@ -14,7 +14,7 @@
 * **⚡ Ultra-léger :** Zéro dépendance inutile, uniquement l'essentiel.
 * **🧩 Design Atomique :** Pensé pour une composition fluide et logique.
 * **🎨 Personnalisable :** Thémage simplifié via les variables CSS (Design Tokens).
-* **♿ Accessible :** Conforme aux standards WAI-ARIA pour une inclusion maximale .
+* **♿ Accessible :** Conforme aux standards WAI-ARIA pour une inclusion maximale.
 
 ## 🚀 Installation
 
