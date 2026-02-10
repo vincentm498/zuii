@@ -1,3 +1,10 @@
+## [1.4.7](https://github.com/vincentm498/zuii/compare/v1.4.6...v1.4.7) (2026-02-10)
+
+
+### Bug Fixes
+
+* introduction du composant `Table` avec pagination, des styles dédiés et ajout de la propriété `align` au composant `Group`. ([0affa6a](https://github.com/vincentm498/zuii/commit/0affa6a27b426dd372cd4a2b628f273432ada430))
+
 ## [1.4.6](https://github.com/vincentm498/zuii/compare/v1.4.5...v1.4.6) (2026-02-06)
 
 
