@@ -34,6 +34,7 @@ L'objectif est de poser des bases solides pour la librairie.
   - [x] `TelInput` (avec intl-tel-input)
   - [x] `Dropdown` (React Bootstrap)
   - [x] `Radius`
+  - [x] `Accordion` (React Bootstrap)
   - [ ] `Input`
   - [ ] `Checkbox`
   - [ ] `Radio`
