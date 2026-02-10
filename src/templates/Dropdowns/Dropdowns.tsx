@@ -71,6 +71,9 @@ export const Dropdowns = () => {
 										Action 3
 									</Group>
 								</Dropdown.Item>
+								<Dropdown.Item onClick={() => console.log('Hello World')}>
+									Hello World console.log
+								</Dropdown.Item>
 							</Dropdown.Menu>
 						</Dropdown>
 					</div>
