@@ -111,14 +111,8 @@ export const ContextMenu = ({
 	 */
 	const handleContextMenu = useCallback((event: React.MouseEvent) => {
 		event.preventDefault();
-
-		// On affiche temporairement pour pouvoir mesurer
+		setPosition({ x: event.clientX, y: event.clientY });
 		setIsVisible(true);
-
-		// Le calcul réel de position se fera via useEffect ou après le rendu si on veut être précis,
-		// mais ici on peut déjà appliquer un calcul de base basé sur le viewport.
-		const { x, y } = calculatePosition(event.clientX, event.clientY, 160, 200); // Valeurs par défaut estimées
-		setPosition({ x, y });
 	}, []);
 
 	/**
@@ -127,6 +121,20 @@ export const ContextMenu = ({
 	const closeMenu = useCallback(() => {
 		setIsVisible(false);
 	}, []);
+
+	// Ajuster la position après le rendu initial du menu pour avoir les vraies dimensions
+	useEffect(() => {
+		if (isVisible && menuRef.current) {
+			const { offsetWidth, offsetHeight } = menuRef.current;
+			const { x, y } = calculatePosition(position.x, position.y, offsetWidth, offsetHeight);
+
+			// On ne met à jour que si la position calculée diffère de la position initiale du clic
+			// ou si on veut forcer le repositionnement (ce qui est le cas ici pour le flip).
+			menuRef.current.style.top = `${y}px`;
+			menuRef.current.style.left = `${x}px`;
+			menuRef.current.style.visibility = "visible";
+		}
+	}, [isVisible, position.x, position.y]);
 
 	// Gérer les événements extérieurs et le défilement
 	useEffect(() => {
@@ -163,6 +171,7 @@ export const ContextMenu = ({
 					style={{
 						top: position.y,
 						left: position.x,
+						visibility: "hidden" // Caché le temps de la mesure au premier affichage
 					}}
 				>
 					{items.map((item, index) => (

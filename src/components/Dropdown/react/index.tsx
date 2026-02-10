@@ -5,6 +5,7 @@ interface DropdownItem {
 	label?: string;
 	href?: string;
 	type?: "divider" | "item";
+	onClick?: () => void;
 }
 
 interface Props extends Omit<DropdownProps, "children"> {
@@ -28,6 +29,10 @@ interface Props extends Omit<DropdownProps, "children"> {
 	 * Contenu optionnel.
 	 */
 	children?: React.ReactNode;
+	/**
+	 * Fonction appelée lorsque le dropdown est ouvert.
+	 */
+	onClick?: () => void;
 }
 
 /**
@@ -44,6 +49,7 @@ export const Dropdown = ({
 	align = "start",
 	className = "",
 	children,
+	onClick,
 	...props
 }: Props) => {
 	const bemClass = "dropdown";
@@ -68,6 +74,7 @@ export const Dropdown = ({
 									key={index}
 									href={item.href}
 									className={`${bemClass}__item`}
+									onClick={item.onClick}
 								>
 									{item.label}
 								</BootstrapDropdown.Item>

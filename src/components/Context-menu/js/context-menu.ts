@@ -36,21 +36,29 @@ export const isItemDisabled = (item: ContextMenuItem): boolean => {
  * @param {number} y - Position Y souhaitée.
  * @param {number} menuWidth - Largeur du menu.
  * @param {number} menuHeight - Hauteur du menu.
+ * @param {number} [offsetX=2] - Décalage horizontal par rapport au clic.
+ * @param {number} [offsetY=2] - Décalage vertical par rapport au clic.
  * @returns {{x: number, y: number}} La position corrigée.
  */
-export const calculatePosition = (x: number, y: number, menuWidth: number, menuHeight: number): { x: number, y: number } => {
-	let finalX = x;
-	let finalY = y;
+export const calculatePosition = (x: number, y: number, menuWidth: number, menuHeight: number, offsetX = 2, offsetY = 2): { x: number, y: number } => {
+	let finalX = x + offsetX;
+	let finalY = y + offsetY;
 
-	if (x + menuWidth > window.innerWidth) {
-		finalX = x - menuWidth;
+	// Ajustement horizontal si déborde à droite
+	if (finalX + menuWidth > window.innerWidth) {
+		finalX = x - menuWidth - offsetX;
 	}
 
-	if (y + menuHeight > window.innerHeight) {
-		finalY = y - menuHeight;
+	// Ajustement vertical si déborde en bas
+	if (finalY + menuHeight > window.innerHeight) {
+		finalY = y - menuHeight - offsetY;
 	}
 
-	return { x: Math.max(0, finalX), y: Math.max(0, finalY) };
+	// Sécurité pour ne pas sortir à gauche ou en haut
+	return {
+		x: Math.max(0, Math.min(finalX, window.innerWidth - menuWidth)),
+		y: Math.max(0, Math.min(finalY, window.innerHeight - menuHeight))
+	};
 };
 
 /**
