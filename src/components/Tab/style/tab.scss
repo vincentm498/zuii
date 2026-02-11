@@ -1,0 +1,56 @@
+@use "@core/tokens.scss" as *;
+
+
+.tabs {
+	--nav-tabs-link-active-color: var(--secondary);
+	--tab-tinte: var(--white) 90%;
+
+	.nav-tabs {
+		--nav-tabs-border-radius: var(--radius-none, 0);
+		--nav-tabs-border-width: 0;
+		--nav-link-color: currentColor;
+		--nav-link-hover-color: var(--body-color);
+	}
+
+	.nav {
+		background: var(--tab-bg-color);
+		align-items: stretch;
+	}
+
+	&__content {
+		background: var(--tab-bg-color-content);
+		padding: var(--spacing-lg) var(--spacing-lg);
+		height: inherit;
+	}
+
+	.nav-item {
+		display: flex;
+	}
+
+	.tabs__item {
+		border-radius: var(--nav-tabs-border-radius);
+		height: 100%;
+
+		justify-content: center;
+		align-items: center;
+
+		&.btn:not(.active) {
+			background: transparent;
+		}
+	}
+
+	.tabs__item.btn:not(.active):not(:disabled) {
+		color: var(--body-color);
+	}
+
+	.tab-content>* {
+		height: 100%;
+	}
+}
+
+@each $color, $value in $brands {
+	.tabs--#{$color} {
+		--tab-bg-color: color-mix(in srgb, var(--#{$color}), var(--tab-tinte));
+		--tab-bg-color-content: color-mix(in srgb, var(--#{$color}), var(--white) 92%);
+	}
+}

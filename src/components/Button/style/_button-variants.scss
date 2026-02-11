@@ -58,7 +58,14 @@
 	border: none;
 	color: currentColor;
 
-	&:hover {
+	&:hover,
+	&:focus {
 		box-shadow: none;
 	}
+
+		&:hover{
+			color: var(--accent);
+		}
+
+
 }

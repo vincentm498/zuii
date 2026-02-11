@@ -1,0 +1,15 @@
+.tabs--vertical {
+	--tab-bg-color: transparent;
+	width: 100%;
+
+
+	.tab-content{
+		flex: 1;
+	}
+
+	.tabs__nav{
+		padding: 1.5rem;
+	}
+
+
+}
