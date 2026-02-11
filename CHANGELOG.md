@@ -1,3 +1,10 @@
+## [1.4.9](https://github.com/vincentm498/zuii/compare/v1.4.8...v1.4.9) (2026-02-11)
+
+
+### Bug Fixes
+
+* Ajout des composants accordions et tabs ([a0aa0e0](https://github.com/vincentm498/zuii/commit/a0aa0e0b9feef9bc8637a0894cc18c10779f30b5))
+
 ## [1.4.8](https://github.com/vincentm498/zuii/compare/v1.4.7...v1.4.8) (2026-02-10)
 
 
