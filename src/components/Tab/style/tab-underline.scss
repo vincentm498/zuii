@@ -1,0 +1,28 @@
+
+.tabs--underline{
+	--tab-bg-color: transparent;
+
+	.tabs__item{
+		border: none;
+		background: transparent;
+		border-bottom: 3px solid color-mix(in srgb, var(--body-color), transparent 90%);
+	}
+
+	.tabs__item.active{
+		color: color-mix(in srgb, var(--btn-border-color), var(--dark) 30%);
+		border-bottom: 3px solid var(--btn-border-color);
+	}
+
+	.tabs__item:hover:not(.active),
+	.tabs__item:focus:not(.active){
+		border-bottom: 3px solid color-mix(in srgb, var(--btn-border-color), var(--dark) 10%);
+	}
+	.tabs__item:hover,
+	.tabs__item:focus{
+		box-shadow: none;
+
+	}
+
+}
+
+
