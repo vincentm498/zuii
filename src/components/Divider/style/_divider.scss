@@ -1,7 +1,7 @@
 [class^="divider"],
 [class*="divider"],
 [class$="divider"] {
-	--divider-color: var(--gray-400, #e2e8f0);
+	--divider-color: currentColor;
 	--divider-content-color: var(--primary, #64748b);
 	--divider-content-font-size: 0.875rem;
 	--divider-content-font-weight: 500;
@@ -15,7 +15,7 @@
 	}
 }
 
-@each $size, $value in (sm: .1rem, md: .3rem, lg: .5rem, xl: 1rem, xxl: 2rem) {
+@each $size, $value in (sm: .05rem, md: .3rem, lg: .5rem, xl: 1rem, xxl: 2rem) {
 	.divider--height-#{$size} {
 		--divider-height: #{$value};
 	}
@@ -60,4 +60,9 @@
 	font-size: var(--divider-content-font-size);
 	font-weight: var(--divider-content-font-weight);
 }
+
+.divider--transparent {
+	--divider-color: transparent;
+}
+
 

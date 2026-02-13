@@ -1,0 +1,6 @@
+@import "sweetalert2/dist/sweetalert2.css" layer(vendor);
+
+@layer components {
+	@import "alert";
+	@import "sweetalert2-custom";
+}

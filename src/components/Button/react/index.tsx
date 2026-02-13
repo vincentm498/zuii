@@ -27,10 +27,6 @@ interface Props extends Omit<ButtonProps, "size"> {
 	 * Style de bouton transparent
 	 */
 	transparent?: boolean;
-	/**
-	 * Clé d'événement pour l'intégration avec des composants comme Tabs.
-	 */
-	eventKey?: string | number;
 }
 
 /**

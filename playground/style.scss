@@ -1,0 +1,7 @@
+$prefix: "";
+$enable-important-utilities: false;
+
+@layer vendor {
+	@import "bootstrap/scss/bootstrap";
+}
+

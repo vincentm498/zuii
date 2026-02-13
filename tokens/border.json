@@ -1,7 +1,7 @@
 {
 	"border": {
 		"color": { "value": "var(--primary)" },
-		"width": { "value": "2px" },
+		"width": { "value": "1px" },
 		"style": { "value": "solid" },
 		"radius": { "value": "var(--radius-pill)" },
 		"radius-sm": { "value": "var(--radius-base)" },

@@ -2,18 +2,21 @@
 @use "@core/tokens.scss" as *;
 
 
-@mixin bg-variant($name) {
-	background-color: rgba(var(--#{$name}-rgb), var(--bg-opacity, 1));
+@mixin bg-variant($name, $tint: var(--bg-tint, 0%), $tint-color: var(--bg-tint-color, var(--dark))) {
+	--color: color-mix(in srgb, var(--#{$name}), #{$tint-color} #{$tint});
+	background-color: var(--color);
 	color: var(--#{$name}-contrast);
 }
 
-@mixin bg-variant-light($name) {
-	background-color: rgba(var(--#{$name}-light-rgb), var(--bg-opacity, 1));
+@mixin bg-variant-light($name, $tint: var(--bg-tint, 0%), $tint-color: var(--bg-tint-color, var(--dark))) {
+	--color: color-mix(in srgb, var(--#{$name}-light), #{$tint-color} #{$tint});
+	background-color: var(--color);
 	color: var(--#{$name}-light-contrast);
 }
 
-@mixin bg-variant-dark($name) {
-	background-color: rgba(var(--#{$name}-dark-rgb), var(--bg-opacity, 1));
+@mixin bg-variant-dark($name, $tint: var(--bg-tint, 0%), $tint-color: var(--bg-tint-color, var(--dark))) {
+	--color: color-mix(in srgb, var(--#{$name}-dark), #{$tint-color} #{$tint});
+	background-color: var(--color);
 	color: var(--#{$name}-dark-contrast);
 }
 

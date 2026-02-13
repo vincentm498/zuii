@@ -214,7 +214,6 @@ export const TabsTemplate = () => {
 						<Group vertical className="tabs__nav tabs__nav--vertical">
 							<Button
 								variant="transparent"
-								eventKey="v-1"
 								onClick={() => handleSelect("v-1")}
 								active={activeKey === "v-1"}
 							>
@@ -222,7 +221,6 @@ export const TabsTemplate = () => {
 							</Button>
 							<Button
 								variant="transparent"
-								eventKey="v-2"
 								onClick={() => handleSelect("v-2")}
 								active={activeKey === "v-2"}
 							>
@@ -230,7 +228,6 @@ export const TabsTemplate = () => {
 							</Button>
 							<Button
 								variant="transparent"
-								eventKey="v-3"
 								onClick={() => handleSelect("v-3")}
 								active={activeKey === "v-3"}
 							>
@@ -238,7 +235,6 @@ export const TabsTemplate = () => {
 							</Button>
 							<Button
 								variant="transparent"
-								eventKey="v-4"
 								onClick={() => handleSelect("v-4")}
 								active={activeKey === "v-4"}
 							>
@@ -246,7 +242,6 @@ export const TabsTemplate = () => {
 							</Button>
 							<Button
 								variant="transparent"
-								eventKey="v-5"
 								onClick={() => handleSelect("v-5")}
 								active={activeKey === "v-5"}
 							>

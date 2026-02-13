@@ -1,0 +1,66 @@
+@use "@core/tokens.scss" as *;
+@use "../../Color/style/colors.scss";
+
+.alert {
+	--alert-bg-tint: 30%;
+	--bg-tint-color: var(--white);
+	--alert-border-radius: var(--z-alert-border-radius, var(--radius-base));
+	--alert-bg: var(--white);
+	--alert-padding-x: var(--spacing-sm);
+	--alert-padding-y: var(--spacing-md);
+	--alert-margin-bottom: var(--spacing-none);
+
+	gap: var(--spacing-sm);
+
+
+	@each $color, $value in $brands {
+		&--#{$color} {
+			@include colors.bg-variant($color, var(--alert-bg-tint));
+		}
+	}
+
+
+	&__close {
+		position: absolute;
+		top: 0;
+		right: 0;
+		opacity: 0.5;
+		font-size: 1.5rem;
+		width: auto;
+
+
+		&:hover {
+			opacity: 0.75;
+			color: color-mix(in srgb, currentColor, var(--dark) 80%);
+		}
+
+		&:focus {
+			outline: 0;
+			opacity: 1;
+		}
+
+		span {
+			display: block;
+		}
+	}
+
+	&__heading {
+
+		font-weight: inherit;
+		line-height: 1.2;
+		color: inherit;
+		padding: 0;
+		margin-left: 0;
+	}
+
+	&__link {
+		font-weight: 700;
+		text-decoration: underline;
+		color: inherit;
+		cursor: pointer;
+
+		&:hover {
+			opacity: 0.8;
+		}
+	}
+}

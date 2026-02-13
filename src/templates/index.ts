@@ -18,3 +18,4 @@ export * from './Tooltips/Tooltips';
 export * from './Tables/Tables';
 export * from './Accordions/Accordions';
 export * from './Tabs/Tabs';
+export * from './Alerts/Alerts';

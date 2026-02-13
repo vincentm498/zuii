@@ -1,4 +1,5 @@
 import { Form as BootstrapForm, FormProps, InputGroup } from "react-bootstrap";
+import { Icon } from "../../Icon/react";
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import "../style/index.scss";
 import { NumberInput } from "./NumberInput";
@@ -8,6 +9,8 @@ import { PasswordConfirm } from "./PasswordConfirm";
 import { RangeInput } from "./RangeInput";
 import { FileInput } from "./FileInput";
 import { Select } from "./Select";
+import { handleNumericKeyDown } from "../js/number";
+
 /**
  * Propriétés du composant FormControl.
  */
@@ -20,6 +23,10 @@ interface FormControlProps extends React.ComponentPropsWithRef<typeof BootstrapF
 	 * Si vrai, utilise un FloatingLabel.
 	 */
 	floating?: boolean;
+	/**
+	 * Nom de l'icône à afficher.
+	 */
+	icon?: string;
 }
 
 /**
@@ -32,22 +39,48 @@ interface FormControlProps extends React.ComponentPropsWithRef<typeof BootstrapF
 const FormControl = ({
 	label,
 	floating,
+	icon,
 	children,
+	onKeyDown,
 	...props
 }: FormControlProps) => {
+	/**
+	 * Gère l'événement onKeyDown pour restreindre la saisie numérique via la logique métier.
+	 */
+	const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+		if (props.type === "number") {
+			handleNumericKeyDown(e);
+		}
+		if (onKeyDown) onKeyDown(e);
+	};
+
+	const inputMode = props.type === "number" ? "decimal" : undefined;
+
 	if (floating && label) {
 		return (
 			<FloatingLabel label={label} controlId={props.id || props.name}>
-				<BootstrapForm.Control {...props} className="form__input">
-					{children}
-				</BootstrapForm.Control>
+				<div className="form__input">
+					{icon && <Icon name={icon} size="sm" />}
+					<BootstrapForm.Control
+						{...props}
+						onKeyDown={handleKeyDown}
+						inputMode={inputMode}
+					>
+						{children}
+					</BootstrapForm.Control>
+				</div>
 			</FloatingLabel>
 		);
 	}
 
 	return (
 		<div className="form__input">
-			<BootstrapForm.Control {...props}>
+			{icon && <Icon name={icon} size="sm" />}
+			<BootstrapForm.Control
+				{...props}
+				onKeyDown={handleKeyDown}
+				inputMode={inputMode}
+			>
 				{children}
 			</BootstrapForm.Control>
 		</div>

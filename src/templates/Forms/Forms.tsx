@@ -10,13 +10,14 @@ export const Forms = () => {
 	return (
 		<div>
 			<h2>Liste des inputs disponibles</h2>
+			<Form.Control type="text" placeholder="Enter text with icon" icon="icon-house" />
 			<Form.Control type="text" placeholder="Enter text"  />
 			<Form.Control type="search" placeholder="Enter search"  />
 			<Form.Control type="email" placeholder="Enter email"  />
 			<Form.Control type="number" placeholder="Enter number"  />
 			<Form.Control type="file" placeholder="Enter file"  />
-			<Form.Control type="checkbox" placeholder="Enter checkbox"  />
-			<Form.Control type="radio" placeholder="Enter radio"  />
+			<Form.Check type="checkbox" label="Enter checkbox"  />
+			<Form.Check type="radio" label="Enter radio"  />
 			<Form.Control type="select" placeholder="Enter select"  />
 			<Form.Control type="select-multiple" placeholder="Enter select multiple"  />
 			{/* <Form.Control
@@ -137,10 +138,29 @@ export const Forms = () => {
 					<Form.Control type="file" size="sm" />
 				</Form.Group>
 				<Form.Group controlId="formFileLg" className="mb-3">
-					<Form.Label>Large file input example</Form.Label>
-					<Form.Control type="file" size="lg" />
-				</Form.Group>
-			</Form>
+				<Form.Label>Large file input example</Form.Label>
+				<Form.Control type="file" size="lg" />
+			</Form.Group>
+		</Form>
+
+		<h3 className="">Input type file avec Uppy.js</h3>
+		<Form>
+			<Form.Group controlId="formFileUppy" className="mb-3">
+				<Form.Label>Téléchargement de fichiers avec Uppy</Form.Label>
+				<Form.File
+					maxNumberOfFiles={5}
+					maxFileSize={5 * 1024 * 1024} // 5 MB
+					allowedFileTypes={['image/*', 'application/pdf']}
+					onComplete={(result) => {
+						console.log('Téléchargement terminé:', result);
+					}}
+					onError={(error) => {
+						console.error('Erreur de téléchargement:', error);
+					}}
+				/>
+			</Form.Group>
+		</Form>
+
 
 			<h3 className="">Input type checkbox</h3>
 			<Form>

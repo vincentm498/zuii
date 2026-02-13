@@ -43,9 +43,6 @@ Thumbs.db
 .stylelintcache
 node_modules.bak
 
-# Files
-playground/
-
 # Tokens générés (générés automatiquement lors du build)
 src/core/styles/_tokens.scss
 src/core/styles/tokens.css

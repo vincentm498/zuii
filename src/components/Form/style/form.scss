@@ -1,19 +1,90 @@
 
+.form__input:not(:has(.choices)){
+	padding: var(--spacing-xs) var(--spacing-sm);
+}
 
+.choices__inner{
+	padding: var(--spacing-xs) var(--spacing-sm);
+}
 
 .form__input{
-	padding: var(--spacing-xs) var(--spacing-md);
 	background-color: var(--white);
-	border-radius: var(--radius-pill);
+	border-radius: var(--radius-base);
 	border: var(--border-width) solid var(--border-color);
 	margin: var(--spacing-sm) 0;
 	display: flex;
 	gap: var(--spacing-xs);
 	transition: all .2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 
+	&[type="checkbox"],
+	&[type="radio"] {
+		appearance: none;
+		width: 1.25rem;
+		height: 1.25rem;
+		background-color: var(--white);
+		border: 2px solid var(--color-gray-300);
+		border-radius: var(--radius-sm);
+		cursor: pointer;
+		position: relative;
+		transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+		vertical-align: middle;
+		margin-top: -2px;
 
+		&::after {
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width: 0.75rem;
+			height: 0.75rem;
+			background-color: var(--white);
+			mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>');
+			mask-repeat: no-repeat;
+			mask-size: contain;
+			transform: translate(-50%, -50%) scale(0);
+			transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+		}
 
-	.form-control{
+		&:checked {
+			background-color: var(--primary);
+			border-color: var(--primary);
+
+			&::after {
+				transform: translate(-50%, -50%) scale(1);
+			}
+		}
+
+		&:focus {
+			outline: none;
+			box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary), transparent 80%);
+			border-color: var(--primary);
+		}
+
+		&:hover:not(:checked):not(:disabled) {
+			border-color: var(--primary);
+			background-color: color-mix(in srgb, var(--primary), transparent 95%);
+		}
+
+		&:disabled {
+			background-color: var(--color-gray-100);
+			border-color: var(--color-gray-200);
+			cursor: not-allowed;
+			opacity: 0.7;
+		}
+	}
+
+	&[type="radio"] {
+		border-radius: var(--radius-pill);
+
+		&::after {
+			mask-image: none;
+			border-radius: var(--radius-pill);
+			width: 0.5rem;
+			height: 0.5rem;
+		}
+	}
+
+	.form-control:not([type="checkbox"]):not([type="radio"]) {
 		padding: 0;
 		background-color: transparent;
 		border-radius: var(--radius-none);
@@ -31,6 +102,5 @@
 .form__input:has(.form-control:focus){
 	border-color: var(--accent);
 }
-
 
 

@@ -45,6 +45,10 @@ interface Props {
 	 * Classe CSS additionnelle.
 	 */
 	className?: string;
+	/**
+	 * Nom du champ.
+	 */
+	name?: string;
 }
 
 /**
@@ -62,6 +66,7 @@ export const Select = ({
 	disabled = false,
 	searchable = true,
 	className = "",
+	name,
 }: Props) => {
 	const selectRef = useRef<HTMLSelectElement>(null);
 	const choicesRef = useRef<any>(null);
@@ -117,6 +122,7 @@ export const Select = ({
 				multiple={multiple}
 				disabled={disabled}
 				className="zuii-select"
+				name={name}
 			/>
 		</div>
 	);

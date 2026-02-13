@@ -1,102 +1,168 @@
-import { useState } from "react";
-import { Form as BootstrapForm } from "react-bootstrap";
-import "../style/index.scss";
-import { Icon } from "../../Icon/react";
+import { useEffect, useState } from "react";
+import Uppy from "@uppy/core";
+// Utilisation de l'export officiel pour éviter les erreurs Vite
+// @ts-ignore - Dashboard est exporté via l'export map d'Uppy
+import Dashboard from "@uppy/react/dashboard";
+import French from "@uppy/locales/lib/fr_FR";
 
 /**
- * Propriétés du composant FileInput.
+ * Props du composant FileInput.
  */
-interface Props {
+export interface FileInputProps {
 	/**
-	 * Callback lors de la sélection du fichier.
+	 * ID unique pour l'instance Uppy.
 	 */
-	onChange?: (file: File | null) => void;
+	id?: string;
 	/**
-	 * Types de fichiers acceptés (ex: ".jpg,.pdf").
+	 * Nom du champ pour le formulaire.
 	 */
-	accept?: string;
+	name?: string;
 	/**
-	 * Libellé principal de la zone.
+	 * Nombre maximum de fichiers autorisés.
 	 */
-	label?: string;
+	maxNumberOfFiles?: number;
 	/**
-	 * Description ou limitation (ex: "Max 5Mo").
+	 * Taille maximale d'un fichier en octets.
 	 */
-	info?: string;
+	maxFileSize?: number;
 	/**
-	 * Classe CSS additionnelle.
+	 * Types de fichiers autorisés (MIME types).
+	 */
+	allowedFileTypes?: string[] | null;
+	/**
+	 * Callback appelé lors de la complétion du téléchargement.
+	 * @param {any} result - Le résultat du téléchargement.
+	 */
+	onComplete?: (result: any) => void;
+	/**
+	 * Callback appelé lors d'une erreur.
+	 * @param {Error} error - L'erreur survenue.
+	 */
+	onError?: (error: Error) => void;
+	/**
+	 * Hauteur du dashboard Uppy en pixels.
+	 */
+	height?: number;
+	/**
+	 * Classe CSS personnalisée.
 	 */
 	className?: string;
 	/**
-	 * Si l'input est désactivé.
+	 * Afficher les détails de progression.
 	 */
-	disabled?: boolean;
+	hideProgressDetails?: boolean;
+	/**
+	 * Afficher le logo Uppy.
+	 */
+	proudlyDisplayPoweredByUppy?: boolean;
 }
 
 /**
- * Composant FileInput premium avec zone de drop.
+ * Composant FileInput utilisant une instance stable et le Dashboard officiel d'Uppy.
+ * Gère la synchronisation avec un input caché pour les soumissions de formulaire.
  *
- * @param {Props} props - Les propriétés du composant.
- * @returns {JSX.Element} Le composant FileInput rendu.
+ * @param {FileInputProps} props - Les propriétés du composant.
+ * @returns {JSX.Element} Le composant FileInput.
  */
 export const FileInput = ({
-	onChange,
-	accept,
-	label = "Cliquez ou glissez un fichier ici",
-	info = "Tous types de fichiers acceptés",
+	id = "uppy-dashboard",
+	name,
+	maxNumberOfFiles = 10,
+	maxFileSize = 10 * 1024 * 1024,
+	allowedFileTypes = null,
+	onComplete,
+	onError,
+	height = 150,
 	className = "",
-	disabled = false,
-}: Props) => {
-	const [selectedFile, setSelectedFile] = useState<File | null>(null);
-	const [isDragOver, setIsDragOver] = useState(false);
-	const bemClass = "file-input";
+	hideProgressDetails = false,
+	proudlyDisplayPoweredByUppy = false,
+}: FileInputProps) => {
+	// État pour stocker les noms des fichiers afin de synchroniser l'input caché
+	const [fileList, setFileList] = useState<string[]>([]);
 
-	const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		const file = e.target.files?.[0] || null;
-		setSelectedFile(file);
-		onChange?.(file);
-	};
+	// Création d'une instance unique stable.
+	// On utilise useState pour garantir qu'elle n'est créée qu'une fois par cycle de vie.
+	const [uppy] = useState(() => {
+		return new Uppy({
+			id,
+			locale: French,
+			restrictions: {
+				maxNumberOfFiles,
+				maxFileSize,
+				allowedFileTypes,
+			},
+			autoProceed: false,
+		});
+	});
 
-	const handleRemove = (e: React.MouseEvent) => {
-		e.stopPropagation();
-		setSelectedFile(null);
-		onChange?.(null);
-	};
+	// Mise à jour des restrictions de manière réactive
+	useEffect(() => {
+		uppy.setOptions({
+			restrictions: {
+				maxNumberOfFiles,
+				maxFileSize,
+				allowedFileTypes,
+			}
+		});
+	}, [uppy, maxNumberOfFiles, maxFileSize, allowedFileTypes]);
+
+	// Gestion des événements (complétion, erreurs et synchronisation de la liste des fichiers)
+	useEffect(() => {
+		const updateFileList = () => {
+			const files = uppy.getFiles();
+			setFileList(files.map(f => f.name));
+		};
+
+		const handleComplete = (result: any) => {
+			if (onComplete) onComplete(result);
+		};
+
+		const handleError = (error: Error) => {
+			if (onError) onError(error);
+		};
+
+		uppy.on("complete", handleComplete);
+		uppy.on("error", handleError);
+		uppy.on("file-added", updateFileList);
+		uppy.on("file-removed", updateFileList);
+
+		return () => {
+			uppy.off("complete", handleComplete);
+			uppy.off("error", handleError);
+			uppy.off("file-added", updateFileList);
+			uppy.off("file-removed", updateFileList);
+		};
+	}, [uppy, onComplete, onError]);
+
+	// Nettoyage final lors du démontage du composant
+	useEffect(() => {
+		return () => {
+			if (uppy) {
+				uppy.cancelAll();
+				// @ts-ignore - close peut manquer dans certaines définitions de types mais est bien présent
+				if (typeof uppy.close === 'function') uppy.close();
+			}
+		};
+	}, [uppy]);
 
 	return (
-		<div className={`${bemClass} ${className}`.trim()}>
-			{!selectedFile ? (
-				<div
-					className={`${bemClass}__wrapper ${isDragOver ? `${bemClass}__wrapper--dragover` : ""}`}
-					onDragOver={() => !disabled && setIsDragOver(true)}
-					onDragLeave={() => setIsDragOver(false)}
-					onDrop={() => setIsDragOver(false)}
-				>
-					<div className={`${bemClass}__icon`}>
-						<Icon name="icon-cloud-upload" size="xl" />
-					</div>
-					<div className={`${bemClass}__label`}>{label}</div>
-					<div className={`${bemClass}__info`}>{info}</div>
-
-					<BootstrapForm.Control
-						type="file"
-						accept={accept}
-						disabled={disabled}
-						onChange={handleFileChange}
-						className={`${bemClass}__control`}
-					/>
-				</div>
-			) : (
-				<div className={`${bemClass}__preview`}>
-					<Icon name="bi bi-file-earmark-check" className="me-2 text-success" />
-					<span className={`${bemClass}__preview-name text-truncate`}>
-						{selectedFile.name}
-					</span>
-					<div className={`${bemClass}__preview-remove`} onClick={handleRemove}>
-						<Icon name="bi bi-x-circle-fill" />
-					</div>
-				</div>
+		<div className={`file-input ${className}`}>
+			{/* Input caché pour la synchronisation avec FormData */}
+			{name && (
+				<input
+					type="hidden"
+					name={name}
+					value={fileList.join(", ")}
+				/>
 			)}
+			<Dashboard
+				uppy={uppy}
+				id={id}
+				height={height}
+				hideProgressDetails={hideProgressDetails}
+				proudlyDisplayPoweredByUppy={proudlyDisplayPoweredByUppy}
+				width="100%"
+			/>
 		</div>
 	);
 };

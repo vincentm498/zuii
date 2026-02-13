@@ -1,13 +1,13 @@
-.number-input {
+.form {
 	/* Chrome, Safari, Edge, Opera */
-	&__control::-webkit-outer-spin-button,
-	&__control::-webkit-inner-spin-button {
+	&-control::-webkit-outer-spin-button,
+	&-control::-webkit-inner-spin-button {
 		-webkit-appearance: none;
 		margin: 0;
 	}
 
 	/* Firefox */
-	&__control[type=number] {
+	&-control[type=number] {
 		-moz-appearance: textfield;
 		appearance: textfield;
 	}
@@ -25,7 +25,4 @@
 		}
 	}
 
-	&__control {
-		text-align: center;
-	}
 }

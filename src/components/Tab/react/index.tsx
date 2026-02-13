@@ -118,7 +118,6 @@ export const Tabs = ({
 								<div key={index}>
 									<Button
 										variant="transparent"
-										eventKey={item.eventKey}
 										onClick={(e: any) => handleSelect(item.eventKey, e)}
 										active={currentActiveKey === item.eventKey}
 									>

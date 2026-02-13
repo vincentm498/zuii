@@ -13,6 +13,8 @@ interface Props {
 	spacing?: "sm" | "md" | "lg";
 	/** Hauteur du divider */
 	height?: "sm" | "md" | "lg" | "xl" | "xxl";
+	/** Divider transparent */
+	transparent?: boolean;
 }
 
 /**
@@ -21,9 +23,9 @@ interface Props {
  * @param {Props} props - Les propriétés du composant.
  * @returns {JSX.Element} Le composant Divider.
  */
-export const Divider = ({ children, className = '', spacing = 'md', height = 'sm' }: Props) => {
+export const Divider = ({ children, className = '', spacing = 'md', height = 'sm', transparent = false }: Props) => {
 	if (!children) {
-		return <hr className={`divider ${className} divider--spacing-${spacing} divider--height-${height}`} />;
+		return <hr className={`divider ${className} divider--spacing-${spacing} divider--height-${height} ${transparent ? 'divider--transparent' : ''}`} />;
 	}
 
 	return (

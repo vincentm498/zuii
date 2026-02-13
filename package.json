@@ -55,6 +55,10 @@
 	},
 	"dependencies": {
 		"@ag-grid-community/locale": "^35.0.1",
+		"@uppy/core": "^5.2.0",
+		"@uppy/dashboard": "^5.1.1",
+		"@uppy/locales": "^5.1.1",
+		"@uppy/react": "^5.2.0",
 		"ag-grid-community": "^35.0.1",
 		"ag-grid-react": "^35.0.1",
 		"apca-w3": "^0.1.9",
@@ -66,7 +70,9 @@
 		"lucide-static": "^0.563.0",
 		"react-bootstrap": "^2.10.10",
 		"sass-embedded": "^1.97.3",
-		"style-dictionary": "^4.2.0"
+		"style-dictionary": "^4.2.0",
+		"sweetalert2": "^11.26.18",
+		"sweetalert2-react-content": "^5.1.1"
 	},
 	"devDependencies": {
 		"@semantic-release/changelog": "^6.0.3",
