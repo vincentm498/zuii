@@ -36,10 +36,10 @@ L'objectif est de poser des bases solides pour la librairie.
   - [x] `Radius`
   - [x] `Accordion` (React Bootstrap)
   - [x] `Tabs` (React Bootstrap)
-  - [ ] `FileInput` (Uppy)
-  - [ ] `Input`
-  - [ ] `Checkbox`
-  - [ ] `Radio`
+  - [x] `FileInput` (Uppy)
+  - [x] `Input`
+  - [x] `Checkbox`
+  - [x] `Radio`
 
 ### 🟡 Phase 2 : Structure & Layout
 - [ ] **Grid System** : Utilitaires Flexbox et Grid (CSS Layers).
