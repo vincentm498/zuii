@@ -57,6 +57,10 @@ export interface TableOptions {
 	 */
 	paginationPageSize?: number;
 	/**
+	 * Options de taille de page disponibles (par défaut: [10, 20, 50, 100]).
+	 */
+	pageSizeOptions?: number[];
+	/**
 	 * Active le redimensionnement des colonnes (par défaut: false).
 	 */
 	resizable?: boolean;
@@ -108,6 +112,11 @@ export interface TableOptions {
 	 * Personnalisation des icônes d'AG Grid.
 	 */
 	icons?: any;
+	/**
+	 * Hauteur minimale de la zone vide (en pixels) lorsqu'il n'y a pas de données.
+	 * Par défaut: 50px
+	 */
+	emptyRowsHeight?: string;
 }
 
 /**

@@ -6,7 +6,7 @@ import 'flag-icons/css/flag-icons.min.css';
  */
 export interface LanguageOption {
 	value: string;
-	label: string;
+	label?: string;
 	flag: string;
 	selected?: boolean;
 }
@@ -30,34 +30,38 @@ export const initLanguageSelector = (
 	const choices = new Choices(element, {
 		choices: options.map(opt => ({
 			value: opt.value,
-			label: opt.label,
+			label: opt.label || '',
 			selected: opt.selected,
-			customProperties: {
-				flag: opt.flag
-			}
+			customProperties: { flag: opt.flag, label: opt.label }
 		})),
 		searchEnabled: false,
 		itemSelectText: '',
 		shouldSort: false,
-		callbackOnCreateTemplates: function(template) {
-			const classNames: any = (this as any).config.classNames;
-			const itemSelectText: string = (this as any).config.itemSelectText;
+		callbackOnCreateTemplates: (template) => {
+			const renderContent = (data: any) =>
+				`<span class="fi fi-${data.customProperties.flag} lang-selector__flag"></span>${data.customProperties.label ? ` ${data.label}` : ''}`;
+
 			return {
-				item: (_: any, data: any) => {
+				item: (conf: any, data: any) => {
+					const { item, highlightedState, itemSelectable } = conf.classNames;
+					const stateClass = data.highlighted ? highlightedState : itemSelectable;
+					const activeAttr = data.active ? 'aria-selected="true"' : '';
+					const disabledAttr = data.disabled ? 'aria-disabled="true"' : '';
+
 					return template(`
-						<div class="${classNames.item} ${data.highlighted ? classNames.highlightedState : classNames.itemSelectable}" data-item data-id="${data.id}" data-value="${data.value}" ${data.active ? 'aria-selected="true"' : ''} ${data.disabled ? 'aria-disabled="true"' : ''}>
-							<span class="fi fi-${data.customProperties.flag} lang-selector__flag"></span>
-							${data.label}
-						</div>
-					`) as any;
+						<div class="${item} ${stateClass}" data-item data-id="${data.id}" data-value="${data.value}" ${activeAttr} ${disabledAttr}>
+							${renderContent(data)}
+						</div>`.trim()) as any;
 				},
-				choice: (_: any, data: any) => {
+				choice: (conf: any, data: any) => {
+					const { item, itemChoice, itemDisabled, itemSelectable } = conf.classNames;
+					const stateClass = data.disabled ? itemDisabled : itemSelectable;
+					const choiceAttr = data.disabled ? 'data-choice-disabled aria-disabled="true"' : 'data-choice-selectable';
+
 					return template(`
-						<div class="${classNames.item} ${classNames.itemChoice} ${data.disabled ? classNames.itemDisabled : classNames.itemSelectable}" data-select-text="${itemSelectText}" data-choice ${data.disabled ? 'data-choice-disabled aria-disabled="true"' : 'data-choice-selectable'} data-id="${data.id}" data-value="${data.value}" role="option">
-							<span class="fi fi-${data.customProperties.flag} lang-selector__flag"></span>
-							${data.label}
-						</div>
-					`) as any;
+						<div class="${item} ${itemChoice} ${stateClass}" data-select-text="${conf.itemSelectText}" data-choice ${choiceAttr} data-id="${data.id}" data-value="${data.value}" role="option">
+							${renderContent(data)}
+						</div>`.trim()) as any;
 				},
 			};
 		},

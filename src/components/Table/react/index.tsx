@@ -1,4 +1,4 @@
-import { useMemo, useState, useCallback } from 'react';
+import { useMemo, useState, useCallback, useEffect, useRef } from 'react';
 import { AgGridReact } from 'ag-grid-react';
 import { AllCommunityModule, ModuleRegistry, GridApi } from 'ag-grid-community';
 import { processColumnDefs, getLocaleText, TableOptions, RowData, ColumnDef } from '../js/table';
@@ -29,6 +29,7 @@ export const Table = ({
 	selectable = false,
 	pagination = false,
 	paginationPageSize = 10,
+	pageSizeOptions,
 	resizable = false,
 	locale = 'fr',
 	selectionColumnDef,
@@ -40,9 +41,11 @@ export const Table = ({
 	onGridReady,
 	sortable = false,
 	icons,
+	emptyRowsHeight = '2rem',
 }: Props) => {
 	const baseClass = "datagrid";
 	const wrapperClass = `${baseClass} ${theme} ${className}`.trim();
+	const containerRef = useRef<HTMLDivElement>(null);
 
 	const [gridApi, setGridApi] = useState<GridApi | null>(null);
 	const [paginationState, setPaginationState] = useState({
@@ -95,8 +98,18 @@ export const Table = ({
 		gridApi?.setGridOption('paginationPageSize', size);
 	}, [gridApi]);
 
+	// Gestion de la hauteur minimale pour la zone vide
+	useEffect(() => {
+		if (!containerRef.current) return;
+
+		const floatingBottom = containerRef.current.querySelector('.ag-floating-bottom');
+		if (floatingBottom instanceof HTMLElement) {
+			floatingBottom.style.minHeight = `${emptyRowsHeight}`;
+		}
+	}, [emptyRowsHeight, gridApi, rowData, datasource]);
+
 	return (
-		<div className={wrapperClass} style={{ width: '100%' }}>
+		<div className={wrapperClass} style={{ width: '100%' }} ref={containerRef}>
 			<div className="datagrid__container">
 				<AgGridReact
 					theme="legacy"
@@ -154,6 +167,7 @@ export const Table = ({
 					totalPages={paginationState.totalPages}
 					pageSize={paginationState.pageSize}
 					totalRows={paginationState.totalRows}
+					pageSizeOptions={pageSizeOptions}
 					onPageChange={onPageChange}
 					onPageSizeChange={onPageSizeChange}
 					localeText={localeText}

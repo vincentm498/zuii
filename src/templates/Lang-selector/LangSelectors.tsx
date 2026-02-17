@@ -15,6 +15,13 @@ export const LangSelectors = () => {
 		{ code: 'es', label: 'Español', flag: 'es' }
 	];
 
+	const languagesNoLabel = [
+		{ code: 'fr', flag: 'fr' },
+		{ code: 'en',flag: 'gb' },
+		{ code: 'de',flag: 'de' },
+		{ code: 'es',flag: 'es' }
+	];
+
 	return (
 		<div>
 			<section>
@@ -32,6 +39,19 @@ export const LangSelectors = () => {
 				<div>
 					Langue sélectionnée : <strong>{lang}</strong>
 				</div>
+			</section>
+
+			<section className="mt-4">
+				<h2>Sélecteur de Langue (Sans Label)</h2>
+				<p>
+					Variante affichant uniquement les drapeaux.
+				</p>
+
+				<LangSelector
+					options={languagesNoLabel.map(l => ({ value: l.code, flag: l.flag }))}
+					defaultValue={lang}
+					onChange={setLang}
+				/>
 			</section>
 
 
