@@ -1,3 +1,10 @@
+## [1.4.11](https://github.com/vincentm498/zuii/compare/v1.4.10...v1.4.11) (2026-02-17)
+
+
+### Bug Fixes
+
+* width input ([6038f8d](https://github.com/vincentm498/zuii/commit/6038f8d88d20dd0f74d0c73ffec9369eaebe0810))
+
 ## [1.4.10](https://github.com/vincentm498/zuii/compare/v1.4.9...v1.4.10) (2026-02-13)
 
 
