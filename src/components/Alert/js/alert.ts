@@ -18,6 +18,12 @@ export interface FireAlertOptions extends Omit<SweetAlertOptions, 'icon' | 'titl
 	confirmButtonText?: any;
 	cancelButtonText?: any;
 	denyButtonText?: any;
+	confirmButtonVariant?: AlertVariant;
+	cancelButtonVariant?: AlertVariant;
+	denyButtonVariant?: AlertVariant;
+	confirmButtonIcon?: string;
+	cancelButtonIcon?: string;
+	denyButtonIcon?: string;
 }
 
 /**
@@ -33,6 +39,12 @@ export const getAlertOptions = (options: FireAlertOptions): SweetAlertOptions =>
 		iconHtml,
 		variant ,
 		dismissible = false,
+		confirmButtonVariant = 'primary',
+		cancelButtonVariant = 'warning',
+		denyButtonVariant = 'danger',
+		confirmButtonIcon,
+		cancelButtonIcon,
+		denyButtonIcon,
 		...rest
 	} = options;
 
@@ -45,23 +57,45 @@ export const getAlertOptions = (options: FireAlertOptions): SweetAlertOptions =>
 		? `<span class="icon icon--size-3xl"><i class="${icon}"></i></span>`
 		: iconHtml;
 
+	// Préparation du texte des boutons avec icônes
+	const finalConfirmButtonText = confirmButtonIcon
+		? `<span class="btn-content"><i class="${confirmButtonIcon}"></i>${rest.confirmButtonText || 'Confirmer'}</span>`
+		: (rest.confirmButtonText || 'Confirmer');
+
+	const finalCancelButtonText = cancelButtonIcon
+		? `<span class="btn-content"><i class="${cancelButtonIcon}"></i>${rest.cancelButtonText || 'Annuler'}</span>`
+		: (rest.cancelButtonText || 'Annuler');
+
+	const finalDenyButtonText = denyButtonIcon
+		? `<span class="btn-content"><i class="${denyButtonIcon}"></i>${rest.denyButtonText || 'Refuser'}</span>`
+		: (rest.denyButtonText || 'Refuser');
+
 	return {
 		icon: isStandardIcon ? (icon as any) : undefined,
 		iconHtml: finalIconHtml,
 		...rest,
+		confirmButtonText: finalConfirmButtonText,
+		cancelButtonText: finalCancelButtonText,
+		denyButtonText: finalDenyButtonText,
+		allowOutsideClick: dismissible,
+		showCancelButton: rest.cancelButtonText !== undefined || rest.showCancelButton,
+		showDenyButton: rest.denyButtonText !== undefined || rest.showDenyButton,
+		backdrop: rest.toast ? false : rest.backdrop,
 		buttonsStyling: false,
 		showCloseButton: dismissible,
 		closeButtonHtml: '<span aria-hidden="true"><i class="icon icon-x"></i></span>',
 		closeButtonAriaLabel: 'Fermer',
 		customClass: {
 			actions: 'group',
+			container: `${rest.toast ? 'swal2-no-backdrop' : ''} ${customClass?.container || ''}`.trim(),
 			popup: `alert ${variant ? `alert--${variant}` : ''} ${dismissible ? 'alert--dismissible' : ''} ${
 				customClass?.popup || ''
 			}`.trim(),
 			title: `alert__heading ${customClass?.title || ''}`.trim(),
 			closeButton: `btn btn-transparent btn--close alert__close ${customClass?.closeButton || ''}`.trim(),
-			confirmButton: `btn btn-${variant === 'danger' ? 'danger' : variant} ${customClass?.confirmButton || ''}`.trim(),
-			cancelButton: `btn btn-secondary ${customClass?.cancelButton || ''}`.trim(),
+			confirmButton: `btn btn-${confirmButtonVariant || ''} ${customClass?.confirmButton || ''}`.trim(),
+			cancelButton: `btn btn-${cancelButtonVariant || ''} ${customClass?.cancelButton || ''}`.trim(),
+			denyButton: `btn btn-${denyButtonVariant || ''} ${customClass?.denyButton || ''}`.trim(),
 			...customClass,
 		},
 	} as SweetAlertOptions;

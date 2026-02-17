@@ -54,6 +54,14 @@ export const Tables = () => {
 		}
 	}), [searchTerm]);
 
+	// Exemple de datasource vide
+	const emptyDatasource = useMemo(() => ({
+		getRows: (params: any) => {
+			params.successCallback([], 0);
+		}
+	}), []);
+
+
 	// Déclencher un rafraîchissement quand la recherche VALIDÉE change
 	useEffect(() => {
 		if (gridApi) {
@@ -86,6 +94,16 @@ export const Tables = () => {
 
 				<h5 className='mt-5'>Avancé : Actions, Pagination et Redimensionnement</h5>
 				<Table rowData={dataAdvanced} columnDefs={columnsAdvanced} selectable={true} resizable={true} pagination />
+
+				<h5 className='mt-5'>Pagination avec Options Personnalisées</h5>
+				<p className="text-muted mb-4">Exemple avec des options de taille de page personnalisées : 2, 5, 15, 25, 50</p>
+				<Table
+					rowData={dataAdvanced}
+					columnDefs={columnsAdvanced}
+					pagination
+					paginationPageSize={2}
+					pageSizeOptions={[2, 5, 15, 25, 50]}
+				/>
 
 				<h5 className='mt-5'>Gestion des Statuts (Badges & Styles de lignes)</h5>
 				<Table rowData={dataStatus} columnDefs={columnsStatus} rowClassRules={rowClassRules} resizable />
@@ -120,6 +138,22 @@ export const Tables = () => {
 					onGridReady={(params) => setGridApi(params.api)}
 					sortable
 				/>
+				<h5 className='mt-5'>Exemple sans données (Simple)</h5>
+				<Table rowData={[]} columnDefs={columnsSimple} />
+
+				<h5 className='mt-5'>Exemple sans données (Infini avec minHeight)</h5>
+				<Table
+					columnDefs={columnsInfinite}
+					rowModelType="infinite"
+					datasource={emptyDatasource}
+					pagination={true}
+					paginationPageSize={20}
+					cacheBlockSize={20}
+					sortable
+
+				/>
+
+
 			</section>
 		</div>
 	);

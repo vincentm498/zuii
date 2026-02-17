@@ -54,7 +54,10 @@ export const Alerts = () => {
 			icon: icons[type],
 			variant: variants[type],
 			title: titles[type],
-			showConfirmButton: false,
+			cancelButtonText: 'Annuler',
+			cancelButtonIcon: 'icon-x',
+			confirmButtonText: 'Valider',
+			confirmButtonIcon: 'icon-check',
 			html: (
 				<div>
 					{texts[type]}
@@ -96,6 +99,8 @@ export const Alerts = () => {
 			inputLabel: 'Votre adresse email',
 			inputPlaceholder: 'exemple@email.com',
 			cancelButtonText: 'Annuler',
+			confirmButtonVariant: 'danger',
+			cancelButtonVariant: 'warning',
 			confirmButtonText: 'Valider',
 			inputValidator: (value: string) => {
 				if (!value) {
@@ -222,7 +227,7 @@ export const Alerts = () => {
 						<Button
 							variant="secondary"
 							icon="icon-x"
-							onClick={() => Alert.fire({ title: 'Action annulée', icon: 'info' })}
+							onClick={() => Alert.fire({ title: 'Action annulé'})}
 						>
 							Annuler
 						</Button>

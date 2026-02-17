@@ -32,19 +32,28 @@
 	}
 }
 
-.swal2-backdrop-show{
+.swal2-container.swal2-backdrop-show:not(.swal2-no-backdrop) {
 	background-color: transparent;
+
+	&:before {
+		@include backdrop.backdrop;
+		content: "";
+		width: 100%;
+		height: 100%;
+		position: fixed;
+		top: 0;
+		left: 0;
+		background: var(--backdrop-bg);
+		opacity: var(--backdrop-opacity);
+	}
 }
 
-.swal2-backdrop-show:before{
-	@include backdrop.backdrop;
-	content: "";
-	width: 100%;
-	height: 100%;
-	position: fixed;
-	top: 0;
-	left: 0;
-	background: var(--backdrop-bg);
-	opacity: var(--backdrop-opacity);
+// Bloquer le scroll et la sélection sous l'alerte classique
+body.swal2-shown:not(.swal2-toast-shown) {
+	overflow: hidden !important;
+	user-select: none;
 
+	.swal2-container {
+		user-select: auto;
+	}
 }
