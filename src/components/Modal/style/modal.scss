@@ -3,9 +3,8 @@
 
 .modal {
 	&-content {
-		--border-width: 0;
 		--modal-border-radius: var(--radius-sm);
-		--modal-border-width: var(--border-width);
+		--modal-border-width: 0;
 		--modal-border-color: var(--border-color);
 		overflow: hidden;
 	}

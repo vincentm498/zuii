@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Modal, Button, Group } from '../../index';
+import { Modal, Button, Group, Form } from '../../index';
 
 /**
  * Template de démonstration pour le composant Modal.
@@ -11,6 +11,7 @@ export const Modals = () => {
 	const [showLarge, setShowLarge] = useState(false);
 	const [showCentered, setShowCentered] = useState(false);
 	const [showScrollable, setShowScrollable] = useState(false);
+	const [showForm, setShowForm] = useState(false);
 
 	return (
 		<div className="modals-demo">
@@ -35,6 +36,10 @@ export const Modals = () => {
 
 					<Button variant="outline-primary" onClick={() => setShowScrollable(true)}>
 						Modale Scrollable
+					</Button>
+
+					<Button variant="outline-primary" onClick={() => setShowForm(true)}>
+						Modale avec formulaire
 					</Button>
 				</Group>
 
@@ -116,6 +121,38 @@ export const Modals = () => {
 					</Modal.Body>
 					<Modal.Footer>
 						<Button onClick={() => setShowScrollable(false)}>Fermer</Button>
+					</Modal.Footer>
+				</Modal>
+
+				{/* Modale avec formulaire */}
+				<Modal
+					show={showForm}
+					onHide={() => setShowForm(false)}
+				>
+					<Modal.Header closeButton>
+						<Modal.Title>Modale avec formulaire</Modal.Title>
+					</Modal.Header>
+					<Modal.Body>
+						<form>
+							<div className="mb-3">
+								<Form.Group controlId="formBasicEmail">
+									<Form.Label>Email address</Form.Label>
+									<Form.Control type="email" placeholder="Enter email" />
+									<Form.Text className="text-muted">
+										We'll never share your email with anyone else.
+									</Form.Text>
+								</Form.Group>
+							</div>
+							<div className="mb-3">
+								<Form.Group controlId="formBasicPassword">
+									<Form.Label>Password</Form.Label>
+									<Form.Control type="password" placeholder="Password" />
+								</Form.Group>
+							</div>
+						</form>
+					</Modal.Body>
+					<Modal.Footer>
+						<Button onClick={() => setShowForm(false)}>Fermer</Button>
 					</Modal.Footer>
 				</Modal>
 			</section>
