@@ -5,7 +5,7 @@ import { Icon } from "../../Icon/react";
 /**
  * Propriétés du composant PasswordConfirm.
  */
-interface Props {
+export interface PasswordConfirmProps {
 	/**
 	 * Le mot de passe original à comparer.
 	 */
@@ -37,7 +37,7 @@ interface Props {
 /**
  * Composant PasswordConfirm avec validation en temps réel.
  *
- * @param {Props} props - Les propriétés du composant.
+ * @param {PasswordConfirmProps} props - Les propriétés du composant.
  * @returns {JSX.Element} Le composant PasswordConfirm rendu.
  */
 export const PasswordConfirm = ({
@@ -47,7 +47,7 @@ export const PasswordConfirm = ({
 	className = "",
 	placeholder = "Confirmez le mot de passe",
 	disabled = false,
-}: Props) => {
+}: PasswordConfirmProps) => {
 	const [showPassword, setShowPassword] = useState(false);
 	const [isValid, setIsValid] = useState(true);
 	const bemClass = "password-confirm";

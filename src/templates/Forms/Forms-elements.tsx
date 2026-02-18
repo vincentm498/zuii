@@ -26,7 +26,7 @@ export const FormsElements = () => {
 				<Form.Control id="email" type="email" placeholder="Enter email" name="email" icon="icon-at-sign" />
 				<Form.Control id="number" type="number" placeholder="Enter number" name="number" icon="icon-number" />
 				{/* <Form.File id="file-simple" label="Upload simple" name="file_simple" /> */}
-				<Form.File
+				{/* <Form.File
 					id="simple-upload"
 					name="simple-upload"
 					maxNumberOfFiles={1}
@@ -38,7 +38,7 @@ export const FormsElements = () => {
 					maxNumberOfFiles={5}
 					maxFileSize={5 * 1024 * 1024}
 					onComplete={(result: any) => console.log("Fichiers téléchargés :", result)}
-				/>
+				/> */}
 				{/* <Form.File id="file-multiple" label="Upload multiple" name="file_multiple" multiple={true} maxFiles={5} /> */}
 				<Form.Check id="checkbox1" type="checkbox" label="Enter checkbox" name="checkbox" />
 				<Form.Check id="checkbox2" type="checkbox" label="Enter checkbox checked" name="checkbox" defaultChecked />

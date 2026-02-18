@@ -6,7 +6,7 @@ import { Icon } from "../../Icon/react";
 /**
  * Propriétés du composant PasswordInput.
  */
-interface Props {
+export interface PasswordInputProps {
 	/**
 	 * Valeur actuelle du mot de passe.
 	 */
@@ -33,7 +33,7 @@ interface Props {
 /**
  * Composant PasswordInput avec bouton de visibilité.
  *
- * @param {Props} props - Les propriétés du composant.
+ * @param {PasswordInputProps} props - Les propriétés du composant.
  * @returns {JSX.Element} Le composant PasswordInput rendu.
  */
 export const PasswordInput = ({
@@ -42,7 +42,7 @@ export const PasswordInput = ({
 	className = "",
 	placeholder = "Mot de passe",
 	disabled = false,
-}: Props) => {
+}: PasswordInputProps) => {
 	const [showPassword, setShowPassword] = useState(false);
 	const bemClass = "password-input";
 

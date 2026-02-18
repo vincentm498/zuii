@@ -19,3 +19,4 @@ export * from './Tables/Tables';
 export * from './Accordions/Accordions';
 export * from './Tabs/Tabs';
 export * from './Alerts/Alerts';
+export * from './Auths/Auths';

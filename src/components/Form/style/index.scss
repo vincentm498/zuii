@@ -3,8 +3,8 @@
 
 }
 @import "choices.js/public/assets/styles/choices.css" layer(vendor);
-@import "@uppy/core/css/style.min.css" layer(vendor);
-@import "@uppy/dashboard/css/style.min.css" layer(vendor);
+// @import "@uppy/core/css/style.min.css" layer(vendor);
+// @import "@uppy/dashboard/css/style.min.css" layer(vendor);
 
 @layer components {
 	@import "form";
@@ -13,6 +13,6 @@
 	@import "number-input";
 
 	// @import "range-input";
-	@import "file-input";
+	// @import "file-input";
 
 }

@@ -15,7 +15,7 @@
 	display: flex;
 	gap: var(--spacing-xs);
 	transition: all .2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-	width: 100%;
+	flex: 1;
 
 	&[type="checkbox"],
 	&[type="radio"] {
@@ -102,6 +102,10 @@
 
 .form__input:has(.form-control:focus){
 	border-color: var(--accent);
+}
+
+.group--vertical .form__input{
+	width: 100%;
 }
 
 

@@ -104,9 +104,10 @@ export const Table = ({
 
 		const floatingBottom = containerRef.current.querySelector('.ag-floating-bottom');
 		if (floatingBottom instanceof HTMLElement) {
-			floatingBottom.style.minHeight = `${emptyRowsHeight}`;
+			const hasData = paginationState.totalRows > 0;
+			floatingBottom.style.minHeight = hasData ? '0' : `${emptyRowsHeight}`;
 		}
-	}, [emptyRowsHeight, gridApi, rowData, datasource]);
+	}, [emptyRowsHeight, gridApi, rowData, datasource, paginationState.totalRows]);
 
 	return (
 		<div className={wrapperClass} style={{ width: '100%' }} ref={containerRef}>

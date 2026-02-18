@@ -23,7 +23,12 @@
 		},
 		"body-color": { "value": "var(--primary)" },
 		"body-bg-percentage": { "value": "95%" },
-		"body-bg": { "value": "color-mix(in srgb, var(--primary), var(--white) var(--body-bg-percentage))" }
+		"body-bg": { "value": "color-mix(in srgb, var(--primary), var(--white) var(--body-bg-percentage))" },
+		"gradient": {
+			"value": "linear-gradient(33.65deg, color-mix(in srgb, var(--primary-light), var(--white) 60%) 0%, color-mix(in srgb, var(--primary-light), var(--white) 90%) 100%)"
+		},
+		"link-color-rgb": { "value": "var(--accent-rgb)" },
+		"link-hover-color-rgb": { "value": "var(--accent-dark-rgb)" }
 
 	}
 }
