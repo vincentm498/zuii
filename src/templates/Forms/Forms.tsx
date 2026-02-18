@@ -1,4 +1,3 @@
-import React from 'react';
 import { Form, Button, Group } from '../../index';
 
 /**
@@ -167,14 +166,14 @@ export const Forms = () => {
 				{['checkbox', 'radio'].map((type) => (
 					<div key={`default-${type}`} className="mb-3">
 						<Form.Check
-							type={type}
+							type={type as any}
 							id={`default-${type}`}
 							label={`default ${type}`}
 						/>
 
 						<Form.Check
 							disabled
-							type={type}
+							type={type as any}
 							label={`disabled ${type}`}
 							id={`disabled-default-${type}`}
 						/>

@@ -5,7 +5,7 @@ import intlTelInput from "intl-tel-input";
 /**
  * Propriétés du composant TelInput.
  */
-interface Props {
+export interface TelInputProps {
 	/**
 	 * Valeur actuelle du numéro.
 	 */
@@ -36,7 +36,7 @@ interface Props {
 /**
  * Composant TelInput utilisant intl-tel-input.
  *
- * @param {Props} props - Les propriétés du composant.
+ * @param {TelInputProps} props - Les propriétés du composant.
  * @returns {JSX.Element} Le composant TelInput rendu.
  */
 export const TelInput = ({
@@ -46,7 +46,7 @@ export const TelInput = ({
 	className = "",
 	placeholder,
 	disabled = false,
-}: Props) => {
+}: TelInputProps) => {
 	const inputRef = useRef<HTMLInputElement>(null);
 	const itiRef = useRef<any>(null);
 

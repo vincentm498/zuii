@@ -4,7 +4,7 @@ import "../style/index.scss";
 /**
  * Propriétés du composant RangeInput.
  */
-interface Props {
+export interface RangeInputProps {
 	/**
 	 * Valeur actuelle.
 	 */
@@ -34,7 +34,7 @@ interface Props {
 /**
  * Composant RangeInput avec badge flottant qui suit le curseur.
  *
- * @param {Props} props - Les propriétés du composant.
+ * @param {RangeInputProps} props - Les propriétés du composant.
  * @returns {JSX.Element} Le composant RangeInput rendu.
  */
 export const RangeInput = ({
@@ -44,7 +44,7 @@ export const RangeInput = ({
 	max = 100,
 	step = 1,
 	className = "",
-}: Props) => {
+}: RangeInputProps) => {
 	const bemClass = "range-input";
 
 	// Calcul de la position du badge en pourcentage

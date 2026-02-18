@@ -4,7 +4,7 @@ import { initSelect } from '../js/select';
 /**
  * Option pour le composant Select.
  */
-interface Option {
+export interface SelectOption {
 	text: string;
 	value: string;
 }
@@ -12,11 +12,11 @@ interface Option {
 /**
  * Propriétés du composant Select.
  */
-interface Props {
+export interface SelectProps {
 	/**
 	 * Liste des options.
 	 */
-	options: Option[];
+	options: SelectOption[];
 	/**
 	 * Valeurs sélectionnées.
 	 */
@@ -54,7 +54,7 @@ interface Props {
 /**
  * Composant Select premium basé sur Choices.js.
  *
- * @param {Props} props - Les propriétés du composant.
+ * @param {SelectProps} props - Les propriétés du composant.
  * @returns {JSX.Element} Le composant Select rendu.
  */
 export const Select = ({
@@ -67,7 +67,7 @@ export const Select = ({
 	searchable = true,
 	className = "",
 	name,
-}: Props) => {
+}: SelectProps) => {
 	const selectRef = useRef<HTMLSelectElement>(null);
 	const choicesRef = useRef<any>(null);
 

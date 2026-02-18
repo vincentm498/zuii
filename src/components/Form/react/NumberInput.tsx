@@ -6,7 +6,7 @@ import { Icon } from "../../Icon/react";
 /**
  * Propriétés du composant NumberInput.
  */
-interface Props {
+export interface NumberInputProps {
 	/**
 	 * Valeur actuelle de l'input.
 	 */
@@ -41,7 +41,7 @@ interface Props {
 /**
  * Composant NumberInput avec boutons +/- personnalisés.
  *
- * @param {Props} props - Les propriétés du composant.
+ * @param {NumberInputProps} props - Les propriétés du composant.
  * @returns {JSX.Element} Le composant NumberInput rendu.
  */
 export const NumberInput = ({
@@ -52,7 +52,7 @@ export const NumberInput = ({
 	step = 1,
 	className = "",
 	placeholder,
-}: Props) => {
+}: NumberInputProps) => {
 	const bemClass = "number-input";
 
 	const handleIncrement = () => {

@@ -7,7 +7,7 @@ import { TelInput } from "./TelInput";
 import { PasswordInput } from "./PasswordInput";
 import { PasswordConfirm } from "./PasswordConfirm";
 import { RangeInput } from "./RangeInput";
-import { FileInput } from "./FileInput";
+// import { FileInput } from "./FileInput";
 import { Select } from "./Select";
 import { handleNumericKeyDown } from "../js/number";
 
@@ -134,5 +134,5 @@ Form.Tel = TelInput;
 Form.Password = PasswordInput;
 Form.PasswordConfirm = PasswordConfirm;
 Form.Range = RangeInput;
-Form.File = FileInput;
+// Form.File = FileInput;
 Form.FloatingLabel = FloatingLabel;

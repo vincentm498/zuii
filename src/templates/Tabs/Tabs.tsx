@@ -49,59 +49,6 @@ export const TabsTemplate = () => {
 		},
 	];
 
-	const itemsVertical = [
-		{
-			eventKey: 'v-1',
-			header: 'Design',
-			body: (
-				<>
-					<h5>Design System</h5>
-					<p>Focus sur l'expérience utilisateur et les tokens de design.</p>
-				</>
-			)
-		},
-		{
-			eventKey: 'v-2',
-			header: 'Développement',
-			body: (
-				<>
-					<h5>Clean Code</h5>
-					<p>Implémentation robuste avec React et TypeScript.</p>
-				</>
-			)
-		},
-		{
-			eventKey: 'v-3',
-			header: 'Marketing',
-			body: (
-				<>
-					<h5>Marketing</h5>
-					<p>Mise en place de stratégies marketing pour promouvoir le produit.</p>
-				</>
-			)
-		},
-		{
-			eventKey: 'v-4',
-			header: 'SEO & Analytics',
-			body: (
-				<>
-					<h5>SEO & Analytics</h5>
-					<p>Optimisation pour les moteurs de recherche.</p>
-				</>
-			)
-		},
-		{
-			eventKey: 'v-5',
-			header: 'DevOps',
-			body: (
-				<>
-					<h5>DevOps</h5>
-					<p>Déploiement continu et automatisation des processus.</p>
-				</>
-			)
-		},
-	];
-
 	return (
 		<div className="tabs-demo">
 			<section className="mb-5">

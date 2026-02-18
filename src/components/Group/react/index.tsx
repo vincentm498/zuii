@@ -32,7 +32,7 @@ interface Props {
 	/**
 	 * Alignement des éléments.
 	 */
-	align?: "start" | "end" | "center";
+	align?: "start" | "end" | "center" | "between";
 }
 
 /**

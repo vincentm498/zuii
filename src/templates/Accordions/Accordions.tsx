@@ -1,4 +1,3 @@
-import React from 'react';
 import { Accordion, Button, Group, Icon, Badge } from "../../index";
 
 /**

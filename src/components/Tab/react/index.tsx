@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Tabs as BootstrapTabs, Tab as BootstrapTab, TabProps, TabsProps, Row, Col, Nav, TabContainer, TabContent, TabPane } from 'react-bootstrap';
+import { Tabs as BootstrapTabs, Tab as BootstrapTab, TabProps, TabsProps as BootstrapTabsProps, Nav, TabContainer, TabContent, TabPane } from 'react-bootstrap';
 import '../style/index.scss';
 import { Group } from '../../Group/react';
 import { Button } from '../../Button/react';
@@ -8,7 +8,7 @@ import { Button } from '../../Button/react';
  * Interface pour un élément individuel de l'onglet.
  * On omit 'title' car on utilise 'header'.
  */
-interface TabItem extends Omit<TabProps, 'title'> {
+export interface TabItem extends Omit<TabProps, 'title'> {
 	/**
 	 * Le titre de l'onglet.
 	 */
@@ -26,7 +26,7 @@ interface TabItem extends Omit<TabProps, 'title'> {
 /**
  * Propriétés du composant Tabs.
  */
-interface Props extends TabsProps {
+export interface TabsProps extends BootstrapTabsProps {
 	/**
 	 * Liste d'objets définissant les onglets.
 	 */
@@ -65,14 +65,26 @@ interface Props extends TabsProps {
 	contentClassName?: string;
 }
 
+/**
+ * Interface pour le composant Tabs avec ses propriétés statiques.
+ */
+export interface TabsComponent {
+	(props: TabsProps): React.JSX.Element;
+	Item: typeof BootstrapTab;
+	Container: typeof TabContainer;
+	Content: typeof TabContent;
+	Pane: typeof TabPane;
+	Nav: typeof Nav;
+}
+
 
 /**
  * Composant Tabs basé sur React Bootstrap.
  *
- * @param {Props} props - Les propriétés du composant.
- * @returns {JSX.Element} Le rendu du composant.
+ * @param {TabsProps} props - Les propriétés du composant.
+ * @returns {React.JSX.Element} Le rendu du composant.
  */
-export const Tabs = ({
+export const Tabs: TabsComponent = ({
 	items = [],
 	children,
 	className = "",
@@ -85,7 +97,7 @@ export const Tabs = ({
 	onSelect,
 	contentClassName = "tabs__content",
 	...props
-}: Props) => {
+}: TabsProps): React.JSX.Element => {
 	const [localActiveKey, setLocalActiveKey] = useState<string | undefined>(defaultActiveKey || (items.length > 0 ? items[0].eventKey : undefined));
 
 	const currentActiveKey = controlledActiveKey !== undefined ? (controlledActiveKey as string) : localActiveKey;
