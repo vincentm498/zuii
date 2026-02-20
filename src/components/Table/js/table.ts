@@ -67,7 +67,7 @@ export interface TableOptions {
 	/**
 	 * Langue du tableau (par défaut: 'fr').
 	 */
-	locale?: 'fr' | 'en';
+	locale?: string;
 	/**
 	 * Options personnalisées pour la colonne de sélection (checkbox).
 	 */

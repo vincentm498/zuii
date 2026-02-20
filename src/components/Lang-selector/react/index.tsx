@@ -19,6 +19,19 @@ interface Props {
 	 * Classe CSS additionnelle.
 	 */
 	className?: string;
+	/**
+	 * Active la recherche dans le sélecteur.
+	 */
+	search?: boolean;
+	/**
+	 * Texte affiché si aucune langue n'est sélectionnée.
+	 */
+	placeholder?: string;
+	/**
+	 * Si vrai, une valeur par défaut est sélectionnée.
+	 * @default true
+	 */
+	hasDefault?: boolean;
 }
 
 /**
@@ -31,7 +44,10 @@ export const LangSelector = ({
 	options,
 	defaultValue,
 	onChange,
-	className = ''
+	className = '',
+	search = false,
+	placeholder = '',
+	hasDefault = true
 }: Props) => {
 	const selectRef = useRef<HTMLSelectElement>(null);
 	const choicesRef = useRef<any>(null);
@@ -45,10 +61,21 @@ export const LangSelector = ({
 
 			const updatedOptions = options.map(opt => ({
 				...opt,
-				selected: opt.value === defaultValue
+				selected: hasDefault ? (defaultValue ? opt.value === defaultValue : false) : (opt.value === defaultValue)
 			}));
 
-			choicesRef.current = initLanguageSelector(selectRef.current, updatedOptions, onChange);
+			// Si hasDefault est activé et qu'aucune valeur n'est sélectionnée, on prend la première par défaut
+			if (hasDefault && !updatedOptions.some(opt => opt.selected) && updatedOptions.length > 0) {
+				updatedOptions[0].selected = true;
+			}
+
+			choicesRef.current = initLanguageSelector(
+				selectRef.current,
+				updatedOptions,
+				onChange,
+				search,
+				placeholder
+			);
 		}
 
 		return () => {

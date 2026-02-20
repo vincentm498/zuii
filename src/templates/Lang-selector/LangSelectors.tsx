@@ -42,7 +42,7 @@ export const LangSelectors = () => {
 			</section>
 
 			<section className="mt-4">
-				<h2>Sélecteur de Langue (Sans Label)</h2>
+				<h2>Sélecteur (Sans Label)</h2>
 				<p>
 					Variante affichant uniquement les drapeaux.
 				</p>
@@ -51,6 +51,34 @@ export const LangSelectors = () => {
 					options={languagesNoLabel.map(l => ({ value: l.code, flag: l.flag }))}
 					defaultValue={lang}
 					onChange={setLang}
+				/>
+			</section>
+
+			<section className="mt-4">
+				<h2>Sélecteur avec Recherche</h2>
+				<p>
+					Option <code>search={"{true}"}</code> activée.
+				</p>
+
+				<LangSelector
+					options={languages.map(l => ({ value: l.code, label: l.label, flag: l.flag }))}
+					defaultValue={lang}
+					onChange={setLang}
+					search={true}
+				/>
+			</section>
+
+			<section className="mt-4">
+				<h2>Sélecteur sans valeur par défaut</h2>
+				<p>
+					Option <code>hasDefault={"{false}"}</code> avec un placeholder.
+				</p>
+
+				<LangSelector
+					options={languages.map(l => ({ value: l.code, label: l.label, flag: l.flag }))}
+					onChange={(val) => console.log('Nouvelle langue:', val)}
+					hasDefault={false}
+					placeholder="Choisir une langue"
 				/>
 			</section>
 

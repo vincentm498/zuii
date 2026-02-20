@@ -93,6 +93,18 @@ const DashboardWrapper = ({ children, className = "" }: Props) => (
 );
 
 /**
+ * Composant Dashboard.Card.
+ *
+ * @param {Props} props - Les propriétés du composant.
+ * @returns {JSX.Element} Le rendu du composant.
+ */
+const DashboardCard = ({ children, className = "" }: Props) => (
+	<div className={`dashboard__card ${className}`.trim()}>
+		{children}
+	</div>
+);
+
+/**
  * Composant Dashboard.
  *
  * @param {Props} props - Les propriétés du composant.
@@ -117,4 +129,5 @@ Dashboard.Content = DashboardContent;
 Dashboard.Header = DashboardHeader;
 Dashboard.SubNavigation = DashboardSubNavigation;
 Dashboard.Wrapper = DashboardWrapper;
+Dashboard.Card = DashboardCard;
 

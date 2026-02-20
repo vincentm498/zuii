@@ -145,6 +145,11 @@
 		}
 	}
 
+	.table-cell--align-center {
+		display: flex;
+		align-items: center;
+	}
+
 	.table-cell--right {
 		display: flex;
 		justify-content: flex-end;

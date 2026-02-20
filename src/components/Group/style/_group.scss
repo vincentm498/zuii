@@ -3,6 +3,10 @@
 		flex-wrap: wrap;
 		gap: 0.5rem;
 
+		& > *:has(.form__input){
+			flex: 1;
+		}
+
 		&--vertical {
 			flex-direction: column;
 			align-items: flex-start;

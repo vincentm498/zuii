@@ -23,3 +23,4 @@ export * from './Auths/Auths';
 export * from './Dashboards/Dashboards';
 export * from './Navs/Navs';
 export * from './Errorpages/Errorpages';
+export * from './Loaders/Loaders';

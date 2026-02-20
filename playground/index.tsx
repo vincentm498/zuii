@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './style.scss'
-import { Buttons, Icons, Avatars, Badges, Colors, Dividers, ContextMenus, LangSelectors, Forms, Shadows, Radius, FormsElements, Dropdowns, Logos, Modals, Placeholders, Tooltips, Tables, TabsTemplate, Accordions, Alerts } from '../src/templates'
+import { Buttons, Icons, Avatars, Badges, Colors, Dividers, ContextMenus, LangSelectors, Forms, Shadows, Radius, FormsElements, Dropdowns, Logos, Modals, Placeholders, Tooltips, Tables, TabsTemplate, Accordions, Alerts, Loaders } from '../src/templates'
 
 
 
@@ -9,6 +9,8 @@ import { Buttons, Icons, Avatars, Badges, Colors, Dividers, ContextMenus, LangSe
 ReactDOM.createRoot(document.getElementById('root')!).render(
 	<React.StrictMode>
 		<div style={{ padding: '20px' }}>
+			<Loaders />
+			<hr style={{ margin: '20px 0' }} />
 			<FormsElements />
 			<hr style={{ margin: '20px 0' }} />
 			<Alerts />
