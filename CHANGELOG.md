@@ -1,3 +1,10 @@
+## [1.4.13](https://github.com/vincentm498/zuii/compare/v1.4.12...v1.4.13) (2026-02-20)
+
+
+### Bug Fixes
+
+* Ajout des composants Nav, Dashboard et Errorpage avec leurs templates, styles et logiques, et mise à jour de la feuille de route. ([e7a3262](https://github.com/vincentm498/zuii/commit/e7a32628bb1f9980e7b249a8fd243eaf14d3b6a6))
+
 ## [1.4.12](https://github.com/vincentm498/zuii/compare/v1.4.11...v1.4.12) (2026-02-18)
 
 
