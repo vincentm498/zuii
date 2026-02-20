@@ -43,8 +43,8 @@ L'objectif est de poser des bases solides pour la librairie.
 
 ### 🟡 Phase 2 : Structure & Layout
 - [ ] **Grid System** : Utilitaires Flexbox et Grid (CSS Layers).
-- [ ] **Layout Components** : `Container`, `Stack`, `Box`.
-- [ ] **Navigation** : `Navbar`, `Tabs`, `Breadcrumbs`.
+- [ ] **Layout Components** : `Container`, `Stack`, `Box`, `Dashboard`.
+- [x] **Navigation** : `Nav`, `Tabs`, `Breadcrumbs`.
 
 ### 🔵 Phase 3 : Composants Avancés
 - [x] **Overlays** : `Modal`, `Popover`, `Tooltip`.

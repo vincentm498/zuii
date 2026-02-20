@@ -20,3 +20,6 @@ export * from './Accordions/Accordions';
 export * from './Tabs/Tabs';
 export * from './Alerts/Alerts';
 export * from './Auths/Auths';
+export * from './Dashboards/Dashboards';
+export * from './Navs/Navs';
+export * from './Errorpages/Errorpages';

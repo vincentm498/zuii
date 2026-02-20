@@ -42,6 +42,8 @@ export const Table = ({
 	sortable = false,
 	icons,
 	emptyRowsHeight = '2rem',
+	rowHeight = 25,
+	getRowHeight
 }: Props) => {
 	const baseClass = "datagrid";
 	const wrapperClass = `${baseClass} ${theme} ${className}`.trim();
@@ -154,6 +156,8 @@ export const Table = ({
 					} : undefined}
 					suppressMovableColumns={true}
 					suppressMenuHide={true}
+					rowHeight={rowHeight}
+					getRowHeight={getRowHeight}
 					defaultColDef={{
 						flex: 1,
 						resizable: resizable,

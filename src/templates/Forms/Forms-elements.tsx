@@ -22,6 +22,7 @@ export const FormsElements = () => {
 
 			<form action="" onSubmit={handleSubmit}>
 				<Form.Control id="text" type="text" placeholder="Enter text" name="text" icon="icon-user" />
+				<Form.Control id="text" type="text" placeholder="Enter text disabled" name="text" icon="icon-user" disabled />
 				<Form.Control id="search" type="search" placeholder="Enter search" name="search" icon="icon-search" />
 				<Form.Control id="email" type="email" placeholder="Enter email" name="email" icon="icon-at-sign" />
 				<Form.Control id="number" type="number" placeholder="Enter number" name="number" icon="icon-number" />

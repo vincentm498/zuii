@@ -1,0 +1,66 @@
+.dashboard {
+	--dashboard-nav-width: 90px;
+	--dashboard-padding: var(--spacing-md);
+
+	display: flex;
+	height: 100vh;
+	overflow: hidden;
+}
+
+.dashboard__navigation {
+	display: flex;
+	flex-direction: column;
+	background: var(--primary);
+	color: var(--white);
+	padding: var(--dashboard-padding) 0;
+	width: var(--dashboard-nav-width);
+	gap: var(--spacing-lg);
+
+	& > :first-child{
+		flex: 1;
+		overflow-y: auto;
+	}
+}
+
+.dashboard__content {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	grid-template-rows: auto 1fr; // Ligne 1: Header, Ligne 2: SubNav + Main Content
+	width: 100%;
+}
+
+.dashboard__header {
+	grid-column: span 2;
+	background: var(--accent);
+	// On peut fixer une hauteur ici ou laisser l'auto (contenu)
+}
+
+.dashboard__sub-navigation {
+	grid-row: 2; // Positionné sur la deuxième ligne
+	background: var(--light);
+	width: 0px;
+	// position: relative;
+	background: var(--primary-dark);
+	color: var(--white);
+	transition: all .3s ease-in-out;
+
+
+	// button{
+	// 	display: flex;
+	// 	align-items: center;
+	// 	justify-content: center;
+	// 	position: absolute;
+	// 	top: 0;
+	// 	right: 0;
+	// 	z-index: 1;
+	// 	transform: translateX(50%);
+	// }
+
+	&.open {
+		width: 200px;
+
+
+	}
+}
+
+

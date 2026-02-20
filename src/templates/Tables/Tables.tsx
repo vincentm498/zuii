@@ -106,7 +106,7 @@ export const Tables = () => {
 				/>
 
 				<h5 className='mt-5'>Gestion des Statuts (Badges & Styles de lignes)</h5>
-				<Table rowData={dataStatus} columnDefs={columnsStatus} rowClassRules={rowClassRules} resizable />
+				<Table rowData={dataStatus} columnDefs={columnsStatus} rowClassRules={rowClassRules} resizable rowHeight={50}/>
 
 				<h5 className='mt-5'>Chargement Infini (DummyJSON)</h5>
 				<p className="text-muted mb-4">Récupère les données au fur et à mesure du défilement ou de la pagination. Supporte aussi la recherche et le tri serveur.</p>

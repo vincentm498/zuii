@@ -117,6 +117,14 @@ export interface TableOptions {
 	 * Par défaut: 50px
 	 */
 	emptyRowsHeight?: string;
+	/**
+	 * Hauteur des lignes.
+	 */
+	rowHeight?: number;
+	/**
+	 * Fonction pour obtenir la hauteur des lignes.
+	 */
+	getRowHeight?: (params: any) => number;
 }
 
 /**

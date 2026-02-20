@@ -1,31 +1,5 @@
+@use "../../Lang-selector/style/language-flag" as *;
+
 .auth__lang {
-	flex: initial;
-	margin: 0;
-	background: transparent;
-	border: none;
-
-	.choices::after {
-		display: none;
-		visibility: hidden;
-	}
-
-	.choices__inner {
-		--spacing-xs: var(--spacing-none);
-		--spacing-sm: var(--spacing-none);
-		font-size: 1.3rem;
-	}
-
-	.lang-selector__flag {
-		box-shadow: var(--box-shadow-sm);
-	}
-
-	.choices__list--dropdown {
-		width: auto;
-		min-width: 0;
-	}
-
-	.choices__list--dropdown .choices__item,
-	.choices__list[aria-expanded] .choices__item {
-		padding: .2rem .5rem;
-	}
+	@extend .lang-selector--flag;
 }

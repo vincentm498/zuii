@@ -1,0 +1,16 @@
+.error-page {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	overflow: hidden;
+}
+
+.error-page__container{
+	padding-top: var(--spacing-md);
+	padding-bottom: var(--spacing-md);
+	height: auto;
+	overflow: auto;
+	width: 100%;
+}

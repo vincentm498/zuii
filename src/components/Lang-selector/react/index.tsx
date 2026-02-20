@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { initLanguageSelector, LanguageOption } from '../js/language-selector';
-
+import "../style/index.scss";
 
 interface Props {
 	/**
