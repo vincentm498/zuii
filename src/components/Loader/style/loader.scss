@@ -1,0 +1,201 @@
+@use "@core/tokens.scss" as *;
+
+.page-loader{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: color-mix(in srgb, var(--primary), var(--dark) 80%);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 9999;
+	backdrop-filter: blur(4px);
+}
+
+.loader {
+	--loader-color: var(--primary);
+
+	@each $color, $value in $brands {
+		&.loader--#{$color} { --loader-color: var(--#{$color}); }
+	}
+
+	display: inline-flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 0.75rem;
+	vertical-align: middle;
+
+	// Conteneur commun pour le visuel (spinner, dots, pulse)
+	&__spinner,
+	&__spinner-circle,
+	&__pulse {
+		flex-shrink: 0;
+	}
+
+	&--sm {
+		.loader__spinner,
+		.loader__spinner-circle,
+		.loader__pulse {
+			width: 20px;
+			height: 20px;
+		}
+		.loader__dot {
+			width: 6px;
+			height: 6px;
+		}
+	}
+
+	&--md {
+		.loader__spinner,
+		.loader__spinner-circle,
+		.loader__pulse {
+			width: 36px;
+			height: 36px;
+		}
+		.loader__dot {
+			width: 10px;
+			height: 10px;
+		}
+	}
+
+	&--lg {
+		.loader__spinner,
+		.loader__spinner-circle,
+		.loader__pulse {
+			width: 56px;
+			height: 56px;
+		}
+		.loader__dot {
+			width: 16px;
+			height: 16px;
+		}
+	}
+
+	&--dots {
+		.loader__spinner {
+			width: auto;
+			height: auto;
+			display: flex;
+			flex-wrap: nowrap;
+			gap: 4px;
+		}
+
+		.loader__dot {
+			width: 8px;
+			height: 8px;
+			margin: 0;
+			background-color: var(--loader-color);
+			border-radius: 50%;
+			animation: loader-dots-wave 1.2s infinite ease-in-out;
+
+			&:nth-child(2) { animation-delay: 0.2s; }
+			&:nth-child(3) { animation-delay: 0.4s; }
+			&:nth-child(4) { animation-delay: 0.6s; }
+		}
+
+		&.loader--sm .loader__dot { width: 4px; height: 4px; gap: 2px; }
+		&.loader--lg .loader__dot { width: 12px; height: 12px; gap: 6px; }
+	}
+
+	&__spinner {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+
+	// Variante Spinner (Cercle tournant)
+	&--spinner {
+		.loader__spinner-circle {
+			border: 3px solid rgba(var(--primary-rgb, 0, 123, 255), 0.1);
+			border-radius: 50%;
+			border-top-color: var(--loader-color);
+			animation: loader-rotate 0.8s infinite linear;
+		}
+
+		&.loader--sm .loader__spinner-circle { border-width: 2px; }
+		&.loader--lg .loader__spinner-circle { border-width: 4px; }
+	}
+
+	// Variante Pulse (Point qui pulse)
+	&--pulse {
+		.loader__pulse {
+			background-color: var(--loader-color);
+			border-radius: 50%;
+			animation: loader-pulse 1.2s infinite ease-in-out;
+		}
+	}
+
+	// Variante Quad (4 points tournants avec gradients)
+	&--quad {
+		.loader__quad {
+			width: 36px;
+			;
+			aspect-ratio: 1;
+			--_c: no-repeat radial-gradient(farthest-side, var(--loader-color) 92%, #0000);
+			background: var(--_c) top, var(--_c) left, var(--_c) right, var(--_c) bottom;
+			background-size: 12px 12px;
+			animation: loader-quad-rotate 1s infinite;
+		}
+	}
+
+	&__content {
+		font-family: var(--font-family-base, sans-serif);
+		font-size: 0.875rem;
+		color: var(--text-muted, #6c757d);
+		font-weight: 500;
+		text-align: center;
+		line-height: 1.4;
+	}
+}
+
+
+@keyframes loader-rotate {
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes loader-dot-bounce {
+	0%, 100% {
+		transform: scale(0.5);
+	}
+	50% {
+		transform: scale(1);
+	}
+}
+
+@keyframes loader-pulse {
+	0%, 100% {
+		transform: scale(0);
+		opacity: 1;
+	}
+	50% {
+		transform: scale(1);
+		opacity: 0.5;
+	}
+}
+
+@keyframes loader-dots-wave {
+	0%, 60%, 100% {
+		transform: translateY(0);
+		opacity: 0.6;
+	}
+	35% {
+		transform: translateY(-8px);
+		opacity: 1;
+	}
+}
+
+@keyframes loader-quad-rotate {
+	100% {
+			transform: rotate(.5turn);
+		}
+}
+
+
+

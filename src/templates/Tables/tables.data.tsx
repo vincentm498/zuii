@@ -102,16 +102,16 @@ export const columnsStatus = [
 	{ headerName: 'N°', field: 'number', headerClass: 'table-number table-cell--center', cellClass: 'table-cell--center', width: 40, maxWidth: 40, minWidth: 40, flex: 0, suppressSizeToFit: true },
 	{ headerName: 'Dossard', field: 'dossard', headerClass: 'table-dossard table-cell--center', cellClass: 'table-cell--center', width: 80, maxWidth: 80, minWidth: 40, flex: 0, suppressSizeToFit: true },
 	{ headerName: 'N° Equi', field: 'numberTeam', headerClass: 'table-numberTeam table-cell--center', cellClass: 'table-cell--center', width: 80, maxWidth: 80, minWidth: 40, flex: 0, suppressSizeToFit: true },
-	{ headerName: 'Rider', field: 'rider', headerClass: 'table-rider table-cell--center' },
-	{ headerName: 'Cheval', field: 'horse', headerClass: 'table-horse table-cell--center' },
-	{ headerName: 'Club', field: 'team', headerClass: 'table-team table-cell--center' },
-	{ headerName: 'Phase 1', field: 'step_1', headerClass: 'table-step_1 table-cell--center', cellClass: 'table-cell--right', valueGetter: (params: any) => params.data.step_1 ? `${params.data.step_1.time}s (${params.data.step_1.pts} pts)` : '' },
-	{ headerName: 'Phase 2', field: 'step_2', headerClass: 'table-step_2 table-cell--center', cellClass: 'table-cell--right', valueGetter: (params: any) => params.data.step_2 ? `${params.data.step_2.time}s (${params.data.step_2.pts} pts)` : '' },
+	{ headerName: 'Rider', field: 'rider', headerClass: 'table-rider table-cell--center', cellClass: 'table-cell--align-center' },
+	{ headerName: 'Cheval', field: 'horse', headerClass: 'table-horse table-cell--center', cellClass: 'table-cell--align-center' },
+	{ headerName: 'Club', field: 'team', headerClass: 'table-team table-cell--center', cellClass: 'table-cell--align-center' },
+	{ headerName: 'Phase 1', field: 'step_1', headerClass: 'table-step_1 table-cell--center', cellClass: 'table-cell--right table-cell--align-center', valueGetter: (params: any) => params.data.step_1 ? `${params.data.step_1.time}s (${params.data.step_1.pts} pts)` : '' },
+	{ headerName: 'Phase 2', field: 'step_2', headerClass: 'table-step_2 table-cell--center', cellClass: 'table-cell--right table-cell--align-center', valueGetter: (params: any) => params.data.step_2 ? `${params.data.step_2.time}s (${params.data.step_2.pts} pts)` : '' },
 	{
 		headerName: 'Total',
 		field: 'total',
 		headerClass: 'table-total table-cell--center',
-		cellClass: 'table-cell--right',
+		cellClass: 'table-cell--right table-cell--align-center',
 		valueGetter: (params: any) => {
 			const s1 = params.data.step_1;
 			const s2 = params.data.step_2;

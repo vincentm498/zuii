@@ -24,3 +24,4 @@ export * from './components/Nav/react';
 export * from './components/Lang-selector/react';
 export * from './components/Auth/react';
 export * from './components/Errorpage/react';
+export * from './components/Loader/react';

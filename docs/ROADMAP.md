@@ -28,7 +28,7 @@ L'objectif est de poser des bases solides pour la librairie.
   - [x] `Context-menu`
   - [x] `Placeholder`
   - [x] **Unification des styles de menu** (Dropdown, Context-menu, Select)
-  - [x] `Lang-selector` (Choices.js)
+  - [x] `Lang-selector` (Choices.js) - *Ajout recherche & option sans défaut*
   - [x] `FloatingLabel` (Option Form)
   - [x] `Multi-select` (avec Choices.js)
   - [x] `TelInput` (avec intl-tel-input)
@@ -48,7 +48,7 @@ L'objectif est de poser des bases solides pour la librairie.
 
 ### 🔵 Phase 3 : Composants Avancés
 - [x] **Overlays** : `Modal`, `Popover`, `Tooltip`.
-- [x] **Feedback** : `Alert` (Support JS/TS & injection composants React), `Toast`, `Spinner`.
+- [x] **Feedback** : `Alert` (Support JS/TS & injection composants React), `Toast`, `Spinner` (Loader).
 - [x] **Data Display** : `Table` (Ag-Grid : Tri, Filtrage, Sélection, Pagination personnalisée avec `Select`), `Badge`, `Card`.
 
 ### 🟣 Phase 4 : Écosystème & Qualité

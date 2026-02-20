@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import '../style/index.scss';
 import { Icon, Button, Tooltip } from '../../../index';
 import { initNav } from '../js/nav';
+import { Link } from 'react-router-dom';
 
 /**
  * Propriétés d'un élément de navigation.
@@ -107,7 +108,7 @@ const NavItem = ({
 			{(!component && !icon) && label}
 		</Button>
 	) : (
-		href ? <a href={href} {...props}>{content}</a> : content
+		href ? <Link to={href} {...props}>{content}</Link> : content
 	);
 
 	const tooltipContent = typeof tooltip === 'string' ? tooltip : (tooltip === true ? label : undefined);

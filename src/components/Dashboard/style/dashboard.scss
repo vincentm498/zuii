@@ -39,28 +39,44 @@
 	grid-row: 2; // Positionné sur la deuxième ligne
 	background: var(--light);
 	width: 0px;
-	// position: relative;
 	background: var(--primary-dark);
 	color: var(--white);
 	transition: all .3s ease-in-out;
 
-
-	// button{
-	// 	display: flex;
-	// 	align-items: center;
-	// 	justify-content: center;
-	// 	position: absolute;
-	// 	top: 0;
-	// 	right: 0;
-	// 	z-index: 1;
-	// 	transform: translateX(50%);
-	// }
-
 	&.open {
-		width: 200px;
-
-
+		width: 160px;
 	}
 }
+
+.dashboard__wrapper{
+	padding: var(--dashboard-padding);
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-md);
+	overflow: auto;
+}
+
+.dashboard__card{
+	background: var(--white);
+	border-radius: var(--radius-base);
+	box-shadow: var(--box-shadow-md);
+	height: fit-content;
+	overflow: hidden;
+}
+
+.dashboard__card-header{
+	background: var(--gray-200);
+	padding: 0 var(--spacing-md);
+}
+
+.dashboard__card-content	{
+	padding: var(--spacing-md);
+}
+
+.dashboard__card-title	{
+	font-size: 1.25rem;
+	margin: 0;
+}
+
 
 
