@@ -1,6 +1,6 @@
 import { Button as BootstrapButton, ButtonProps } from "react-bootstrap";
 import '../style/index.scss';
-import { Icon } from "../../Icon/react";
+import { Icon, SizeProvider } from "../../Icon/react";
 
 interface Props extends Omit<ButtonProps, "size"> {
 	/**
@@ -57,10 +57,12 @@ export const Button = ({
 			className={`${className} ${customSizeClass} ${btnIcon ? "btn-icon" : ""} ${transparent ? "btn-transparent" : ""}`.trim()}
 			{...props}
 		>
-			<div className={`btn-content ${reverse ? "btn-reverse" : ""}`}>
-				{icon && <Icon name={icon} />}
-				{children && children}
-			</div>
+			<SizeProvider size={size}>
+				<div className={`btn-content ${reverse ? "btn-reverse" : ""}`}>
+					{icon && <Icon name={icon} />}
+					{children && children}
+				</div>
+			</SizeProvider>
 		</BootstrapButton>
 	);
 };

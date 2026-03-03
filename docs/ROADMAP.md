@@ -16,9 +16,9 @@ L'objectif est de poser des bases solides pour la librairie.
 - [x] Licence MIT.
 - [x] **Design Tokens** : Couleurs, Typographie, Espacement (via Style Dictionary).
 - [x] **Gestion automatique du contraste** (A11y).
-- [ ] **Base Components** :
-  - [x] `Button`
-  - [x] `Icon`
+- [x] **Base Components** :
+  - [x] `Button` (Partage auto de la taille vers `Icon`)
+  - [x] `Icon` (Consommation auto de la taille du parent)
   - [x] `Group`
   - [x] `Avatar`
   - [x] `Color`
@@ -26,11 +26,11 @@ L'objectif est de poser des bases solides pour la librairie.
   - [x] `Logo`
   - [x] `Divider`
   - [x] `Context-menu`
-  - [x] `Placeholder`
+  - [x] `Placeholder` (Simulation image, bouton & input)
   - [x] **Unification des styles de menu** (Dropdown, Context-menu, Select)
   - [x] `Lang-selector` (Choices.js) - *Ajout recherche & option sans défaut*
   - [x] `FloatingLabel` (Option Form)
-  - [x] `Multi-select` (avec Choices.js)
+  - [x] `Multi-select` (avec Choices.js) - *Ajout variante drapeaux (country)*
   - [x] `TelInput` (avec intl-tel-input)
   - [x] `Dropdown` (React Bootstrap)
   - [x] `Radius`

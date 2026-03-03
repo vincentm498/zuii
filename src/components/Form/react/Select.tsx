@@ -7,6 +7,10 @@ import { initSelect } from '../js/select';
 export interface SelectOption {
 	text: string;
 	value: string;
+	/**
+	 * Code du drapeau (ex: 'fr', 'en').
+	 */
+	flag?: string;
 }
 
 /**
@@ -49,6 +53,11 @@ export interface SelectProps {
 	 * Nom du champ.
 	 */
 	name?: string;
+	/**
+	 * Variante du sélecteur.
+	 * @default 'default'
+	 */
+	variant?: 'default' | 'country';
 }
 
 /**
@@ -67,30 +76,64 @@ export const Select = ({
 	searchable = true,
 	className = "",
 	name,
+	variant = "default",
 }: SelectProps) => {
 	const selectRef = useRef<HTMLSelectElement>(null);
 	const choicesRef = useRef<any>(null);
+	const onChangeRef = useRef(onChange);
+	const valueRef = useRef(value);
+
+	// Garder les refs à jour sans déclencher d'effet inutile
+	useEffect(() => {
+		onChangeRef.current = onChange;
+	}, [onChange]);
 
 	useEffect(() => {
-		if (!options) return;
+		valueRef.current = value;
+	}, [value]);
+
+	const optionsKey = JSON.stringify(options);
+
+	useEffect(() => {
+		if (!options || options.length === 0) return;
 
 		if (selectRef.current) {
 			// Nettoyer pour éviter les doublons
 			selectRef.current.innerHTML = '';
 
+			const currentVal = value ?? valueRef.current;
 			const choicesOptions = options.map(opt => ({
 				value: opt.value,
 				label: opt.text,
-				selected: Array.isArray(value) ? value.includes(opt.value) : value === opt.value
+				selected: Array.isArray(currentVal) ? currentVal.includes(opt.value) : currentVal === opt.value,
+				customProperties: {
+					flag: opt.flag
+				}
 			}));
+
+			// Ajouter une option de placeholder si non multiple pour éviter la sélection auto de la première option
+			if (!multiple) {
+				choicesOptions.unshift({
+					value: '',
+					label: placeholder,
+					selected: currentVal === undefined || currentVal === '',
+					placeholder: true
+				} as any);
+			}
 
 			choicesRef.current = initSelect(selectRef.current, {
 				choices: choicesOptions,
 				removeItemButton: multiple,
 				placeholderValue: placeholder,
 				searchEnabled: searchable,
-				silent: true
-			}, onChange);
+				silent: true,
+				variant
+			}, (val) => {
+				valueRef.current = val;
+				if (onChangeRef.current) {
+					onChangeRef.current(val);
+				}
+			});
 		}
 
 		return () => {
@@ -99,7 +142,7 @@ export const Select = ({
 				choicesRef.current = null;
 			}
 		};
-	}, [options, multiple, placeholder, onChange]);
+	}, [optionsKey, multiple, placeholder, variant, searchable]);
 
 	// Mise à jour de la valeur si elle change de l'extérieur
 	useEffect(() => {
@@ -121,7 +164,7 @@ export const Select = ({
 				ref={selectRef}
 				multiple={multiple}
 				disabled={disabled}
-				className="zuii-select"
+				className="select"
 				name={name}
 			/>
 		</div>

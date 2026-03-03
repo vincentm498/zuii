@@ -1,4 +1,8 @@
 
+.form__input{
+	--form-placeholder-color: color-mix(in srgb, var(--body-color), transparent 70%);
+}
+
 .form__input:not(:has(.choices)){
 	padding: var(--spacing-xs) var(--spacing-sm);
 }
@@ -121,7 +125,11 @@ input[type="radio"]{
 	.form-control,
 	.form-control::placeholder,
 	.icon{
-		color: var(--gray-400);
+		color: var(--form-placeholder-color);
 	}
+}
+
+input::placeholder{
+	color: var(--form-placeholder-color);
 }
 

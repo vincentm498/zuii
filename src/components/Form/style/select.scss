@@ -4,6 +4,12 @@
 	width: 100%;
 	display: flex;
 }
+
+.choices__placeholder{
+	opacity: 1;
+	color: var(--form-placeholder-color);
+}
+
 .choices__inner,
 .choices__input{
 	background-color: transparent;
@@ -54,5 +60,12 @@
 	width: 100%;
 	margin-top: 4px;
 	padding: 4px;
+}
+
+.select__flag {
+	margin-right: var(--spacing-xs);
+	width: 20px;
+	height: 15px;
+	display: inline-block;
 }
 

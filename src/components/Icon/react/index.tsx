@@ -1,4 +1,33 @@
+import React, { createContext, useContext } from "react";
 import "../style/index.scss";
+
+/**
+ * Type pour les tailles supportées.
+ */
+export type ComponentSize = "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl" | undefined;
+
+/**
+ * Contexte pour partager la taille entre les composants.
+ */
+const SizeContext = createContext<ComponentSize>(undefined);
+
+/**
+ * Fournisseur de contexte pour la taille.
+ */
+export const SizeProvider = ({ size, children }: { size: ComponentSize; children: React.ReactNode }) => {
+	return (
+		<SizeContext.Provider value={size}>
+			{children}
+		</SizeContext.Provider>
+	);
+};
+
+/**
+ * Hook pour consommer la taille du contexte.
+ */
+export const useSize = (): ComponentSize => {
+	return useContext(SizeContext);
+};
 
 /**
  * Propriétés du composant Icon.
@@ -12,7 +41,7 @@ interface Props {
 	/**
 	 * La taille de l'icône.
 	 */
-	size?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl";
+	size?: ComponentSize;
 	/**
 	 * Classe CSS additionnelle.
 	 */
@@ -27,11 +56,14 @@ interface Props {
  */
 export const Icon = ({
 	name,
-	size = "lg",
+	size,
 	className = "",
 }: Props) => {
+	const contextSize = useSize();
+	const finalSize = size || contextSize || "lg";
+
 	const bemClass = "icon";
-	const sizeClass = `${bemClass}--size-${size}`;
+	const sizeClass = `${bemClass}--size-${finalSize}`;
 
 	return (
 		<span className={`${bemClass} ${sizeClass} ${className}`.trim()}>

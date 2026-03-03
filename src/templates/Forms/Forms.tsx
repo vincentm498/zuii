@@ -18,7 +18,7 @@ export const Forms = () => {
 			<Form.Check type="checkbox" label="Enter checkbox"  />
 			<Form.Check type="radio" label="Enter radio"  />
 			<Form.Control type="select" placeholder="Enter select"  />
-			<Form.Control type="select-multiple" placeholder="Enter select multiple"  />
+			<Form.Control type="select-multiple" placeholder="Enter select multiple"   />
 			{/* <Form.Control
 				floating
 				label="Email address"

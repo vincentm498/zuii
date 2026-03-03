@@ -27,7 +27,5 @@ export const initLoader = (element: HTMLElement, options: LoaderOptions = {}) =>
 
 	const { size = 'md' } = options;
 	element.setAttribute('data-size', size);
-
-	console.log('Loader initialized', options);
 };
 

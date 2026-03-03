@@ -61,12 +61,12 @@
 	border-radius: var(--radius-base);
 	box-shadow: var(--box-shadow-md);
 	height: fit-content;
-	overflow: hidden;
 }
 
 .dashboard__card-header{
 	background: var(--gray-200);
 	padding: 0 var(--spacing-md);
+	border-radius: var(--radius-base) var(--radius-base) 0 0;
 }
 
 .dashboard__card-content	{

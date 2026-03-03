@@ -6,7 +6,9 @@ import { Form } from '../../index';
  * @returns {JSX.Element} La page de démo des forms.
  */
 export const FormsElements = () => {
-	const [value, setValue] = useState<string | string[]>(['1']);
+	const [selectValue, setSelectValue] = useState<string | string[]>('');
+	const [countryValue, setCountryValue] = useState<string | string[]>('');
+	const [multiValue, setMultiValue] = useState<string | string[]>(['1', '2']);
 
 
 	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -45,7 +47,7 @@ export const FormsElements = () => {
 				<Form.Check id="checkbox2" type="checkbox" label="Enter checkbox checked" name="checkbox" defaultChecked />
 				<Form.Check id="radio1" type="radio" label="Enter radio option 1" name="radio" defaultChecked />
 				<Form.Check id="radio2" type="radio" label="Enter radio option 2" name="radio"  />
-				<Form.Select name="select" value={value} onChange={(value) => setValue(value)} options={[
+				<Form.Select name="select" value={selectValue} onChange={(val) => setSelectValue(val)} options={[
 					{
 						text: 'Option 1',
 						value: '1'
@@ -59,7 +61,20 @@ export const FormsElements = () => {
 						value: '3'
 					}
 				]} />
-				<Form.Select name="selectMultiple[]" value={['1', '2']} multiple={true} options={[
+				<Form.Select
+					name="select-country"
+					variant="country"
+					value={countryValue}
+					onChange={(val) => setCountryValue(val)}
+					options={[
+						{ text: 'France', value: 'FR' },
+						{ text: 'Allemagne', value: 'DE', flag: 'de' },
+						{ text: 'Espagne', value: 'ES', flag: 'es' },
+						{ text: 'Italie', value: 'IT', flag: 'it' },
+						{ text: 'Portugal', value: 'PT', flag: 'pt' }
+					]}
+				/>
+				<Form.Select name="selectMultiple[]" value={multiValue} onChange={(val) => setMultiValue(val)} multiple={true} options={[
 					{
 						text: 'Option 1',
 						value: '1'

@@ -55,6 +55,11 @@ export const Placeholders = () => {
 					<Placeholder button animation="wave" variant="success" />
 					<Placeholder button variant="danger" />
 				</Group>
+
+				<h5 className="mt-4">Inputs</h5>
+				<p className="text-muted small">Pour simuler des champs de saisie.</p>
+				<Placeholder input animation="wave" />
+
 			</section>
 		</div>
 	);

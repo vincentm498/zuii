@@ -1,4 +1,5 @@
 @use "@core/tokens.scss" as *;
+@use "../../Form/style/form.scss" as *;
 
 .placeholder {
 	width: 100%;
@@ -35,6 +36,12 @@
 			mask-repeat: no-repeat;
 			mask-position: center;
 		}
+	}
+
+	&--input {
+		@extend .form__input;
+		height: 1.93rem;
+		background: color-mix(in srgb, currentcolor, transparent 70%);
 	}
 
 }

@@ -18,6 +18,8 @@ interface Props extends BSTPlaceholderProps {
 	button?: boolean;
 	/** Si le placeholder est une image */
 	image?: boolean;
+	/** Si le placeholder est un input */
+	input?: boolean;
 }
 
 /**
@@ -33,6 +35,7 @@ export const Placeholder = ({
 	width,
 	button,
 	image,
+	input,
 	children,
 	className = "",
 	...props
@@ -45,7 +48,7 @@ export const Placeholder = ({
 			variant={variant}
 			xs={width}
 			aria-hidden="true"
-			className={`placeholder__item ${animation ? `placeholder-${animation}` : ''} ${button ? 'btn' : ''} ${image ? 'placeholder--image' : ''} ${isFilled ? 'placeholder--filled' : ''} ${variant && button ? `btn-${variant}` : ''} ${className}`.trim()}
+			className={`placeholder__item ${animation ? `placeholder-${animation}` : ''} ${button ? 'btn' : ''} ${image ? 'placeholder--image' : ''} ${input ? 'placeholder--input' : ''} ${isFilled ? 'placeholder--filled' : ''} ${variant && button ? `btn-${variant}` : ''} ${className}`.trim()}
 			{...(button ? { as: 'button' } : {})}
 			{...props}
 		>
