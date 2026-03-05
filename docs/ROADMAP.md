@@ -42,7 +42,7 @@ L'objectif est de poser des bases solides pour la librairie.
   - [x] `Radio`
 
 ### 🟡 Phase 2 : Structure & Layout
-- [ ] **Grid System** : Utilitaires Flexbox et Grid (CSS Layers).
+- [x] **Grid System** : Système de grille à 24 colonnes avec support responsive (sm, md, lg, xl). *Optimisé via CSS Variables & Container Queries*.
 - [ ] **Layout Components** : `Container`, `Stack`, `Box`, `Dashboard`.
 - [x] **Navigation** : `Nav`, `Tabs`, `Breadcrumbs`.
 

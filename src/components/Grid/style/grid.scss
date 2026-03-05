@@ -1,0 +1,72 @@
+.grid-container {
+	container-type: inline-size;
+	width: 100%;
+}
+
+.grid {
+	display: grid;
+	grid-template-columns: repeat(24, minmax(0, 1fr));
+	width: 100%;
+	box-sizing: border-box;
+
+	// Liste des tailles de gap (basées sur les tokens --size-X)
+	$gap-sizes: (0, 1, 2, 3, 4, 5, 6, 8, 10, 12, 16, 20, 24, 32, 40, 48, 64);
+
+	/**
+	 * Mixin pour générer les classes de gap
+	 * @param {String} $prefix - Préfixe responsive optionnel
+	 */
+	@mixin generate-gaps($prefix: "") {
+		$p: if($prefix == "", "", "#{$prefix}-");
+
+		@each $size in $gap-sizes {
+			&--gap-#{$p}#{$size} { gap: var(--size-#{$size}); }
+			&--gap-x-#{$p}#{$size} { column-gap: var(--size-#{$size}); }
+			&--gap-y-#{$p}#{$size} { row-gap: var(--size-#{$size}); }
+		}
+	}
+
+	&__item {
+		min-width: 0;
+		box-sizing: border-box;
+		display: block; // défaut
+	}
+
+	// Génération des spans et gaps par défaut
+	@for $i from 0 through 24 {
+		&__item--#{$i} {
+			@if $i == 0 {
+				display: none;
+			} @else {
+				display: block;
+				grid-column: span #{$i};
+			}
+		}
+	}
+
+	@include generate-gaps();
+
+	// Breakpoints responsives via Container Queries
+	$breakpoints: (
+		"sm": 640px,
+		"md": 768px,
+		"lg": 1024px,
+		"xl": 1280px
+	);
+
+	@each $name, $width in $breakpoints {
+		@container (min-width: #{$width}) {
+			@for $i from 0 through 24 {
+				&__item--#{$name}-#{$i} {
+					@if $i == 0 {
+						display: none;
+					} @else {
+						display: block;
+						grid-column: span #{$i};
+					}
+				}
+			}
+			@include generate-gaps($name);
+		}
+	}
+}

@@ -24,3 +24,4 @@ export * from './Dashboards/Dashboards';
 export * from './Navs/Navs';
 export * from './Errorpages/Errorpages';
 export * from './Loaders/Loaders';
+export * from './Grids/Grids';
