@@ -1,3 +1,10 @@
+## [1.4.16](https://github.com/vincentm498/zuii/compare/v1.4.15...v1.4.16) (2026-03-05)
+
+
+### Bug Fixes
+
+* Ajout du composant Grid, GridItem et GridSpacer avec des styles responsives et une démo. ([1c651a2](https://github.com/vincentm498/zuii/commit/1c651a2bf43098412fa08d492be8680cc8818d4d))
+
 ## [1.4.15](https://github.com/vincentm498/zuii/compare/v1.4.14...v1.4.15) (2026-03-03)
 
 
