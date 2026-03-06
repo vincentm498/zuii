@@ -1,3 +1,10 @@
+## [1.4.17](https://github.com/vincentm498/zuii/compare/v1.4.16...v1.4.17) (2026-03-06)
+
+
+### Bug Fixes
+
+* add Slider, Card, and Menu components with their React implementations, styles, and templates, and introduce a new SVG variant for the Loader. ([4d6beff](https://github.com/vincentm498/zuii/commit/4d6beff5f41f843cf8b35b69499748efaf698e84))
+
 ## [1.4.16](https://github.com/vincentm498/zuii/compare/v1.4.15...v1.4.16) (2026-03-05)
 
 
