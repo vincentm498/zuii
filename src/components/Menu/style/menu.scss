@@ -1,0 +1,45 @@
+.menu {
+	--menu-breakpoint: 768px;
+
+	position: relative;
+	background: var(--primary);
+}
+
+.menu__container {
+	padding: 1rem;
+	max-width: 1200px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.menu__left {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+.menu__right {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+.menu__nav-list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.menu__nav-items {
+	display: flex;
+	gap: 1rem;
+}
+
+.menu__actions {
+	display: flex;
+	gap: 1rem;
+	align-items: center;
+}
+

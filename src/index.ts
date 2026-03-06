@@ -26,3 +26,6 @@ export * from './components/Auth/react';
 export * from './components/Errorpage/react';
 export * from './components/Loader/react';
 export * from './components/Grid/react';
+export * from './components/Menu/react';
+export * from './components/Slider/react';
+export * from './components/Card/react';

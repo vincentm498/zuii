@@ -1,5 +1,6 @@
 .grid-container {
 	container-type: inline-size;
+	container-name: grid;
 	width: 100%;
 }
 
@@ -55,7 +56,7 @@
 	);
 
 	@each $name, $width in $breakpoints {
-		@container (min-width: #{$width}) {
+		@container grid (min-width: #{$width}) {
 			@for $i from 0 through 24 {
 				&__item--#{$name}-#{$i} {
 					@if $i == 0 {

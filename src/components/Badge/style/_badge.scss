@@ -13,6 +13,7 @@
 	display: flex;
 	gap: var(--spacing-xs);
 	align-items: center;
+	color: red;
 
 	@each $color, $value in $brands {
 		&--#{$color} {
@@ -20,19 +21,26 @@
 			border-color: var(--#{$color});
 		}
 
-		&--outline {
-			--bg-opacity: 0;
-			background-color: transparent;
-			color: inherit;
+	}
 
-			@each $color, $value in $brands {
-				&-#{$color} {
-					// --badge-color: #{$value};
-					border-color: #{$value};
-					color: #{$value};
-				}
+	&--outline {
+		--bg-opacity: 0;
+		background-color: transparent;
+		color: inherit;
+
+		@each $color, $value in $brands {
+			&-#{$color} {
+				// --badge-color: #{$value};
+				border-color: #{$value};
+				color: #{$value};
 			}
 		}
+	}
+
+	&--grey {
+		--badge-color: var(--gray-500);
+		border-color: var(--gray-500);
+		color: var(--gray-500);
 	}
 
 

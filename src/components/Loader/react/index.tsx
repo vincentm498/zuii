@@ -18,6 +18,10 @@ interface Props extends LoaderOptions {
 	 * Couleur du loader.
 	 */
 	color?: string;
+	/**
+	 * Styles additionnels.
+	 */
+	style?: React.CSSProperties;
 }
 
 /**
@@ -33,6 +37,8 @@ export const Loader = ({
 	message,
 	children,
 	color = "primary",
+	style,
+	src,
 }: Props) => {
 	const loaderRef = useRef<HTMLDivElement>(null);
 	const baseClass = "loader";
@@ -59,6 +65,8 @@ export const Loader = ({
 				return <div className={`${baseClass}__spinner-circle`}></div>;
 			case 'pulse':
 				return <div className={`${baseClass}__pulse`}></div>;
+			case 'svg':
+				return <div className={`${baseClass}__svg`} style={style}></div>;
 			case 'dots':
 			default:
 				return (

@@ -4,5 +4,6 @@ $enable-important-utilities: false;
 @layer vendor {
 	@import "lucide-static/font/lucide.scss";
 	@import "bootstrap/scss/bootstrap";
+	@import '@splidejs/react-splide/css';
 }
 

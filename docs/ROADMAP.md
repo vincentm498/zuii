@@ -44,12 +44,12 @@ L'objectif est de poser des bases solides pour la librairie.
 ### 🟡 Phase 2 : Structure & Layout
 - [x] **Grid System** : Système de grille à 24 colonnes avec support responsive (sm, md, lg, xl). *Optimisé via CSS Variables & Container Queries*.
 - [ ] **Layout Components** : `Container`, `Stack`, `Box`, `Dashboard`.
-- [x] **Navigation** : `Nav`, `Tabs`, `Breadcrumbs`.
+- [x] **Navigation** : `Nav`, `Tabs`, `Breadcrumbs`, `Menu` (Refondu en structure layout, responsive avec burger menu mobile).
 
 ### 🔵 Phase 3 : Composants Avancés
 - [x] **Overlays** : `Modal`, `Popover`, `Tooltip`.
-- [x] **Feedback** : `Alert` (Support JS/TS & injection composants React), `Toast`, `Spinner` (Loader).
-- [x] **Data Display** : `Table` (Ag-Grid : Tri, Filtrage, Sélection, Pagination personnalisée avec `Select`), `Badge`, `Card`.
+- [x] **Feedback** : `Alert` (Support JS/TS & injection composants React), `Toast`, `Spinner` (Loader) - *Ajout variante SVG*.
+- [x] **Data Display** : `Table` (Ag-Grid : Tri, Filtrage, Sélection, Pagination personnalisée avec `Select`), `Badge`, `Card`, `Slider` (SplideJS).
 
 ### 🟣 Phase 4 : Écosystème & Qualité
 - [ ] **Documentation** : Storybook complet avec exemples interactifs.

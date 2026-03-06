@@ -143,6 +143,36 @@
 		}
 	}
 
+	// Variante SVG (Cercle animé via SVG)
+	&--svg {
+		.loader__svg {
+			width: 36px;
+			height: 36px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background: color-mix(in srgb, var(--loader-color), transparent 80%);
+			position: relative;
+			mask-position: center;
+			mask-repeat: no-repeat;
+			mask-size: contain;
+
+
+			&:before{
+				background: var(--loader-color);
+				content: "";
+				inset: -5px;
+				margin: auto;
+				position: absolute;
+				right: 100%;
+				left: initial;
+				width: 100%;
+				animation: diamondLoader 3s cubic-bezier(0, .02, .27, 1.01) infinite;
+
+			}
+		}
+	}
+
 	&__content {
 		font-family: var(--font-family-base, sans-serif);
 		font-size: 0.875rem;
@@ -195,6 +225,26 @@
 	100% {
 			transform: rotate(.5turn);
 		}
+}
+
+@keyframes diamondLoader {
+	0%{
+		opacity: 1;
+	}
+
+	0%, 20% {
+		right: 100%;
+		opacity: 1;
+	}
+	60%, 100% {
+		right: 0%;
+		opacity: 1;
+
+	}
+
+	100%{
+		opacity: 0;
+	}
 }
 
 

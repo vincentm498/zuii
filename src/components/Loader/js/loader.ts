@@ -13,7 +13,11 @@ export interface LoaderOptions {
 	/**
 	 * Variante de style du loader.
 	 */
-	variant?: 'dots' | 'spinner' | 'pulse' | 'quad';
+	variant?: 'dots' | 'spinner' | 'pulse' | 'quad' | 'svg';
+	/**
+	 * Source du SVG (chaîne SVG ou chemin).
+	 */
+	src?: string;
 }
 
 /**

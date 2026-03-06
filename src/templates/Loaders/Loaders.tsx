@@ -27,6 +27,10 @@ export const Loaders = () => {
 						<Loader variant="quad" />
 						<span className="text-xs text-muted mt-2">Quad</span>
 					</div>
+					<div className="flex flex-col items-center gap-3" style={{ minWidth: '100px' }}>
+						<Loader variant="svg" style={{ maskImage: "url('https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg')"}} />
+						<span className="text-xs text-muted mt-2">SVG</span>
+					</div>
 				</Group>
 			</section>
 
@@ -70,6 +74,7 @@ export const Loaders = () => {
 					<Loader color="danger" variant="spinner" />
 					<Loader color="warning" variant="pulse" />
 					<Loader color="info" variant="quad" />
+
 				</Group>
 			</section>
 

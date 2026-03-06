@@ -25,3 +25,5 @@ export * from './Navs/Navs';
 export * from './Errorpages/Errorpages';
 export * from './Loaders/Loaders';
 export * from './Grids/Grids';
+export * from './Sliders/Sliders';
+export * from './Cards/Cards';
