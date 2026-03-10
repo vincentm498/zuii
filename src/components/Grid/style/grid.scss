@@ -49,6 +49,7 @@
 
 	// Breakpoints responsives via Container Queries
 	$breakpoints: (
+		"xs": 450px,
 		"sm": 640px,
 		"md": 768px,
 		"lg": 1024px,
@@ -70,4 +71,8 @@
 			@include generate-gaps($name);
 		}
 	}
+}
+
+.grid__item-bottom{
+	align-content: end;
 }

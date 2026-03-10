@@ -1,5 +1,4 @@
 import { Form as BootstrapForm } from "react-bootstrap";
-import "../style/index.scss";
 
 /**
  * Propriétés du composant RangeInput.

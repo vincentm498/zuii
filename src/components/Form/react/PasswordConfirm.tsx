@@ -32,6 +32,10 @@ export interface PasswordConfirmProps {
 	 * Si l'input est désactivé.
 	 */
 	disabled?: boolean;
+	/**
+	 * Message d'erreur personnalisé (utile pour la traduction).
+	 */
+	errorMessage?: string;
 }
 
 /**
@@ -47,6 +51,7 @@ export const PasswordConfirm = ({
 	className = "",
 	placeholder = "Confirmez le mot de passe",
 	disabled = false,
+	errorMessage = "Les mots de passe ne correspondent pas.",
 }: PasswordConfirmProps) => {
 	const [showPassword, setShowPassword] = useState(false);
 	const [isValid, setIsValid] = useState(true);
@@ -69,27 +74,29 @@ export const PasswordConfirm = ({
 	};
 
 	return (
-		<InputGroup className={`${bemClass} ${className}`.trim()} hasValidation>
-			<BootstrapForm.Control
-				type={showPassword ? "text" : "password"}
-				value={value}
-				onChange={(e) => handleChange(e.target.value)}
-				placeholder={placeholder}
-				disabled={disabled}
-				isInvalid={!isValid && value !== ""}
-				isValid={isValid && value !== "" && value === passwordToMatch}
-				className={`${bemClass}__control`}
-			/>
-			<InputGroup.Text
-				className={`${bemClass}__toggle`}
-				onClick={toggleVisibility}
-				style={{ cursor: "pointer" }}
-			>
-				<Icon name={showPassword ? "icon-eye" : "icon-eye-closed"} size="sm" />
-			</InputGroup.Text>
+		<>
+			<InputGroup className={`form__input ${bemClass} ${className}`.trim()} hasValidation>
+				<BootstrapForm.Control
+					type={showPassword ? "text" : "password"}
+					value={value}
+					onChange={(e) => handleChange(e.target.value)}
+					placeholder={placeholder}
+					disabled={disabled}
+					isInvalid={!isValid && value !== ""}
+					isValid={isValid && value !== "" && value === passwordToMatch}
+					className={`form__control`}
+				/>
+				<InputGroup.Text
+					className={`${bemClass}__toggle`}
+					onClick={toggleVisibility}
+					style={{ cursor: "pointer" }}
+				>
+					<Icon name={showPassword ? "icon-eye" : "icon-eye-closed"} size="sm" />
+				</InputGroup.Text>
+			</InputGroup>
 			<BootstrapForm.Control.Feedback type="invalid">
-				Les mots de passe ne correspondent pas.
+				{errorMessage}
 			</BootstrapForm.Control.Feedback>
-		</InputGroup>
+		</>
 	);
 };

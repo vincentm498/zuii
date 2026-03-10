@@ -11,6 +11,9 @@ importers:
       '@ag-grid-community/locale':
         specifier: ^35.0.1
         version: 35.0.1
+      '@simonwep/pickr':
+        specifier: ^1.9.1
+        version: 1.9.1
       '@splidejs/react-splide':
         specifier: ^0.7.12
         version: 0.7.12
@@ -50,6 +53,9 @@ importers:
       flag-icons:
         specifier: ^7.5.0
         version: 7.5.0
+      flatpickr:
+        specifier: ^4.6.13
+        version: 4.6.13
       intl-tel-input:
         specifier: ^26.1.1
         version: 26.1.1
@@ -1010,6 +1016,9 @@ packages:
     peerDependencies:
       semantic-release: '>=20.1.0'
 
+  '@simonwep/pickr@1.9.1':
+    resolution: {integrity: sha512-fR3qmfAcPf/HSFS7GEnTmZLM3+xERv1+jyMBbzT63ilRRM8veYjI7ELvkHHKk0/du3lHp7uh/FqatjM3646X1g==}
+
   '@sindresorhus/is@4.6.0':
     resolution: {integrity: sha512-t09vSN3MdfsyCHoFcTRCH/iUtG7OJ0CsjzB8cjAmKc/va/kIgeDI/TxsigdncE/4be734m0cvIYwNaV4i2XqAw==}
     engines: {node: '>=10'}
@@ -1488,6 +1497,9 @@ packages:
     resolution: {integrity: sha512-ei8Aos7ja0weRpFzJnEA9UHJ/7XQmqglbRwnf2ATjcB9Wq874VKH9kfjjirM6UhU2/E5fFYadylyhFldcqSidQ==}
     engines: {node: '>=18'}
 
+  core-js@3.37.0:
+    resolution: {integrity: sha512-fu5vHevQ8ZG4og+LXug8ulUtVxjOcEYvifJr7L5Bfq9GOztVqsKd9/59hUk2ZSbCrS3BqUr3EpaYGIYzq7g3Ug==}
+
   core-util-is@1.0.3:
     resolution: {integrity: sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==}
 
@@ -1707,6 +1719,9 @@ packages:
 
   flag-icons@7.5.0:
     resolution: {integrity: sha512-kd+MNXviFIg5hijH766tt+3x76ele1AXlo4zDdCxIvqWZhKt4T83bOtxUOOMlTx/EcFdUMH5yvQgYlFh1EqqFg==}
+
+  flatpickr@4.6.13:
+    resolution: {integrity: sha512-97PMG/aywoYpB4IvbvUJi0RQi8vearvU0oov1WW3k0WZPBMrTQVqekSX5CjSG/M4Q3i6A/0FKXC7RyAoAUUSPw==}
 
   for-each@0.3.5:
     resolution: {integrity: sha512-dKx12eRCVIzqCxFGplyFKJMPvLEWgmNtUrpTiJIR5u97zEhRG8ySrtboPHZXx7daLxQVrl643cTzbab2tkQjxg==}
@@ -2224,6 +2239,9 @@ packages:
     resolution: {integrity: sha512-c7+7RQ+dMB5dPwwCp4ee1/iV/q2P6aK1mTZcfr1BTuVlyW9hJYiMPybJCcnBlQtuSmTIWNeazm/zqNoZSSElBg==}
     engines: {node: ^18 || >=20}
     hasBin: true
+
+  nanopop@2.4.2:
+    resolution: {integrity: sha512-NzOgmMQ+elxxHeIha+OG/Pv3Oc3p4RU2aBhwWwAqDpXrdTbtRylbRLQztLy8dMMwfl6pclznBdfUhccEn9ZIzw==}
 
   neo-async@2.6.2:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
@@ -4204,6 +4222,11 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
+  '@simonwep/pickr@1.9.1':
+    dependencies:
+      core-js: 3.37.0
+      nanopop: 2.4.2
+
   '@sindresorhus/is@4.6.0': {}
 
   '@sindresorhus/merge-streams@4.0.0': {}
@@ -4701,6 +4724,8 @@ snapshots:
 
   cookie@1.1.1: {}
 
+  core-js@3.37.0: {}
+
   core-util-is@1.0.3: {}
 
   cosmiconfig@9.0.0(typescript@5.9.3):
@@ -4931,6 +4956,8 @@ snapshots:
       micromatch: 4.0.8
 
   flag-icons@7.5.0: {}
+
+  flatpickr@4.6.13: {}
 
   for-each@0.3.5:
     dependencies:
@@ -5414,6 +5441,8 @@ snapshots:
   nanoid@3.3.11: {}
 
   nanoid@5.1.6: {}
+
+  nanopop@2.4.2: {}
 
   neo-async@2.6.2: {}
 

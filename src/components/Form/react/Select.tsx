@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { initSelect } from '../js/select';
+import { Icon } from '../../Icon/react';
 
 /**
  * Option pour le composant Select.
@@ -58,7 +59,39 @@ export interface SelectProps {
 	 * @default 'default'
 	 */
 	variant?: 'default' | 'country';
+	/**
+	 * Nom de l'icône à afficher.
+	 */
+	icon?: string;
+	/**
+	 * Langue pour les traductions (ex: 'fr', 'en').
+	 */
+	lang?: string;
 }
+
+/**
+ * Traductions pour le composant Select.
+ */
+const SELECT_TRANSLATIONS: Record<string, any> = {
+	fr: {
+		placeholder: "Sélectionnez une option",
+		noResultsText: "Aucun résultat trouvé",
+		noChoicesText: "Aucun choix disponible",
+		uniqueItemText: "Seules les valeurs uniques peuvent être ajoutées",
+		customAddItemText: "Seules les valeurs correspondant à un critère spécifique peuvent être ajoutées",
+		addItemText: (value: string) => `Appuyez sur Entrée pour ajouter **${value}**`,
+		maxItemText: (maxItemCount: number) => `Seulement ${maxItemCount} options peuvent être sélectionnées`,
+	},
+	en: {
+		placeholder: "Select an option",
+		noResultsText: "No results found",
+		noChoicesText: "No choices to choose from",
+		uniqueItemText: "Only unique values can be added",
+		customAddItemText: "Only values matching specific conditions can be added",
+		addItemText: (value: string) => `Press Enter to add **${value}**`,
+		maxItemText: (maxItemCount: number) => `Only ${maxItemCount} options can be selected`,
+	},
+};
 
 /**
  * Composant Select premium basé sur Choices.js.
@@ -77,11 +110,18 @@ export const Select = ({
 	className = "",
 	name,
 	variant = "default",
+	icon,
+	lang,
 }: SelectProps) => {
 	const selectRef = useRef<HTMLSelectElement>(null);
 	const choicesRef = useRef<any>(null);
 	const onChangeRef = useRef(onChange);
 	const valueRef = useRef(value);
+
+	// Déterminer la langue et les traductions
+	const activeLang = lang || (typeof document !== 'undefined' ? document.documentElement.lang : 'fr') || 'fr';
+	const i18n = SELECT_TRANSLATIONS[activeLang.startsWith('en') ? 'en' : 'fr'];
+	const activePlaceholder = placeholder === "Sélectionnez une option" ? i18n.placeholder : placeholder;
 
 	// Garder les refs à jour sans déclencher d'effet inutile
 	useEffect(() => {
@@ -95,7 +135,6 @@ export const Select = ({
 	const optionsKey = JSON.stringify(options);
 
 	useEffect(() => {
-		if (!options || options.length === 0) return;
 
 		if (selectRef.current) {
 			// Nettoyer pour éviter les doublons
@@ -115,7 +154,7 @@ export const Select = ({
 			if (!multiple) {
 				choicesOptions.unshift({
 					value: '',
-					label: placeholder,
+					label: activePlaceholder,
 					selected: currentVal === undefined || currentVal === '',
 					placeholder: true
 				} as any);
@@ -124,10 +163,11 @@ export const Select = ({
 			choicesRef.current = initSelect(selectRef.current, {
 				choices: choicesOptions,
 				removeItemButton: multiple,
-				placeholderValue: placeholder,
+				placeholderValue: activePlaceholder,
 				searchEnabled: searchable,
 				silent: true,
-				variant
+				variant,
+				...i18n
 			}, (val) => {
 				valueRef.current = val;
 				if (onChangeRef.current) {
@@ -142,7 +182,7 @@ export const Select = ({
 				choicesRef.current = null;
 			}
 		};
-	}, [optionsKey, multiple, placeholder, variant, searchable]);
+	}, [optionsKey, multiple, activePlaceholder, variant, searchable, i18n]);
 
 	// Mise à jour de la valeur si elle change de l'extérieur
 	useEffect(() => {
@@ -160,6 +200,7 @@ export const Select = ({
 
 	return (
 		<div className={`form__input ${className}`.trim()}>
+			{icon && <Icon name={icon} size="sm" />}
 			<select
 				ref={selectRef}
 				multiple={multiple}

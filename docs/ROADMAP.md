@@ -30,13 +30,15 @@ L'objectif est de poser des bases solides pour la librairie.
   - [x] **Unification des styles de menu** (Dropdown, Context-menu, Select)
   - [x] `Lang-selector` (Choices.js) - *Ajout recherche & option sans défaut*
   - [x] `FloatingLabel` (Option Form)
-  - [x] `Multi-select` (avec Choices.js) - *Ajout variante drapeaux (country)*
-  - [x] `TelInput` (avec intl-tel-input)
+  - [x] `Multi-select` (avec Choices.js) - *Ajout variante drapeaux (country), option icône & support prop `lang` (i18n)*
+  - [x] `TelInput` (avec intl-tel-input) - *Ajout détection automatique de pays via la langue du site*
   - [x] `Dropdown` (React Bootstrap)
   - [x] `Radius`
   - [x] `Accordion` (React Bootstrap)
   - [x] `Tabs` (React Bootstrap)
   - [x] `FileInput` (Uppy)
+  - [x] `FormColor` (Pickr)
+  - [x] `FormDate` (Flatpickr)
   - [x] `Input`
   - [x] `Checkbox`
   - [x] `Radio`

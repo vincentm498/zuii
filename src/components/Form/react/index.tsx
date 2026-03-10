@@ -10,6 +10,8 @@ import { RangeInput } from "./RangeInput";
 // import { FileInput } from "./FileInput";
 import { Select } from "./Select";
 import { handleNumericKeyDown } from "../js/number";
+import { FormColor } from "./FormColor";
+import { FormDate } from "./FormDate";
 
 /**
  * Propriétés du composant FormControl.
@@ -136,3 +138,5 @@ Form.PasswordConfirm = PasswordConfirm;
 Form.Range = RangeInput;
 // Form.File = FileInput;
 Form.FloatingLabel = FloatingLabel;
+Form.Color = FormColor;
+Form.Date = FormDate;

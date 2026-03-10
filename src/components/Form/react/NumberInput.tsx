@@ -1,5 +1,4 @@
 import { Form as BootstrapForm, InputGroup } from "react-bootstrap";
-import "../style/index.scss";
 import { calculateDecrement, calculateIncrement } from "../js/form";
 import { Icon } from "../../Icon/react";
 

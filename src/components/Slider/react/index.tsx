@@ -60,7 +60,6 @@ export const Slider = ({
 	...props
 }: SliderProps) => {
 	const bemClass = "slider";
-	console.log("options", options);
 
 	// Utilisation de la logique métier déportée
 	const mergedOptions = getSliderOptions(bemClass, options, arrowClass, paginationClass);
