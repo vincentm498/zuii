@@ -34,6 +34,9 @@ interface GridProps extends HTMLAttributes<HTMLDivElement> {
 	/**
 	 * Gaps responsives.
 	 */
+	xsGap?: GapSize;
+	xsGapX?: GapSize;
+	xsGapY?: GapSize;
 	smGap?: GapSize;
 	smGapX?: GapSize;
 	smGapY?: GapSize;
@@ -59,6 +62,9 @@ export const Grid = ({
 	gap = 2,
 	gapX,
 	gapY,
+	xsGap,
+	xsGapX,
+	xsGapY,
 	smGap,
 	smGapX,
 	smGapY,
@@ -81,6 +87,11 @@ export const Grid = ({
 	if (gap !== undefined) classes.push(`${baseClass}--gap-${gap}`);
 	if (gapX !== undefined) classes.push(`${baseClass}--gap-x-${gapX}`);
 	if (gapY !== undefined) classes.push(`${baseClass}--gap-y-${gapY}`);
+
+	// XS
+	if (xsGap !== undefined) classes.push(`${baseClass}--gap-xs-${xsGap}`);
+	if (xsGapX !== undefined) classes.push(`${baseClass}--gap-x-xs-${xsGapX}`);
+	if (xsGapY !== undefined) classes.push(`${baseClass}--gap-y-xs-${xsGapY}`);
 
 	// SM
 	if (smGap !== undefined) classes.push(`${baseClass}--gap-sm-${smGap}`);
@@ -129,6 +140,10 @@ interface GridItemProps extends HTMLAttributes<HTMLDivElement> {
 	 */
 	span?: GridSpan;
 	/**
+	 * Nombre de colonnes occupées sur très petit écran (xs).
+	 */
+	xs?: GridSpan;
+	/**
 	 * Nombre de colonnes occupées sur petit écran (sm).
 	 */
 	sm?: GridSpan;
@@ -144,6 +159,10 @@ interface GridItemProps extends HTMLAttributes<HTMLDivElement> {
 	 * Nombre de colonnes occupées sur très grand écran (xl).
 	 */
 	xl?: GridSpan;
+	/**
+	 * Alignement vertical de l'item.
+	 */
+	align?: 'top' | 'bottom' | 'center';
 }
 
 /**
@@ -155,10 +174,12 @@ interface GridItemProps extends HTMLAttributes<HTMLDivElement> {
 export const GridItem = ({
 	children,
 	span = 24,
+	xs,
 	sm,
 	md,
 	lg,
 	xl,
+	align = "bottom",
 	className = "",
 	...props
 }: GridItemProps) => {
@@ -166,10 +187,13 @@ export const GridItem = ({
 	const classes = [baseClass];
 
 	if (span !== undefined) classes.push(`${baseClass}--${span}`);
+	if (xs !== undefined) classes.push(`${baseClass}--xs-${xs}`);
 	if (sm !== undefined) classes.push(`${baseClass}--sm-${sm}`);
 	if (md !== undefined) classes.push(`${baseClass}--md-${md}`);
 	if (lg !== undefined) classes.push(`${baseClass}--lg-${lg}`);
 	if (xl !== undefined) classes.push(`${baseClass}--xl-${xl}`);
+
+	if (align !== undefined) classes.push(`${baseClass}-${align}`);
 
 	if (className) classes.push(className);
 

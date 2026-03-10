@@ -116,6 +116,7 @@ export const Tabs: TabsComponent = ({
 	const variantClass = variant ? `${bemBase}--${variant}` : "";
 	const borderClass = border ? `${bemBase}--border` : "";
 	const colorClass = `${bemBase}--${color}`;
+	const tabClassName = `${bemBase}__item btn btn-${color}`;
 
 	if (items.length > 0 && vertical) {
 		return (
@@ -125,26 +126,26 @@ export const Tabs: TabsComponent = ({
 				onSelect={handleSelect}
 			>
 				<Group className={`${bemBase} ${verticalClass} ${variantClass} ${colorClass} ${className}`.trim()}>
-						<Group vertical className="tabs__nav">
-							{items.map((item, index) => (
-								<div key={index}>
-									<Button
-										variant="transparent"
-										onClick={(e: any) => handleSelect(item.eventKey, e)}
-										active={currentActiveKey === item.eventKey}
-									>
-										{item.header}
-									</Button>
-								</div>
-							))}
-						</Group>
-						<TabContent className={contentClassName}>
-							{items.map((item, index) => (
-								<TabPane key={index} eventKey={item.eventKey}>
-									{item.body}
-								</TabPane>
-							))}
-						</TabContent>
+					<Group vertical className="tabs__nav">
+						{items.map((item, index) => (
+							<div key={index}>
+								<Button
+									variant="transparent"
+									onClick={(e: any) => handleSelect(item.eventKey, e)}
+									active={currentActiveKey === item.eventKey}
+								>
+									{item.header}
+								</Button>
+							</div>
+						))}
+					</Group>
+					<TabContent className={contentClassName}>
+						{items.map((item, index) => (
+							<TabPane key={index} eventKey={item.eventKey}>
+								{item.body}
+							</TabPane>
+						))}
+					</TabContent>
 				</Group>
 			</TabContainer>
 		);
@@ -153,9 +154,9 @@ export const Tabs: TabsComponent = ({
 	return (
 		<div className={`${bemBase} ${verticalClass} ${variantClass} ${borderClass} ${colorClass} ${className}`.trim()}>
 			<BootstrapTabs
-
 				activeKey={currentActiveKey}
 				onSelect={handleSelect}
+				{...{ contentClassName } as any}
 				{...props}
 			>
 				{items.length > 0 ? (
@@ -166,8 +167,7 @@ export const Tabs: TabsComponent = ({
 								key={index}
 								title={header}
 								{...(tabProps as any)}
-								tabClassName={`${bemBase}__item btn btn-${color}`}
-
+								tabClassName={tabClassName}
 							>
 								<div className={`${bemBase}__content`}>
 									{body}
@@ -176,7 +176,13 @@ export const Tabs: TabsComponent = ({
 						);
 					})
 				) : (
-					children
+					// Mode composé : injecter tabClassName sur chaque Tabs.Item enfant
+					React.Children.map(children, (child) => {
+						if (!React.isValidElement(child)) return child;
+						return React.cloneElement(child as React.ReactElement<any>, {
+							tabClassName: `${tabClassName} ${(child.props as any).tabClassName || ''}`.trim()
+						});
+					})
 				)}
 			</BootstrapTabs>
 		</div>

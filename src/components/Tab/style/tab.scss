@@ -17,7 +17,8 @@
 		align-items: stretch;
 	}
 
-	&__content {
+	&__content,
+	.tab-content {
 		background: var(--tab-bg-color-content);
 		padding: var(--spacing-lg) var(--spacing-lg);
 		height: inherit;
@@ -51,6 +52,6 @@
 @each $color, $value in $brands {
 	.tabs--#{$color} {
 		--tab-bg-color: color-mix(in srgb, var(--#{$color}), var(--tab-tinte));
-		--tab-bg-color-content: color-mix(in srgb, var(--#{$color}), var(--white) 92%);
+		--tab-bg-color-content: color-mix(in srgb, var(--#{$color}), transparent 85%);
 	}
 }

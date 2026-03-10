@@ -1,6 +1,7 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Form as BootstrapForm } from "react-bootstrap";
 import intlTelInput from "intl-tel-input";
+import { getDefaultCountry, watchLanguageChange } from "../js/tel-input";
 
 /**
  * Propriétés du composant TelInput.
@@ -42,7 +43,7 @@ export interface TelInputProps {
 export const TelInput = ({
 	value,
 	onChange,
-	initialCountry = "fr",
+	initialCountry,
 	className = "",
 	placeholder,
 	disabled = false,
@@ -50,10 +51,23 @@ export const TelInput = ({
 	const inputRef = useRef<HTMLInputElement>(null);
 	const itiRef = useRef<any>(null);
 
+	const [country, setCountry] = useState(initialCountry || getDefaultCountry());
+
+	// Surveiller les changements de langue du site
+	useEffect(() => {
+		const observer = watchLanguageChange(initialCountry, (newCountry) => {
+			setCountry(newCountry);
+		});
+
+		return () => {
+			if (observer) observer.disconnect();
+		};
+	}, [initialCountry]);
+
 	useEffect(() => {
 		if (inputRef.current) {
 			itiRef.current = intlTelInput(inputRef.current, {
-				initialCountry: initialCountry,
+				initialCountry: country,
 				loadUtils: () => import("intl-tel-input/utils"),
 				separateDialCode: true,
 				strictMode: true,
@@ -74,7 +88,7 @@ export const TelInput = ({
 				}
 			};
 		}
-	}, [initialCountry]);
+	}, [country]);
 
 	// Mise à jour de la valeur si elle change depuis l'extérieur (optionnel, dépend de la stratégie d'état)
 	useEffect(() => {

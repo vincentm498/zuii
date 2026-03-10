@@ -51,14 +51,14 @@ export const PasswordInput = ({
 	};
 
 	return (
-		<InputGroup className={`${bemClass} ${className}`.trim()}>
+		<InputGroup className={`form__input ${bemClass} ${className}`.trim()}>
 			<BootstrapForm.Control
 				type={showPassword ? "text" : "password"}
 				value={value}
 				onChange={(e) => onChange?.(e.target.value)}
 				placeholder={placeholder}
 				disabled={disabled}
-				className={`${bemClass}__control`}
+				className={`form__control`}
 			/>
 			<InputGroup.Text
 				className={`${bemClass}__toggle`}
