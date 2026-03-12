@@ -54,7 +54,7 @@ export const Group = ({
 	gap = "md",
 	center = false,
 	ariaLabel = title ? `Groupe d'éléments ${title}` : "Groupe d'éléments",
-	align = "start",
+	align,
 	style,
 }: Props) => {
 

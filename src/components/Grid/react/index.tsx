@@ -59,7 +59,7 @@ interface GridProps extends HTMLAttributes<HTMLDivElement> {
  */
 export const Grid = ({
 	children,
-	gap = 2,
+	gap,
 	gapX,
 	gapY,
 	xsGap,
@@ -179,7 +179,7 @@ export const GridItem = ({
 	md,
 	lg,
 	xl,
-	align = "bottom",
+	align,
 	className = "",
 	...props
 }: GridItemProps) => {
