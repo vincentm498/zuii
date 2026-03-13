@@ -75,3 +75,10 @@
 	text-align: start;
 }
 
+.flatpickr-wrapper:has(.flatpickr-input){
+	display: none;
+}
+.flatpickr-wrapper:has(.flatpickr-input.active){
+	display: flex;
+}
+

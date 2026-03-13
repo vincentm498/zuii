@@ -62,8 +62,11 @@ export const Slider = ({
 }: SliderProps) => {
 	const bemClass = "slider";
 
-	// Utilisation de la logique métier déportée
-	const mergedOptions = getSliderOptions(bemClass, options, arrowClass, paginationClass);
+	// Compter le nombre de slides (enfants valides)
+	const totalSlides = React.Children.count(children);
+
+	// Utilisation de la logique métier déportée (en lui passant le total de slides)
+	const mergedOptions = getSliderOptions(bemClass, options, arrowClass, paginationClass, totalSlides);
 
 	return (
 		<Splide

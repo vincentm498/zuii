@@ -34,7 +34,9 @@ export const Card = ({
  * Sous-composant Card.Img avec injection des classes BEM zuii.
  */
 Card.Img = ({ className = "", ...props }: any) => (
-	<BootstrapCard.Img className={`card__img ${className}`.trim()} {...props} />
+	<div className="card__img-wrapper">
+		<BootstrapCard.Img className={`card__img ${className}`.trim()} {...props} />
+	</div>
 );
 
 /**
