@@ -4,7 +4,12 @@
 	width: 100%;
 	display: flex;
 	align-items: center;
-	// padding: var(--spacing-xs) var(--spacing-sm);
+	padding: var(--spacing-xs) var(--spacing-sm);
+}
+
+.form__input:has(.choices){
+	padding-top: 4px !important;
+	padding-bottom: 4px !important;
 }
 
 .choices__placeholder{

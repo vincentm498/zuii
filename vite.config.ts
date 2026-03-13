@@ -19,6 +19,9 @@ export default defineConfig({
       staticImport: true
     })
   ],
+  optimizeDeps: {
+    include: ['@uppy/locales/lib/fr_FR', '@uppy/locales/lib/en_US']
+  },
   resolve: {
     alias: {
       '@core': resolve(__dirname, 'src/core/styles'),

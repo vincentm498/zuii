@@ -16,6 +16,8 @@ export const FormsElements = () => {
 		const formData = new FormData(e.currentTarget);
 		console.log(Object.fromEntries(formData.entries()));
 		console.log(formData.getAll('selectMultiple[]'));
+		const tousLesFichiers = formData.getAll('file-dashboard[]');
+		console.log(tousLesFichiers); // Affiche [File, File]
 	}
 
 	return (
@@ -43,6 +45,11 @@ export const FormsElements = () => {
 					onComplete={(result: any) => console.log("Fichiers téléchargés :", result)}
 				/>
 				 <Form.File id="file-multiple" label="Upload multiple" name="file_multiple" multiple={true} maxFiles={5} /> */}
+				<Form.File
+					restrictions={{ maxNumberOfFiles: 5 }}
+					lang='fr'
+					name="file-dashboard"
+				/>
 				<Form.Check id="checkbox1" type="checkbox" label="Enter checkbox" name="checkbox" />
 				<Form.Check id="checkbox2" type="checkbox" label="Enter checkbox checked" name="checkbox" defaultChecked />
 				<Form.Check id="radio1" type="radio" label="Enter radio option 1" name="radio" defaultChecked />
