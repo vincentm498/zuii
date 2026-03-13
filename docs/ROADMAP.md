@@ -36,7 +36,7 @@ L'objectif est de poser des bases solides pour la librairie.
   - [x] `Radius`
   - [x] `Accordion` (React Bootstrap)
   - [x] `Tabs` (React Bootstrap)
-  - [x] `FileInput` (Uppy)
+  - [x] `FileInput` (Uppy) - *Variantes (List, Grid, Dashboard), plugins (Compressor, ImageEditor) & synchronisation de formulaire native*
   - [x] `FormColor` (Pickr)
   - [x] `FormDate` (Flatpickr)
   - [x] `Input`

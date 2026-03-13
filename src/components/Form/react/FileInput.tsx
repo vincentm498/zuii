@@ -1,168 +1,155 @@
-import { useEffect, useState } from "react";
-import Uppy from "@uppy/core";
-// Utilisation de l'export officiel pour éviter les erreurs Vite
-// @ts-ignore - Dashboard est exporté via l'export map d'Uppy
-import Dashboard from "@uppy/react/dashboard";
-import French from "@uppy/locales/lib/fr_FR";
+import { useEffect, useState, useRef } from 'react';
+import Uppy from '@uppy/core';
+import { UppyContextProvider } from '@uppy/react';
+import Dashboard from '@uppy/react/dashboard';
+import Compressor from '@uppy/compressor';
+import ImageEditor from '@uppy/image-editor';
+
+// Importation des locales Uppy
+import fr_FR from '@uppy/locales/lib/fr_FR';
+import en_US from '@uppy/locales/lib/en_US';
 
 /**
- * Props du composant FileInput.
+ * Propriétés du composant FileInput.
  */
-export interface FileInputProps {
-	/**
-	 * ID unique pour l'instance Uppy.
-	 */
-	id?: string;
-	/**
-	 * Nom du champ pour le formulaire.
-	 */
+interface FileInputProps {
+	/** Nom du champ. */
 	name?: string;
-	/**
-	 * Nombre maximum de fichiers autorisés.
-	 */
-	maxNumberOfFiles?: number;
-	/**
-	 * Taille maximale d'un fichier en octets.
-	 */
-	maxFileSize?: number;
-	/**
-	 * Types de fichiers autorisés (MIME types).
-	 */
-	allowedFileTypes?: string[] | null;
-	/**
-	 * Callback appelé lors de la complétion du téléchargement.
-	 * @param {any} result - Le résultat du téléchargement.
-	 */
+	/** Langue du composant ('fr' ou 'en'). */
+	lang?: 'fr' | 'en';
+	/** Restrictions de téléchargement. */
+	restrictions?: {
+		/** Nombre maximum de fichiers. */
+		maxNumberOfFiles?: number;
+		/** Taille maximum d'un fichier en octets. */
+		maxFileSize?: number;
+		/** Types de fichiers autorisés. */
+		allowedFileTypes?: string[];
+	};
+	/** Callback appelé lors de la fin du téléchargement. */
 	onComplete?: (result: any) => void;
-	/**
-	 * Callback appelé lors d'une erreur.
-	 * @param {Error} error - L'erreur survenue.
-	 */
-	onError?: (error: Error) => void;
-	/**
-	 * Hauteur du dashboard Uppy en pixels.
-	 */
-	height?: number;
-	/**
-	 * Classe CSS personnalisée.
-	 */
-	className?: string;
-	/**
-	 * Afficher les détails de progression.
-	 */
-	hideProgressDetails?: boolean;
-	/**
-	 * Afficher le logo Uppy.
-	 */
-	proudlyDisplayPoweredByUppy?: boolean;
+	/** Callback appelé en cas d'erreur. */
+	onError?: (error: any) => void;
 }
 
 /**
- * Composant FileInput utilisant une instance stable et le Dashboard officiel d'Uppy.
- * Gère la synchronisation avec un input caché pour les soumissions de formulaire.
+ * Composant FileInput utilisant Uppy.js pour le téléchargement de fichiers.
+ * Affiche le Dashboard Uppy complet par défaut.
  *
  * @param {FileInputProps} props - Les propriétés du composant.
- * @returns {JSX.Element} Le composant FileInput.
+ * @returns {JSX.Element} Le composant FileInput rendu.
  */
 export const FileInput = ({
-	id = "uppy-dashboard",
 	name,
-	maxNumberOfFiles = 10,
-	maxFileSize = 10 * 1024 * 1024,
-	allowedFileTypes = null,
+	lang,
+	restrictions,
 	onComplete,
-	onError,
-	height = 150,
-	className = "",
-	hideProgressDetails = false,
-	proudlyDisplayPoweredByUppy = false,
+	onError
 }: FileInputProps) => {
-	// État pour stocker les noms des fichiers afin de synchroniser l'input caché
-	const [fileList, setFileList] = useState<string[]>([]);
+	// Fusion des restrictions avec les valeurs par défaut (on laisse Uppy gérer si non précisé)
+	const mergedRestrictions = {
+		maxNumberOfFiles: null,
+		maxFileSize: null,
+		allowedFileTypes: null,
+		...restrictions
+	};
 
-	// Création d'une instance unique stable.
-	// On utilise useState pour garantir qu'elle n'est créée qu'une fois par cycle de vie.
+	const inputRef = useRef<HTMLInputElement>(null);
+
+	// Détection de la langue : prop > html lang > 'fr' par défaut
+	const currentLang = lang || (typeof document !== 'undefined' ? document.documentElement.lang : 'fr') || 'fr';
+	const locale = currentLang.startsWith('en') ? en_US : fr_FR;
+
 	const [uppy] = useState(() => {
-		return new Uppy({
-			id,
-			locale: French,
-			restrictions: {
-				maxNumberOfFiles,
-				maxFileSize,
-				allowedFileTypes,
-			},
-			autoProceed: false,
+		const u = new Uppy({
+			locale,
+			restrictions: mergedRestrictions
 		});
+
+		u.use(Compressor);
+		u.use(ImageEditor);
+
+		return u;
 	});
 
-	// Mise à jour des restrictions de manière réactive
 	useEffect(() => {
-		uppy.setOptions({
-			restrictions: {
-				maxNumberOfFiles,
-				maxFileSize,
-				allowedFileTypes,
-			}
-		});
-	}, [uppy, maxNumberOfFiles, maxFileSize, allowedFileTypes]);
+		if (onComplete) {
+			uppy.on('complete', onComplete);
+		}
 
-	// Gestion des événements (complétion, erreurs et synchronisation de la liste des fichiers)
-	useEffect(() => {
-		const updateFileList = () => {
+		if (onError) {
+			uppy.on('error', onError);
+		}
+
+		const syncToInput = () => {
+			if (!inputRef.current) return;
+
+			const dataTransfer = new DataTransfer();
 			const files = uppy.getFiles();
-			setFileList(files.map(f => f.name));
+
+			files.forEach((file) => {
+				if (file.data instanceof File) {
+					dataTransfer.items.add(file.data);
+				} else if (file.data instanceof Blob) {
+					const f = new File([file.data], file.name, { type: file.data.type });
+					dataTransfer.items.add(f);
+				}
+			});
+
+			inputRef.current.files = dataTransfer.files;
+
+			// Déclenchement manuel de l'événement change pour les libs de formulaire (Hook Form, etc.)
+			inputRef.current.dispatchEvent(new Event('change', { bubbles: true }));
 		};
 
-		const handleComplete = (result: any) => {
-			if (onComplete) onComplete(result);
-		};
+		const events = [
+			'file-added',
+			'file-removed',
+			'files-added',
+			'file-editor:complete',
+			'preprocess-complete',
+			'postprocess-complete'
+		];
 
-		const handleError = (error: Error) => {
-			if (onError) onError(error);
-		};
-
-		uppy.on("complete", handleComplete);
-		uppy.on("error", handleError);
-		uppy.on("file-added", updateFileList);
-		uppy.on("file-removed", updateFileList);
+		events.forEach(event => uppy.on(event as any, syncToInput));
 
 		return () => {
-			uppy.off("complete", handleComplete);
-			uppy.off("error", handleError);
-			uppy.off("file-added", updateFileList);
-			uppy.off("file-removed", updateFileList);
+			if (onComplete) uppy.off('complete', onComplete);
+			if (onError) uppy.off('error', onError);
+			events.forEach(event => uppy.off(event as any, syncToInput));
 		};
 	}, [uppy, onComplete, onError]);
 
-	// Nettoyage final lors du démontage du composant
-	useEffect(() => {
-		return () => {
-			if (uppy) {
-				uppy.cancelAll();
-				// @ts-ignore - close peut manquer dans certaines définitions de types mais est bien présent
-				if (typeof uppy.close === 'function') uppy.close();
-			}
-		};
-	}, [uppy]);
+	const isMultiple = mergedRestrictions.maxNumberOfFiles === null || mergedRestrictions.maxNumberOfFiles === undefined || mergedRestrictions.maxNumberOfFiles > 1;
 
 	return (
-		<div className={`file-input ${className}`}>
-			{/* Input caché pour la synchronisation avec FormData */}
-			{name && (
-				<input
-					type="hidden"
-					name={name}
-					value={fileList.join(", ")}
-				/>
-			)}
-			<Dashboard
-				uppy={uppy}
-				id={id}
-				height={height}
-				hideProgressDetails={hideProgressDetails}
-				proudlyDisplayPoweredByUppy={proudlyDisplayPoweredByUppy}
-				width="100%"
-			/>
-		</div>
+		<UppyContextProvider uppy={uppy}>
+			<div className="file-input__wrapper" id={name}>
+				<div className="file-input__content">
+					<Dashboard
+						uppy={uppy}
+						width="100%"
+						height={300}
+						hideProgressDetails={false}
+						hideUploadButton={true}
+						proudlyDisplayPoweredByUppy={false}
+						locale={{
+							strings: locale.strings
+						}}
+					/>
+				</div>
+				{name && (
+					<input
+						ref={inputRef}
+						type="file"
+						name={isMultiple ? `${name}[]` : name}
+						multiple={isMultiple}
+						style={{ display: 'none' }}
+					/>
+				)}
+			</div>
+		</UppyContextProvider>
 	);
 };
+
+

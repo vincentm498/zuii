@@ -5,8 +5,8 @@
 @import "choices.js/public/assets/styles/choices.css" layer(vendor);
 @import "flatpickr/dist/flatpickr.css" layer(vendor);
 @import "@simonwep/pickr/dist/themes/nano.min.css" layer(vendor);
-// @import "@uppy/core/css/style.min.css" layer(vendor);
-// @import "@uppy/dashboard/css/style.min.css" layer(vendor);
+@import "@uppy/core/css/style.min.css" layer(vendor);
+@import "@uppy/dashboard/css/style.min.css" layer(vendor);
 
 @layer components {
 	@import "form";
@@ -18,6 +18,6 @@
 	@import "feedback";
 
 	// @import "range-input";
-	// @import "file-input";
+	@import "_file-input";
 
 }
