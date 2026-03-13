@@ -1,3 +1,10 @@
+## [1.4.21](https://github.com/vincentm498/zuii/compare/v1.4.20...v1.4.21) (2026-03-13)
+
+
+### Bug Fixes
+
+* Implement dynamic slider options based on total slides and add container queries for Card components. ([b1b8179](https://github.com/vincentm498/zuii/commit/b1b81791f43470c90bc031e37153a43ee77e135d))
+
 ## [1.4.20](https://github.com/vincentm498/zuii/compare/v1.4.19...v1.4.20) (2026-03-12)
 
 
