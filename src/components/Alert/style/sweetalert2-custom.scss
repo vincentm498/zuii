@@ -3,6 +3,10 @@
 // Styles personnalisés pour SweetAlert2
 // Harmonisation avec le design des alertes Bootstrap
 
+.swal2-container{
+	z-index: 99999;
+}
+
 
 // Conteneur de l'icône (standard ou personnalisé)
 .swal2-icon {
