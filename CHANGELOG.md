@@ -1,3 +1,10 @@
+## [1.4.29](https://github.com/vincentm498/zuii/compare/v1.4.28...v1.4.29) (2026-03-18)
+
+
+### Bug Fixes
+
+* disable file input and adjust Uppy dashboard item action interactivity. ([7d56deb](https://github.com/vincentm498/zuii/commit/7d56debf820572793d412c2bbdc55a8df7a688f4))
+
 ## [1.4.28](https://github.com/vincentm498/zuii/compare/v1.4.27...v1.4.28) (2026-03-18)
 
 
