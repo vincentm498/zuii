@@ -59,11 +59,11 @@ export const createUppyInstance = (
 
 	uppy.use(Compressor);
 	uppy.use(ImageEditor);
-	
+
 	// 'video-audio' = enregistrement vidéo ; 'picture' = prise de photo
-	const webcamModes: ('video-audio' | 'picture')[] = 
+	const webcamModes: ('video-audio' | 'picture')[] =
 		webcamConfig?.allowVideo === false ? ['picture'] : ['video-audio', 'picture'];
-	
+
 	uppy.use(Webcam, { modes: webcamModes });
 
 	return uppy;
@@ -221,7 +221,7 @@ export const setupFileOpenButtons = (
 
 		// Fonction utilitaire pour créer la structure d'un bouton calqué sur le composant `<Button btnIcon transparent size="xs" variant="light">`
 		const createZuiiButton = (iconName: string, title: string, onClick: (file: any) => void) => {
-			const btn = document.createElement('button');
+			const btn = document.createElement('a');
 			btn.type = 'button';
 			btn.title = title;
 			btn.setAttribute('aria-label', title);
