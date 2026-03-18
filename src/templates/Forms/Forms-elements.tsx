@@ -54,6 +54,7 @@ export const FormsElements = () => {
 					lang='fr'
 					name="file-dashboard"
 				/>
+				<fieldset disabled>
 				<Form.File
 					restrictions={{ maxNumberOfFiles: 5 }}
 					webcam={{
@@ -73,6 +74,7 @@ export const FormsElements = () => {
 						}
 					]}
 				/>
+				</fieldset>
 				<Form.Check id="checkbox1" type="checkbox" label="Enter checkbox" name="checkbox" />
 				<Form.Check id="checkbox2" type="checkbox" label="Enter checkbox checked" name="checkbox" defaultChecked />
 				<Form.Check id="radio1" type="radio" label="Enter radio option 1" name="radio" defaultChecked />
