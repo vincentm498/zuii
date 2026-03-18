@@ -1,3 +1,10 @@
+## [1.4.28](https://github.com/vincentm498/zuii/compare/v1.4.27...v1.4.28) (2026-03-18)
+
+
+### Bug Fixes
+
+* Replace invalid 'type' attribute with 'href' for Zuii button. ([f835a75](https://github.com/vincentm498/zuii/commit/f835a754a37fbf840296fa1e25b7c38ce61b0b6b))
+
 ## [1.4.27](https://github.com/vincentm498/zuii/compare/v1.4.26...v1.4.27) (2026-03-18)
 
 
