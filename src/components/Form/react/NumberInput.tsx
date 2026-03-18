@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { Form as BootstrapForm, InputGroup } from "react-bootstrap";
 import { calculateDecrement, calculateIncrement } from "../js/form";
 import { Icon } from "../../Icon/react";
@@ -7,6 +8,14 @@ import { Icon } from "../../Icon/react";
  */
 export interface NumberInputProps {
 	/**
+	 * Id de l'input.
+	 */
+	id?: string;
+	/**
+	 * Name de l'input.
+	 */
+	name?: string;
+	/**
 	 * Valeur actuelle de l'input.
 	 */
 	value?: number;
@@ -14,7 +23,7 @@ export interface NumberInputProps {
 	 * Callback lors du changement de valeur.
 	 * @param {number} value - La nouvelle valeur.
 	 */
-	onChange: (value: number) => void;
+	onChange?: (value: number) => void;
 	/**
 	 * Valeur minimale (défaut: undefined).
 	 */
@@ -35,6 +44,10 @@ export interface NumberInputProps {
 	 * Texte d'aide ou de placeholder.
 	 */
 	placeholder?: string;
+	/**
+	 * Indique si le champ est requis.
+	 */
+	required?: boolean;
 }
 
 /**
@@ -44,41 +57,67 @@ export interface NumberInputProps {
  * @returns {JSX.Element} Le composant NumberInput rendu.
  */
 export const NumberInput = ({
-	value = 0,
+	value: propsValue,
 	onChange,
 	min,
 	max,
 	step = 1,
 	className = "",
 	placeholder,
+	id,
+	name,
+	required,
 }: NumberInputProps) => {
 	const bemClass = "number-input";
 
+	// État interne pour supporter le mode non contrôlé
+	const [internalValue, setInternalValue] = useState<number>(propsValue ?? 0);
+
+	// Synchronise l'état interne si la prop value change (mode contrôlé)
+	useEffect(() => {
+		if (propsValue !== undefined) {
+			setInternalValue(propsValue);
+		}
+	}, [propsValue]);
+
+	const currentValue = propsValue !== undefined ? propsValue : internalValue;
+
+	/**
+	 * Met à jour la valeur et appelle onChange si présent.
+	 */
+	const updateValue = (newValue: number) => {
+		if (propsValue === undefined) {
+			setInternalValue(newValue);
+		}
+		if (onChange) {
+			onChange(newValue);
+		}
+	};
+
 	const handleIncrement = () => {
-		onChange(calculateIncrement(value, step, max));
+		updateValue(calculateIncrement(currentValue, step, max));
 	};
 
 	const handleDecrement = () => {
-		onChange(calculateDecrement(value, step, min));
+		updateValue(calculateDecrement(currentValue, step, min));
 	};
 
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const newValue = parseInt(e.target.value);
 		if (isNaN(newValue)) {
-			onChange(0); // Ou une autre valeur par défaut
+			updateValue(0);
 			return;
 		}
 
-		if (min !== undefined && newValue < min) {
-			onChange(min);
-			return;
+		let clampedValue = newValue;
+		if (min !== undefined && clampedValue < min) {
+			clampedValue = min;
 		}
-		if (max !== undefined && newValue > max) {
-			onChange(max);
-			return;
+		if (max !== undefined && clampedValue > max) {
+			clampedValue = max;
 		}
 
-		onChange(newValue);
+		updateValue(clampedValue);
 	};
 
 	return (
@@ -88,19 +127,31 @@ export const NumberInput = ({
 			</InputGroup.Text>
 
 			<BootstrapForm.Control
+				id={id}
 				type="number"
 				className={`${bemClass}__control`}
-				value={value}
+				value={currentValue}
 				onChange={handleChange}
 				placeholder={placeholder}
 				min={min}
 				max={max}
 				step={step}
+				required={required}
 			/>
 
 			<InputGroup.Text className={`${bemClass}__addon`} onClick={handleIncrement}>
 				<Icon name="icon-plus" size="sm" />
 			</InputGroup.Text>
+
+			{/* Input caché pour la récupération de la valeur dans un formulaire standard */}
+			{name && (
+				<input
+					type="hidden"
+					name={name}
+					value={currentValue}
+				/>
+			)}
 		</InputGroup>
 	);
 };
+
