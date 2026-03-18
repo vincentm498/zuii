@@ -33,6 +33,7 @@ export const FormsElements = () => {
 				<Form.Control id="search" type="search" placeholder="Enter search" name="search" icon="icon-search" />
 				<Form.Control id="email" type="email" placeholder="Enter email" name="email" icon="icon-at-sign" />
 				<Form.Control id="number" type="number" placeholder="Enter number" name="number" icon="icon-number" />
+				<Form.Number id="number-button" placeholder="Enter number" name="number-button" onChange={(val) => console.log(val)} step={1} min={0} max={10}  required={true} className='fees-field__input' />
 				{/* <Form.File id="file-simple" label="Upload simple" name="file_simple" />
 				<Form.File
 					id="simple-upload"
