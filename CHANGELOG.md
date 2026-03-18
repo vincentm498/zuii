@@ -1,3 +1,10 @@
+## [1.4.26](https://github.com/vincentm498/zuii/compare/v1.4.25...v1.4.26) (2026-03-18)
+
+
+### Bug Fixes
+
+* implement controlled/uncontrolled state and add form submission support for NumberInput ([fae4beb](https://github.com/vincentm498/zuii/commit/fae4beb2719f4b52e90d95f4c845e254562fe52d))
+
 ## [1.4.25](https://github.com/vincentm498/zuii/compare/v1.4.24...v1.4.25) (2026-03-18)
 
 
