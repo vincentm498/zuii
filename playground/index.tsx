@@ -9,6 +9,8 @@ import { Buttons, Icons, Avatars, Badges, Colors, Dividers, ContextMenus, LangSe
 ReactDOM.createRoot(document.getElementById('root')!).render(
 	<React.StrictMode>
 		<div style={{ padding: '20px' }}>
+			<FormsElements />
+			<hr style={{ margin: '20px 0' }} />
 			<Groups />
 			<hr style={{ margin: '20px 0' }} />
 			<Cards />
@@ -18,8 +20,6 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 			<Grids />
 			<hr style={{ margin: '20px 0' }} />
 			<Loaders />
-			<hr style={{ margin: '20px 0' }} />
-			<FormsElements />
 			<hr style={{ margin: '20px 0' }} />
 			<Alerts />
 			<hr style={{ margin: '20px 0' }} />

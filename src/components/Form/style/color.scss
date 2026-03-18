@@ -1,4 +1,4 @@
-@use "../../Button/style/index.scss" as *;
+@use "../../Button/style/mixins" as *;
 @use "../style/form.scss" as *;
 
 .form__input.form__input--color {
@@ -37,7 +37,7 @@
 }
 
 .pcr-app .pcr-interaction input[type="button"] {
-	@extend .btn-primary;
+	@include btn-primary;
 	margin-top: .5rem;
 	margin-left: .2rem;
 

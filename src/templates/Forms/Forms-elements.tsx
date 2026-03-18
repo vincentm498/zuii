@@ -16,7 +16,7 @@ export const FormsElements = () => {
 		const formData = new FormData(e.currentTarget);
 		console.log(Object.fromEntries(formData.entries()));
 		console.log(formData.getAll('selectMultiple[]'));
-		const tousLesFichiers = formData.getAll('file-dashboard[]');
+		const tousLesFichiers = formData.getAll('file-upload[]');
 		console.log(tousLesFichiers); // Affiche [File, File]
 
 		const fileTest = formData.get('file-test');
@@ -52,6 +52,25 @@ export const FormsElements = () => {
 					restrictions={{ maxNumberOfFiles: 5 }}
 					lang='fr'
 					name="file-dashboard"
+				/>
+				<Form.File
+					restrictions={{ maxNumberOfFiles: 5 }}
+					webcam={{
+						allowVideo: false
+					}}
+					lang='fr'
+					name="file-upload"
+					files={[
+						{
+							route: 'https://placehold.co/286x180.png',
+							options: {
+								method: 'GET',
+								headers: {
+									'Content-Type': 'multipart/form-data'
+								}
+							}
+						}
+					]}
 				/>
 				<Form.Check id="checkbox1" type="checkbox" label="Enter checkbox" name="checkbox" />
 				<Form.Check id="checkbox2" type="checkbox" label="Enter checkbox checked" name="checkbox" defaultChecked />
@@ -109,7 +128,6 @@ export const FormsElements = () => {
 				<Form.Tel name='tel-test' nameFormat='tel-test-format' />
 				<Form.Control type="submit" value="Submit" />
 
-				<input type="file" name="file-test" id="file-test" />
 			</form>
 
 		</div>

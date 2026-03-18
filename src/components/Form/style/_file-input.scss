@@ -1,5 +1,5 @@
 @use "./form.scss" as *;
-@use "../../Button/style/index.scss" as *;
+@use "../../Button/style/mixins" as *;
 
 .file-input__wrapper {
 	width: 100%;
@@ -20,6 +20,34 @@
 	color: var(--primary);
 }
 
-.uppy-size--md .uppy-StatusBar.is-waiting .uppy-StatusBar-actionBtn--upload{
-	@extend .btn;
+.uppy-Webcam-button{
+	@include btn-icon;
+	width: auto;
+	margin: 0
+}
+
+.uppy-Webcam-button.btn-danger{
+	@include btn-icon;
+	--btn-border-color: var(--danger);
+	--btn-bg: var(--danger);
+	--btn-hover-bg: var(--danger-dark);
+	--btn-hover-border-color: var(--danger-dark);
+	--btn-active-bg: var(--danger-dark);
+	--btn-active-border-color: var(--danger-dark);
+
+	background-color: var(--btn-bg);
+
+	&:hover{
+		--btn-bg: var(--btn-hover-bg);
+	}
+}
+
+.uppy-DashboardContent-pane,
+.uppy-Informer,
+.uppy-DashboardContent-bar{
+	z-index: 0;
+}
+
+.uppy-Dashboard-Item-previewIcon{
+	z-index: 1;
 }

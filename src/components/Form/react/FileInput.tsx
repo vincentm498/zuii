@@ -1,13 +1,15 @@
 import { useEffect, useState, useRef } from 'react';
-import Uppy from '@uppy/core';
 import { UppyContextProvider } from '@uppy/react';
 import Dashboard from '@uppy/react/dashboard';
-import Compressor from '@uppy/compressor';
-import ImageEditor from '@uppy/image-editor';
 
-// Importation des locales Uppy
-import fr_FR from '@uppy/locales/lib/fr_FR';
-import en_US from '@uppy/locales/lib/en_US';
+import {
+	getUppyLocale,
+	createUppyInstance,
+	syncUppyToInput,
+	fetchRemoteFiles,
+	setupFileOpenButtons,
+	type FileInputRoute
+} from '../js/uppy';
 
 /**
  * Propriétés du composant FileInput.
@@ -30,6 +32,13 @@ interface FileInputProps {
 	onComplete?: (result: any) => void;
 	/** Callback appelé en cas d'erreur. */
 	onError?: (error: any) => void;
+	/** Fichiers à charger initialement. */
+	files?: FileInputRoute[];
+	/** Configuration de la webcam. */
+	webcam?: {
+		/** Si l'enregistrement vidéo est autorisé (défaut: true). */
+		allowVideo?: boolean;
+	};
 }
 
 /**
@@ -44,33 +53,19 @@ export const FileInput = ({
 	lang,
 	restrictions,
 	onComplete,
-	onError
+	onError,
+	files,
+	webcam
 }: FileInputProps) => {
-	// Fusion des restrictions avec les valeurs par défaut (on laisse Uppy gérer si non précisé)
-	const mergedRestrictions = {
-		maxNumberOfFiles: null,
-		maxFileSize: null,
-		allowedFileTypes: null,
-		...restrictions
-	};
-
 	const inputRef = useRef<HTMLInputElement>(null);
+	const dashboardRef = useRef<HTMLDivElement>(null);
+	const fetchedUrls = useRef<Set<string>>(new Set());
 
-	// Détection de la langue : prop > html lang > 'fr' par défaut
-	const currentLang = lang || (typeof document !== 'undefined' ? document.documentElement.lang : 'fr') || 'fr';
-	const locale = currentLang.startsWith('en') ? en_US : fr_FR;
+	// Détection de la langue et de la locale
+	const locale = getUppyLocale(lang);
 
-	const [uppy] = useState(() => {
-		const u = new Uppy({
-			locale,
-			restrictions: mergedRestrictions
-		});
-
-		u.use(Compressor);
-		u.use(ImageEditor);
-
-		return u;
-	});
+	// Initialisation d'Uppy
+	const [uppy] = useState(() => createUppyInstance(restrictions || {}, locale, webcam));
 
 	useEffect(() => {
 		if (onComplete) {
@@ -81,25 +76,10 @@ export const FileInput = ({
 			uppy.on('error', onError);
 		}
 
-		const syncToInput = () => {
-			if (!inputRef.current) return;
-
-			const dataTransfer = new DataTransfer();
-			const files = uppy.getFiles();
-
-			files.forEach((file) => {
-				if (file.data instanceof File) {
-					dataTransfer.items.add(file.data);
-				} else if (file.data instanceof Blob) {
-					const f = new File([file.data], file.name, { type: file.data.type });
-					dataTransfer.items.add(f);
-				}
-			});
-
-			inputRef.current.files = dataTransfer.files;
-
-			// Déclenchement manuel de l'événement change pour les libs de formulaire (Hook Form, etc.)
-			inputRef.current.dispatchEvent(new Event('change', { bubbles: true }));
+		const handleSync = () => {
+			if (inputRef.current) {
+				syncUppyToInput(uppy, inputRef.current);
+			}
 		};
 
 		const events = [
@@ -111,23 +91,37 @@ export const FileInput = ({
 			'postprocess-complete'
 		];
 
-		events.forEach(event => uppy.on(event as any, syncToInput));
+		events.forEach(event => uppy.on(event as any, handleSync));
 
 		return () => {
 			if (onComplete) uppy.off('complete', onComplete);
 			if (onError) uppy.off('error', onError);
-			events.forEach(event => uppy.off(event as any, syncToInput));
+			events.forEach(event => uppy.off(event as any, handleSync));
 		};
 	}, [uppy, onComplete, onError]);
 
-	const isMultiple = mergedRestrictions.maxNumberOfFiles === null || mergedRestrictions.maxNumberOfFiles === undefined || mergedRestrictions.maxNumberOfFiles > 1;
+	// Chargement initial des fichiers si présents
+	useEffect(() => {
+		if (files && files.length > 0) {
+			fetchRemoteFiles(uppy, files, fetchedUrls.current, onError);
+		}
+	}, [uppy, files, onError]);
+
+	// Injection de boutons Vanilla JS/HTML dans les items du Dashboard
+	useEffect(() => {
+		if (!dashboardRef.current) return;
+		return setupFileOpenButtons(dashboardRef.current, uppy);
+	}, [uppy]);
+
+	const isMultiple = !restrictions?.maxNumberOfFiles || restrictions.maxNumberOfFiles > 1;
 
 	return (
 		<UppyContextProvider uppy={uppy}>
 			<div className="file-input__wrapper" id={name}>
-				<div className="file-input__content">
+				<div className="file-input__content" ref={dashboardRef}>
 					<Dashboard
 						uppy={uppy}
+						plugins={['Webcam']}
 						width="100%"
 						height={300}
 						hideProgressDetails={false}
@@ -151,5 +145,6 @@ export const FileInput = ({
 		</UppyContextProvider>
 	);
 };
+
 
 

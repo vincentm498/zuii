@@ -1,7 +1,6 @@
 import { Form as BootstrapForm, FormProps, InputGroup } from "react-bootstrap";
 import { Icon } from "../../Icon/react";
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
-import "../style/index.scss";
 import { NumberInput } from "./NumberInput";
 import { TelInput } from "./TelInput";
 import { PasswordInput } from "./PasswordInput";
@@ -12,6 +11,8 @@ import { Select } from "./Select";
 import { handleNumericKeyDown } from "../js/number";
 import { FormColor } from "./FormColor";
 import { FormDate } from "./FormDate";
+
+import "../style/index.scss";
 
 /**
  * Propriétés du composant FormControl.

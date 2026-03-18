@@ -65,6 +65,7 @@
 		"@uppy/image-editor": "^4.2.0",
 		"@uppy/locales": "^5.1.1",
 		"@uppy/react": "^5.2.0",
+		"@uppy/webcam": "^5.1.0",
 		"ag-grid-community": "^35.0.1",
 		"ag-grid-react": "^35.0.1",
 		"apca-w3": "^0.1.9",
