@@ -5,12 +5,14 @@
 	display: flex;
 	align-items: center;
 	padding: var(--spacing-xs) var(--spacing-sm);
+		padding: 0 var(--spacing-sm);
+		// 	line-height: 1.49;
 }
 
-.form__input:has(.choices){
-	padding-top: 4px !important;
-	padding-bottom: 4px !important;
-}
+// .form__input:has(.choices){
+// 	padding-top: 4px !important;
+// 	padding-bottom: 4px !important;
+// }
 
 .choices__placeholder{
 	opacity: 1;
