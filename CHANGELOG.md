@@ -1,3 +1,10 @@
+## [1.4.30](https://github.com/vincentm498/zuii/compare/v1.4.29...v1.4.30) (2026-03-19)
+
+
+### Bug Fixes
+
+* add z-index to Uppy remove button and refine Choices.js padding. ([22bbc66](https://github.com/vincentm498/zuii/commit/22bbc662e824b86683b8d11c4a6afc111461087b))
+
 ## [1.4.29](https://github.com/vincentm498/zuii/compare/v1.4.28...v1.4.29) (2026-03-18)
 
 
