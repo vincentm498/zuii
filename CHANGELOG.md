@@ -1,3 +1,10 @@
+## [1.4.32](https://github.com/vincentm498/zuii/compare/v1.4.31...v1.4.32) (2026-03-25)
+
+
+### Bug Fixes
+
+* Restore pointer events for Uppy dashboard item remove action. ([3e6d752](https://github.com/vincentm498/zuii/commit/3e6d752d6d61866e3a4985748ab3b0d2711fe225))
+
 ## [1.4.31](https://github.com/vincentm498/zuii/compare/v1.4.30...v1.4.31) (2026-03-19)
 
 
