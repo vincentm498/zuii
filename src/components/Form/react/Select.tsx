@@ -198,6 +198,27 @@ export const Select = ({
 		}
 	}, [value]);
 
+
+	useEffect(() => {
+		// Find the closest fieldset parent in the DOM
+		const parentFieldset = selectRef.current?.closest('fieldset');
+
+		if (parentFieldset) {
+			const observer = new MutationObserver(() => {
+				if (choicesRef) {
+					if (parentFieldset.disabled) {
+						choicesRef.current.disable();
+					} else {
+						choicesRef.current.enable();
+					}
+				}
+			});
+
+			observer.observe(parentFieldset, { attributes: true });
+			return () => observer.disconnect();
+		}
+	}, []);
+
 	return (
 		<div className={`form__input ${className}`.trim()}>
 			{icon && <Icon name={icon} size="sm" />}

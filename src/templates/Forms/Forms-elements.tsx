@@ -33,7 +33,10 @@ export const FormsElements = () => {
 				<Form.Control id="search" type="search" placeholder="Enter search" name="search" icon="icon-search" />
 				<Form.Control id="email" type="email" placeholder="Enter email" name="email" icon="icon-at-sign" />
 				<Form.Control id="number" type="number" placeholder="Enter number" name="number" icon="icon-number" />
-				<Form.Number id="number-button" placeholder="Enter number" name="number-button" onChange={(val) => console.log(val)} step={1} min={0} max={10}  required={true} className='fees-field__input' />
+					<Form.Number id="number-button" placeholder="Enter number" name="number-button" onChange={(val) => console.log(val)} step={1} min={0} max={10}  required={true} className='fees-field__input' />
+				<fieldset disabled>
+					<Form.Number id="number-button" placeholder="Enter number" name="number-button" onChange={(val) => console.log(val)} step={1} min={0} max={10}  required={true} className='fees-field__input' />
+				</fieldset>
 				{/* <Form.File id="file-simple" label="Upload simple" name="file_simple" />
 				<Form.File
 					id="simple-upload"
@@ -79,6 +82,9 @@ export const FormsElements = () => {
 				<Form.Check id="checkbox2" type="checkbox" label="Enter checkbox checked" name="checkbox" defaultChecked />
 				<Form.Check id="radio1" type="radio" label="Enter radio option 1" name="radio" defaultChecked />
 				<Form.Check id="radio2" type="radio" label="Enter radio option 2" name="radio"  />
+				{/* Button disable active */}
+				{/* <Form.Button variant="primary">Primary</Form.Button>
+				<Form.Button variant="primary" disabled>Primary disabled</Form.Button> */}
 				<fieldset disabled>
 				<Form.Select name="select" value={selectValue} onChange={(val) => setSelectValue(val)} options={[]}></Form.Select>
 				</fieldset>
