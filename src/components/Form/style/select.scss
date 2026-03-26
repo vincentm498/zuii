@@ -78,3 +78,10 @@
 	display: inline-block;
 }
 
+.form__input:has(.choices.is-disabled){
+	--border-color: color-mix(in srgb, currentColor, transparent 70%);
+	color: color-mix(in srgb, currentColor , transparent 70%);
+
+}
+
+

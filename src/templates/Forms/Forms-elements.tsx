@@ -79,6 +79,9 @@ export const FormsElements = () => {
 				<Form.Check id="checkbox2" type="checkbox" label="Enter checkbox checked" name="checkbox" defaultChecked />
 				<Form.Check id="radio1" type="radio" label="Enter radio option 1" name="radio" defaultChecked />
 				<Form.Check id="radio2" type="radio" label="Enter radio option 2" name="radio"  />
+				<fieldset disabled>
+				<Form.Select name="select" value={selectValue} onChange={(val) => setSelectValue(val)} options={[]}></Form.Select>
+				</fieldset>
 				<Form.Select name="select" value={selectValue} onChange={(val) => setSelectValue(val)} options={[]}></Form.Select>
 				<Form.Select name="select" value={selectValue} onChange={(val) => setSelectValue(val)} options={[
 					{
