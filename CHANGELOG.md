@@ -1,3 +1,10 @@
+## [1.4.33](https://github.com/vincentm498/zuii/compare/v1.4.32...v1.4.33) (2026-03-26)
+
+
+### Bug Fixes
+
+* Style disabled select inputs and add a disabled select example to the form elements template. ([6f1daea](https://github.com/vincentm498/zuii/commit/6f1daea2819f047b53ffc1efb5ff8748db4db2fa))
+
 ## [1.4.32](https://github.com/vincentm498/zuii/compare/v1.4.31...v1.4.32) (2026-03-25)
 
 
