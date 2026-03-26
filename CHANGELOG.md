@@ -1,3 +1,10 @@
+## [1.4.34](https://github.com/vincentm498/zuii/compare/v1.4.33...v1.4.34) (2026-03-26)
+
+
+### Bug Fixes
+
+* Implement disabled state styling for Number inputs and dynamic disabling for Select components when within a disabled fieldset. ([b97037f](https://github.com/vincentm498/zuii/commit/b97037f2663d3d4f426382950aac00c78c4cad36))
+
 ## [1.4.33](https://github.com/vincentm498/zuii/compare/v1.4.32...v1.4.33) (2026-03-26)
 
 
