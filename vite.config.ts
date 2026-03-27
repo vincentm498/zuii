@@ -24,7 +24,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '@core': resolve(__dirname, 'src/core/styles'),
+      '@core': resolve(__dirname, 'packages/core/src/styles'),
     },
   },
   css: {
