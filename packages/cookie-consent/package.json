@@ -1,0 +1,33 @@
+{
+  "name": "@zuii/cookie-consent",
+  "version": "1.0.0",
+  "description": "Composant Cookie Consent pour zuii",
+  "main": "./src/js/cookie-consent.ts",
+  "module": "./src/js/cookie-consent.ts",
+  "types": "./src/js/cookie-consent.ts",
+  "exports": {
+    ".": {
+      "import": "./src/js/cookie-consent.ts",
+      "types": "./src/js/cookie-consent.ts"
+    },
+    "./react": {
+      "import": "./src/react/index.tsx",
+      "types": "./src/react/index.tsx"
+    },
+    "./style": "./src/style/index.scss"
+  },
+  "dependencies": {
+    "vanilla-cookieconsent": "^3.1.0"
+  },
+  "peerDependencies": {
+    "@zuii/core": "workspace:*",
+    "react": ">=16.8.0"
+  },
+  "keywords": [
+    "zuii",
+    "cookie",
+    "consent"
+  ],
+  "author": "Vincent Moreau",
+  "license": "MIT"
+}

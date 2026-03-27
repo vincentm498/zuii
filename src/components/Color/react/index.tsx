@@ -1,4 +1,4 @@
-import { tokens } from '../../../core/styles/tokens';
+import { tokens } from '@zuii/core/styles/tokens';
 import { Group } from '../../../index';
 import '../style/index.scss';
 

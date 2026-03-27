@@ -1,0 +1,14 @@
+{
+  "name": "@zuii/core",
+  "version": "1.0.0",
+  "description": "Styles de base et utilitaires pour zuii",
+  "private": true,
+  "main": "./src/styles/main.scss",
+  "exports": {
+    "./styles/*": "./src/styles/*",
+    "./utils/*": "./src/utils/*"
+  },
+  "keywords": [],
+  "author": "Vincent Moreau",
+  "license": "MIT"
+}

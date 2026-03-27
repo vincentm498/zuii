@@ -1,5 +1,5 @@
 import { Button, Group } from '../../index';
-import { tokens } from '../../core/styles/tokens';
+import { tokens } from '@zuii/core/styles/tokens';
 
 
 
