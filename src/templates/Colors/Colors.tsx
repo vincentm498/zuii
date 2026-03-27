@@ -1,5 +1,5 @@
 import { Color, Group } from '../../index';
-import { tokens } from '../../core/styles/tokens';
+import { tokens } from '@zuii/core/styles/tokens';
 
 /**
  * Template Colors pour démontrer le composant Color avec tous les tokens de marque.

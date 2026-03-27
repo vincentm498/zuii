@@ -1,5 +1,5 @@
 import { Group, Radius as RadiusComponent } from '../../index';
-import { tokens } from '../../core/styles/tokens';
+import { tokens } from '@zuii/core/styles/tokens';
 
 /**
  * Template de démonstration pour le composant Radius.

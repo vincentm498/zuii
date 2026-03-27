@@ -16,8 +16,13 @@
     /* Path mapping */
     "baseUrl": ".",
     "paths": {
-      "@core/*": ["src/core/styles/*"]
+      "@zuii/core/*": ["packages/core/src/*"],
+      "@zuii/cookie-consent": ["packages/cookie-consent/src/js/cookie-consent.ts"],
+      "@zuii/cookie-consent/react": ["packages/cookie-consent/src/react/index.tsx"],
+      "@zuii/cookie-consent/style": ["packages/cookie-consent/src/style/index.scss"],
+      "@core/*": ["packages/core/src/styles/*"]
     },
+
 
     /* JSX */
     "jsx": "react-jsx",
@@ -28,5 +33,5 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "playground.tsx"]
+  "include": ["src", "playground.tsx", "packages"]
 }

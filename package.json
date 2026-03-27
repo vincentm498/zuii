@@ -36,10 +36,10 @@
 		"dev": "vite",
 		"prebuild": "pnpm run tokens:build",
 		"build": "vite build",
-		"postbuild": "mkdir -p dist/core/styles && cp src/core/styles/_tokens.scss src/core/styles/tokens.css src/core/styles/tokens.ts dist/core/styles/ && cp -r src/templates dist/",
+		"postbuild": "mkdir -p dist/core/styles && cp packages/core/src/styles/_tokens.scss packages/core/src/styles/tokens.css packages/core/src/styles/tokens.ts dist/core/styles/ && cp -r src/templates dist/",
 		"preview": "vite preview",
 		"prepublishOnly": "pnpm run build",
-		"tokens:build": "node scripts/tokens/build.js --output src/core/styles",
+		"tokens:build": "node scripts/tokens/build.js --output packages/core/src/styles",
 		"component:create": "node scripts/create-component.js"
 	},
 	"keywords": [],
@@ -55,7 +55,10 @@
 		"registry": "https://registry.npmjs.org/"
 	},
 	"dependencies": {
+		"@zuii/core": "workspace:*",
+		"@zuii/cookie-consent": "workspace:*",
 		"@ag-grid-community/locale": "^35.0.1",
+
 		"@simonwep/pickr": "^1.9.1",
 		"@splidejs/react-splide": "^0.7.12",
 		"@splidejs/splide": "^4.1.4",
@@ -80,7 +83,8 @@
 		"sass-embedded": "^1.97.3",
 		"style-dictionary": "^4.2.0",
 		"sweetalert2": "^11.26.18",
-		"sweetalert2-react-content": "^5.1.1"
+		"sweetalert2-react-content": "^5.1.1",
+		"vanilla-cookieconsent": "^3.1.0"
 	},
 	"devDependencies": {
 		"@semantic-release/changelog": "^6.0.3",

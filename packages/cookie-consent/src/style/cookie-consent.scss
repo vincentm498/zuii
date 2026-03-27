@@ -1,0 +1,111 @@
+.cookie-consent,
+.cookie-consent__preferences {
+
+	--cookie-consent-bg-color: var(--secondary, var(--secondary-500, #646464));
+	--cookie-consent-text-color: var(--white, #FFF);
+	--cookie-consent-radius: var(--radius-base, 0);
+	--cookie-consent-padding-y: var(--spacing-sm, .5rem);
+	--cookie-consent-padding-x: var(--spacing-sm, .5rem);
+
+	--cookie-consent-footer-bg-color: var(--white, #FFF);
+	--cookie-consent-footer-text-color: var(--secondary, var(--secondary-500, #646464));
+
+	--cookie-consent-accordion-bg-color: var(--primary, var(--primary-500, #646464));
+	--cookie-consent-accordion-text-color: var(--secondary, var(--secondary-500, #646464));
+
+	border-radius: var(--cookie-consent-radius);
+	background-color: var(--cookie-consent-bg-color);
+	color: var(--cookie-consent-text-color);
+
+}
+
+.cookie-consent--button {
+	border-radius: var(--cookie-consent-radius);
+	margin-top: 0;
+	color: var(--cookie-consent-text-color);
+
+	&[data-role="all"],
+	&[data-role="necessary"] {
+		border-color: transparent;
+	}
+
+	&.button--close {
+		padding: 0;
+
+		svg {
+			stroke: var(--cookie-consent-text-color);
+		}
+	}
+}
+
+.cookie-consent__body,
+.cookie-consent__preferences {
+	padding: var(--cookie-consent-padding-y) var(--cookie-consent-padding-x);
+}
+
+.cookie-consent__preferences {
+	padding: 1rem;
+}
+
+.cookie-consent__title {
+	margin: 0;
+}
+
+
+.cookie-consent__footer {
+	background-color: var(--cookie-consent-footer-bg-color);
+	color: var(--cookie-consent-footer-text-color);
+
+	.cookie-consent__link {
+		color: var(--cookie-consent-footer-text-color);
+	}
+}
+
+.cookie-consent__description {
+	color: var(--cookie-consent-text-color);
+}
+
+.cookie-consent-accordion--button,
+.cookie-consent-accordion--content {
+	border-radius: var(--cookie-consent-radius);
+}
+
+.cookie-consent-accordion--button {
+	background: var(--cookie-consent-accordion-bg-color);
+	color: var(--cookie-consent-accordion-text-color);
+}
+
+.cookie-consent--toggle input[type=checkbox],
+.cookie-consent--toggle input[type=checkbox]:checked {
+	background: transparent;
+	max-width: 0;
+	min-width: 0;
+	width: 0;
+	height: 0;
+	border-color: transparent;
+}
+
+.cookie-consent--toggle:has(input[type=checkbox]:checked) .toggle__icon {
+	background: var(--cookie-consent-bg-color);
+}
+
+.cookie-consent--toggle:has(input[type=checkbox]) .toggle__icon {
+	background: color-mix(in srgb, var(--cookie-consent-bg-color), transparent 70%);
+	box-shadow: 0 0 0 1px color-mix(in srgb, var(--cookie-consent-bg-color), transparent 70%);
+}
+
+.cookie-consent--accordion .pm__section-arrow {
+	background: transparent;
+}
+
+.cookie-consent__preferences .pm__section:hover {
+	background: transparent;
+}
+
+.cookie-consent__header {
+	border-bottom: 1px solid color-mix(in srgb, var(--cookie-consent-bg-color), white 30%);
+}
+
+.cookie-consent__preferences__footer {
+	border-top: 1px solid color-mix(in srgb, var(--cookie-consent-bg-color), white 30%);
+}

@@ -41,6 +41,12 @@ importers:
       '@uppy/webcam':
         specifier: ^5.1.0
         version: 5.1.0(@uppy/core@5.2.0)
+      '@zuii/cookie-consent':
+        specifier: workspace:*
+        version: link:packages/cookie-consent
+      '@zuii/core':
+        specifier: workspace:*
+        version: link:packages/core
       ag-grid-community:
         specifier: ^35.0.1
         version: 35.0.1
@@ -89,6 +95,9 @@ importers:
       sweetalert2-react-content:
         specifier: ^5.1.1
         version: 5.1.1(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(sweetalert2@11.26.18)
+      vanilla-cookieconsent:
+        specifier: ^3.1.0
+        version: 3.1.0
     devDependencies:
       '@semantic-release/changelog':
         specifier: ^6.0.3
@@ -144,6 +153,20 @@ importers:
       vite-plugin-lib-inject-css:
         specifier: ^2.2.2
         version: 2.2.2(vite@7.3.1(@types/node@25.1.0)(sass-embedded@1.97.3)(sass@1.97.3)(yaml@2.8.2))
+
+  packages/cookie-consent:
+    dependencies:
+      '@zuii/core':
+        specifier: workspace:*
+        version: link:../core
+      react:
+        specifier: '>=16.8.0'
+        version: 19.2.4
+      vanilla-cookieconsent:
+        specifier: ^3.1.0
+        version: 3.1.0
+
+  packages/core: {}
 
 packages:
 
@@ -3268,6 +3291,9 @@ packages:
 
   validate-npm-package-license@3.0.4:
     resolution: {integrity: sha512-DpKm2Ui/xN7/HQKCtpZxoRWBhZ9Z0kqtygG8XCgNQ8ZlDnxuQmWhj566j8fN4Cu3/JmbhsDo7fcAJq4s9h27Ew==}
+
+  vanilla-cookieconsent@3.1.0:
+    resolution: {integrity: sha512-/McNRtm/3IXzb9dhqMIcbquoU45SzbN2VB+To4jxEPqMmp7uVniP6BhGLjU8MC7ZCDsNQVOp27fhQTM/ruIXAA==}
 
   varint@6.0.0:
     resolution: {integrity: sha512-cXEIW6cfr15lFv563k4GuVuW/fiwjknytD37jIOLSdSWuOI6WnO/oKwmP2FQTU2l01LP8/M5TSAJpzUaGe3uWg==}
@@ -6466,6 +6492,8 @@ snapshots:
     dependencies:
       spdx-correct: 3.2.0
       spdx-expression-parse: 3.0.1
+
+  vanilla-cookieconsent@3.1.0: {}
 
   varint@6.0.0: {}
 
