@@ -1,3 +1,254 @@
+# [1.5.0](https://github.com/vincentm498/zuii/compare/v1.4.34...v1.5.0) (2026-03-27)
+
+
+### Bug Fixes
+
+* Correct Vite alias and SCSS import paths for proper style resolution. ([ed43f73](https://github.com/vincentm498/zuii/commit/ed43f738fbffbd9c5433a39f7cb647252715e8c3))
+
+
+### Features
+
+* Introduce pnpm workspaces, migrate core styles and utilities to `@zuii/core` package, and add a new `@zuii/cookie-consent` package ([e69dc3e](https://github.com/vincentm498/zuii/commit/e69dc3e34b039da07c2dbcb39846eb37247de91a))
+
+## [1.4.34](https://github.com/vincentm498/zuii/compare/v1.4.33...v1.4.34) (2026-03-26)
+
+
+### Bug Fixes
+
+* Implement disabled state styling for Number inputs and dynamic disabling for Select components when within a disabled fieldset. ([b97037f](https://github.com/vincentm498/zuii/commit/b97037f2663d3d4f426382950aac00c78c4cad36))
+
+## [1.4.33](https://github.com/vincentm498/zuii/compare/v1.4.32...v1.4.33) (2026-03-26)
+
+
+### Bug Fixes
+
+* Style disabled select inputs and add a disabled select example to the form elements template. ([6f1daea](https://github.com/vincentm498/zuii/commit/6f1daea2819f047b53ffc1efb5ff8748db4db2fa))
+
+## [1.4.32](https://github.com/vincentm498/zuii/compare/v1.4.31...v1.4.32) (2026-03-25)
+
+
+### Bug Fixes
+
+* Restore pointer events for Uppy dashboard item remove action. ([3e6d752](https://github.com/vincentm498/zuii/commit/3e6d752d6d61866e3a4985748ab3b0d2711fe225))
+
+## [1.4.31](https://github.com/vincentm498/zuii/compare/v1.4.30...v1.4.31) (2026-03-19)
+
+
+### Bug Fixes
+
+* add `injectDynamicPageClass` utility for dynamic BEM class injection and export it. ([a6a2481](https://github.com/vincentm498/zuii/commit/a6a2481a58b52428fd80e388460365158a3db696))
+
+## [1.4.30](https://github.com/vincentm498/zuii/compare/v1.4.29...v1.4.30) (2026-03-19)
+
+
+### Bug Fixes
+
+* add z-index to Uppy remove button and refine Choices.js padding. ([22bbc66](https://github.com/vincentm498/zuii/commit/22bbc662e824b86683b8d11c4a6afc111461087b))
+
+## [1.4.29](https://github.com/vincentm498/zuii/compare/v1.4.28...v1.4.29) (2026-03-18)
+
+
+### Bug Fixes
+
+* disable file input and adjust Uppy dashboard item action interactivity. ([7d56deb](https://github.com/vincentm498/zuii/commit/7d56debf820572793d412c2bbdc55a8df7a688f4))
+
+## [1.4.28](https://github.com/vincentm498/zuii/compare/v1.4.27...v1.4.28) (2026-03-18)
+
+
+### Bug Fixes
+
+* Replace invalid 'type' attribute with 'href' for Zuii button. ([f835a75](https://github.com/vincentm498/zuii/commit/f835a754a37fbf840296fa1e25b7c38ce61b0b6b))
+
+## [1.4.27](https://github.com/vincentm498/zuii/compare/v1.4.26...v1.4.27) (2026-03-18)
+
+
+### Bug Fixes
+
+* change Zuii button creation from a button element to an anchor element. ([87e4e29](https://github.com/vincentm498/zuii/commit/87e4e2997261417f60fd66b887c4fa84f46cef1d))
+
+## [1.4.26](https://github.com/vincentm498/zuii/compare/v1.4.25...v1.4.26) (2026-03-18)
+
+
+### Bug Fixes
+
+* implement controlled/uncontrolled state and add form submission support for NumberInput ([fae4beb](https://github.com/vincentm498/zuii/commit/fae4beb2719f4b52e90d95f4c845e254562fe52d))
+
+## [1.4.25](https://github.com/vincentm498/zuii/compare/v1.4.24...v1.4.25) (2026-03-18)
+
+
+### Bug Fixes
+
+* Integrate Uppy for enhanced file input capabilities including webcam support, image editing, and file actions. ([1a59000](https://github.com/vincentm498/zuii/commit/1a59000a9364bae6e8a09436bcbc844625f9f91b))
+
+## [1.4.24](https://github.com/vincentm498/zuii/compare/v1.4.23...v1.4.24) (2026-03-16)
+
+
+### Bug Fixes
+
+* Lower SweetAlert2 container z-index from 99999 to 9999. ([78f118f](https://github.com/vincentm498/zuii/commit/78f118f6d253a8c216b4661370ac4d02e9564561))
+
+## [1.4.23](https://github.com/vincentm498/zuii/compare/v1.4.22...v1.4.23) (2026-03-16)
+
+
+### Bug Fixes
+
+* Implement sticky menu with responsive styling adjustments and add a file input test to forms. ([c4dac8d](https://github.com/vincentm498/zuii/commit/c4dac8d9b4d37c6d6ea9d0ab3179014d56253b0d))
+
+## [1.4.22](https://github.com/vincentm498/zuii/compare/v1.4.21...v1.4.22) (2026-03-13)
+
+
+### Bug Fixes
+
+* Introduce Uppy FileInput component with image compression, editing, and native form integration. ([ce2aefd](https://github.com/vincentm498/zuii/commit/ce2aefd2eddb455b820726eb93d176eb83c93c1b))
+
+## [1.4.21](https://github.com/vincentm498/zuii/compare/v1.4.20...v1.4.21) (2026-03-13)
+
+
+### Bug Fixes
+
+* Implement dynamic slider options based on total slides and add container queries for Card components. ([b1b8179](https://github.com/vincentm498/zuii/commit/b1b81791f43470c90bc031e37153a43ee77e135d))
+
+## [1.4.20](https://github.com/vincentm498/zuii/compare/v1.4.19...v1.4.20) (2026-03-12)
+
+
+### Bug Fixes
+
+* Remove default `gap` and `align` prop values from Grid and Group components, and add padding to select items. ([fafd36e](https://github.com/vincentm498/zuii/commit/fafd36e7a25de3d018de8bd817d2f9de9ebae331))
+
+## [1.4.19](https://github.com/vincentm498/zuii/compare/v1.4.18...v1.4.19) (2026-03-11)
+
+
+### Bug Fixes
+
+* introduce TelInput component, add Groups template with flexbox utilities, and enhance form and table styling. ([afaf726](https://github.com/vincentm498/zuii/commit/afaf7260d03d321a9d2a1be963cdd8d6f036de12))
+
+## [1.4.18](https://github.com/vincentm498/zuii/compare/v1.4.17...v1.4.18) (2026-03-10)
+
+
+### Bug Fixes
+
+* Introduce FormDate and FormColor components, add responsive grid gap options, and enhance existing form inputs. ([f311d72](https://github.com/vincentm498/zuii/commit/f311d72fa0b5c0f1910ef931d8930da749ec8766))
+
+## [1.4.17](https://github.com/vincentm498/zuii/compare/v1.4.16...v1.4.17) (2026-03-06)
+
+
+### Bug Fixes
+
+* add Slider, Card, and Menu components with their React implementations, styles, and templates, and introduce a new SVG variant for the Loader. ([4d6beff](https://github.com/vincentm498/zuii/commit/4d6beff5f41f843cf8b35b69499748efaf698e84))
+
+## [1.4.16](https://github.com/vincentm498/zuii/compare/v1.4.15...v1.4.16) (2026-03-05)
+
+
+### Bug Fixes
+
+* Ajout du composant Grid, GridItem et GridSpacer avec des styles responsives et une démo. ([1c651a2](https://github.com/vincentm498/zuii/commit/1c651a2bf43098412fa08d492be8680cc8818d4d))
+
+## [1.4.15](https://github.com/vincentm498/zuii/compare/v1.4.14...v1.4.15) (2026-03-03)
+
+
+### Bug Fixes
+
+* Améliore le composant Select avec une variante pays et des drapeaux, introduit un contexte de taille pour les icônes, et ajoute un placeholder de type input. ([cd74f06](https://github.com/vincentm498/zuii/commit/cd74f061a63cb770beb3d012eaabd5bfebaa99f8))
+
+## [1.4.14](https://github.com/vincentm498/zuii/compare/v1.4.13...v1.4.14) (2026-02-20)
+
+
+### Bug Fixes
+
+* Ajout du composant Loader (Spinner) avec ses styles et scripts, mise à jour de la ROADMAP et ajustements des styles de tableau et de tableau de bord. ([e7ceee1](https://github.com/vincentm498/zuii/commit/e7ceee19f7e8ec49fd2d340f212f54355640c6b2))
+
+## [1.4.13](https://github.com/vincentm498/zuii/compare/v1.4.12...v1.4.13) (2026-02-20)
+
+
+### Bug Fixes
+
+* Ajout des composants Nav, Dashboard et Errorpage avec leurs templates, styles et logiques, et mise à jour de la feuille de route. ([e7a3262](https://github.com/vincentm498/zuii/commit/e7a32628bb1f9980e7b249a8fd243eaf14d3b6a6))
+
+## [1.4.12](https://github.com/vincentm498/zuii/compare/v1.4.11...v1.4.12) (2026-02-18)
+
+
+### Bug Fixes
+
+* Ajout du module d'authentification et des styles du composant Link, avec des améliorations aux composants Form, Group et Tab. ([01329ec](https://github.com/vincentm498/zuii/commit/01329ecfeb995880114daf81ee0744118f7b1119))
+* dep ([6959334](https://github.com/vincentm498/zuii/commit/6959334c57640fa36180628a7461611e185d7e77))
+
+## [1.4.11](https://github.com/vincentm498/zuii/compare/v1.4.10...v1.4.11) (2026-02-17)
+
+
+### Bug Fixes
+
+* width input ([6038f8d](https://github.com/vincentm498/zuii/commit/6038f8d88d20dd0f74d0c73ffec9369eaebe0810))
+
+## [1.4.10](https://github.com/vincentm498/zuii/compare/v1.4.9...v1.4.10) (2026-02-13)
+
+
+### Bug Fixes
+
+* Ajout des input et Alert ([6e65532](https://github.com/vincentm498/zuii/commit/6e65532be8c0a82eb20ae0251863377e7883dabf))
+
+## [1.4.9](https://github.com/vincentm498/zuii/compare/v1.4.8...v1.4.9) (2026-02-11)
+
+
+### Bug Fixes
+
+* Ajout des composants accordions et tabs ([a0aa0e0](https://github.com/vincentm498/zuii/commit/a0aa0e0b9feef9bc8637a0894cc18c10779f30b5))
+
+## [1.4.8](https://github.com/vincentm498/zuii/compare/v1.4.7...v1.4.8) (2026-02-10)
+
+
+### Bug Fixes
+
+* Améliore le positionnement du menu contextuel avec des décalages et ajoute la gestion des clics aux éléments de menu déroulant. ([4591157](https://github.com/vincentm498/zuii/commit/45911574548fdb3e98c2fa1cb860c7af20d6bbe1))
+
+## [1.4.7](https://github.com/vincentm498/zuii/compare/v1.4.6...v1.4.7) (2026-02-10)
+
+
+### Bug Fixes
+
+* introduction du composant `Table` avec pagination, des styles dédiés et ajout de la propriété `align` au composant `Group`. ([0affa6a](https://github.com/vincentm498/zuii/commit/0affa6a27b426dd372cd4a2b628f273432ada430))
+
+## [1.4.6](https://github.com/vincentm498/zuii/compare/v1.4.5...v1.4.6) (2026-02-06)
+
+
+### Bug Fixes
+
+* Ajoute les tokens de rayon 'xl' et '2xl', le variant 'none' et une vérification de nullité pour les tokens de rayon. ([e6f060a](https://github.com/vincentm498/zuii/commit/e6f060aa9606a43dcd5eec80341b7c212fd16628))
+
+## [1.4.5](https://github.com/vincentm498/zuii/compare/v1.4.4...v1.4.5) (2026-02-06)
+
+
+### Bug Fixes
+
+* update version ([3788c55](https://github.com/vincentm498/zuii/commit/3788c559b4eb0a05d33d32a5a8adec0a23a389be))
+
+## [1.4.4](https://github.com/vincentm498/zuii/compare/v1.4.3...v1.4.4) (2026-02-05)
+
+
+### Bug Fixes
+
+* path tokens et import apca-w3 en dependencies ([3ba0dd7](https://github.com/vincentm498/zuii/commit/3ba0dd7816482f6e0d1bc2bbdcba9ae54230b7dd))
+
+## [1.4.3](https://github.com/vincentm498/zuii/compare/v1.4.2...v1.4.3) (2026-02-05)
+
+
+### Bug Fixes
+
+* Ajout du script de création de composants, correction des style en doublon, Structuration de la distribution ([a4228b9](https://github.com/vincentm498/zuii/commit/a4228b9a521475f9d168cad85d6ca5b7305166d3))
+
+## [1.4.2](https://github.com/vincentm498/zuii/compare/v1.4.1...v1.4.2) (2026-02-04)
+
+
+### Bug Fixes
+
+* Ajout d'un ensemble de composants de formulaire (NumberInput, TelInput, PasswordInput, RangeInput, Select, FileInput, PasswordConfirm) et refonte du sélecteur de langue pour utiliser Choices.js. ([43cd4ec](https://github.com/vincentm498/zuii/commit/43cd4eca555c119fdfe0861cde676e1ee72b9368))
+
+## [1.4.1](https://github.com/vincentm498/zuii/compare/v1.4.0...v1.4.1) (2026-02-04)
+
+
+### Bug Fixes
+
+* supp ([a1a354d](https://github.com/vincentm498/zuii/commit/a1a354d084fe0b58e809a16a1432ef452084d89f))
+
 # [1.4.0](https://github.com/vincentm498/zuii/compare/v1.3.7...v1.4.0) (2026-02-03)
 
 
