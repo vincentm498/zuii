@@ -29,5 +29,9 @@
     "consent"
   ],
   "author": "Vincent Moreau",
-  "license": "MIT"
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
 }
+
