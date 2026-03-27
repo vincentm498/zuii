@@ -1,3 +1,15 @@
+# [1.5.0](https://github.com/vincentm498/zuii/compare/v1.4.34...v1.5.0) (2026-03-27)
+
+
+### Bug Fixes
+
+* Correct Vite alias and SCSS import paths for proper style resolution. ([ed43f73](https://github.com/vincentm498/zuii/commit/ed43f738fbffbd9c5433a39f7cb647252715e8c3))
+
+
+### Features
+
+* Introduce pnpm workspaces, migrate core styles and utilities to `@zuii/core` package, and add a new `@zuii/cookie-consent` package ([e69dc3e](https://github.com/vincentm498/zuii/commit/e69dc3e34b039da07c2dbcb39846eb37247de91a))
+
 ## [1.4.34](https://github.com/vincentm498/zuii/compare/v1.4.33...v1.4.34) (2026-03-26)
 
 
