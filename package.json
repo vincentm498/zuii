@@ -1,6 +1,6 @@
 {
 	"name": "zuii",
-	"version": "1.5.0",
+	"version": "1.5.1",
 	"description": "Bibliothèque de composants UI légère, intuitive et modulaire pour les interfaces web modernes.",
 	"type": "module",
 	"repository": {
@@ -56,8 +56,6 @@
 	},
 	"dependencies": {
 		"@ag-grid-community/locale": "^35.0.1",
-
-
 		"@simonwep/pickr": "^1.9.1",
 		"@splidejs/react-splide": "^0.7.12",
 		"@splidejs/splide": "^4.1.4",
@@ -107,5 +105,4 @@
 		"@zuii/core": "workspace:*",
 		"@zuii/cookie-consent": "workspace:*"
 	}
-
 }

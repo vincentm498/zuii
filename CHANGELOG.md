@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/vincentm498/zuii/compare/v1.5.0...v1.5.1) (2026-03-27)
+
+
+### Bug Fixes
+
+* Move `@zuii/core` and `@zuii/cookie-consent` from dependencies to devDependencies. ([f6f4a75](https://github.com/vincentm498/zuii/commit/f6f4a753301db6dfb8e641cbc357bc63046987e6))
+
 # [1.5.0](https://github.com/vincentm498/zuii/compare/v1.4.34...v1.5.0) (2026-03-27)
 
 
