@@ -31,6 +31,6 @@ export * from './components/Slider/react';
 export * from './components/Card/react';
 
 // Utils
-export * from '@zuii/core/utils/getName';
+// export * from '@zuii/core/utils/getName';
 export * from '@zuii/cookie-consent/react';
 

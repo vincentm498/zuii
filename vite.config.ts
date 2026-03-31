@@ -25,6 +25,10 @@ export default defineConfig({
   resolve: {
     alias: {
       '@core': resolve(__dirname, 'packages/core/src/styles'),
+      '@zuii/core': resolve(__dirname, 'packages/core/src'),
+      '@zuii/cookie-consent/react': resolve(__dirname, 'packages/cookie-consent/src/react/index.tsx'),
+      '@zuii/cookie-consent/style': resolve(__dirname, 'packages/cookie-consent/src/style/index.scss'),
+      '@zuii/cookie-consent': resolve(__dirname, 'packages/cookie-consent/src/js/cookie-consent.ts'),
     },
   },
   css: {

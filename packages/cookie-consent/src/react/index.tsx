@@ -1,4 +1,3 @@
-import '../style/index.scss';
 
 /**
  * Propriétés du composant CookieConsent.

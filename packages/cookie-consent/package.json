@@ -1,20 +1,32 @@
 {
   "name": "@zuii/cookie-consent",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Composant Cookie Consent pour zuii",
-  "main": "./src/js/cookie-consent.ts",
-  "module": "./src/js/cookie-consent.ts",
-  "types": "./src/js/cookie-consent.ts",
+  "main": "./dist/cookie-consent.cjs",
+  "module": "./dist/cookie-consent.js",
+  "types": "./dist/cookie-consent.d.ts",
+  "files": [
+    "dist"
+  ],
   "exports": {
     ".": {
-      "import": "./src/js/cookie-consent.ts",
-      "types": "./src/js/cookie-consent.ts"
+      "types": "./dist/cookie-consent.d.ts",
+      "import": "./dist/cookie-consent.js",
+      "require": "./dist/cookie-consent.cjs"
     },
     "./react": {
-      "import": "./src/react/index.tsx",
-      "types": "./src/react/index.tsx"
+      "types": "./dist/react/cookie-consent-react.d.ts",
+      "import": "./dist/react/cookie-consent-react.js",
+      "require": "./dist/react/cookie-consent-react.cjs"
     },
-    "./style": "./src/style/index.scss"
+    "./style": "./dist/style/cookie-consent.css"
+  },
+  "scripts": {
+    "build": "pnpm build:js && pnpm build:css && pnpm build:css:min",
+    "build:css": "sass src/style/index.scss dist/style/cookie-consent.css --silence-deprecation=import",
+    "build:css:min": "sass src/style/index.scss dist/style/cookie-consent.min.css --style=compressed --silence-deprecation=import",
+    "build:js": "tsup",
+    "dev": "pnpm build:js && pnpm build:css && tsup --watch"
   },
   "dependencies": {
     "vanilla-cookieconsent": "^3.1.0"
@@ -34,4 +46,3 @@
     "access": "public"
   }
 }
-

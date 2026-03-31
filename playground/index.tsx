@@ -1,13 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import './style.scss'
 import { Buttons, Icons, Avatars, Badges, Colors, Dividers, ContextMenus, LangSelectors, Forms, Shadows, Radius, FormsElements, Dropdowns, Logos, Modals, Placeholders, Tooltips, Tables, TabsTemplate, Accordions, Alerts, Loaders, Grids, Sliders, Cards, Groups  } from '../src/templates'
 
+import { initCookieConsent } from '../packages/cookie-consent/src/js/cookie-consent';
 
+const CookieConsent = () => {
+	useEffect(() => {
+		initCookieConsent();
+	}, []); // Le tableau vide [] assure que ça ne s'exécute qu'une fois
+	return null; // Le composant ne rend rien lui-même, il initialise juste la modale
+};
 
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
+
 	<React.StrictMode>
+		<CookieConsent />
 		<div style={{ padding: '20px' }}>
 			<FormsElements />
 			<hr style={{ margin: '20px 0' }} />
