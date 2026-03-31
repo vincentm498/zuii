@@ -85,8 +85,15 @@ export const initLanguageSelector = (
 			if (!preventHtmlLangUpdate) {
 				document.documentElement.lang = value;
 			}
+
+			// Synchronisation avec Cookie Consent si présent
+			if ((window as any).CookieConsent && typeof (window as any).CookieConsent.setLanguage === 'function') {
+				(window as any).CookieConsent.setLanguage(value);
+			}
+
 			onChange(value);
 		};
+
 		element.addEventListener('change', handleChange);
 
 		// Stocker la fonction pour pouvoir la supprimer (optionnel si Choices.destroy() suffit)

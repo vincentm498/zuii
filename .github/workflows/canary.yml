@@ -1,28 +1,24 @@
-name: Release
+name: Canary Release
 
 on:
   push:
     branches:
-      - main
+      - 'feat/**'
+      - 'next'
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
-  release:
-    name: Release
+  canary:
+    name: Canary Release
     runs-on: ubuntu-latest
     permissions:
-      contents: write
-      issues: write
-      pull-requests: write
+      contents: read
       id-token: write
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          token: ${{ secrets.GH_TOKEN }}
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
@@ -42,15 +38,12 @@ jobs:
           pnpm --filter "@zuii/*" --parallel run build
           pnpm run build
 
-      # Changesets crée ou met à jour une PR "Version Packages" automatiquement.
-      # Quand cette PR est mergée sur main, il publie les packages sur NPM.
-      - name: Create Release Pull Request ou Publish
-        id: changesets
-        uses: changesets/action@v1
-        with:
-          publish: pnpm changeset publish
-          title: 'chore: version packages'
-          commit: 'chore: version packages'
+      # Publie avec un tag "canary" et une version incluant le hash du commit.
+      # Exemple : @zuii/cookie-consent@1.0.2-canary.abc1234
+      - name: Publish Canary
+        run: |
+          pnpm changeset version --snapshot canary
+          pnpm changeset publish --tag canary --no-git-tag
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

@@ -1,111 +1,45 @@
 .cookie-consent,
 .cookie-consent__preferences {
 
-	--cookie-consent-bg-color: var(--secondary, var(--secondary-500, #646464));
-	--cookie-consent-text-color: var(--white, #FFF);
-	--cookie-consent-radius: var(--radius-base, 0);
-	--cookie-consent-padding-y: var(--spacing-sm, .5rem);
-	--cookie-consent-padding-x: var(--spacing-sm, .5rem);
+	--cc-primary-color: var(--white, rgb(239, 244, 246));
 
-	--cookie-consent-footer-bg-color: var(--white, #FFF);
-	--cookie-consent-footer-text-color: var(--secondary, var(--secondary-500, #646464));
+	--cc-btn-border-radius: var(--radius-base);
 
-	--cookie-consent-accordion-bg-color: var(--primary, var(--primary-500, #646464));
-	--cookie-consent-accordion-text-color: var(--secondary, var(--secondary-500, #646464));
+	--cc-btn-primary-bg: color-mix(in srgb, var(--accent), var(--dark) 30%);
+	--cc-btn-primary-color: var(--white, #fff);
+	--cc-btn-primary-hover-bg: var(--accent-dark);
+	--cc-btn-primary-hover-color: var(--accent-dark-contrast, #000);
+	--cc-btn-primary-border-color: transparent;
+	--cc-btn-primary-hover-border-color: transparent;
 
-	border-radius: var(--cookie-consent-radius);
-	background-color: var(--cookie-consent-bg-color);
-	color: var(--cookie-consent-text-color);
+	--cc-btn-secondary-bg: var(--gray-300, #242c31);
+	--cc-btn-secondary-color: var(--gray-800, var(--cc-primary-color));
+	--cc-btn-secondary-hover-bg: var(--gray-200, #d4dae0);
+	--cc-btn-secondary-hover-color: var(--gray-800, #000);
+	--cc-btn-secondary-border-color: transparent;
+	--cc-btn-secondary-hover-border-color: transparent;
 
+	--cc-modal-border-radius: var(--radius-base);
+
+	--cc-toggle-on-bg: var(--accent);
+	--cc-toggle-readonly-bg: var(--accent);
+	--cc-toggle-off-bg: var(--gray-400);
+	--cc-toggle-readonly-knob-icon-color: var(--accent, #000);
+
+	--cc-separator-border-color: var(--gray-200, #222a30);
+
+	--cookie-consent-padding-x: 1rem;
+	--cookie-consent-padding-y: 1rem;
 }
 
-.cookie-consent--button {
-	border-radius: var(--cookie-consent-radius);
-	margin-top: 0;
-	color: var(--cookie-consent-text-color);
 
-	&[data-role="all"],
-	&[data-role="necessary"] {
-		border-color: transparent;
-	}
-
-	&.button--close {
-		padding: 0;
-
-		svg {
-			stroke: var(--cookie-consent-text-color);
-		}
-	}
-}
 
 .cookie-consent__body,
 .cookie-consent__preferences {
 	padding: var(--cookie-consent-padding-y) var(--cookie-consent-padding-x);
 }
 
-.cookie-consent__preferences {
-	padding: 1rem;
-}
-
-.cookie-consent__title {
-	margin: 0;
-}
-
-
-.cookie-consent__footer {
-	background-color: var(--cookie-consent-footer-bg-color);
-	color: var(--cookie-consent-footer-text-color);
-
-	.cookie-consent__link {
-		color: var(--cookie-consent-footer-text-color);
-	}
-}
-
-.cookie-consent__description {
-	color: var(--cookie-consent-text-color);
-}
-
-.cookie-consent-accordion--button,
-.cookie-consent-accordion--content {
-	border-radius: var(--cookie-consent-radius);
-}
-
-.cookie-consent-accordion--button {
-	background: var(--cookie-consent-accordion-bg-color);
-	color: var(--cookie-consent-accordion-text-color);
-}
-
-.cookie-consent--toggle input[type=checkbox],
-.cookie-consent--toggle input[type=checkbox]:checked {
-	background: transparent;
-	max-width: 0;
-	min-width: 0;
-	width: 0;
-	height: 0;
-	border-color: transparent;
-}
-
-.cookie-consent--toggle:has(input[type=checkbox]:checked) .toggle__icon {
-	background: var(--cookie-consent-bg-color);
-}
-
-.cookie-consent--toggle:has(input[type=checkbox]) .toggle__icon {
-	background: color-mix(in srgb, var(--cookie-consent-bg-color), transparent 70%);
-	box-shadow: 0 0 0 1px color-mix(in srgb, var(--cookie-consent-bg-color), transparent 70%);
-}
 
 .cookie-consent--accordion .pm__section-arrow {
 	background: transparent;
-}
-
-.cookie-consent__preferences .pm__section:hover {
-	background: transparent;
-}
-
-.cookie-consent__header {
-	border-bottom: 1px solid color-mix(in srgb, var(--cookie-consent-bg-color), white 30%);
-}
-
-.cookie-consent__preferences__footer {
-	border-top: 1px solid color-mix(in srgb, var(--cookie-consent-bg-color), white 30%);
 }

@@ -1,5 +1,14 @@
-/* eslint-disable no-undef */
-import { run } from 'vanilla-cookieconsent';
+import * as CookieConsent from 'vanilla-cookieconsent';
+import { fr } from './trads/fr';
+
+import { en } from './trads/en';
+import '../style/index.scss';
+
+// Exposition globale pour permettre le pilotage de la langue depuis d'autres composants (ex: Language Selector)
+(window as any).CookieConsent = CookieConsent;
+
+
+
 
 /**
  * Mapping des classes par sélecteur pour une modale donnée.
@@ -47,18 +56,22 @@ const applyClasses = (container: HTMLElement, mapping: ModalMapping): void => {
  */
 export const initCookieConsent = (
 	prefix: string = 'cookie-consent',
-	translations: Record<string, string> = {
-		fr: '/locales/fr.json',
-		en: '/locales/en.json'
-	},
-	extraClasses: ExtraClasses = {}
+	translations: any = { fr, en },	extraClasses: ExtraClasses = {},
+	callbacks: {
+		onConsent?: (params: { cookie: any }) => void;
+		onChange?: (params: { cookie: any, changedCategories: string[] }) => void;
+	} = {}
 ): void => {
-	run({
+	CookieConsent.run({
+
+
 		guiOptions: {
 			consentModal: { layout: 'box', position: 'bottom left', equalWeightButtons: true },
 			preferencesModal: { layout: 'box', position: 'right', equalWeightButtons: true }
 		},
-		onModalReady: ({ modalName, modal }) => {
+		onConsent: callbacks.onConsent,
+		onChange: callbacks.onChange,
+		onModalReady: ({ modalName, modal }: { modalName: string, modal: HTMLElement }) => {
 			const btn = ['button'];
 			const accordion = "accordion";
 
@@ -68,6 +81,9 @@ export const initCookieConsent = (
 				'a': `${prefix}__link`,
 				'[data-role="all"]': [...btn, 'button--primary', `${prefix}--button`],
 				'[data-role="necessary"]': [...btn, 'button--secondary', `${prefix}--button`],
+				'.cm__body': `${prefix}__body`,
+				'.cm__footer': `${prefix}__footer`,
+				'.pm__header': `${prefix}__header`,
 			};
 
 			const mappings: Record<string, ModalMapping> = {
@@ -110,7 +126,9 @@ export const initCookieConsent = (
 		},
 		categories: {
 			necessary: { readOnly: true },
-			analytics: {}
+			functionality: {},
+			analytics: {},
+			marketing: {}
 		},
 		language: {
 			default: 'fr',
@@ -119,3 +137,19 @@ export const initCookieConsent = (
 		}
 	});
 };
+
+/**
+ * Change la langue de la modale de consentement.
+ * @param {string} lang - Code de la langue (ex: 'fr', 'en').
+ */
+export const setCookieConsentLanguage = (lang: string) => {
+	CookieConsent.setLanguage(lang);
+};
+
+/**
+ * Affiche la modale de préférences.
+ */
+export const showCookieConsentPreferences = () => {
+	CookieConsent.showPreferences();
+};
+
