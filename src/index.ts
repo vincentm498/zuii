@@ -32,5 +32,7 @@ export * from './components/Card/react';
 
 // Utils
 // export * from '@zuii/core/utils/getName';
+export * from '@zuii/cookie-consent';
 export * from '@zuii/cookie-consent/react';
+
 

@@ -1,5 +1,23 @@
 # @zuii/cookie-consent
 
+## 1.2.0
+
+### Minor Changes
+
+- Ajout du paramètre `enabledCategories` à `initCookieConsent` pour permettre le filtrage des catégories de cookies et des sections de traduction.
+
+## 1.1.2
+
+### Patch Changes
+
+- Amélioration de la spécificité des sélecteurs CSS via le préfixe `#cc-main`.
+
+## 1.1.1
+
+### Patch Changes
+
+- Mise à jour des styles du composant Cookie Consent.
+
 ## 1.1.0
 
 ### Minor Changes

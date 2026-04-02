@@ -1,0 +1,80 @@
+.calendar__header {
+	background: var(--calendar-header-bg);
+	color: var(--calendar-header-text);
+	padding: 10px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.calendar__header--month {
+	flex: 1;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 90px;
+	font-size: var(--calendar-font-size);
+}
+
+.calendar__header--year-wrapper {
+	.choices {
+		margin-bottom: 0;
+
+		&::after {
+			border-color: #fff transparent transparent transparent;
+		}
+
+		&[data-type*=select-one].is-open::after {
+			margin-top: -2.5px;
+		}
+	}
+
+	.choices__inner {
+		border: none;
+		font-size: var(--calendar-font-size);
+		border-radius: 4px;
+		min-height: auto;
+		padding-top: 5px;
+		padding-bottom: 5px;
+	}
+
+	.choices__list--dropdown {
+		color: var(--calendar-text);
+	}
+}
+
+.calendar__header--year {
+	font-weight: 400;
+	margin-left: 8px;
+	opacity: 0.8;
+}
+
+.calendar__header-btn {
+	background: none;
+	border: none;
+	color: inherit;
+	cursor: pointer;
+	padding: 8px;
+	display: flex;
+	align-items: center;
+	transition: all 0.2s;
+	border-radius: 50%;
+
+	&:hover {
+		background: rgba(255, 255, 255, 0.1);
+	}
+
+	svg {
+		width: 24px;
+		height: 24px;
+	}
+}
+
+.calendar__header--year-wrapper .choices__inner {
+	padding: 0;
+
+	.choices__list {
+		padding: 0 1.5rem;
+	}
+}

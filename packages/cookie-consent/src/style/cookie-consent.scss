@@ -1,5 +1,5 @@
-.cookie-consent,
-.cookie-consent__preferences {
+ #cc-main .cookie-consent,
+ #cc-main .cookie-consent__preferences {
 
 	--cc-primary-color: var(--white, rgb(239, 244, 246));
 
@@ -34,12 +34,12 @@
 
 
 
-.cookie-consent__body,
-.cookie-consent__preferences {
+#cc-main .cookie-consent__body,
+#cc-main .cookie-consent__preferences {
 	padding: var(--cookie-consent-padding-y) var(--cookie-consent-padding-x);
 }
 
 
-.cookie-consent--accordion .pm__section-arrow {
+ #cc-main.cookie-consent--accordion .pm__section-arrow {
 	background: transparent;
 }

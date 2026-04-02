@@ -46,25 +46,52 @@ const applyClasses = (container: HTMLElement, mapping: ModalMapping): void => {
  * @param {string} [prefix='cookie-consent'] - Préfixe pour les classes BEM.
  * @param {Record<string, string>} [translations] - Chemins vers les fichiers de traduction JSON.
  * @param {ExtraClasses} [extraClasses={}] - Classes supplémentaires à ajouter par projet.
+ * @param {Callbacks} [callbacks={}] - Callbacks onConsent et onChange.
+ * @param {string[]} [enabledCategories] - Liste facultative des catégories à activer.
  *
  * @example
  * initCookieConsent('cookie-consent', undefined, {
  * 	consentModal: {
  * 		'[data-role="all"]': 'my-custom-class',
  * 	}
- * });
+ * }, {}, ['necessary', 'analytics']);
  */
 export const initCookieConsent = (
 	prefix: string = 'cookie-consent',
-	translations: any = { fr, en },	extraClasses: ExtraClasses = {},
+	translations: any = { fr, en },
+	extraClasses: ExtraClasses = {},
 	callbacks: {
 		onConsent?: (params: { cookie: any }) => void;
 		onChange?: (params: { cookie: any, changedCategories: string[] }) => void;
-	} = {}
+	} = {},
+	enabledCategories?: string[]
 ): void => {
+	const allCategories = {
+		necessary: { readOnly: true },
+		functionality: {},
+		analytics: {},
+		marketing: {}
+	};
+
+	// Filtrer les catégories si une liste est fournie
+	const categories = enabledCategories
+		? Object.fromEntries(
+			Object.entries(allCategories).filter(([key]) => enabledCategories.includes(key))
+		)
+		: allCategories;
+
+	// Filtrer les sections des traductions pour qu'elles correspondent aux catégories sélectionnées
+	if (enabledCategories) {
+		Object.keys(translations).forEach((lang) => {
+			if (translations[lang].preferencesModal?.sections) {
+				translations[lang].preferencesModal.sections = translations[lang].preferencesModal.sections.filter(
+					(section: any) => !section.linkedCategory || enabledCategories.includes(section.linkedCategory)
+				);
+			}
+		});
+	}
+
 	CookieConsent.run({
-
-
 		guiOptions: {
 			consentModal: { layout: 'box', position: 'bottom left', equalWeightButtons: true },
 			preferencesModal: { layout: 'box', position: 'right', equalWeightButtons: true }
@@ -124,12 +151,7 @@ export const initCookieConsent = (
 
 			applyClasses(modal, currentMapping);
 		},
-		categories: {
-			necessary: { readOnly: true },
-			functionality: {},
-			analytics: {},
-			marketing: {}
-		},
+		categories,
 		language: {
 			default: 'fr',
 			autoDetect: 'browser',

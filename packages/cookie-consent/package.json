@@ -1,6 +1,7 @@
 {
   "name": "@zuii/cookie-consent",
-  "version": "1.1.0",
+  "version": "1.2.0",
+  "type": "module",
   "description": "Composant Cookie Consent pour zuii",
   "main": "./dist/cookie-consent.cjs",
   "module": "./dist/cookie-consent.js",
@@ -23,8 +24,8 @@
   },
   "scripts": {
     "build": "pnpm build:js && pnpm build:css && pnpm build:css:min",
-    "build:css": "sass src/style/index.scss dist/style/cookie-consent.css --silence-deprecation=import",
-    "build:css:min": "sass src/style/index.scss dist/style/cookie-consent.min.css --style=compressed --silence-deprecation=import",
+    "build:css": "sass src/style/index.scss dist/style/cookie-consent.css --load-path=node_modules --silence-deprecation=import",
+    "build:css:min": "sass src/style/index.scss dist/style/cookie-consent.min.css --style=compressed --load-path=node_modules --silence-deprecation=import",
     "build:js": "tsup",
     "dev": "pnpm build:js && pnpm build:css && tsup --watch"
   },

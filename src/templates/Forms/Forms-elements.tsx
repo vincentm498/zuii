@@ -10,7 +10,6 @@ export const FormsElements = () => {
 	const [countryValue, setCountryValue] = useState<string | string[]>('');
 	const [multiValue, setMultiValue] = useState<string | string[]>(['1', '2']);
 
-
 	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		const formData = new FormData(e.currentTarget);

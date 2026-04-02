@@ -49,7 +49,14 @@ L'objectif est de poser des bases solides pour la librairie.
 - [x] **Navigation** : `Nav`, `Tabs`, `Breadcrumbs`, `Menu` (Refondu en structure layout, responsive avec burger menu mobile).
 
 ### 🔵 Phase 3 : Composants Avancés
-- [x] **Overlays** : `Modal`, `Popover`, `Tooltip`.
+- [x] **Overlays** : `Modal`, `Popover`, `Tooltip`, `@zuii/cookie-consent` (Configuration des catégories).
+- [x] **Calendar** : `@zuii/calendar` (Calendrier pur, support multilingue et multi-framework)
+  - [x] Séparation de `@zuii/calendar` et `@zuii/booking`
+  - [x] Support du multi-langue (fr/en)
+  - [x] Navigation temporelle (mois précédent/suivant, sélecteur d'année Choices.js)
+  - [x] **Sélection de plage de dates (Mode Range)**
+  - [x] Wrappers React (TSX) pour les deux packages
+- [x] **Booking** : `@zuii/booking` (Gestion de créneaux, indépendant ou lié au calendrier).
 - [x] **Feedback** : `Alert` (Support JS/TS & injection composants React), `Toast`, `Spinner` (Loader) - *Ajout variante SVG*.
 - [x] **Data Display** : `Table` (Ag-Grid : Tri, Filtrage, Sélection, Pagination personnalisée avec `Select`), `Badge`, `Card`, `Slider` (SplideJS).
 
