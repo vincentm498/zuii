@@ -1,0 +1,62 @@
+{
+	"name": "@zuii/modal",
+	"version": "0.1.1-beta.0",
+	"type": "module",
+	"description": "Composant Modal Vanilla JS et React pour zuii",
+	"main": "./src/js/index.ts",
+	"module": "./src/js/index.ts",
+	"types": "./src/js/index.ts",
+	"files": [
+		"dist",
+		"src"
+	],
+	"exports": {
+		".": {
+			"types": "./src/js/index.ts",
+			"import": "./src/js/index.ts"
+		},
+		"./react": {
+			"types": "./src/react/index.tsx",
+			"import": "./src/react/index.tsx"
+		},
+		"./style": "./src/style/index.scss"
+	},
+	"scripts": {
+		"build": "pnpm build:js && pnpm build:css && pnpm build:css:min",
+		"build:css": "sass src/style/index.scss dist/style/modal.css --load-path=node_modules --silence-deprecation=import",
+		"build:css:min": "sass src/style/index.scss dist/style/modal.min.css --style=compressed --load-path=node_modules --silence-deprecation=import",
+		"build:js": "tsup",
+		"dev": "pnpm build:js && pnpm build:css && tsup --watch"
+	},
+	"dependencies": {
+		"@zuii/core": "workspace:*",
+		"bootstrap": "^5.3.0",
+		"react-bootstrap": "^2.0.0"
+	},
+	"peerDependencies": {
+		"react": ">=16.8.0"
+	},
+	"peerDependenciesMeta": {
+		"react": {
+			"optional": true
+		}
+	},
+	"devDependencies": {
+		"@types/react": "^19.0.0",
+		"bootstrap": "^5.3.8",
+		"react": "^19.0.0",
+		"react-bootstrap": "^2.10.10",
+		"tsup": "^8.5.1",
+		"typescript": "^5.9.3"
+	},
+	"keywords": [
+		"zuii",
+		"modal",
+		"ui"
+	],
+	"author": "Vincent Moreau",
+	"license": "MIT",
+	"publishConfig": {
+		"access": "public"
+	}
+}

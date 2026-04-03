@@ -1,0 +1,30 @@
+.calendar {
+	--calendar-light: var(--white);
+	--calendar-bg: var(--calendar-light);
+	--calendar-bg-hover: var(--accent);
+	--calendar-header-bg: var(--primary);
+	--calendar-header-text: var(--calendar-light);
+	--calendar-border: transparent;
+	--calendar-text: var(--primary);
+	--calendar-text-hover: var(--calendar-light);
+	--calendar-selected-bg: var(--accent);
+	--calendar-selected-text: var(--calendar-light);
+	--calendar-disabled-text: color-mix(in srgb, var(--calendar-text), transparent 25%);
+	--calendar-available-border: var(--accent);
+	--calendar-font-size: 1.2rem;
+	--calendar-radius: var(--radius-base);
+
+	font-family: var(--calendar-font);
+	width: 100%;
+	background: var(--calendar-bg);
+	user-select: none;
+}
+
+.calendar__body {
+	padding: 1rem 1.5rem;
+}
+
+.calendar .choices__list--dropdown {
+	margin-top: 7px;
+}
+

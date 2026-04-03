@@ -10,6 +10,7 @@ export default defineConfig([
 		dts: true,
 		splitting: false,
 		sourcemap: true,
+		minify: false,
 		clean: true, // Seul le 1er nettoie le dist
 		external: ['react', 'vanilla-cookieconsent', '@zuii/core', '**/*.scss'],
 		loader: {

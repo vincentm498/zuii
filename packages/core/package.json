@@ -1,6 +1,6 @@
 {
   "name": "@zuii/core",
-  "version": "1.0.0",
+  "version": "0.1.1-beta.0",
   "description": "Styles de base et utilitaires pour zuii",
   "main": "./src/styles/main.scss",
   "exports": {
@@ -14,4 +14,3 @@
     "access": "public"
   }
 }
-

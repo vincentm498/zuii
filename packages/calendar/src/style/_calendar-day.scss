@@ -1,0 +1,52 @@
+.calendar__day {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	border-radius: var(--calendar-radius);
+	color: var(--calendar-text);
+	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+	border: 1px solid transparent;
+	position: relative;
+	padding: .3rem;
+	line-height: 1;
+
+	&:hover:not(.calendar__day--disabled):not(.calendar__day--selected) {
+		background: var(--calendar-bg-hover);
+		color: var(--calendar-text-hover);
+		transform: translateY(-2px);
+	}
+}
+
+.calendar__day--available {
+	border: 1px solid var(--calendar-available-border);
+}
+
+.calendar__day--selected {
+	background: var(--calendar-selected-bg);
+	color: var(--calendar-selected-text);
+	border-color: var(--calendar-selected-bg);
+	box-shadow: 0 4px 10px rgba(76, 175, 80, 0.3);
+	transform: scale(1.05);
+	z-index: 2;
+}
+
+.calendar__day--range {
+	background: color-mix(in srgb, var(--calendar-selected-bg), transparent 85%);
+	color: var(--calendar-selected-bg);
+	border-radius: 0;
+}
+
+.calendar__day--disabled {
+	cursor: default;
+	pointer-events: none;
+	opacity: 0.3;
+}
+
+.calendar__day--past {
+	color: var(--calendar-disabled-text);
+	text-decoration: line-through;
+	opacity: 0.5;
+	pointer-events: none;
+	cursor: default;
+}

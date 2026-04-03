@@ -12,7 +12,7 @@ import { handleNumericKeyDown } from "../js/number";
 import { FormColor } from "./FormColor";
 import { FormDate } from "./FormDate";
 
-import "../style/index.scss";
+import "@core/form/index.scss";
 
 /**
  * Propriétés du composant FormControl.

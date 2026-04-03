@@ -29,3 +29,5 @@ export * from './Sliders/Sliders';
 export * from './Cards/Cards';
 export * from './Groups/Groups';
 export * from './Cookie-Consents/Cookie-Consents';
+export * from './Calendars/Calendars';
+
