@@ -1,6 +1,6 @@
 {
   "name": "@zuii/booking",
-  "version": "0.2.0",
+  "version": "0.1.1-beta.0",
   "type": "module",
   "description": "Composant Booking pour zuii",
   "main": "./dist/index.cjs",
@@ -34,12 +34,16 @@
   "dependencies": {
     "date-fns": "^4.1.0",
     "@zuii/calendar": "workspace:*",
-    "@zuii/modal": "workspace:*"
+    "@zuii/modal": "workspace:*",
+    "@zuii/core": "workspace:*"
   },
-
   "peerDependencies": {
-    "@zuii/core": "workspace:*",
     "react": ">=16.8.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
   },
   "keywords": [
     "zuii",

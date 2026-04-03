@@ -1,6 +1,6 @@
 {
   "name": "@zuii/cookie-consent",
-  "version": "1.2.0",
+  "version": "0.1.1-beta.0",
   "type": "module",
   "description": "Composant Cookie Consent pour zuii",
   "main": "./dist/cookie-consent.cjs",
@@ -30,11 +30,16 @@
     "dev": "pnpm build:js && pnpm build:css && tsup --watch"
   },
   "dependencies": {
-    "vanilla-cookieconsent": "^3.1.0"
+    "vanilla-cookieconsent": "^3.1.0",
+    "@zuii/core": "workspace:*"
   },
   "peerDependencies": {
-    "@zuii/core": "workspace:*",
     "react": ">=16.8.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
   },
   "keywords": [
     "zuii",

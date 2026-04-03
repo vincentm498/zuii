@@ -10,6 +10,7 @@ const trads: any = {
 		noSlots: 'Pas de créneaux disponibles pour cette date.',
 		selectDay: 'Sélectionnez un jour dans le calendrier',
 		selectTime: 'Sélectionner un horaire pour le',
+		selectGeneralSlot: 'Sélectionner un créneau pour le',
 		confirmTitle: 'Confirmer la réservation',
 		confirmBody: 'Vous avez sélectionné le <strong>{date}</strong> {prep} <strong>{slot}</strong>.',
 		confirmBtn: 'Réserver ce créneau',
@@ -20,6 +21,7 @@ const trads: any = {
 		noSlots: 'No slots available for this date.',
 		selectDay: 'Please select a day in the calendar',
 		selectTime: 'Select a time slot for',
+		selectGeneralSlot: 'Select a slot for',
 		confirmTitle: 'Confirm Booking',
 		confirmBody: 'You selected <strong>{date}</strong> {prep} <strong>{slot}</strong>.',
 		confirmBtn: 'Book this slot',
@@ -30,9 +32,13 @@ const trads: any = {
 export interface BookingField {
 	name: string;
 	label: string;
-	type: 'text' | 'email' | 'tel' | 'textarea' | 'number' | 'date';
+	type: 'text' | 'email' | 'tel' | 'textarea' | 'number' | 'date' | 'checkbox' | 'quantity';
 	required?: boolean;
 	placeholder?: string;
+	value?: string | number | boolean;
+	min?: number | string;
+	max?: number | string;
+	step?: number | string;
 }
 
 export interface BookingOptions extends Omit<CalendarOptions, 'onDateSelect'> {
@@ -41,6 +47,8 @@ export interface BookingOptions extends Omit<CalendarOptions, 'onDateSelect'> {
 	selectedDate?: Date | null;
 	inputName?: string;
 	fields?: BookingField[];
+	labels?: Record<string, string>;
+	itemTitle?: string;
 	onSlotSelect?: (date: Date, slot: string, formData: Record<string, any>) => void;
 }
 
@@ -73,6 +81,8 @@ export class Booking {
 			disablePast: false,
 			onRangeSelect: () => {},
 			initialDate: new Date(),
+			labels: {},
+			itemTitle: '',
 			...options
 		} as Required<BookingOptions>;
 
@@ -86,7 +96,7 @@ export class Booking {
 
 
 		this.selectedDate = this.options.selectedDate;
-		this.currentTrads = trads[this.options.lang];
+		this.currentTrads = { ...trads[this.options.lang], ...this.options.labels };
 		this.initLayout();
 		this.render();
 	}
@@ -164,13 +174,16 @@ export class Booking {
 		const locale = this.options.lang === 'fr' ? localeFr : localeEn;
 		const formattedDate = format(this.selectedDate, 'EEEE d MMMM yyyy', { locale });
 
+		const isTimeSlot = slots.some(slot => slot.includes(':') || /\\d[h:]/i.test(slot));
+		const titleLabel = slots.length > 0 && !isTimeSlot ? this.currentTrads.selectGeneralSlot : this.currentTrads.selectTime;
+
 		this.slotsContainer.innerHTML = `
 			<div class="booking">
-				<h3 class="booking__title">${this.currentTrads.selectTime} ${formattedDate}</h3>
+				<h3 class="booking__title">${titleLabel} ${formattedDate}</h3>
 				<div class="booking__slots">
 					${slots.map(slot => `
-						<button class="booking__slot ${this.selectedSlot === slot ? 'booking__slot--selected' : ''}" data-slot="${slot}">
-							${slot.includes(':') ? slot.replace(':', 'h') : slot}
+						<button class="btn btn-primary booking__slot ${this.selectedSlot === slot ? 'booking__slot--selected' : ''}" data-slot="${slot}">
+							<span class="btn-content booking__slot__label">${slot.includes(':') ? slot.replace(':', 'h') : slot}</span>
 						</button>
 					`).join('')}
 					${slots.length === 0 ? `<p class="booking__empty">${this.currentTrads.noSlots}</p>` : ''}
@@ -212,37 +225,48 @@ export class Booking {
 		const formattedDate = format(date, 'EEEE d MMMM yyyy', { locale });
 		const displaySlot = slot.includes(':') ? slot.replace(':', 'h') : slot;
 
-		const prep = this.options.lang === 'fr' ? (slot.includes(':') ? 'à' : 'le') : (slot.includes(':') ? 'at' : 'on');
+		const prep = this.options.lang === 'fr' ? (slot.includes(':') ? 'à' : 'au') : (slot.includes(':') ? 'at' : 'on');
 		const body = `
-			<p class="booking-modal__text">${this.currentTrads.confirmBody.replace('{date}', formattedDate).replace('{slot}', displaySlot).replace('{prep}', prep)}</p>
+			<p class="booking-modal__text">${this.currentTrads.confirmBody
+				.replace('{title}', this.options.itemTitle)
+				.replace('{date}', formattedDate)
+				.replace('{slot}', displaySlot)
+				.replace('{prep}', prep)}</p>
 			<form id="booking-confirmation-form" class="form booking-form">
-				${this.options.fields.map(field => `
+				${this.options.fields.map(field => {
+					const inputType = field.type === 'quantity' ? 'number' : field.type;
+					const inputClass = field.type === 'checkbox' ? 'form-check-input' : 'form-control';
+					const valAttr = field.value !== undefined ? ` value="${field.value}"` : '';
+					const minAttr = field.min !== undefined ? ` min="${field.min}"` : '';
+					const maxAttr = field.max !== undefined ? ` max="${field.max}"` : '';
+					const stepAttr = field.step !== undefined ? ` step="${field.step}"` : '';
+					const reqAttr = field.required ? ' required' : '';
+					const placeholderAttr = field.placeholder ? ` placeholder="${field.placeholder}"` : '';
+
+					return `
 					<div class="form__group booking-form-group booking-form-group--${field.name}">
 						<label for="field-${field.name}" class="form-label">
 							${field.label}${field.required ? ' <span class="text-danger">*</span>' : ''}
 						</label>
-						<div class="form__input">
+						<div class="form__input ${field.type === 'checkbox' ? 'form-check' : ''}">
 							${field.type === 'textarea' ? `
 								<textarea
 									id="field-${field.name}"
 									name="${field.name}"
-									class="form-control"
-									${field.required ? 'required' : ''}
-									placeholder="${field.placeholder || ''}"
+									class="${inputClass}"${reqAttr}${placeholderAttr}${valAttr}
 								></textarea>
 							` : `
 								<input
-									type="${field.type}"
+									type="${inputType}"
 									id="field-${field.name}"
 									name="${field.name}"
-									class="form-control"
-									${field.required ? 'required' : ''}
-									placeholder="${field.placeholder || ''}"
+									class="${inputClass}"${reqAttr}${placeholderAttr}${valAttr}${minAttr}${maxAttr}${stepAttr}
 								/>
 							`}
 						</div>
 					</div>
-				`).join('')}
+					`;
+				}).join('')}
 			</form>
 		`;
 

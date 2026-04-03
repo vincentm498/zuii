@@ -1,6 +1,6 @@
 {
   "name": "@zuii/calendar",
-  "version": "0.1.2",
+  "version": "0.1.1-beta.0",
   "type": "module",
   "description": "Composants Calendar et Reservation pour zuii",
   "main": "./dist/index.cjs",
@@ -33,11 +33,16 @@
   },
   "dependencies": {
     "choices.js": "^11.1.0",
-    "date-fns": "^4.1.0"
+    "date-fns": "^4.1.0",
+    "@zuii/core": "workspace:*"
   },
   "peerDependencies": {
-    "@zuii/core": "workspace:*",
     "react": ">=16.8.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
   },
   "keywords": [
     "zuii",

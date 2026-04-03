@@ -12,5 +12,5 @@ export default defineConfig({
 	clean: true,
 	treeshake: false,
 	minify: false,
-	external: ['react', '@zuii/core', 'bootstrap', 'react-bootstrap'],
+	external: ['react', '@zuii/core', 'bootstrap', 'react-bootstrap', /\.scss$/],
 });

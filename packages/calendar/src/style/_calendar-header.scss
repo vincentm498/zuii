@@ -19,6 +19,7 @@
 
 .calendar__header--year-wrapper {
 	.choices {
+		display: flex;
 		margin-bottom: 0;
 
 		&::after {
@@ -77,4 +78,13 @@
 	.choices__list {
 		padding: 0 1.5rem;
 	}
+}
+
+.calendar__header--year-select {
+	background: transparent;
+}
+
+.calendar .choices__inner {
+	background: transparent;
+		line-height: 1;
 }

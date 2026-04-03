@@ -43,3 +43,9 @@
  #cc-main.cookie-consent--accordion .pm__section-arrow {
 	background: transparent;
 }
+
+
+#cc-main input[type=checkbox]{
+	display:none;
+	visibility: hidden;
+}

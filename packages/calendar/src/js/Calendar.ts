@@ -180,8 +180,14 @@ export class Calendar {
 						if (isInRange) classes.push('calendar__day--range');
 						if (isAvailable) classes.push('calendar__day--available');
 
-						// Désactiver : hors mois courant, passé, ou non disponible
-						if (!isCurrentMonth || isPast || isUnavailable) classes.push('calendar__day--disabled');
+						// Désactiver : hors mois courant, passé (si option active), ou non disponible
+						if (!isCurrentMonth) {
+							classes.push('calendar__day--disabled');
+						} else if (this.options.disablePast && isPast) {
+							classes.push('calendar__day--disabled');
+						} else if (isUnavailable) {
+							classes.push('calendar__day--disabled');
+						}
 
 						return `<div class="${classes.join(' ')}" data-date="${dateStr}" role="button" tabindex="0">${day.getDate()}</div>`;
 					}).join('')}

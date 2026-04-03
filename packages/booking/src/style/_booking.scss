@@ -12,10 +12,17 @@
 
 .booking-wrapper {
 	display: flex;
+	flex-direction: column;
 	gap: var(--booking-gap);
 	flex-wrap: wrap;
-	// align-items: flex-start;
-	// width: 100%;
+	align-items: center;
+
+	@media screen and (min-width: 768px) {
+		flex-direction: row;
+		align-items: stretch;
+	}
+
+
 
 }
 
@@ -23,9 +30,9 @@
 	flex: 1;
 	width: 100%;
 
-	@media screen and (min-width: 640px){
+	@media screen and (min-width: 640px) {
 		flex: none;
-	width: 400px;
+		width: 400px;
 	}
 
 
@@ -38,9 +45,10 @@
 }
 
 .booking {
+
+
 	width: 100%;
 	border-radius: var(--booking-radius);
-	overflow: hidden;
 	color: var(--booking-text);
 	user-select: none;
 	display: flex;

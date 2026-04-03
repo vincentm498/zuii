@@ -2,7 +2,6 @@ import * as CookieConsent from 'vanilla-cookieconsent';
 import { fr } from './trads/fr';
 
 import { en } from './trads/en';
-import '../style/index.scss';
 
 // Exposition globale pour permettre le pilotage de la langue depuis d'autres composants (ex: Language Selector)
 (window as any).CookieConsent = CookieConsent;
@@ -150,6 +149,19 @@ export const initCookieConsent = (
 			});
 
 			applyClasses(modal, currentMapping);
+
+			// Injection automatique du wrapper .button__content pour les boutons
+			modal.querySelectorAll('.button').forEach(btn => {
+				if (!btn.querySelector('.button__content')) {
+					const content = document.createElement('div');
+					content.className = 'button__content';
+					// Transfert de tous les nœuds enfants (texte, icônes, etc.) dans le nouveau wrapper
+					while (btn.firstChild) {
+						content.appendChild(btn.firstChild);
+					}
+					btn.appendChild(content);
+				}
+			});
 		},
 		categories,
 		language: {

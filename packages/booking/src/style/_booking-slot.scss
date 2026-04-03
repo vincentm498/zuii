@@ -1,26 +1,26 @@
-.booking__slot {
-	background: var(--booking-bg);
-	padding: 20px 10px;
-	border: none;
-	border-radius: 4px;
-	text-align: center;
-	cursor: pointer;
-	font-weight: 700;
-	font-size: 20px;
-	color: var(--booking-text);
-	transition: all 0.2s;
+// .booking__slot {
+// 	background: var(--booking-bg);
+// 	padding: 20px 10px;
+// 	border: none;
+// 	border-radius: 4px;
+// 	text-align: center;
+// 	cursor: pointer;
+// 	font-weight: 700;
+// 	font-size: 20px;
+// 	color: var(--booking-text);
+// 	transition: all 0.2s;
 
-	&:hover {
-		background: color-mix(in srgb, var(--booking-bg), #000 5%);
-	}
-}
+// 	&:hover {
+// 		background: color-mix(in srgb, var(--booking-bg), #000 5%);
+// 	}
+// }
 
-.booking__slot--selected {
-	background: var(--booking-selected-bg);
-	color: var(--booking-selected-text);
-}
+// .booking__slot--selected {
+// 	background: var(--booking-selected-bg);
+// 	color: var(--booking-selected-text);
+// }
 
-.booking__slot--range {
-	background: color-mix(in srgb, var(--booking-selected-bg), transparent 60%);
-	color: var(--booking-selected-text);
-}
+// .booking__slot--range {
+// 	background: color-mix(in srgb, var(--booking-selected-bg), transparent 60%);
+// 	color: var(--booking-selected-text);
+// }
