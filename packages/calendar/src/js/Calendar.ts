@@ -17,6 +17,7 @@ export interface CalendarOptions {
 	lang?: 'fr' | 'en';
 	mode?: 'single' | 'range';
 	disablePast?: boolean;
+	yearsFromNow?: number;
 	availability?: Record<string, string[]>;
 	onDateSelect?: (date: Date) => void;
 	onRangeSelect?: (start: Date, end: Date) => void;
@@ -45,6 +46,7 @@ export class Calendar {
 			lang: 'fr',
 			mode: 'single',
 			disablePast: false,
+			yearsFromNow: 20,
 			availability: {},
 			onDateSelect: () => {},
 			onRangeSelect: () => {},
@@ -122,8 +124,15 @@ export class Calendar {
 		const end = addDays(start, 41);
 		const days = eachDayOfInterval({ start, end });
 		const now = new Date();
+		const nowYear = now.getFullYear();
 		const isPastMonth = startOfMonth(this.currentMonth) <= startOfMonth(now);
 		const canGoPrev = !this.options.disablePast || !isPastMonth;
+
+		const startYear = year - 50;
+		const maxYear = nowYear + this.options.yearsFromNow;
+		const yearsLength = Math.max(1, maxYear - startYear + 1);
+		const availableYears = Array.from({ length: yearsLength }, (_, i) => startYear + i)
+			.filter(y => !this.options.disablePast || y >= nowYear);
 
 		this.container.innerHTML = `
 			<div class="calendar">
@@ -134,9 +143,7 @@ export class Calendar {
 					<span class="calendar__header--month">${monthName}</span>
 					<div class="calendar__header--year-wrapper">
 						<select class="calendar__header--year-select">
-							${Array.from({ length: 71 }, (_, i) => year - 50 + i)
-								.filter(y => !this.options.disablePast || y >= now.getFullYear())
-								.map(y => `
+							${availableYears.map(y => `
 									<option value="${y}" ${y === year ? 'selected' : ''}>${y}</option>
 								`).join('')}
 						</select>

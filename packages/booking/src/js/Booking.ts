@@ -119,6 +119,7 @@ export class Booking {
 				lang: this.options.lang,
 				mode: this.options.mode,
 				disablePast: this.options.disablePast,
+				yearsFromNow: this.options.yearsFromNow,
 				availability: this.options.availability,
 				initialDate: this.options.initialDate,
 				onDateSelect: (date: Date) => {

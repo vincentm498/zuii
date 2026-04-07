@@ -1,5 +1,16 @@
 # @zuii/booking
 
+## 0.2.0-beta.1
+
+### Minor Changes
+
+- Ajout des options de configuration `yearRange` et `disablePast` au Calendar. Prise en charge de ces paramètres directement via l'état du Booking. Correction de l'affichage global des jours désactivés.
+
+### Patch Changes
+
+- Updated dependencies
+  - @zuii/calendar@0.2.0-beta.1
+
 ## 0.1.1-beta.0
 
 ### Patch Changes

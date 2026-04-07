@@ -37,11 +37,6 @@
 	border-radius: 0;
 }
 
-.calendar__day--disabled {
-	cursor: default;
-	pointer-events: none;
-	opacity: 0.3;
-}
 
 .calendar__day--past {
 	color: var(--calendar-disabled-text);
@@ -49,4 +44,11 @@
 	opacity: 0.5;
 	pointer-events: none;
 	cursor: default;
+}
+
+.calendar__day--disabled {
+	cursor: default;
+	pointer-events: none;
+	opacity: 0.3;
+	border: none;
 }

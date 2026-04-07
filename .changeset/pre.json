@@ -1,0 +1,14 @@
+{
+  "mode": "pre",
+  "tag": "beta",
+  "initialVersions": {
+    "@zuii/booking": "0.1.1-beta.0",
+    "@zuii/calendar": "0.1.1-beta.0",
+    "@zuii/cookie-consent": "0.1.1-beta.0",
+    "@zuii/core": "0.1.1-beta.0",
+    "@zuii/modal": "0.1.1-beta.0"
+  },
+  "changesets": [
+    "feat-calendar-options"
+  ]
+}
