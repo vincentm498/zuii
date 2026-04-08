@@ -70,6 +70,12 @@ export class Calendar {
 	 * Passe au mois suivant.
 	 */
 	public nextMonth(): void {
+		const now = new Date();
+		const maxYear = now.getFullYear() + this.options.yearsFromNow;
+		const isLastMonthAllowed = this.currentMonth.getFullYear() >= maxYear && this.currentMonth.getMonth() >= 11;
+
+		if (isLastMonthAllowed) return;
+
 		this.currentMonth = addMonths(this.currentMonth, 1);
 		this.render();
 	}
@@ -135,8 +141,11 @@ export class Calendar {
 		const isPastMonth = startOfMonth(this.currentMonth) <= startOfMonth(now);
 		const canGoPrev = !this.options.disablePast || !isPastMonth;
 
-		const startYear = year - 50;
 		const maxYear = nowYear + this.options.yearsFromNow;
+		const isLastMonthAllowed = this.currentMonth.getFullYear() >= maxYear && this.currentMonth.getMonth() >= 11;
+		const canGoNext = !isLastMonthAllowed;
+
+		const startYear = nowYear - 50;
 		const yearsLength = Math.max(1, maxYear - startYear + 1);
 		const availableYears = Array.from({ length: yearsLength }, (_, i) => startYear + i)
 			.filter(y => !this.options.disablePast || y >= nowYear);
@@ -155,7 +164,7 @@ export class Calendar {
 								`).join('')}
 						</select>
 					</div>
-					<button class="calendar__header-btn" data-action="next" aria-label="Mois suivant">
+					<button class="calendar__header-btn" data-action="next" aria-label="Mois suivant" ${!canGoNext ? 'disabled style="opacity: 0.3; cursor: default;"' : ''}>
 						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
 					</button>
 				</div>

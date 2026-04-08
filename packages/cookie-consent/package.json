@@ -1,6 +1,6 @@
 {
   "name": "@zuii/cookie-consent",
-  "version": "0.2.0-beta.1",
+  "version": "0.3.0-beta.0",
   "type": "module",
   "description": "Composant Cookie Consent pour zuii",
   "main": "./dist/cookie-consent.cjs",

@@ -1,5 +1,19 @@
 # @zuii/calendar
 
+## 0.3.0-beta.0
+
+### Minor Changes
+
+- 6adfc92: Ajout des options de configuration `yearRange` et `disablePast` au Calendar. Prise en charge de ces paramètres directement via l'état du Booking. Correction de l'affichage global des jours désactivés.
+- dc26283: Modernisation de l'architecture i18n (getDocLang), ajout du support de l'allemand et de l'espagnol, et ajout de l'option disabledLangs.
+
+### Patch Changes
+
+- Correction de la navigation des flèches dans le Calendar pour respecter les limites définies (ex: `yearRange`). Les flèches sont désormais correctement désactivées lorsqu'on atteint la limite.
+- Updated dependencies
+- Updated dependencies [dc26283]
+  - @zuii/core@0.2.0
+
 ## 0.2.0-beta.2
 
 ### Minor Changes

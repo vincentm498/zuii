@@ -1,5 +1,13 @@
 # @zuii/modal
 
+## 0.1.1
+
+### Patch Changes
+
+- Updated dependencies
+- Updated dependencies [dc26283]
+  - @zuii/core@0.2.0
+
 ## 0.1.1-beta.1
 
 ### Patch Changes
