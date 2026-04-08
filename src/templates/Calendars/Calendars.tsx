@@ -21,6 +21,7 @@ export const Calendars = () => {
 				<Booking
 					disablePast={true}
 					availability={MOCK_AVAILABILITY}
+					yearsFromNow={20}
 					onSlotSelect={(date: Date, slot: string, formData: any) => {
 						console.log(`Réservation confirmée : ${date.toLocaleDateString()} à ${slot}`, formData);
 						alert(`Merci ${formData.firstname} ! Votre réservation pour le ${date.toLocaleDateString()} à ${slot} est prise en compte.`);

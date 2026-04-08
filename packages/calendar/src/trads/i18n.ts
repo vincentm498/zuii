@@ -21,3 +21,17 @@ export const en = {
 		noSlots: 'No slots available for this date.'
 	}
 };
+
+export const es = {
+	months: [
+		'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
+		'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
+	],
+	days: ['lun', 'mar', 'mié', 'jue', 'vie', 'sáb', 'dom'],
+	reservation: {
+		selectSlot: 'Selecciona un horario para el',
+		noSlots: 'No hay horarios disponibles para esta fecha.'
+	}
+};
+
+export const trads = { fr, en, es };
