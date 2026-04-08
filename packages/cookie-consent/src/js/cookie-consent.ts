@@ -1,12 +1,9 @@
 import * as CookieConsent from 'vanilla-cookieconsent';
-import { fr } from './trads/fr';
-
-import { en } from './trads/en';
+import { getDocLang, type ZuiiLang } from '@zuii/core';
+import { trads as defaultTrads } from './trads/i18n';
 
 // Exposition globale pour permettre le pilotage de la langue depuis d'autres composants (ex: Language Selector)
 (window as any).CookieConsent = CookieConsent;
-
-
 
 
 /**
@@ -43,27 +40,22 @@ const applyClasses = (container: HTMLElement, mapping: ModalMapping): void => {
 /**
  * Initialise le bandeau de consentement des cookies avec support multilingue et classes personnalisables.
  * @param {string} [prefix='cookie-consent'] - Préfixe pour les classes BEM.
- * @param {Record<string, string>} [translations] - Chemins vers les fichiers de traduction JSON.
+ * @param {Record<string, any>} [translations=defaultTrads] - Objet de traductions (fr, en, es, de).
  * @param {ExtraClasses} [extraClasses={}] - Classes supplémentaires à ajouter par projet.
- * @param {Callbacks} [callbacks={}] - Callbacks onConsent et onChange.
+ * @param {Object} [callbacks={}] - Callbacks onConsent et onChange.
  * @param {string[]} [enabledCategories] - Liste facultative des catégories à activer.
- *
- * @example
- * initCookieConsent('cookie-consent', undefined, {
- * 	consentModal: {
- * 		'[data-role="all"]': 'my-custom-class',
- * 	}
- * }, {}, ['necessary', 'analytics']);
+ * @param {ZuiiLang[]} [disabledLangs=[]] - Langues à désactiver.
  */
 export const initCookieConsent = (
 	prefix: string = 'cookie-consent',
-	translations: any = { fr, en },
+	translations: Record<string, any> = defaultTrads,
 	extraClasses: ExtraClasses = {},
 	callbacks: {
 		onConsent?: (params: { cookie: any }) => void;
 		onChange?: (params: { cookie: any, changedCategories: string[] }) => void;
 	} = {},
-	enabledCategories?: string[]
+	enabledCategories?: string[],
+	disabledLangs: ZuiiLang[] = []
 ): void => {
 	const allCategories = {
 		necessary: { readOnly: true },
@@ -89,6 +81,9 @@ export const initCookieConsent = (
 			}
 		});
 	}
+
+	const detectedLang = getDocLang();
+	const finalLang = (disabledLangs as string[]).includes(detectedLang) ? 'fr' : detectedLang;
 
 	CookieConsent.run({
 		guiOptions: {
@@ -165,8 +160,7 @@ export const initCookieConsent = (
 		},
 		categories,
 		language: {
-			default: 'fr',
-			autoDetect: 'browser',
+			default: finalLang,
 			translations: translations
 		}
 	});

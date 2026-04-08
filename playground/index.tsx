@@ -4,6 +4,7 @@ import './style.scss'
 import { Buttons, Icons, Avatars, Badges, Colors, Dividers, ContextMenus, LangSelectors, Forms, Shadows, Radius, FormsElements, Dropdowns, Logos, Modals, Placeholders, Tooltips, Tables, TabsTemplate, Accordions, Alerts, Loaders, Grids, Sliders, Cards, Groups, Calendars  } from '../src/templates'
 
 import { initCookieConsent } from '../packages/cookie-consent/src/js/cookie-consent';
+import { MenuTemplate } from './menu';
 
 const CookieConsent = () => {
 	useEffect(() => {
@@ -17,6 +18,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 
 	<React.StrictMode>
 		<CookieConsent />
+		<MenuTemplate />
 		<div style={{ padding: '20px' }}>
 			<Calendars />
 			<hr style={{ margin: '20px 0' }} />

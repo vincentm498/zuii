@@ -19,9 +19,12 @@ export const Booking = ({
 	className = '',
 	mode = 'single',
 	disablePast = false,
-	initialDate = new Date(),
+	initialDate,
 	onRangeSelect,
 	fields,
+	yearsFromNow = 20,
+	labels = {},
+	itemTitle = '',
 }: BookingProps) => {
 	const containerRef = useRef<HTMLDivElement>(null);
 	const bookingInstance = useRef<VanillaBooking | null>(null);
@@ -36,9 +39,12 @@ export const Booking = ({
 				onSlotSelect,
 				mode,
 				disablePast,
-				initialDate,
+				initialDate: initialDate || selectedDate || new Date(),
 				onRangeSelect,
 				fields,
+				yearsFromNow,
+				labels,
+				itemTitle,
 			});
 		}
 	}, []);

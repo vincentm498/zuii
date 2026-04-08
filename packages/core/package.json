@@ -2,9 +2,12 @@
   "name": "@zuii/core",
   "version": "0.1.1-beta.0",
   "description": "Styles de base et utilitaires pour zuii",
-  "main": "./src/styles/main.scss",
+  "main": "./src/index.ts",
+  "style": "./src/styles/main.scss",
   "exports": {
+    ".": "./src/index.ts",
     "./styles/*": "./src/styles/*",
+    "./utils": "./src/utils/index.ts",
     "./utils/*": "./src/utils/*"
   },
   "keywords": [],

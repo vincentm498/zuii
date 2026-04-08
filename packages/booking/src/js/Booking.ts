@@ -2,32 +2,11 @@ import { format } from 'date-fns';
 import { fr as localeFr, enUS as localeEn } from 'date-fns/locale';
 import { Calendar, type CalendarOptions } from '@zuii/calendar';
 import { Modal } from '@zuii/modal';
+import { getDocLang, type ZuiiLang } from '@zuii/core';
+import { trads } from '../trads/i18n';
+import { es as localeEs } from 'date-fns/locale';
 
 
-const trads: any = {
-	fr: {
-		selectSlot: 'Vous avez sélectionné le',
-		noSlots: 'Pas de créneaux disponibles pour cette date.',
-		selectDay: 'Sélectionnez un jour dans le calendrier',
-		selectTime: 'Sélectionner un horaire pour le',
-		selectGeneralSlot: 'Sélectionner un créneau pour le',
-		confirmTitle: 'Confirmer la réservation',
-		confirmBody: 'Vous avez sélectionné le <strong>{date}</strong> {prep} <strong>{slot}</strong>.',
-		confirmBtn: 'Réserver ce créneau',
-		cancelBtn: 'Annuler'
-	},
-	en: {
-		selectSlot: 'You have selected',
-		noSlots: 'No slots available for this date.',
-		selectDay: 'Please select a day in the calendar',
-		selectTime: 'Select a time slot for',
-		selectGeneralSlot: 'Select a slot for',
-		confirmTitle: 'Confirm Booking',
-		confirmBody: 'You selected <strong>{date}</strong> {prep} <strong>{slot}</strong>.',
-		confirmBtn: 'Book this slot',
-		cancelBtn: 'Cancel'
-	}
-};
 
 export interface BookingField {
 	name: string;
@@ -42,7 +21,8 @@ export interface BookingField {
 }
 
 export interface BookingOptions extends Omit<CalendarOptions, 'onDateSelect'> {
-	lang?: 'fr' | 'en';
+	lang?: ZuiiLang;
+	disabledLangs?: ZuiiLang[];
 	availability: Record<string, string[]>;
 	selectedDate?: Date | null;
 	inputName?: string;
@@ -72,31 +52,38 @@ export class Booking {
 	 */
 	constructor(container: HTMLElement, options: BookingOptions) {
 		this.container = container;
+
+		const detectedLang = options.lang || getDocLang();
+		const finalLang = options.disabledLangs?.includes(detectedLang) ? 'fr' : detectedLang;
+
 		this.options = {
-			lang: 'fr',
+			disabledLangs: options.disabledLangs || [],
 			selectedDate: null,
 			inputName: 'booking_datetime',
-			onSlotSelect: () => {},
+			onSlotSelect: () => { },
 			mode: 'single',
 			disablePast: false,
-			onRangeSelect: () => {},
-			initialDate: new Date(),
+			onRangeSelect: () => { },
+			initialDate: options.selectedDate || new Date(),
+			yearsFromNow: 20,
 			labels: {},
 			itemTitle: '',
-			...options
+			...options,
+			lang: finalLang, // Force la langue filtrée (repli sur 'fr' si désactivée)
 		} as Required<BookingOptions>;
+
 
 		if (!this.options.fields) {
 			this.options.fields = [
-				{ name: 'firstname', label: this.options.lang === 'en' ? 'Firstname' : 'Prénom', type: 'text', required: true },
-				{ name: 'lastname', label: this.options.lang === 'en' ? 'Lastname' : 'Nom', type: 'text', required: true },
+				{ name: 'firstname', label: this.currentTrads.fields.firstname, type: 'text', required: true },
+				{ name: 'lastname', label: this.currentTrads.fields.lastname, type: 'text', required: true },
 				{ name: 'email', label: 'Email', type: 'email', required: true }
 			];
 		}
 
 
 		this.selectedDate = this.options.selectedDate;
-		this.currentTrads = { ...trads[this.options.lang], ...this.options.labels };
+		this.currentTrads = { ...(trads[this.options.lang] || trads.fr), ...this.options.labels };
 		this.initLayout();
 		this.render();
 	}
@@ -143,9 +130,9 @@ export class Booking {
 	 * Change la langue du composant.
 	 * @param {string} lang - 'fr' ou 'en'.
 	 */
-	public setLanguage(lang: 'fr' | 'en'): void {
+	public setLanguage(lang: ZuiiLang): void {
 		this.options.lang = lang;
-		this.currentTrads = trads[lang];
+		this.currentTrads = trads[lang] || trads.fr;
 		if (this.calendarInstance) {
 			this.calendarInstance.setLanguage(lang);
 		}
@@ -172,7 +159,8 @@ export class Booking {
 
 		const dateStr = format(this.selectedDate, 'yyyy-MM-dd');
 		const slots = this.options.availability[dateStr] || [];
-		const locale = this.options.lang === 'fr' ? localeFr : localeEn;
+		const localeMap = { fr: localeFr, en: localeEn, es: localeEs };
+		const locale = localeMap[this.options.lang as keyof typeof localeMap] || localeFr;
 		const formattedDate = format(this.selectedDate, 'EEEE d MMMM yyyy', { locale });
 
 		const isTimeSlot = slots.some(slot => slot.includes(':') || /\\d[h:]/i.test(slot));

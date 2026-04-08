@@ -10,11 +10,13 @@ import {
 	startOfDay,
 	addDays,
 } from 'date-fns';
-import { fr, en } from '../trads/i18n';
+import { trads } from '../trads/i18n';
 import { initSelect } from '../../../../src/components/Form/js/select';
+import { getDocLang, type ZuiiLang } from '@zuii/core';
 
 export interface CalendarOptions {
-	lang?: 'fr' | 'en';
+	lang?: ZuiiLang;
+	disabledLangs?: ZuiiLang[];
 	mode?: 'single' | 'range';
 	disablePast?: boolean;
 	yearsFromNow?: number;
@@ -42,11 +44,16 @@ export class Calendar {
 	 */
 	constructor(container: HTMLElement, options: CalendarOptions = {}) {
 		this.container = container;
+
+		const detectedLang = options.lang || getDocLang();
+		const finalLang = options.disabledLangs?.includes(detectedLang) ? 'fr' : detectedLang;
+
 		this.options = {
-			lang: 'fr',
-			mode: 'single',
-			disablePast: false,
-			yearsFromNow: 20,
+			lang: finalLang,
+			disabledLangs: options.disabledLangs || [],
+			mode: options.mode || 'single',
+			disablePast: options.disablePast || false,
+			yearsFromNow: options.yearsFromNow || 20,
 			availability: {},
 			onDateSelect: () => {},
 			onRangeSelect: () => {},
@@ -55,7 +62,7 @@ export class Calendar {
 		};
 		// On s'assure d'être au début du mois pour les calculs
 		this.currentMonth = startOfMonth(this.options.initialDate);
-		this.trads = this.options.lang === 'fr' ? fr : en;
+		this.trads = trads[this.options.lang] || trads.fr;
 		this.render();
 	}
 
@@ -106,9 +113,9 @@ export class Calendar {
 	 * Change la langue du calendrier.
 	 * @param {string} lang - 'fr' ou 'en'.
 	 */
-	public setLanguage(lang: 'fr' | 'en'): void {
+	public setLanguage(lang: ZuiiLang): void {
 		this.options.lang = lang;
-		this.trads = lang === 'fr' ? fr : en;
+		this.trads = trads[lang] || trads.fr;
 		this.render();
 	}
 
