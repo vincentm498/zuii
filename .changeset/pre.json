@@ -9,6 +9,7 @@
     "@zuii/modal": "0.1.1-beta.0"
   },
   "changesets": [
-    "feat-calendar-options"
+    "feat-calendar-options",
+    "modernisation-i18n"
   ]
 }

@@ -1,5 +1,18 @@
 # @zuii/booking
 
+## 0.2.0-beta.2
+
+### Minor Changes
+
+- Modernisation de l'architecture i18n (getDocLang), ajout du support de l'allemand et de l'espagnol, et ajout de l'option disabledLangs.
+
+### Patch Changes
+
+- Updated dependencies
+  - @zuii/calendar@0.2.0-beta.2
+  - @zuii/core@0.2.0-beta.1
+  - @zuii/modal@0.1.1-beta.1
+
 ## 0.2.0-beta.1
 
 ### Minor Changes
