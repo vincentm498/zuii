@@ -214,6 +214,10 @@ export class Booking {
 		const formattedDate = format(date, 'EEEE d MMMM yyyy', { locale });
 		const displaySlot = slot.includes(':') ? slot.replace(':', 'h') : slot;
 
+		const pathSegments = window.location.pathname.split('/').filter(Boolean);
+		const lastSegment = pathSegments.length > 0 ? pathSegments[pathSegments.length - 1] : '';
+		const formId = lastSegment ? `booking-confirmation-${lastSegment}` : 'booking-confirmation-form';
+
 		const prep = this.options.lang === 'fr' ? (slot.includes(':') ? 'à' : 'au') : (slot.includes(':') ? 'at' : 'on');
 		const body = `
 			<p class="booking-modal__text">${this.currentTrads.confirmBody
@@ -221,7 +225,7 @@ export class Booking {
 				.replace('{date}', formattedDate)
 				.replace('{slot}', displaySlot)
 				.replace('{prep}', prep)}</p>
-			<form id="booking-confirmation-form" class="form booking-form">
+			<form id="${formId}" class="form booking-form">
 				${this.options.fields.map(field => {
 					const inputType = field.type === 'quantity' ? 'number' : field.type;
 					const inputClass = field.type === 'checkbox' ? 'form-check-input' : 'form-control';
@@ -263,7 +267,7 @@ export class Booking {
 			<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
 				${this.currentTrads.cancelBtn}
 			</button>
-			<button type="submit" form="booking-confirmation-form" class="btn btn-primary" id="confirm-booking-btn">
+			<button type="submit" form="${formId}" class="btn btn-primary" id="confirm-booking-btn">
 				${this.currentTrads.confirmBtn}
 			</button>
 		`;
@@ -277,7 +281,7 @@ export class Booking {
 
 		// Gérer la soumission du formulaire
 		setTimeout(() => {
-			const form = document.getElementById('booking-confirmation-form') as HTMLFormElement;
+			const form = document.getElementById(formId) as HTMLFormElement;
 			if (form) {
 				form.addEventListener('submit', (e) => {
 					e.preventDefault();
