@@ -1,5 +1,11 @@
 # @zuii/booking
 
+## 0.3.0-beta.1
+
+### Patch Changes
+
+- Dynamisation de l'id du formulaire de confirmation de réservation basé sur l'URL courante.
+
 ## 0.3.0-beta.0
 
 ### Minor Changes

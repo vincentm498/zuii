@@ -8,5 +8,7 @@
     "@zuii/core": "0.2.0",
     "@zuii/modal": "0.1.1"
   },
-  "changesets": []
+  "changesets": [
+    "booking-id-dynamique"
+  ]
 }
