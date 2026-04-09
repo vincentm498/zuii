@@ -226,6 +226,8 @@ export class Booking {
 				.replace('{slot}', displaySlot)
 				.replace('{prep}', prep)}</p>
 			<form id="${formId}" class="form js-form booking-form" data-form="${formId}">
+				<input type="hidden" name="booking_date" value="${format(date, 'yyyy-MM-dd')}" />
+				<input type="hidden" name="booking_slot" value="${slot}" />
 				${this.options.fields.map(field => {
 					const inputType = field.type === 'quantity' ? 'number' : field.type;
 					const inputClass = field.type === 'checkbox' ? 'form-check-input' : 'form-control';

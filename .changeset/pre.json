@@ -9,6 +9,7 @@
     "@zuii/modal": "0.1.1"
   },
   "changesets": [
+    "booking-hidden-fields",
     "booking-id-dynamique"
   ]
 }

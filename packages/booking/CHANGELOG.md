@@ -1,5 +1,11 @@
 # @zuii/booking
 
+## 0.3.0-beta.3
+
+### Patch Changes
+
+- Ajout des champs cachés `booking_date` et `booking_slot` dans le formulaire de confirmation pour faciliter l'intégration avec des outils tiers comme Odrazia.
+
 ## 0.3.0-beta.1
 
 ### Patch Changes
