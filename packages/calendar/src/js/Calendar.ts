@@ -20,7 +20,7 @@ export interface CalendarOptions {
 	mode?: 'single' | 'range';
 	disablePast?: boolean;
 	yearsFromNow?: number;
-	availability?: Record<string, string[]>;
+	availability?: Record<string, (string | any)[]>;
 	onDateSelect?: (date: Date) => void;
 	onRangeSelect?: (start: Date, end: Date) => void;
 	initialDate?: Date;
@@ -189,7 +189,12 @@ export class Calendar {
 							}
 						}
 
-						const isAvailable = !!this.options.availability[dateStr];
+						const daySlots = this.options.availability[dateStr] || [];
+						const isAvailable = daySlots.length > 0 && daySlots.some((slot: any) => {
+							if (typeof slot === 'string') return true;
+							return slot.active !== false;
+						});
+
 						// Si des disponibilités sont définies, les jours sans créneau sont désactivés
 						const hasAvailabilityDefined = Object.keys(this.options.availability).length > 0;
 						const isUnavailable = hasAvailabilityDefined && !isAvailable;

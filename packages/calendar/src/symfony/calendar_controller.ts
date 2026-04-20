@@ -23,7 +23,7 @@ export default class extends Controller {
 	declare langValue: 'fr' | 'en';
 	declare modeValue: 'single' | 'range';
 	declare disablePastValue: boolean;
-	declare availabilityValue: Record<string, string[]>;
+	declare availabilityValue: Record<string, (string | any)[]>;
 	declare initialDateValue: string;
 
 	private calendar: Calendar | null = null;

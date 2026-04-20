@@ -5,7 +5,7 @@ export interface CalendarProps {
 	lang?: 'fr' | 'en';
 	mode?: 'single' | 'range';
 	disablePast?: boolean;
-	availability?: Record<string, string[]>;
+	availability?: Record<string, (string | any)[]>;
 	onDateSelect?: (date: Date) => void;
 	onRangeSelect?: (start: Date, end: Date) => void;
 	initialDate?: Date;

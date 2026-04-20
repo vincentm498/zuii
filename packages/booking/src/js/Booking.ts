@@ -23,7 +23,7 @@ export interface BookingField {
 export interface BookingOptions extends Omit<CalendarOptions, 'onDateSelect'> {
 	lang?: ZuiiLang;
 	disabledLangs?: ZuiiLang[];
-	availability: Record<string, string[]>;
+	availability: Record<string, (string | any)[]>;
 	selectedDate?: Date | null;
 	inputName?: string;
 	fields?: BookingField[];
@@ -170,11 +170,20 @@ export class Booking {
 			<div class="booking">
 				<h3 class="booking__title">${titleLabel} ${formattedDate}</h3>
 				<div class="booking__slots">
-					${slots.map(slot => `
-						<button class="btn btn-primary booking__slot ${this.selectedSlot === slot ? 'booking__slot--selected' : ''}" data-slot="${slot}">
-							<span class="btn-content booking__slot__label">${slot.includes(':') ? slot.replace(':', 'h') : slot}</span>
-						</button>
-					`).join('')}
+					${slots.map((slot: any) => {
+						const isObject = typeof slot !== 'string';
+						const label = isObject ? slot.time : slot;
+						const isActive = isObject ? slot.active !== false : true;
+						const isAvailable = isObject ? slot.available !== false : true;
+
+						if (!isActive || !isAvailable) return '';
+
+						return `
+							<button class="btn btn-primary booking__slot ${this.selectedSlot === label ? 'booking__slot--selected' : ''}" data-slot="${label}">
+								<span class="btn-content booking__slot__label">${label.includes(':') ? label.replace(':', 'h') : label}</span>
+							</button>
+						`;
+					}).join('')}
 					${slots.length === 0 ? `<p class="booking__empty">${this.currentTrads.noSlots}</p>` : ''}
 				</div>
 
