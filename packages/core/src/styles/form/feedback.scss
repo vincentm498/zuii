@@ -1,9 +1,0 @@
-.form__input:has(.is-invalid) ~ .invalid-feedback{
-	display: block;
-}
-
-
-.form-control.is-valid,
-.form-control.is-invalid{
-	background: none;
-}

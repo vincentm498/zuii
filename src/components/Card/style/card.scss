@@ -1,9 +1,0 @@
-
-*:has(>.card){
-	container-type: inline-size;
-	container-name: card;
-}
-.card{
-	--card-border-radius: var(--radius-base);
-	--card-inner-border-radius: var(--radius-base);
-}
