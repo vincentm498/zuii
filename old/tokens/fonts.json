@@ -1,0 +1,7 @@
+{
+	"font": {
+		"primary": { "value": "Mulish, sans-serif" },
+		"monospace": { "value": "var(--font-primary)" },
+		"sans-serif": { "value": "var(--font-primary)" }
+	}
+}

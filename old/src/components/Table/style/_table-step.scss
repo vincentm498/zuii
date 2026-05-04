@@ -1,0 +1,20 @@
+// Status
+@use "sass:map";
+@use "@core/tokens.scss" as *;
+@use "../../Color/style/colors" as colors;
+
+@each $color, $value in $brands {
+	.table-row--#{$color} {
+		@include colors.bg-variant($color);
+	}
+
+	.table-row--#{$color}-light {
+		@include colors.bg-variant-light($color);
+	}
+
+	.table-row--#{$color}-dark {
+		@include colors.bg-variant-dark($color);
+	}
+}
+
+

@@ -1,0 +1,193 @@
+[class*="ag-theme-"] {
+	// Couleurs principales - utilisation des tokens du design system
+	--ag-alpine-active-color: var(--primary);
+	--ag-selected-row-background-color: color-mix(in srgb, var(--primary), transparent 100%);
+	--ag-row-hover-color: color-mix(in srgb, var(--primary), transparent 90%);
+	--ag-column-hover-color: color-mix(in srgb, var(--primary), transparent 90%);
+	--ag-input-focus-border-color: color-mix(in srgb, var(--primary), transparent 60%);
+	--ag-range-selection-background-color: color-mix(in srgb, var(--primary), transparent 80%);
+	--ag-range-selection-background-color-2: color-mix(in srgb, var(--primary), transparent 64%);
+	--ag-range-selection-background-color-3: color-mix(in srgb, var(--primary), transparent 51%);
+	--ag-range-selection-background-color-4: color-mix(in srgb, var(--primary), transparent 41%);
+	--ag-row-numbers-selected-color: color-mix(in srgb, transparent, var(--ag-alpine-active-color) 50%);
+
+	// Couleurs de fond et texte
+	--ag-background-color: transparent;
+	--ag-foreground-color: var(--body-color);
+	--ag-border-color: var(--gray-400);
+	--ag-secondary-border-color: var(--gray-400);
+	--ag-header-background-color: transparent;
+	--ag-tooltip-background-color: var(--gray-100);
+	--ag-odd-row-background-color: transparent;
+	--ag-control-panel-background-color: var(--gray-200);
+	--ag-subheader-background-color: var(--white);
+
+
+	// Couleurs de validation
+	--ag-invalid-color: var(--danger);
+	--ag-checkbox-unchecked-color: var(--gray-500);
+
+	// Couleurs des filtres avancés
+	--ag-advanced-filter-join-pill-color: var(--danger-light);
+	--ag-advanced-filter-column-pill-color: var(--success-light);
+	--ag-advanced-filter-option-pill-color: var(--warning-light);
+	--ag-advanced-filter-value-pill-color: var(--info-light);
+
+	// Couleurs de recherche
+	--ag-find-match-color: var(--ag-foreground-color);
+	--ag-find-match-background-color: var(--warning);
+	--ag-find-active-match-color: var(--ag-foreground-color);
+	--ag-find-active-match-background-color: var(--warning-dark);
+
+	// Couleurs dérivées
+	--ag-checkbox-background-color: var(--ag-background-color);
+	--ag-checkbox-checked-color: var(--ag-alpine-active-color);
+	--ag-range-selection-border-color: var(--ag-alpine-active-color);
+	--ag-secondary-foreground-color: var(--ag-foreground-color);
+	--ag-input-border-color: var(--ag-border-color);
+	--ag-input-border-color-invalid: var(--ag-invalid-color);
+	--ag-input-focus-box-shadow: var(--box-shadow-outline);
+	--ag-input-error-focus-box-shadow: 0 0 2px 0.1rem var(--ag-invalid-color);
+	--ag-panel-background-color: var(--ag-header-background-color);
+	--ag-menu-background-color: var(--ag-header-background-color);
+	--ag-filter-panel-apply-button-color: var(--ag-background-color);
+	--ag-filter-panel-apply-button-background-color: var(--ag-alpine-active-color);
+	--ag-column-drag-indicator-color: var(--ag-alpine-active-color);
+	--ag-disabled-foreground-color: color-mix(in srgb, var(--dark), transparent 50%);
+	--ag-chip-background-color: color-mix(in srgb, var(--dark), transparent 93%);
+	--ag-input-disabled-border-color: color-mix(in srgb, var(--gray-400), transparent 70%);
+	--ag-input-disabled-background-color: color-mix(in srgb, var(--gray-400), transparent 85%);
+
+	// Bordures et radius - utilisation des tokens
+	--ag-borders: solid 0px;
+	--ag-border-radius: var(--radius-none);
+	--ag-borders-side-button: none;
+	--ag-side-button-selected-background-color: transparent;
+	--ag-range-selection-border-style: none;
+	--ag-card-radius: var(--radius-none);
+
+	// Poignée de redimensionnement
+	--ag-header-column-resize-handle-display: block;
+	--ag-header-column-resize-handle-width: 2px;
+	--ag-header-column-resize-handle-height: 30%;
+
+	// Tailles - utilisation des tokens de spacing
+	--ag-grid-size: 4px;
+	--ag-icon-size: var(--size-4);
+	--ag-row-height: calc(var(--ag-grid-size) * 7);
+	--ag-header-height: calc(var(--ag-grid-size) * 8);
+	--ag-list-item-height: calc(var(--ag-grid-size) * 4);
+	--ag-column-select-indent-size: var(--ag-icon-size);
+	--ag-set-filter-indent-size: var(--ag-icon-size);
+	--ag-advanced-filter-builder-indent-size: calc(var(--ag-icon-size) + var(--ag-grid-size) * 2);
+	--ag-cell-horizontal-padding: 2px;
+	--ag-cell-widget-spacing: 0;
+	--ag-widget-container-vertical-padding: calc(var(--ag-grid-size) * 2);
+	--ag-widget-container-horizontal-padding: calc(var(--ag-grid-size) * 2);
+	--ag-widget-vertical-spacing: calc(var(--ag-grid-size) * 1.5);
+	--ag-toggle-button-height: 18px;
+	--ag-toggle-button-width: 28px;
+
+	// Typographie - utilisation des tokens de font
+	--ag-font-family: var(--font-primary);
+	--ag-font-size: 13px;
+	--ag-icon-font-family: agGridAlpine;
+
+	// Onglets
+	--ag-selected-tab-underline-color: var(--ag-alpine-active-color);
+	--ag-selected-tab-underline-width: 2px;
+	--ag-selected-tab-underline-transition-speed: 0.3s;
+	--ag-tab-min-width: 240px;
+
+	// Ombres - utilisation des tokens de box-shadow
+	--ag-card-shadow: var(--box-shadow-none);
+	--ag-popup-shadow: var(--ag-card-shadow);
+
+	// Sidebar
+	--ag-side-bar-panel-width: 250px;
+}
+
+.datagrid {
+	width: 100%;
+
+	// Centrage des en-têtes pour certaines colonnes
+	.ag-center-header,
+	.table-step,
+	.table-rounds,
+	.table-phase,
+	.table-nb_engaged {
+		.ag-header-cell-label {
+			justify-content: center;
+		}
+	}
+
+	// Style spécifique pour les en-têtes
+	.ag-header-cell{
+		.ag-header-cell-label {
+			font-weight: 600;
+			color: var(--primary);
+		}
+	}
+
+	// Style spécifique pour la colonne ID, number
+	.ag-header-cell.table-id .ag-header-cell-label,
+	.ag-header-cell.table-number .ag-header-cell-label {
+		justify-content: center;
+	}
+
+	.table-cell--center {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		&.ag-header-cell .ag-header-cell-label {
+			justify-content: center;
+		}
+	}
+
+	.table-cell--align-center {
+		display: flex;
+		align-items: center;
+	}
+
+	.table-cell--right {
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	// Auto-height layout fixes
+	&.ag-theme-alpine .ag-layout-auto-height .ag-center-cols-viewport,
+	&.ag-theme-alpine .ag-layout-auto-height .ag-center-cols-container,
+	&.ag-theme-alpine .ag-layout-print .ag-center-cols-viewport,
+	&.ag-theme-alpine .ag-layout-print .ag-center-cols-container,
+	&.ag-theme-alpine-dark .ag-layout-auto-height .ag-center-cols-viewport,
+	&.ag-theme-alpine-dark .ag-layout-auto-height .ag-center-cols-container,
+	&.ag-theme-alpine-dark .ag-layout-print .ag-center-cols-viewport,
+	&.ag-theme-alpine-dark .ag-layout-print .ag-center-cols-container,
+	&.ag-theme-alpine-auto-dark .ag-layout-auto-height .ag-center-cols-viewport,
+	&.ag-theme-alpine-auto-dark .ag-layout-auto-height .ag-center-cols-container,
+	&.ag-theme-alpine-auto-dark .ag-layout-print .ag-center-cols-viewport,
+	&.ag-theme-alpine-auto-dark .ag-layout-print .ag-center-cols-container {
+		min-height: 0;
+	}
+
+	// Cellule épinglée à gauche (checkbox)
+	.ag-cell.ag-cell-last-left-pinned:not(.ag-cell-range-right):not(.ag-cell-range-single-cell),
+	.ag-header-cell.ag-header-cell-last-left-pinned {
+		display: flex;
+		justify-content: center;
+	}
+
+	.ag-header-cell-comp-wrapper {
+		width: auto;
+	}
+
+	.ag-cell.ag-cell-inline-editing {
+		border: none;
+		background-color: var(--gray-300);
+		box-shadow: none;
+	}
+
+
+}
+

@@ -1,0 +1,9 @@
+@import "ag-grid-community/styles/ag-grid.css" layer(vendor);
+@import "ag-grid-community/styles/ag-theme-alpine.css" layer(vendor);
+
+
+@layer components {
+	@import "table";
+	@import "table-pagination";
+	@import "table-step";
+}

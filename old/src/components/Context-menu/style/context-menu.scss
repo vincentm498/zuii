@@ -1,0 +1,48 @@
+@use "../../Menu/style/menu-base" as *;
+@use "../../Menu/style/menu-item" as *;
+
+.context-menu {
+	@include menu-container-base;
+
+	&-wrapper{
+		height: fit-content;
+		width: fit-content;
+	}
+
+	&__item {
+		@include menu-item-base;
+		color: var(--gray-700, #4a5568); // Garde la couleur par défaut si pas de survol
+		position: relative;
+
+
+	}
+
+	&__separator {
+		height: 1px;
+		background-color: var(--gray-200, #f7fafc);
+		margin: 4px 0;
+	}
+
+	&__sub-trigger {
+		&::after {
+			content: "›";
+			margin-left: auto;
+			font-size: 1.2rem;
+			line-height: 1;
+		}
+	}
+
+	&__sub-menu {
+		position: absolute;
+		left: 100%;
+		top: 0;
+		margin-left: 2px;
+	}
+
+	&__shortcut {
+		margin-left: auto;
+		font-size: 0.8rem;
+		color: color-mix(in srgb, var(--gray-600, #94a3b8), transparent 60%);
+	}
+}
+

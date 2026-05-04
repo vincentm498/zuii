@@ -1,0 +1,16 @@
+@use "@core/tokens.scss" as *;
+
+.shadow {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 1rem;
+}
+
+@each $variant, $value in $box-shadow {
+	@if $variant != "color" {
+		.shadow--#{$variant} {
+			box-shadow: $value;
+		}
+	}
+}

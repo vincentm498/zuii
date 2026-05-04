@@ -3,8 +3,6 @@
 	"version": "1.5.1",
 	"packageManager": "pnpm@9.9.0",
 	"description": "Bibliothèque de composants UI légère, intuitive et modulaire pour les interfaces web modernes.",
-
-
 	"type": "module",
 	"repository": {
 		"type": "git",
@@ -76,6 +74,7 @@
 		"bootstrap": "^5.3.8",
 		"choices.js": "^11.1.0",
 		"colord": "^2.9.3",
+		"date-fns": "^4.1.0",
 		"flag-icons": "^7.5.0",
 		"flatpickr": "^4.6.13",
 		"intl-tel-input": "^26.1.1",

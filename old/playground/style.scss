@@ -1,0 +1,14 @@
+$prefix: "";
+$enable-important-utilities: false;
+
+@layer vendor {
+	@import "lucide-static/font/lucide.scss";
+	@import "bootstrap/scss/bootstrap";
+	@import '@splidejs/react-splide/css';
+
+}
+
+@import "intl-tel-input/build/css/intlTelInput.css" layer(vendor);
+
+
+// @import "../node_modules/@zuii/cookie-consent/src/style/cookie-consent.scss";

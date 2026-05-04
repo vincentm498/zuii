@@ -1,0 +1,5 @@
+@use "../../Lang-selector/style/language-flag" as *;
+
+.auth__lang {
+	@extend .lang-selector--flag;
+}

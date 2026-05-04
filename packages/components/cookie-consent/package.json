@@ -1,0 +1,54 @@
+{
+  "name": "@zuii/cookie-consent",
+  "version": "0.3.0-beta.0",
+  "type": "module",
+  "description": "Composant Cookie Consent pour zuii",
+  "main": "./dist/cookie-consent.cjs",
+  "module": "./dist/cookie-consent.js",
+  "types": "./dist/cookie-consent.d.ts",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/cookie-consent.d.ts",
+      "import": "./dist/cookie-consent.js",
+      "require": "./dist/cookie-consent.cjs"
+    },
+    "./react": {
+      "types": "./dist/react/cookie-consent-react.d.ts",
+      "import": "./dist/react/cookie-consent-react.js",
+      "require": "./dist/react/cookie-consent-react.cjs"
+    },
+    "./style": "./dist/style/cookie-consent.css"
+  },
+  "scripts": {
+    "build": "pnpm build:js && pnpm build:css && pnpm build:css:min",
+    "build:css": "sass src/style/index.scss dist/style/cookie-consent.css --load-path=node_modules --silence-deprecation=import",
+    "build:css:min": "sass src/style/index.scss dist/style/cookie-consent.min.css --style=compressed --load-path=node_modules --silence-deprecation=import",
+    "build:js": "tsup",
+    "dev": "pnpm build:js && pnpm build:css && tsup --watch"
+  },
+  "dependencies": {
+    "vanilla-cookieconsent": "^3.1.0",
+    "@zuii/core": "workspace:*"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
+  },
+  "keywords": [
+    "zuii",
+    "cookie",
+    "consent"
+  ],
+  "author": "Vincent Moreau",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
+}

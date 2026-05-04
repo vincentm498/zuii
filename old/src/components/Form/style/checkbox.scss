@@ -1,0 +1,11 @@
+@use "../../Shadow/style/shadow.scss" as *;
+
+.form-check-input:checked {
+	background-color: var(--accent);
+	border-color: var(--accent);
+}
+
+
+.form-check-input:focus{
+	@extend .shadow--outline;
+}

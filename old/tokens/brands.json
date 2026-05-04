@@ -1,0 +1,89 @@
+{
+	"brands": {
+		"primary": {
+			"value": "#296782",
+			"variations": {
+				"dark": "#1D4A5D",
+				"light": "#73B6D3"
+			}
+		},
+		"secondary": {
+			"value": "#49B4E8",
+			"variations": {
+				"dark": "#116188",
+				"light": "#D2ECF9"
+			},
+			"mixPercent": {
+				"border": 20
+			}
+		},
+		"accent": {
+			"value": "#49B4E8",
+			"variations": {
+				"dark": "#116188",
+				"light": "#D2ECF9"
+			},
+			"mixPercent": {
+				"border": 20
+			}
+		},
+		"tertiary": {
+			"value": "#f5524d",
+			"mixPercent": {
+				"dark": 70,
+				"light": 80,
+				"border": 60
+			}
+		},
+		"success": {
+			"value": "#73D3B6",
+			"mixPercent": {
+				"dark": 20,
+				"light": 50,
+				"border": 60
+			}
+		},
+		"danger": {
+			"value": "#EA5F5F",
+			"variations": {
+				"dark": "#AF1818",
+				"light": "#F8D0A6"
+			},
+			"mixPercent": {
+				"border": 60
+			}
+		},
+		"warning": {
+			"value": "#F5D762",
+			"mixPercent": {
+				"dark": 20,
+				"light": 50,
+				"border": 60
+			}
+		},
+		"info": {
+			"value": "#73B6D3",
+			"mixPercent": {
+				"dark": 20,
+				"light": 50,
+				"border": 60
+			}
+		},
+		"light": {
+			"value": "#FFFFFF",
+			"mixPercent": {
+				"dark": 70,
+				"light": 80,
+				"border": 60
+			}
+		},
+		"dark": {
+			"value": "#000000",
+			"mixPercent": {
+				"dark": 70,
+				"light": 80,
+				"border": 60
+			}
+		}
+	}
+}

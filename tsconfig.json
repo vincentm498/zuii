@@ -17,13 +17,15 @@
     "baseUrl": ".",
     "paths": {
       "@zuii/core/*": ["packages/core/src/*"],
-      "@zuii/cookie-consent": ["packages/cookie-consent/src/js/cookie-consent.ts"],
-      "@zuii/cookie-consent/react": ["packages/cookie-consent/src/react/index.tsx"],
-      "@zuii/cookie-consent/style": ["packages/cookie-consent/src/style/index.scss"],
-      "@zuii/calendar": ["packages/calendar/src/js/index.ts"],
-      "@zuii/calendar/react": ["packages/calendar/src/react/index.tsx"],
-      "@zuii/booking": ["packages/booking/src/js/index.ts"],
-      "@zuii/booking/react": ["packages/booking/src/react/index.tsx"],
+      "@zuii/cookie-consent": ["packages/components/cookie-consent/src/js/cookie-consent.ts"],
+      "@zuii/cookie-consent/react": ["packages/components/cookie-consent/src/react/index.tsx"],
+      "@zuii/cookie-consent/style": ["packages/components/cookie-consent/src/style/index.scss"],
+      "@zuii/calendar": ["packages/components/calendar/src/js/index.ts"],
+      "@zuii/calendar/react": ["packages/components/calendar/src/react/index.tsx"],
+      "@zuii/booking": ["packages/components/booking/src/js/index.ts"],
+      "@zuii/booking/react": ["packages/components/booking/src/react/index.tsx"],
+      "@zuii/modal": ["packages/components/modal/src/js/index.ts"],
+      "@zuii/modal/react": ["packages/components/modal/src/react/index.tsx"],
       "@core/*": ["packages/core/src/styles/*"]
     },
 
@@ -37,5 +39,5 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "playground.tsx", "packages"]
+  "include": ["src", "playground", "packages"]
 }

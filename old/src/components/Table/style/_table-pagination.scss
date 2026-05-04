@@ -1,0 +1,21 @@
+	.datagrid__pagination {
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		padding: var(--size-4) 0;
+		gap: var(--size-8);
+		border-top: 1px solid var(--ag-border-color);
+		font-size: 13px;
+
+		&-wrapper {
+			display: flex;
+			align-items: center;
+			gap: var(--size-3);
+		}
+
+
+		&-nav {
+			display: flex;
+			gap: var(--size-1);
+		}
+	}

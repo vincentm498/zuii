@@ -1,0 +1,8 @@
+.tabs--border {
+	.tabs__item.active {
+		border-width: 1px;
+		border-color: var(--btn-border-color);
+		background: transparent;
+		color: color-mix(in srgb, var(--btn-border-color), var(--dark) 20%);
+	}
+}

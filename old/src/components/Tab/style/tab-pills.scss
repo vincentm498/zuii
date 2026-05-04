@@ -1,0 +1,14 @@
+.tabs--pills {
+	--tab-bg-color: transparent;
+	--tab-tinte: var(--white) 50%;
+
+	.tabs__item {
+		--nav-link-padding-y: .3rem;
+		--nav-link-padding-x: .75rem;
+		border-radius: var(--radius-lg);
+	}
+
+	.tab-content {
+		margin-top: .8rem;
+	}
+}

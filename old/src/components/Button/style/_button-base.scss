@@ -1,0 +1,40 @@
+@use "../../Color/style/colors.scss" as *;
+@use "./mixins" as *;
+
+.btn {
+	background-color: var(--primary);
+	color: var(--primary-contrast);
+
+	--btn-border-color: var(--primary);
+	--btn-hover-bg: var(--primary-dark);
+	--btn-hover-border-color: var(--primary-dark);
+	--btn-active-bg: var(--primary-dark);
+	--btn-active-border-color: var(--primary-dark);
+	--btn-disabled-bg: var(--gray-300);
+	--btn-disabled-border-color: var(--gray-300);
+
+	height: fit-content;
+	display: flex;
+	gap: 0.3rem;
+	justify-content: center;
+
+	&:hover,
+	&:focus {
+		box-shadow: var(--box-shadow-md);
+	}
+}
+
+.btn-content {
+	display: flex;
+	line-height: initial;
+	gap: 0.3rem;
+	align-items: center;
+}
+
+.btn-icon {
+	@include btn-icon;
+}
+
+.btn-reverse {
+	flex-direction: row-reverse;
+}

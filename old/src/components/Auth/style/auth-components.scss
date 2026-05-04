@@ -1,0 +1,31 @@
+
+.auth__footer {
+	text-align: center;
+}
+
+.auth__button {
+	width: 100%;
+
+	.btn-content {
+		width: 100%;
+		justify-content: center;
+	}
+}
+
+.auth__title {
+	margin: 0;
+	font-size: 1.75rem;
+	line-height: 1.75rem;
+	font-weight: 700;
+}
+
+.auth__input{
+	.form__input{
+		margin: var(--spacing-none);
+	}
+}
+
+.auth__header-wrapper {
+	flex: 1;
+	flex-wrap: nowrap;
+}

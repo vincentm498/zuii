@@ -1,0 +1,19 @@
+.copyright {
+	padding: 0rem .5rem;
+	display: flex;
+	gap: .5rem;
+	flex-wrap: wrap;
+	justify-content: space-between;
+
+	.icon {
+		position: relative;
+		top: .25rem;
+		color: var(--accent);
+	}
+
+}
+
+.copyright--center {
+	justify-content: center;
+
+}

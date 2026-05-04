@@ -1,0 +1,17 @@
+.file-input {
+	margin: var(--spacing-sm) 0;
+}
+
+.uppy-Dashboard-browse,
+.uppy-Root {
+	color: var(--accent);
+}
+
+.uppy-Dashboard-inner{
+background-color: var(--white);
+	border: var(--border-width) solid var(--border-color);
+}
+
+.uppy-StatusBar:not([aria-hidden="true"]).is-waiting{
+	background-color: var(--white);
+}

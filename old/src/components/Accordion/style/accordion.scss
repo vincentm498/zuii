@@ -1,0 +1,46 @@
+@use "../../Color/style/colors" as colors;
+
+
+.accordion__wrapper {
+	--accordion-radius: var(--radius-none);
+	--accordion-border-radius: var(--accordion-radius);
+	--accordion-border-width: none;
+
+	border: var(--accordion-border-width) solid var(--border-color);
+	border-radius: var(--accordion-border-radius);
+}
+
+.accordion {
+	--accordion-border-radius: none;
+	--accordion-inner-border-radius: none;
+}
+
+.accordion-item:first-of-type {
+	border-top-left-radius: var(--accordion-radius);
+	border-top-right-radius: var(--accordion-radius);
+	overflow: hidden;
+}
+
+.accordion-item:last-of-type {
+	border-bottom-left-radius: var(--accordion-radius);
+	border-bottom-right-radius: var(--accordion-radius);
+	overflow: hidden;
+}
+
+.accordion__item{
+	--accordion-border-width:  none;
+
+	&:not(:last-child){
+		border-bottom: var(--accordion-border-width) solid var(--border-color);
+	}
+}
+
+.accordion-button:not(.collapsed){
+	@include colors.bg-variant("accent");
+	box-shadow: none;
+}
+
+.accordion--border{
+	--accordion-border-width: var(--border-width);
+}
+

@@ -1,0 +1,5 @@
+.btn:disabled {
+	background-color: color-mix(in srgb, var(--primary), white 85%);
+	border-color: color-mix(in srgb, var(--primary), white 85%);
+	color: color-mix(in srgb, var(--primary), white 60%);
+}

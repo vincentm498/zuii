@@ -1,0 +1,48 @@
+@use "../../Button/style/mixins" as *;
+@use "../style/form.scss" as *;
+
+.form__input.form__input--color {
+	--form-border: none;
+
+	padding: 0;
+	min-height: 33px;
+
+		&[disabled] {
+			.color-selection {
+				cursor: default;
+			}
+		}
+
+		.color-selection {
+			cursor: pointer;
+			border: 1px dashed color-mix(in srgb, var(--primary), transparent 60%);
+			padding: .6rem;
+			width: 100%;
+			border-radius: var(--radius-base);
+		}
+
+
+}
+
+.pcr-app .pcr-interaction .pcr-result{
+	@extend .form__input;
+	margin: 0;
+	margin-top: .5rem;
+
+	&:focus{
+		box-shadow: none;
+		border-color: var(--accent);
+
+	}
+}
+
+.pcr-app .pcr-interaction input[type="button"] {
+	@include btn-primary;
+	margin-top: .5rem;
+	margin-left: .2rem;
+
+	&.active{
+		box-shadow: none;
+	}
+}
+

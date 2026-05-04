@@ -1,0 +1,7 @@
+.avatar-group{
+
+	> .avatar:not(:first-child) {
+		margin-left: -.5rem;
+	}
+
+}

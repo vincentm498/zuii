@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { Calendar } from '../../../packages/calendar/src/react';
-import { Booking } from '../../../packages/booking/src/react';
-import { MOCK_AVAILABILITY } from '../../../packages/calendar/src/js/mockData';
-import '../../../packages/calendar/src/style/index.scss';
-import '../../../packages/booking/src/style/index.scss';
+import { Calendar } from '../../../packages/components/calendar/src/react';
+import { Booking } from '../../../packages/components/booking/src/react';
+import { MOCK_AVAILABILITY } from '../../../packages/components/calendar/src/js/mockData';
+import '../../../packages/components/calendar/src/style/index.scss';
+import '../../../packages/components/booking/src/style/index.scss';
 
 /**
  * Template de démonstration pour le calendrier et la réservation (Booking).

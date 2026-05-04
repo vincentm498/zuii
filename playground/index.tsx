@@ -1,9 +1,14 @@
 import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import './style.scss'
-import { Buttons, Icons, Avatars, Badges, Colors, Dividers, ContextMenus, LangSelectors, Forms, Shadows, Radius, FormsElements, Dropdowns, Logos, Modals, Placeholders, Tooltips, Tables, TabsTemplate, Accordions, Alerts, Loaders, Grids, Sliders, Cards, Groups, Calendars  } from '../src/templates'
+import { Buttons, Icons, Avatars, Badges, Colors, Dividers, ContextMenus, LangSelectors, Forms, Shadows, Radius, FormsElements, Dropdowns, Logos, Modals, Placeholders, Tooltips, Tables, TabsTemplate, Accordions, Alerts, Loaders, Grids, Sliders, Cards, Groups, Calendars } from '../src/templates'
+import { Footers } from '../packages/sections/footers/src/react/index';
+import { Copyrights } from '../packages/sections/copyright/src/react/index';
+import { socialMedia } from '../packages/components/social-media/src/react/index';
+import { CTA } from '../packages/sections/CTA/src/react/index';
 
-import { initCookieConsent } from '../packages/cookie-consent/src/js/cookie-consent';
+
+import { initCookieConsent } from '../packages/components/cookie-consent/src/js/cookie-consent';
 import { MenuTemplate } from './menu';
 
 const CookieConsent = () => {
@@ -14,66 +19,99 @@ const CookieConsent = () => {
 };
 
 
+import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
+
+const components = [
+	// Sections
+	{ path: '/footer', name: 'Footer', component: Footers, category: 'Sections' },
+	{ path: '/copyright', name: 'Copyright', component: Copyrights, category: 'Sections' },
+	{ path: '/cta', name: 'CTA', component: CTA, category: 'Sections' },
+
+	// Components
+	{ path: '/accordions', name: 'Accordions', component: Accordions, category: 'Components' },
+	{ path: '/alerts', name: 'Alerts', component: Alerts, category: 'Components' },
+	{ path: '/avatars', name: 'Avatars', component: Avatars, category: 'Components' },
+	{ path: '/badges', name: 'Badges', component: Badges, category: 'Components' },
+	{ path: '/buttons', name: 'Buttons', component: Buttons, category: 'Components' },
+	{ path: '/calendars', name: 'Calendars', component: Calendars, category: 'Components' },
+	{ path: '/cards', name: 'Cards', component: Cards, category: 'Components' },
+	{ path: '/context-menus', name: 'ContextMenus', component: ContextMenus, category: 'Components' },
+	{ path: '/dropdowns', name: 'Dropdowns', component: Dropdowns, category: 'Components' },
+	{ path: '/forms-elements', name: 'FormsElements', component: FormsElements, category: 'Components' },
+	{ path: '/lang-selectors', name: 'LangSelectors', component: LangSelectors, category: 'Components' },
+	{ path: '/loaders', name: 'Loaders', component: Loaders, category: 'Components' },
+	{ path: '/logos', name: 'Logos', component: Logos, category: 'Components' },
+	{ path: '/modals', name: 'Modals', component: Modals, category: 'Components' },
+	{ path: '/placeholders', name: 'Placeholders', component: Placeholders, category: 'Components' },
+	{ path: '/sliders', name: 'Sliders', component: Sliders, category: 'Components' },
+	{ path: '/tables', name: 'Tables', component: Tables, category: 'Components' },
+	{ path: '/tabs', name: 'Tabs', component: TabsTemplate, category: 'Components' },
+	{ path: '/tooltips', name: 'Tooltips', component: Tooltips, category: 'Components' },
+
+	// Utilitaires
+	{ path: '/colors', name: 'Colors', component: Colors, category: 'Utilities' },
+	{ path: '/dividers', name: 'Dividers', component: Dividers, category: 'Utilities' },
+	{ path: '/grids', name: 'Grids', component: Grids, category: 'Utilities' },
+	{ path: '/icons', name: 'Icons', component: Icons, category: 'Utilities' },
+	{ path: '/radius', name: 'Radius', component: Radius, category: 'Utilities' },
+	{ path: '/shadows', name: 'Shadows', component: Shadows, category: 'Utilities' },
+	{ path: '/groups', name: 'Groups', component: Groups, category: 'Utilities' },
+
+];
+
+const App = () => {
+	return (
+		<BrowserRouter>
+			<CookieConsent />
+			{/* <MenuTemplate /> */}
+			<div style={{ display: 'flex', minHeight: 'calc(100vh - 60px)' }}>
+				<nav style={{ width: '250px', padding: '20px', borderRight: '1px solid var(--zuii-border, #eaeaea)' }}>
+					<ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '8px' }}>
+						{['Sections', 'Components', 'Utilities'].map(category => (
+							<li key={category}>
+								<div style={{ fontWeight: 'bold', margin: '16px 0 8px', color: 'var(--zuii-text-muted, #666)', fontSize: '0.9em', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+									{category}
+								</div>
+								<ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '4px' }}>
+									{components.filter(c => c.category === category).map((c) => (
+										<li key={c.path}>
+											<NavLink
+												to={c.path}
+												style={({ isActive }) => ({
+													display: 'block',
+													padding: '6px 12px',
+													textDecoration: 'none',
+													color: isActive ? '#fff' : 'var(--zuii-text, #333)',
+													backgroundColor: isActive ? 'var(--zuii-primary, #0d6efd)' : 'transparent',
+													borderRadius: '4px',
+													transition: 'all 0.2s'
+												})}
+											>
+												{c.name}
+											</NavLink>
+										</li>
+									))}
+								</ul>
+							</li>
+						))}
+					</ul>
+				</nav>
+				<main style={{ flex: 1, padding: '20px', overflowY: 'auto' }}>
+					<Routes>
+						<Route path="/" element={<h2>Sélectionnez un composant dans le menu pour l'afficher</h2>} />
+						{components.map((c) => (
+							<Route key={c.path} path={c.path} element={<c.component />} />
+						))}
+					</Routes>
+				</main>
+
+			</div>
+		</BrowserRouter>
+	);
+};
+
 ReactDOM.createRoot(document.getElementById('root')!).render(
-
 	<React.StrictMode>
-		<CookieConsent />
-		<MenuTemplate />
-		<div style={{ padding: '20px' }}>
-			<Calendars />
-			<hr style={{ margin: '20px 0' }} />
-			<FormsElements />
-			<hr style={{ margin: '20px 0' }} />
-			<Groups />
-			<hr style={{ margin: '20px 0' }} />
-			<Cards />
-			<hr style={{ margin: '20px 0' }} />
-			<Sliders />
-			<hr style={{ margin: '20px 0' }} />
-			<Grids />
-			<hr style={{ margin: '20px 0' }} />
-			<Loaders />
-			<hr style={{ margin: '20px 0' }} />
-			<Alerts />
-			<hr style={{ margin: '20px 0' }} />
-			<TabsTemplate />
-			<hr style={{ margin: '20px 0' }} />
-			<Accordions />
-			<hr style={{ margin: '20px 0' }} />
-			<Tables />
-			<hr style={{ margin: '20px 0' }} />
-			<Tooltips />
-			<hr style={{ margin: '20px 0' }} />
-			<Placeholders />
-			<hr style={{ margin: '20px 0' }} />
-			<Modals />
-			<hr style={{ margin: '20px 0' }} />
-			<Logos />
-			<hr style={{ margin: '20px 0' }} />
-			<Dropdowns />
-			<hr style={{ margin: '20px 0' }} />
-			<Colors />
-			<hr style={{ margin: '20px 0' }} />
-			<Shadows />
-			<hr style={{ margin: '20px 0' }} />
-			<Radius />
-			<hr style={{ margin: '20px 0' }} />
-			<Buttons />
-			<hr style={{ margin: '20px 0' }} />
-			<Icons />
-			<hr style={{ margin: '20px 0' }} />
-			<Avatars />
-			<hr style={{ margin: '20px 0' }} />
-			<Badges />
-			<hr style={{ margin: '20px 0' }} />
-			<Dividers />
-			<hr style={{ margin: '20px 0' }} />
-			<ContextMenus />
-			<hr style={{ margin: '20px 0' }} />
-			<LangSelectors />
-			<hr style={{ margin: '20px 0' }} />
-
-
-		</div>
+		<App />
 	</React.StrictMode>
 );

@@ -1,0 +1,64 @@
+@use "./form.scss" as *;
+@use "../../Button/style/mixins" as *;
+
+.file-input__wrapper {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+
+	// Espace pour le dashboard
+	.file-input__content {
+		border-radius: 12px;
+		overflow: hidden;
+	}
+}
+
+.uppy-Dashboard-browse,
+.uppy-DashboardContent-addMore,
+.uppy-DashboardContent-back,
+.uppy-DashboardContent-save {
+	color: var(--primary);
+}
+
+.uppy-Webcam-button{
+	@include btn-icon;
+	width: auto;
+	margin: 0
+}
+
+.uppy-Webcam-button.btn-danger{
+	@include btn-icon;
+	--btn-border-color: var(--danger);
+	--btn-bg: var(--danger);
+	--btn-hover-bg: var(--danger-dark);
+	--btn-hover-border-color: var(--danger-dark);
+	--btn-active-bg: var(--danger-dark);
+	--btn-active-border-color: var(--danger-dark);
+
+	background-color: var(--btn-bg);
+
+	&:hover{
+		--btn-bg: var(--btn-hover-bg);
+	}
+}
+
+.uppy-DashboardContent-pane,
+.uppy-Informer,
+.uppy-DashboardContent-bar{
+	z-index: 0;
+}
+
+.uppy-Dashboard-Item-previewIcon{
+	z-index: 1;
+}
+
+
+.uppy-Dashboard-Item-action:not(.uppy-Dashboard-Item-action.uppy-Dashboard-Item-action--remove) {
+	pointer-events: auto !important;
+	opacity: 1 !important;
+	cursor: pointer !important;
+}
+
+.uppy-Dashboard-Item-action.uppy-Dashboard-Item-action--remove{
+	z-index: 1;
+}

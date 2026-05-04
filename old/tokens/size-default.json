@@ -1,0 +1,40 @@
+{
+	"size": {
+		"none": {
+			"value": "var(--size-0)",
+			"name": "size-none"
+		},
+		"xs": {
+			"value": "var(--size-1)",
+			"name": "size-xs"
+		},
+		"sm": {
+			"value": "var(--size-2)",
+			"name": "size-sm"
+		},
+		"md": {
+			"value": "var(--size-4)",
+			"name": "size-md"
+		},
+		"lg": {
+			"value": "var(--size-8)",
+			"name": "size-lg"
+		},
+		"xl": {
+			"value": "var(--size-16)",
+			"name": "size-xl"
+		},
+		"2xl": {
+			"value": "var(--size-32)",
+			"name": "size-2xl"
+		},
+		"3xl": {
+			"value": "var(--size-64)",
+			"name": "size-3xl"
+		},
+		"4xl": {
+			"value": "var(--size-80)",
+			"name": "size-4xl"
+		}
+	}
+}

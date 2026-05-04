@@ -1,0 +1,33 @@
+.cta {
+	--cta-bg-color: var(--primary-dark);
+	--cta-text-color: var(--white);
+	--cta-gap: var(--spacing-md);
+	--cta-container-width: var(--container-md, 1200px);
+	--cta-padding-x: var(--spacing-xl);
+	--cta-padding-y: var(--spacing-lg);
+
+	background: var(--cta-bg-color);
+	color: var(--cta-text-color);
+	padding: var(--cta-padding-y) var(--cta-padding-x);
+
+}
+
+.cta__container {
+	max-width: var(--cta-container-width);
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: var(--cta-gap);
+}
+
+.cta--center {
+	text-align: center;
+
+	.cta__container {
+		align-items: center;
+	}
+
+
+}
+

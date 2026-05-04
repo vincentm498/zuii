@@ -25,13 +25,14 @@ export default defineConfig({
   resolve: {
     alias: {
       '@zuii/core': resolve(__dirname, 'packages/core/src'),
-      '@zuii/cookie-consent/react': resolve(__dirname, 'packages/cookie-consent/src/react/index.tsx'),
-      '@zuii/cookie-consent/style': resolve(__dirname, 'packages/cookie-consent/src/style/index.scss'),
-      '@zuii/cookie-consent': resolve(__dirname, 'packages/cookie-consent/src/js/cookie-consent.ts'),
-      '@zuii/modal/react': resolve(__dirname, 'packages/modal/src/react/index.tsx'),
-      '@zuii/modal': resolve(__dirname, 'packages/modal/src/js/index.ts'),
-      '@zuii/booking': resolve(__dirname, 'packages/booking/src/js/Booking.ts'),
-      '@zuii/calendar': resolve(__dirname, 'packages/calendar/src/js/Calendar.ts'),
+      '@zuii/cookie-consent/react': resolve(__dirname, 'packages/components/cookie-consent/src/react/index.tsx'),
+      '@zuii/cookie-consent/style': resolve(__dirname, 'packages/components/cookie-consent/src/style/index.scss'),
+      '@zuii/cookie-consent': resolve(__dirname, 'packages/components/cookie-consent/src/js/cookie-consent.ts'),
+      '@zuii/modal/react': resolve(__dirname, 'packages/components/modal/src/react/index.tsx'),
+      '@zuii/modal': resolve(__dirname, 'packages/components/modal/src/js/index.ts'),
+      '@zuii/booking': resolve(__dirname, 'packages/components/booking/src/js/Booking.ts'),
+      '@zuii/calendar': resolve(__dirname, 'packages/components/calendar/src/js/Calendar.ts'),
+      '@core': resolve(__dirname, 'packages/core/src/styles'),
     },
 
   },
