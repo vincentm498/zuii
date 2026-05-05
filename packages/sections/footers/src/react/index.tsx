@@ -1,15 +1,26 @@
 import React from 'react';
 import footerColsHtml from '../footer-cols.html?raw';
 import footerSimpleCenteredHtml from '../footer-simple-centered.html?raw';
+import { CodePreview } from '@zuii/core/react';
 import '../style/footer.css';
 import '../../../../components/social-media/src/style/social-media.css'
 
 const FooterCols = (props: React.HTMLAttributes<HTMLDivElement>) => {
-	return <div {...props} dangerouslySetInnerHTML={{ __html: footerColsHtml }} />;
+	return (
+		<>
+			<div {...props} dangerouslySetInnerHTML={{ __html: footerColsHtml }} />
+			<CodePreview code={footerColsHtml} />
+		</>
+	);
 };
 
 const FooterSimpleCentered = (props: React.HTMLAttributes<HTMLDivElement>) => {
-	return <div {...props} dangerouslySetInnerHTML={{ __html: footerSimpleCenteredHtml }} />;
+	return (
+		<>
+			<div {...props} dangerouslySetInnerHTML={{ __html: footerSimpleCenteredHtml }} />
+			<CodePreview code={footerSimpleCenteredHtml} />
+		</>
+	);
 };
 
 
@@ -28,3 +39,4 @@ export const Footers = (props: React.HTMLAttributes<HTMLDivElement>) => {
 		</div>
 	);
 };
+

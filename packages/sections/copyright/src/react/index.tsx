@@ -1,15 +1,26 @@
 import React from 'react';
 import copyrightCenterHtml from '../copyright-center.html?raw';
 import copyrightSocialHtml from '../copyright-social-media.html?raw';
+import { CodePreview } from '@zuii/core/react';
 import '../style/copyright.css';
 import '../../../../components/social-media/src/style/social-media.css'
 
 const CopyrightCenter = (props: React.HTMLAttributes<HTMLDivElement>) => {
-	return <div {...props} dangerouslySetInnerHTML={{ __html: copyrightCenterHtml }} />;
+	return (
+		<>
+			<div {...props} dangerouslySetInnerHTML={{ __html: copyrightCenterHtml }} />
+			<CodePreview code={copyrightCenterHtml} />
+		</>
+	);
 };
 
 const CopyrightSocial = (props: React.HTMLAttributes<HTMLDivElement>) => {
-	return <div {...props} dangerouslySetInnerHTML={{ __html: copyrightSocialHtml }} />;
+	return (
+		<>
+			<div {...props} dangerouslySetInnerHTML={{ __html: copyrightSocialHtml }} />
+			<CodePreview code={copyrightSocialHtml} />
+		</>
+	);
 };
 
 
@@ -25,7 +36,7 @@ export const Copyrights = (props: React.HTMLAttributes<HTMLDivElement>) => {
 				<h2 className="h2">Copyright Social</h2>
 				<CopyrightSocial />
 			</section>
-			<hr />
 		</div>
 	);
 };
+

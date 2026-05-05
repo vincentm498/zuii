@@ -1,0 +1,13 @@
+{
+  "name": "@zuii/banner",
+  "version": "0.1.0-beta.0",
+  "description": "Composant Banner pour zuii",
+  "main": "./src/banner.ts",
+  "types": "./src/banner.ts",
+  "license": "MIT",
+  "dependencies": {
+    "@splidejs/splide": "^4.1.4",
+    "@zuii/core": "workspace:*"
+  }
+
+}

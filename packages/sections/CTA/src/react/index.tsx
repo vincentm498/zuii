@@ -1,9 +1,8 @@
 import React from 'react';
 import ctaHtml from '../cta.html?raw';
 import ctaCenterHtml from '../cta-center.html?raw';
+import { CodePreview } from '@zuii/core/react';
 import '../style/cta.css';
-
-
 
 export const CTA = (props: React.HTMLAttributes<HTMLDivElement>) => {
 	return (
@@ -11,14 +10,16 @@ export const CTA = (props: React.HTMLAttributes<HTMLDivElement>) => {
 			<section>
 				<h2 className="h2">CTA</h2>
 				<p className="p">Il s'agit d'un CTA avec une mise en page à gauche. Il sert à afficher un appel à l'action avec une mise en page à gauche.</p>
-				<div {...props} dangerouslySetInnerHTML={{ __html: ctaHtml }} />
+				<div dangerouslySetInnerHTML={{ __html: ctaHtml }} />
+				<CodePreview code={ctaHtml} />
 			</section>
 			<section>
 				<h2 className="h2">CTA center</h2>
 				<p className="p">Il s'agit d'un CTA avec une mise en page centrée. Il sert à afficher un appel à l'action avec une mise en page centrée.</p>
-				<div {...props} dangerouslySetInnerHTML={{ __html: ctaCenterHtml }} />
+				<div dangerouslySetInnerHTML={{ __html: ctaCenterHtml }} />
+				<CodePreview code={ctaCenterHtml} />
 			</section>
-
 		</div>
 	);
 };
+

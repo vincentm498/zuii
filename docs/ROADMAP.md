@@ -60,7 +60,9 @@ L'objectif est de poser des bases solides pour la librairie.
 - [x] **Feedback** : `Alert` (Support JS/TS & injection composants React), `Toast`, `Spinner` (Loader) - *Ajout variante SVG*.
 - [x] **Data Display** : `Table` (Ag-Grid : Tri, Filtrage, Sélection, Pagination personnalisée avec `Select`), `Badge`, `Card`, `Slider` (SplideJS).
 - [x] **Sections** : `Hero` (Simple, Vidéo, Background immersif), `Logo-clouds`.
+- [x] **Composants d'annonce** : `Banner` (Simple, Sémantique, Slider, Floating Gradient).
 - [x] **Vidéo** : `@zuii/video` (Intégration Plyr.js avec support YouTube/Vimeo et autoplay intelligent).
+
 
 
 ### 🟣 Phase 4 : Écosystème & Qualité

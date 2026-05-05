@@ -1,0 +1,121 @@
+.banner {
+	--banner-bg: var(--primary-dark, #0f172a);
+	--banner-text-color: var(--white, #ffffff);
+	--banner-accent-color: var(--accent, #3b82f6);
+	--banner-height: auto;
+	--banner-padding: var(--spacing-sm) var(--spacing-none);
+
+	background-color: var(--banner-bg);
+	color: var(--banner-text-color);
+	padding: var(--banner-padding);
+	position: relative;
+	z-index: var(--z-index-sticky, 100);
+	width: 100%;
+	transform: translateY(-100%);
+	animation: banner-slide-down 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.banner__container {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--spacing-md);
+}
+
+.banner__content {
+	display: flex;
+	align-items: center;
+	gap: var(--spacing-sm);
+	flex: 1;
+	justify-content: center;
+}
+
+.banner__badge {
+	background-color: var(--banner-accent-color);
+	color: var(--white);
+	padding: 2px 8px;
+	border-radius: var(--radius-full, 9999px);
+	font-size: 0.75rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+
+.banner__text {
+	margin: 0;
+	font-size: 0.9375rem;
+	font-weight: 500;
+}
+
+.banner__link {
+	color: inherit;
+	text-decoration: underline;
+	text-underline-offset: 4px;
+	transition: opacity 0.2s ease;
+
+	&:hover {
+		opacity: 0.8;
+	}
+}
+
+.banner__actions {
+	display: flex;
+	align-items: center;
+	gap: var(--spacing-sm);
+}
+
+.banner__close {
+	background: transparent;
+	border: none;
+	color: inherit;
+	cursor: pointer;
+	padding: var(--spacing-xs);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: var(--radius-sm);
+	transition: background-color 0.2s ease;
+	opacity: 0.6;
+
+	&:hover {
+		background-color: rgba(255, 255, 255, 0.1);
+		opacity: 1;
+	}
+}
+
+/* State: Closing */
+.banner--closing {
+	animation: banner-slide-up 0.4s cubic-bezier(0.7, 0, 0.84, 0) forwards;
+}
+
+@keyframes banner-slide-down {
+	to {
+		transform: translateY(0);
+	}
+}
+
+@keyframes banner-slide-up {
+	from {
+		transform: translateY(0);
+	}
+	to {
+		transform: translateY(-100%);
+		margin-bottom: -48px;
+		opacity: 0;
+	}
+}
+
+@media (max-width: 768px) {
+	.banner__container {
+		padding: 0 var(--spacing-md);
+	}
+
+	.banner__badge {
+		display: none;
+	}
+
+	.banner__text {
+		font-size: 0.875rem;
+		text-align: center;
+	}
+}

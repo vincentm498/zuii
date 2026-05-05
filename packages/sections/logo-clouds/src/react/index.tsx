@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import logoCloudsHtml from '../logo-clouds.html?raw';
 import logoCloudsSliderHtml from '../logo-clouds-slider.html?raw';
 import { initLogoClouds } from '../js';
+import { CodePreview } from '@zuii/core/react';
 import '../style/logo-clouds.css';
 
 /**
@@ -19,12 +20,15 @@ export const LogoClouds = (props: React.HTMLAttributes<HTMLDivElement>) => {
 		<div {...props} style={{ display: 'flex', flexDirection: 'column', gap: '40px', width: '100%' }}>
 			<section>
 				<h2 className="h2">Logo Clouds</h2>
-				<div {...props} dangerouslySetInnerHTML={{ __html: logoCloudsHtml }} />
+				<div dangerouslySetInnerHTML={{ __html: logoCloudsHtml }} />
+				<CodePreview code={logoCloudsHtml} />
 			</section>
 			<section>
 				<h2 className="h2">Logo Clouds slider</h2>
-				<div {...props} dangerouslySetInnerHTML={{ __html: logoCloudsSliderHtml }} />
+				<div dangerouslySetInnerHTML={{ __html: logoCloudsSliderHtml }} />
+				<CodePreview code={logoCloudsSliderHtml} />
 			</section>
 		</div>
 	);
 };
+

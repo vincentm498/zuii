@@ -1,0 +1,50 @@
+/* --- Variantes Sémantiques --- */
+
+.banner--success {
+	--banner-bg: var(--success, #10b981);
+	--banner-text-color: var(--white);
+}
+
+.banner--warning {
+	--banner-bg: var(--warning, #f59e0b);
+	--banner-text-color: var(--primary-dark);
+}
+
+.banner--danger {
+	--banner-bg: var(--danger, #ef4444);
+	--banner-text-color: var(--white);
+}
+
+/* --- Variantes Stylistiques --- */
+
+.banner--gradient {
+	background: linear-gradient(135deg, var(--banner-bg), var(--banner-accent-color));
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.banner--outline {
+	background: transparent;
+	color: var(--primary-dark);
+	border-bottom: 1px solid var(--gray-200, #e5e7eb);
+	--banner-text-color: var(--primary-dark);
+
+	.banner__close:hover {
+		background-color: rgba(0, 0, 0, 0.05);
+		color: var(--primary-dark);
+	}
+}
+
+.banner--floating {
+	width: fit-content;
+	margin: var(--spacing-md) auto;
+	border-radius: var(--radius-lg);
+	box-shadow: var(--box-shadow-lg);
+	transform: translateY(-150%);
+}
+
+/* --- Variantes Comportementales --- */
+
+.banner--sticky {
+	position: sticky;
+	top: 0;
+}

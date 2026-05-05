@@ -4,12 +4,13 @@ import './style.scss'
 import { Buttons, Icons, Avatars, Badges, Colors, Dividers, ContextMenus, LangSelectors, Forms, Shadows, Radius, FormsElements, Dropdowns, Logos, Modals, Placeholders, Tooltips, Tables, TabsTemplate, Accordions, Alerts, Loaders, Grids, Sliders, Cards, Groups, Calendars } from '../src/templates'
 import { Footers } from '../packages/sections/footers/src/react/index';
 import { Copyrights } from '../packages/sections/copyright/src/react/index';
-import { socialMedia } from '../packages/components/social-media/src/react/index';
+import { SocialMedia } from '../packages/components/social-media/src/react/index';
 import { CTA } from '../packages/sections/CTA/src/react/index';
 import { Sidebar } from '../packages/components/navigation/src/react/index';
 import { LogoClouds } from '../packages/sections/logo-clouds/src/react/index';
 import { Heros } from '../packages/sections/heros/src/react/index';
 import { Video } from '../packages/components/video/src/react/index';
+import { Banner } from '../packages/components/banner/src/react/index';
 import '../packages/core/src/js/index.ts'
 
 
@@ -55,6 +56,8 @@ const components = [
 	{ path: '/tabs', name: 'Tabs', component: TabsTemplate, category: 'Components' },
 	{ path: '/tooltips', name: 'Tooltips', component: Tooltips, category: 'Components' },
 	{ path: '/video', name: 'Video', component: Video, category: 'Components' },
+	{ path: '/banner', name: 'Banner', component: Banner, category: 'Components' },
+	{ path: '/social-media', name: 'SocialMedia', component: SocialMedia, category: 'Components' },
 
 	// Utilitaires
 	{ path: '/colors', name: 'Colors', component: Colors, category: 'Utilities' },
