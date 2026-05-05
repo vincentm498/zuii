@@ -1,0 +1,119 @@
+.hero {
+	--hero-padding: var(--spacing-xl) var(--spacing-lg) var(--spacing-lg);
+	--hero-bg: var(--white, #ffffff);
+	--hero-title-size: 3.5rem;
+	--hero-text-color: currentcolor;
+	--hero-accent-color: var(--accent, #3b82f6);
+	--hero-button-primary-color: var(--white);
+	--hero-button-primary-bg: var(--hero-accent-color);
+	--hero-button-secondary-color: var(--hero-accent-color);
+	--hero-button-secondary-bg: transparent;
+
+	background-color: var(--hero-bg);
+	padding: var(--spacing-xl) var(--spacing-lg);
+	overflow: hidden;
+}
+
+.hero__container {
+	max-width: var(--container-xl, 1280px);
+	margin: 0 auto;
+	padding: var(--spacing-none) var(--spacing-none);
+	gap: 1rem;
+}
+
+.hero__content {
+	flex: 1;
+	max-width: 640px;
+	margin-bottom: var(--spacing-lg);
+	animation: hero-fade-up 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.hero__badge{
+	color: var(--hero-accent-color);
+
+	&.badge--outline{
+		border-color: var(--hero-accent-color);
+	}
+}
+
+.hero__title {
+	color: var(--hero-text-color);
+}
+
+.hero__title--accent {
+	color: var(--hero-accent-color);
+}
+
+.hero__description {
+	color: var(--hero-text-color);
+}
+
+.hero__actions {
+	margin: 1rem 0;
+}
+
+.hero__action-primary{
+	color: var(--hero-button-primary-color);
+	background: var(--hero-button-primary-bg);
+}
+
+.hero__action-secondary{
+	color: var(--hero-button-secondary-color);
+	background: var(--hero-button-secondary-bg);
+	border-color: var(--hero-button-secondary-color);
+}
+
+.hero__image-wrapper,
+.hero__video-wrapper {
+	flex: 1;
+	position: relative;
+	animation: hero-fade-in 1.2s ease-out forwards;
+}
+
+.hero__image,
+.hero__video {
+	width: 100%;
+	height: auto;
+	box-shadow: var(--box-shadow-lg);
+	max-height: 500px;
+	aspect-ratio: 16 / 9;
+	object-fit: cover;
+	object-position: center;
+}
+
+
+/* Animations */
+@keyframes hero-fade-up {
+	from {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes hero-fade-in {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+	.hero__container {
+		flex-direction: column;
+	}
+
+	.hero__content {
+		max-width: 100%;
+	}
+
+	.hero__title {
+		font-size: 2.75rem;
+	}
+}

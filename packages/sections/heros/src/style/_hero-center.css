@@ -1,0 +1,21 @@
+.hero--center {
+	text-align: center;
+
+	.hero__container {
+		flex-direction: column;
+	}
+
+	.hero__content {
+		max-width: 800px;
+	}
+
+	.hero__actions {
+		justify-content: center;
+	}
+
+	.hero__image-wrapper,
+	.hero__video-wrapper {
+		width: 100%;
+		margin: 0 auto;
+	}
+}

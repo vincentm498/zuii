@@ -1,24 +1,30 @@
-import React from 'react';
-import ctaHtml from '../cta.html?raw';
-import ctaCenterHtml from '../cta-center.html?raw';
-import '../style/cta.css';
+import React, { useEffect } from 'react';
+import logoCloudsHtml from '../logo-clouds.html?raw';
+import logoCloudsSliderHtml from '../logo-clouds-slider.html?raw';
+import { initLogoClouds } from '../js';
+import '../style/logo-clouds.css';
 
+/**
+ * Section Logo Clouds avec variantes statiques et sliders.
+ *
+ * @param {React.HTMLAttributes<HTMLDivElement>} props - Les propriétés du composant.
+ * @returns {JSX.Element} Le composant LogoClouds.
+ */
+export const LogoClouds = (props: React.HTMLAttributes<HTMLDivElement>) => {
+	useEffect(() => {
+		initLogoClouds();
+	}, []);
 
-
-export const CTA = (props: React.HTMLAttributes<HTMLDivElement>) => {
 	return (
 		<div {...props} style={{ display: 'flex', flexDirection: 'column', gap: '40px', width: '100%' }}>
 			<section>
-				<h2 className="h2">CTA</h2>
-				<p className="p">Il s'agit d'un CTA avec une mise en page à gauche. Il sert à afficher un appel à l'action avec une mise en page à gauche.</p>
-				<div {...props} dangerouslySetInnerHTML={{ __html: ctaHtml }} />
+				<h2 className="h2">Logo Clouds</h2>
+				<div {...props} dangerouslySetInnerHTML={{ __html: logoCloudsHtml }} />
 			</section>
 			<section>
-				<h2 className="h2">CTA center</h2>
-				<p className="p">Il s'agit d'un CTA avec une mise en page centrée. Il sert à afficher un appel à l'action avec une mise en page centrée.</p>
-				<div {...props} dangerouslySetInnerHTML={{ __html: ctaCenterHtml }} />
+				<h2 className="h2">Logo Clouds slider</h2>
+				<div {...props} dangerouslySetInnerHTML={{ __html: logoCloudsSliderHtml }} />
 			</section>
-
 		</div>
 	);
 };

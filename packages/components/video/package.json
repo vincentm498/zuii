@@ -1,0 +1,11 @@
+{
+  "name": "@zuii/video",
+  "version": "0.1.0-beta.0",
+  "description": "Composant Vidéo avec Plyr pour zuii",
+  "main": "./src/video.ts",
+  "types": "./src/video.ts",
+  "license": "MIT",
+  "dependencies": {
+    "plyr": "^3.7.8"
+  }
+}

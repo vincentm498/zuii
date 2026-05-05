@@ -6,6 +6,11 @@ import { Footers } from '../packages/sections/footers/src/react/index';
 import { Copyrights } from '../packages/sections/copyright/src/react/index';
 import { socialMedia } from '../packages/components/social-media/src/react/index';
 import { CTA } from '../packages/sections/CTA/src/react/index';
+import { Sidebar } from '../packages/components/navigation/src/react/index';
+import { LogoClouds } from '../packages/sections/logo-clouds/src/react/index';
+import { Heros } from '../packages/sections/heros/src/react/index';
+import { Video } from '../packages/components/video/src/react/index';
+import '../packages/core/src/js/index.ts'
 
 
 import { initCookieConsent } from '../packages/components/cookie-consent/src/js/cookie-consent';
@@ -26,6 +31,8 @@ const components = [
 	{ path: '/footer', name: 'Footer', component: Footers, category: 'Sections' },
 	{ path: '/copyright', name: 'Copyright', component: Copyrights, category: 'Sections' },
 	{ path: '/cta', name: 'CTA', component: CTA, category: 'Sections' },
+	{ path: '/logo-clouds', name: 'Logo Clouds', component: LogoClouds, category: 'Sections' },
+	{ path: '/heros', name: 'Heros', component: Heros, category: 'Sections' },
 
 	// Components
 	{ path: '/accordions', name: 'Accordions', component: Accordions, category: 'Components' },
@@ -47,6 +54,7 @@ const components = [
 	{ path: '/tables', name: 'Tables', component: Tables, category: 'Components' },
 	{ path: '/tabs', name: 'Tabs', component: TabsTemplate, category: 'Components' },
 	{ path: '/tooltips', name: 'Tooltips', component: Tooltips, category: 'Components' },
+	{ path: '/video', name: 'Video', component: Video, category: 'Components' },
 
 	// Utilitaires
 	{ path: '/colors', name: 'Colors', component: Colors, category: 'Utilities' },
@@ -64,39 +72,9 @@ const App = () => {
 		<BrowserRouter>
 			<CookieConsent />
 			{/* <MenuTemplate /> */}
-			<div style={{ display: 'flex', minHeight: 'calc(100vh - 60px)' }}>
-				<nav style={{ width: '250px', padding: '20px', borderRight: '1px solid var(--zuii-border, #eaeaea)' }}>
-					<ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '8px' }}>
-						{['Sections', 'Components', 'Utilities'].map(category => (
-							<li key={category}>
-								<div style={{ fontWeight: 'bold', margin: '16px 0 8px', color: 'var(--zuii-text-muted, #666)', fontSize: '0.9em', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-									{category}
-								</div>
-								<ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '4px' }}>
-									{components.filter(c => c.category === category).map((c) => (
-										<li key={c.path}>
-											<NavLink
-												to={c.path}
-												style={({ isActive }) => ({
-													display: 'block',
-													padding: '6px 12px',
-													textDecoration: 'none',
-													color: isActive ? '#fff' : 'var(--zuii-text, #333)',
-													backgroundColor: isActive ? 'var(--zuii-primary, #0d6efd)' : 'transparent',
-													borderRadius: '4px',
-													transition: 'all 0.2s'
-												})}
-											>
-												{c.name}
-											</NavLink>
-										</li>
-									))}
-								</ul>
-							</li>
-						))}
-					</ul>
-				</nav>
-				<main style={{ flex: 1, padding: '20px', overflowY: 'auto' }}>
+			<div style={{ display: 'flex', height: '100vh' }}>
+				<Sidebar components={components} />
+				<main style={{ flex: 1, overflowY: 'auto' }}>
 					<Routes>
 						<Route path="/" element={<h2>Sélectionnez un composant dans le menu pour l'afficher</h2>} />
 						{components.map((c) => (

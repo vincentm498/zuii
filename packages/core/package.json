@@ -15,5 +15,8 @@
   "license": "MIT",
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "plyr": "^3.8.4"
   }
 }
