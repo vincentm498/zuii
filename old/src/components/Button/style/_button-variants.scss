@@ -1,24 +1,24 @@
 @use "@core/tokens.scss" as *;
-@use "../../Color/style/colors.scss";
+// @use "../../Color/style/colors.scss";
 
 @each $variant, $value in $brands {
 
 	.btn-#{$variant} {
-		@include colors.bg-variant($variant);
+		// @include colors.bg-variant($variant);
 		--btn-border-color: var(--#{$variant});
 		--btn-hover-border-color: var(--#{$variant});
 		--btn-active-border-color: var(--#{$variant});
 	}
 
 	.btn-#{$variant}-light {
-		@include colors.bg-variant-light($variant);
+		// @include colors.bg-variant-light($variant);
 		--btn-border-color: var(--#{$variant}-light);
 		--btn-hover-bg: var(--#{$variant});
 		--btn-hover-border-color: var(--#{$variant});
 	}
 
 	.btn-#{$variant}-dark {
-		@include colors.bg-variant-dark($variant);
+		// @include colors.bg-variant-dark($variant);
 		--btn-border-color: var(--#{$variant}-dark);
 		--btn-hover-bg: var(--#{$variant});
 		--btn-hover-border-color: var(--#{$variant}-dark);
@@ -26,7 +26,7 @@
 
 
 	.btn-outline-#{$variant} {
-		@include colors.bg-variant($variant);
+		// @include colors.bg-variant($variant);
 		background: transparent;
 		color: var(--#{$variant});
 		--btn-border-color: var(--#{$variant});
@@ -34,7 +34,7 @@
 	}
 
 	.btn-outline-#{$variant}-light {
-		@include colors.bg-variant-light($variant);
+		// @include colors.bg-variant-light($variant);
 		background: transparent;
 		color: var(--#{$variant});
 		--btn-border-color: var(--#{$variant}-light);
@@ -43,7 +43,7 @@
 	}
 
 	.btn-outline-#{$variant}-dark {
-		@include colors.bg-variant-dark($variant);
+		// @include colors.bg-variant-dark($variant);
 		background: transparent;
 		color: var(--#{$variant}-dark);
 		--btn-border-color: var(--#{$variant}-dark);

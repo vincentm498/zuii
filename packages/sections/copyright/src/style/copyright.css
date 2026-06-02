@@ -1,7 +1,7 @@
 .copyright {
-	padding: 0rem .5rem;
+	padding: var(--spacing-md) var(--spacing-sm);
 	display: flex;
-	gap: .5rem;
+	gap: var(--spacing-xs);
 	flex-wrap: wrap;
 	justify-content: space-between;
 

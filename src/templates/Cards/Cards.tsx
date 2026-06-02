@@ -1,5 +1,17 @@
 import { Card, Button } from '../../index';
+import { CodePreview } from '@zuii/core/react';
 
+const overlayCard = `
+<Card className="bg-dark text-white">
+	<Card.Img src="https://placehold.co/800x200/333/fff" alt="Card image" />
+	<Card.ImgOverlay>
+		<Card.Title>Superposition</Card.Title>
+		<Card.Text>
+			Ceci est une carte plus large avec un texte de support en dessous comme introduction naturelle à un contenu supplémentaire. Ce contenu est un peu plus long.
+		</Card.Text>
+		<Card.Text>Dernière mise à jour : 3 minutes.</Card.Text>
+	</Card.ImgOverlay>
+</Card>`;
 /**
  * Template de démonstration pour le composant Card.
  */
@@ -49,6 +61,7 @@ export const Cards = () => {
 						<Card.Text>Dernière mise à jour : 3 minutes.</Card.Text>
 					</Card.ImgOverlay>
 				</Card>
+				<CodePreview code={overlayCard} />
 			</section>
 		</div>
 	);

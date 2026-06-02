@@ -3,18 +3,9 @@ import { Group } from '../../../index';
 import '../style/index.scss';
 
 interface Props {
-	/**
-	 * Le nom de la couleur à afficher (ex: 'primary', 'success').
-	 */
 	name: keyof typeof tokens.brands;
 }
 
-/**
- * Composant Color affichant un échantillon de couleur, son nom et sa valeur hexadécimale.
- *
- * @param {Props} props - Les propriétés du composant.
- * @returns {JSX.Element} Le composant Color rendu.
- */
 export const Color = ({ name }: Props) => {
 	const colorData = tokens.brands[name];
 

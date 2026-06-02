@@ -14,7 +14,7 @@ const initBanner = (banner: HTMLElement) => {
 	if (closeButton) {
 		closeButton.addEventListener('click', () => {
 			banner.classList.add('banner--closing');
-			
+
 			banner.addEventListener('animationend', () => {
 				banner.style.display = 'none';
 			}, { once: true });
@@ -32,7 +32,7 @@ const initBanner = (banner: HTMLElement) => {
 				autoplay: true,
 				interval: 5000,
 				pauseOnHover: true,
-				arrows: true,
+				arrows: false,
 				pagination: false
 			});
 
@@ -53,7 +53,7 @@ const initBanner = (banner: HTMLElement) => {
  */
 const initBanners = () => {
 	const selector = '.banner';
-	
+
 	document.querySelectorAll(selector).forEach(el => initBanner(el as HTMLElement));
 
 	const observer = new MutationObserver((mutations) => {

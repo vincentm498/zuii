@@ -1,4 +1,4 @@
-@use "../../Color/style/colors" as colors;
+// @use "../../Color/style/colors" as colors;
 
 
 .accordion__wrapper {
@@ -36,7 +36,7 @@
 }
 
 .accordion-button:not(.collapsed){
-	@include colors.bg-variant("accent");
+	// @include colors.bg-variant("accent");
 	box-shadow: none;
 }
 

@@ -1,0 +1,29 @@
+{
+  "name": "@zuii/heros",
+  "version": "0.1.0-beta.0",
+  "description": "Sections Heros premium pour zuii (Simple, Vidéo, Background)",
+  "main": "./src/js/index.ts",
+  "types": "./src/js/index.ts",
+  "style": "./src/style/heros.css",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "src",
+    "dist",
+    "README.md"
+  ],
+  "keywords": [
+    "zuii",
+    "ui",
+    "hero",
+    "section",
+    "video-background"
+  ],
+  "author": "Vincent Moreau",
+  "license": "MIT",
+  "dependencies": {
+    "@zuii/core": "workspace:*",
+    "@zuii/video": "workspace:*"
+  }
+}

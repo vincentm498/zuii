@@ -1,5 +1,5 @@
 @use "@core/tokens.scss" as *;
-@use "../../Color/style/colors.scss";
+// @use "../../Color/style/colors.scss";
 
 .badge {
 	--badge-border-radius: var(--border-radius-pill);
@@ -17,7 +17,7 @@
 
 	@each $color, $value in $brands {
 		&--#{$color} {
-			@include colors.bg-variant($color);
+			// @include colors.bg-variant($color);
 			border-color: var(--#{$color});
 		}
 

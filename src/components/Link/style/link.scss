@@ -1,5 +1,18 @@
 a{
+
+	--link-color: var(--accent);
+	--link-color-hover: color-mix(in srgb, var(--accent) 80%, black 20%);
+
 	text-decoration: none;
+	color: var(--link-color);
+	transition: color 0.2s ease-in-out;
+	cursor: pointer;
+
+	&:hover,
+	&:focus{
+		color: var(--link-color-hover);
+	}
 }
+
 
 

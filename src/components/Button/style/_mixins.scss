@@ -1,4 +1,4 @@
-@use "../../Color/style/colors.scss" as colors;
+// @use "../../Color/style/colors.scss" as colors;
 
 // Mixin de base pour un bouton (structure et interactions par défaut)
 @mixin btn-base {
@@ -25,7 +25,7 @@
 
 // Mixin pour générer les variables spécifiques à une couleur (primary, secondary, danger, etc.)
 @mixin btn-variant($variant) {
-	@include colors.bg-variant($variant);
+	// @include colors.bg-variant($variant);
 	--btn-border-color: var(--#{$variant});
 	--btn-hover-border-color: var(--#{$variant});
 	--btn-active-border-color: var(--#{$variant});
@@ -39,7 +39,7 @@
 
 @mixin btn-icon {
 	@include btn-base;
-	
+
 	display: flex;
 	line-height: initial;
 	justify-content: center;

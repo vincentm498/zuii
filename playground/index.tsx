@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import './style.scss'
-import { Buttons, Icons, Avatars, Badges, Colors, Dividers, ContextMenus, LangSelectors, Forms, Shadows, Radius, FormsElements, Dropdowns, Logos, Modals, Placeholders, Tooltips, Tables, TabsTemplate, Accordions, Alerts, Loaders, Grids, Sliders, Cards, Groups, Calendars } from '../src/templates'
+import { Buttons, Icons, Avatars, Badges, Colors, Dividers, ContextMenus, LangSelectors, Forms, Shadows, Radius, FormsElements, Dropdowns, Logos, Modals, Placeholders, Tooltips, Tables, TabsTemplate, Accordions, Alerts, Loaders, Grids, Sliders, Groups, Calendars } from '../src/templates'
 import { Footers } from '../packages/sections/footers/src/react/index';
 import { Copyrights } from '../packages/sections/copyright/src/react/index';
 import { SocialMedia } from '../packages/components/social-media/src/react/index';
@@ -11,6 +11,7 @@ import { LogoClouds } from '../packages/sections/logo-clouds/src/react/index';
 import { Heros } from '../packages/sections/heros/src/react/index';
 import { Video } from '../packages/components/video/src/react/index';
 import { Banner } from '../packages/components/banner/src/react/index';
+import { Cards } from '../packages/components/card/react/index';
 import '../packages/core/src/js/index.ts'
 
 

@@ -1,0 +1,57 @@
+:root{
+		--backtop-bg-color: var(--primary);
+		--backtop-hover-bg-color: var(--accent);
+		--backtop-border-radius: var(--radius-none);
+		--backtop-box-shadow: var(--shadow-lg);
+		--backtop-transition-duration: 0.3s;
+		--backtop-transition-timing-function: ease-in-out;
+		--backtop-opacity: 0;
+		--backtop-visibility: hidden;
+		--backtop-transform: translateY(20px);
+		--backtop-size: 3.5rem;
+		--backtop-spacing-bottom: 2rem;
+		--backtop-spacing-right: 2rem;
+		--backtop-z-index: 9999;
+
+}
+
+
+.backtop {
+	position: fixed;
+	bottom: var(--backtop-spacing-bottom);
+	right: var(--backtop-spacing-right);
+	z-index: var(--backtop-z-index);
+	width: var(--backtop-size);
+	height: var(--backtop-size);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: var(--backtop-border-radius);
+	background: var(--backtop-bg-color);
+	color: var(--white);
+	cursor: pointer;
+	transition: all var(--backtop-transition-duration) var(--backtop-transition-timing-function);
+	box-shadow: var(--backtop-box-shadow);
+
+	/* État par défaut (masqué) */
+	opacity: var(--backtop-opacity);
+	visibility: var(--backtop-visibility);
+	transform: var(--backtop-transform);
+
+	&:hover {
+		background: var(--backtop-hover-bg-color);
+		transform: translateY(-5px) !important;
+	}
+
+	&:active {
+		transform: translateY(0) !important;
+	}
+}
+
+@media screen and (max-width: 639px){
+
+	.backtop{
+		 display: none;
+	}
+}
+

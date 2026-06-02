@@ -135,6 +135,9 @@ importers:
       '@zuii/core':
         specifier: workspace:*
         version: link:packages/core
+      '@zuii/footer':
+        specifier: workspace:0.1.0-beta.0
+        version: link:packages/sections/footers
       esbuild:
         specifier: ^0.27.4
         version: 0.27.4
@@ -168,6 +171,10 @@ importers:
       vite-plugin-lib-inject-css:
         specifier: ^2.2.2
         version: 2.2.2(vite@7.3.1(@types/node@25.1.0)(sass-embedded@1.97.3)(sass@1.97.3)(yaml@2.8.2))
+
+  packages/base: {}
+
+  packages/components/backtop: {}
 
   packages/components/banner:
     dependencies:
@@ -264,6 +271,30 @@ importers:
         version: 3.8.4
 
   packages/core:
+    dependencies:
+      plyr:
+        specifier: ^3.8.4
+        version: 3.8.4
+      react-syntax-highlighter:
+        specifier: ^16.1.1
+        version: 16.1.1(react@19.2.4)
+    devDependencies:
+      '@types/react-syntax-highlighter':
+        specifier: ^15.5.13
+        version: 15.5.13
+
+  packages/sections/footers: {}
+
+  packages/sections/heros:
+    dependencies:
+      '@zuii/core':
+        specifier: workspace:*
+        version: link:../../core
+      '@zuii/video':
+        specifier: workspace:*
+        version: link:../../components/video
+
+  packages/utilities:
     dependencies:
       plyr:
         specifier: ^3.8.4

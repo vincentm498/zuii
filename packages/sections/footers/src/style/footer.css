@@ -1,13 +1,17 @@
-footer {
+:root{
 	--footer-bg-color: transparent;
 	--footer-text-color: currentColor;
 	--footer-width: 1200px;
 	--footer-spacing-vertical: 50px;
 	--footer-spacing-horizontal: 20px;
+	--footer-title-color: var(--accent);
+	--footer-title-font-size: 1.2rem;
+	--footer-title-font-weight: 600;
+}
 
+footer {
 	background-color: var(--footer-bg-color);
 	color: var(--footer-text-color);
-
 }
 
 .footer__container {
@@ -19,7 +23,13 @@ footer {
 .footer__list {
 	list-style: none;
 	padding: 0;
-	margin: .8rem 0;
+	display: grid;
+	gap: 0.6rem;
+	margin: 0;
+}
+
+.footer__list:has(.footer__link) {
+	margin-left: .8rem;
 }
 
 .footer__social-media {
@@ -49,6 +59,12 @@ footer {
 		height: auto;
 	}
 
+}
+
+.footer__title{
+	font-size: var(--footer-title-font-size);
+	font-weight: var(--footer-title-font-weight);
+	color: var(--footer-title-color);
 }
 
 

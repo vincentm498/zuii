@@ -19,6 +19,9 @@
 		"dist",
 		"scripts/tokens"
 	],
+	"workspaces": [
+		"packages/sections/*"
+	],
 	"exports": {
 		".": {
 			"import": "./dist/index.js",
@@ -100,6 +103,7 @@
 		"@vitejs/plugin-react": "^5.1.2",
 		"@zuii/cookie-consent": "workspace:*",
 		"@zuii/core": "workspace:*",
+		"@zuii/footer": "workspace:0.1.0-beta.0",
 		"esbuild": "^0.27.4",
 		"esbuild-sass-plugin": "^3.7.0",
 		"react": "^19.2.4",

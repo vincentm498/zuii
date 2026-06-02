@@ -1,0 +1,21 @@
+body {
+	color: var(--body-color);
+	background-color: var(--body-bg);
+	font-family: var(--font-primary);
+	font-size: 16px;
+	line-height: 26px;
+	font-style: normal;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	font-weight: 400;
+}
+
+main{
+	flex: 1 1 auto;
+}
+
+p{
+	margin: 0;
+}
+

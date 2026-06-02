@@ -1,0 +1,17 @@
+{
+	"name": "@zuii/footer",
+	"version": "0.1.0-beta.0",
+	"description": "Templates HTML et CSS pour footers",
+	"type": "module",
+	"exports": {
+		"./cols": "./src/footer-cols.html",
+		"./centered": "./src/footer-simple-centered.html",
+		"./style": "./src/style/footer.css"
+	},
+	"files": [
+		"src"
+	],
+	"scripts": {
+		"build": "rm -rf dist && mkdir -p dist/style && cp src/*.html dist/ && cp src/style/*.css dist/style/"
+	}
+}
