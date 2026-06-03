@@ -1,5 +1,19 @@
 # @zuii/booking
 
+## 0.4.0
+
+### Minor Changes
+
+- 8682f92: Les jours du calendrier ne sont désormais sélectionnables que s'ils possèdent des créneaux actifs. Mise à jour de l'interface d'availability pour supporter des objets avec un état actif.
+
+### Patch Changes
+
+- aa36fbc: Ajout des champs cachés `booking_date` et `booking_slot` dans le formulaire de confirmation pour faciliter l'intégration avec des outils tiers comme Odrazia.
+- 95bc844: Dynamisation de l'id du formulaire de confirmation de réservation basé sur l'URL courante.
+- Updated dependencies [8682f92]
+  - @zuii/calendar@0.4.0
+  - @zuii/core@0.3.0
+
 ## 0.4.0-beta.1
 
 ### Minor Changes

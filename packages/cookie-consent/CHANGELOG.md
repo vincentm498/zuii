@@ -1,5 +1,11 @@
 # @zuii/cookie-consent
 
+## 0.3.0
+
+### Patch Changes
+
+- @zuii/core@0.3.0
+
 ## 0.3.0-beta.0
 
 ### Minor Changes

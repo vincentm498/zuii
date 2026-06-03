@@ -1,5 +1,15 @@
 # @zuii/calendar
 
+## 0.4.0
+
+### Minor Changes
+
+- 8682f92: Les jours du calendrier ne sont désormais sélectionnables que s'ils possèdent des créneaux actifs. Mise à jour de l'interface d'availability pour supporter des objets avec un état actif.
+
+### Patch Changes
+
+- @zuii/core@0.3.0
+
 ## 0.4.0-beta.1
 
 ### Minor Changes
