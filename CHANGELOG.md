@@ -1,5 +1,11 @@
 ## [1.5.1](https://github.com/vincentm498/zuii/compare/v1.5.0...v1.5.1) (2026-03-27)
 
+## 1.5.3
+
+### Patch Changes
+
+- ffd31a4: fix: restore select component size to match 1.5.1 behavior
+
 ## 1.5.2
 
 ### Patch Changes
