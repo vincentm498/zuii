@@ -6,7 +6,7 @@ export const tokens = {
   "border": {
     "color": {
       "value": "var(--primary)",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/border.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/border.json",
       "isSource": true,
       "original": {
         "value": "var(--primary)"
@@ -23,7 +23,7 @@ export const tokens = {
     },
     "width": {
       "value": "1px",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/border.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/border.json",
       "isSource": true,
       "original": {
         "value": "1px"
@@ -40,7 +40,7 @@ export const tokens = {
     },
     "style": {
       "value": "solid",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/border.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/border.json",
       "isSource": true,
       "original": {
         "value": "solid"
@@ -57,7 +57,7 @@ export const tokens = {
     },
     "radius": {
       "value": "var(--radius-pill)",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/border.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/border.json",
       "isSource": true,
       "original": {
         "value": "var(--radius-pill)"
@@ -74,7 +74,7 @@ export const tokens = {
     },
     "radius-sm": {
       "value": "var(--radius-base)",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/border.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/border.json",
       "isSource": true,
       "original": {
         "value": "var(--radius-base)"
@@ -91,7 +91,7 @@ export const tokens = {
     },
     "radius-md": {
       "value": "var(--radius-md)",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/border.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/border.json",
       "isSource": true,
       "original": {
         "value": "var(--radius-md)"
@@ -108,7 +108,7 @@ export const tokens = {
     },
     "radius-lg": {
       "value": "var(--radius-lg)",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/border.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/border.json",
       "isSource": true,
       "original": {
         "value": "var(--radius-lg)"
@@ -125,7 +125,7 @@ export const tokens = {
     },
     "radius-xl": {
       "value": "var(--radius-xl)",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/border.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/border.json",
       "isSource": true,
       "original": {
         "value": "var(--radius-xl)"
@@ -142,7 +142,7 @@ export const tokens = {
     },
     "radius-xxl": {
       "value": "var(--radius-xxl)",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/border.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/border.json",
       "isSource": true,
       "original": {
         "value": "var(--radius-xxl)"
@@ -159,7 +159,7 @@ export const tokens = {
     },
     "radius-2xl": {
       "value": "var(--radius-2xl)",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/border.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/border.json",
       "isSource": true,
       "original": {
         "value": "var(--radius-2xl)"
@@ -176,7 +176,7 @@ export const tokens = {
     },
     "radius-pill": {
       "value": "var(--radius-pill)",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/border.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/border.json",
       "isSource": true,
       "original": {
         "value": "var(--radius-pill)"
@@ -199,7 +199,7 @@ export const tokens = {
         "dark": "#1D4A5D",
         "light": "#73B6D3"
       },
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/brands.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/brands.json",
       "isSource": true,
       "original": {
         "value": "#296782",
@@ -227,7 +227,7 @@ export const tokens = {
       "mixPercent": {
         "border": 20
       },
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/brands.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/brands.json",
       "isSource": true,
       "original": {
         "value": "#49B4E8",
@@ -258,7 +258,7 @@ export const tokens = {
       "mixPercent": {
         "border": 20
       },
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/brands.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/brands.json",
       "isSource": true,
       "original": {
         "value": "#49B4E8",
@@ -287,7 +287,7 @@ export const tokens = {
         "light": 80,
         "border": 60
       },
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/brands.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/brands.json",
       "isSource": true,
       "original": {
         "value": "#f5524d",
@@ -314,7 +314,7 @@ export const tokens = {
         "light": 50,
         "border": 60
       },
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/brands.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/brands.json",
       "isSource": true,
       "original": {
         "value": "#73D3B6",
@@ -343,7 +343,7 @@ export const tokens = {
       "mixPercent": {
         "border": 60
       },
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/brands.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/brands.json",
       "isSource": true,
       "original": {
         "value": "#EA5F5F",
@@ -372,7 +372,7 @@ export const tokens = {
         "light": 50,
         "border": 60
       },
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/brands.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/brands.json",
       "isSource": true,
       "original": {
         "value": "#F5D762",
@@ -399,7 +399,7 @@ export const tokens = {
         "light": 50,
         "border": 60
       },
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/brands.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/brands.json",
       "isSource": true,
       "original": {
         "value": "#73B6D3",
@@ -426,7 +426,7 @@ export const tokens = {
         "light": 80,
         "border": 60
       },
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/brands.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/brands.json",
       "isSource": true,
       "original": {
         "value": "#FFFFFF",
@@ -453,7 +453,7 @@ export const tokens = {
         "light": 80,
         "border": 60
       },
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/brands.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/brands.json",
       "isSource": true,
       "original": {
         "value": "#000000",
@@ -477,7 +477,7 @@ export const tokens = {
   "color": {
     "white": {
       "value": "#ffffff",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/colors.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/colors.json",
       "isSource": true,
       "original": {
         "value": "#ffffff"
@@ -494,7 +494,7 @@ export const tokens = {
     },
     "black": {
       "value": "#000000",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/colors.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/colors.json",
       "isSource": true,
       "original": {
         "value": "#000000"
@@ -512,7 +512,7 @@ export const tokens = {
     "gray": {
       "100": {
         "value": "#f8f9fa",
-        "filePath": "/Users/macvincent/Desktop/zuii/tokens/colors.json",
+        "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/colors.json",
         "isSource": true,
         "original": {
           "value": "#f8f9fa"
@@ -531,7 +531,7 @@ export const tokens = {
       },
       "200": {
         "value": "#e9ecef",
-        "filePath": "/Users/macvincent/Desktop/zuii/tokens/colors.json",
+        "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/colors.json",
         "isSource": true,
         "original": {
           "value": "#e9ecef"
@@ -550,7 +550,7 @@ export const tokens = {
       },
       "300": {
         "value": "#dee2e6",
-        "filePath": "/Users/macvincent/Desktop/zuii/tokens/colors.json",
+        "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/colors.json",
         "isSource": true,
         "original": {
           "value": "#dee2e6"
@@ -569,7 +569,7 @@ export const tokens = {
       },
       "400": {
         "value": "#ced4da",
-        "filePath": "/Users/macvincent/Desktop/zuii/tokens/colors.json",
+        "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/colors.json",
         "isSource": true,
         "original": {
           "value": "#ced4da"
@@ -588,7 +588,7 @@ export const tokens = {
       },
       "500": {
         "value": "#adb5bd",
-        "filePath": "/Users/macvincent/Desktop/zuii/tokens/colors.json",
+        "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/colors.json",
         "isSource": true,
         "original": {
           "value": "#adb5bd"
@@ -607,7 +607,7 @@ export const tokens = {
       },
       "600": {
         "value": "#6c757d",
-        "filePath": "/Users/macvincent/Desktop/zuii/tokens/colors.json",
+        "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/colors.json",
         "isSource": true,
         "original": {
           "value": "#6c757d"
@@ -626,7 +626,7 @@ export const tokens = {
       },
       "700": {
         "value": "#495057",
-        "filePath": "/Users/macvincent/Desktop/zuii/tokens/colors.json",
+        "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/colors.json",
         "isSource": true,
         "original": {
           "value": "#495057"
@@ -645,7 +645,7 @@ export const tokens = {
       },
       "800": {
         "value": "#343a40",
-        "filePath": "/Users/macvincent/Desktop/zuii/tokens/colors.json",
+        "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/colors.json",
         "isSource": true,
         "original": {
           "value": "#343a40"
@@ -664,7 +664,7 @@ export const tokens = {
       },
       "900": {
         "value": "#212529",
-        "filePath": "/Users/macvincent/Desktop/zuii/tokens/colors.json",
+        "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/colors.json",
         "isSource": true,
         "original": {
           "value": "#212529"
@@ -685,7 +685,7 @@ export const tokens = {
     "gray-alias": {
       "value": "#6c757d",
       "name": "COLOR_GRAY_ALIAS",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/colors.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/colors.json",
       "isSource": true,
       "original": {
         "value": "{color.gray.600}",
@@ -703,7 +703,7 @@ export const tokens = {
     "gray-dark-alias": {
       "value": "#343a40",
       "name": "COLOR_GRAY_DARK_ALIAS",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/colors.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/colors.json",
       "isSource": true,
       "original": {
         "value": "{color.gray.800}",
@@ -720,7 +720,7 @@ export const tokens = {
     },
     "body-color": {
       "value": "var(--primary)",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/colors.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/colors.json",
       "isSource": true,
       "original": {
         "value": "var(--primary)"
@@ -737,7 +737,7 @@ export const tokens = {
     },
     "body-bg-percentage": {
       "value": "95%",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/colors.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/colors.json",
       "isSource": true,
       "original": {
         "value": "95%"
@@ -754,7 +754,7 @@ export const tokens = {
     },
     "body-bg": {
       "value": "color-mix(in srgb, var(--primary), var(--white) var(--body-bg-percentage))",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/colors.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/colors.json",
       "isSource": true,
       "original": {
         "value": "color-mix(in srgb, var(--primary), var(--white) var(--body-bg-percentage))"
@@ -771,7 +771,7 @@ export const tokens = {
     },
     "gradient": {
       "value": "linear-gradient(33.65deg, color-mix(in srgb, var(--primary-light), var(--white) 60%) 0%, color-mix(in srgb, var(--primary-light), var(--white) 90%) 100%)",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/colors.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/colors.json",
       "isSource": true,
       "original": {
         "value": "linear-gradient(33.65deg, color-mix(in srgb, var(--primary-light), var(--white) 60%) 0%, color-mix(in srgb, var(--primary-light), var(--white) 90%) 100%)"
@@ -788,7 +788,7 @@ export const tokens = {
     },
     "link-color-rgb": {
       "value": "var(--accent-rgb)",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/colors.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/colors.json",
       "isSource": true,
       "original": {
         "value": "var(--accent-rgb)"
@@ -805,7 +805,7 @@ export const tokens = {
     },
     "link-hover-color-rgb": {
       "value": "var(--accent-dark-rgb)",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/colors.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/colors.json",
       "isSource": true,
       "original": {
         "value": "var(--accent-dark-rgb)"
@@ -824,7 +824,7 @@ export const tokens = {
   "font": {
     "primary": {
       "value": "Mulish, sans-serif",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/fonts.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/fonts.json",
       "isSource": true,
       "original": {
         "value": "Mulish, sans-serif"
@@ -841,7 +841,7 @@ export const tokens = {
     },
     "monospace": {
       "value": "var(--font-primary)",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/fonts.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/fonts.json",
       "isSource": true,
       "original": {
         "value": "var(--font-primary)"
@@ -858,7 +858,7 @@ export const tokens = {
     },
     "sans-serif": {
       "value": "var(--font-primary)",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/fonts.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/fonts.json",
       "isSource": true,
       "original": {
         "value": "var(--font-primary)"
@@ -877,7 +877,7 @@ export const tokens = {
   "icons": {
     "chevron-down": {
       "value": "url('data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-chevron-down-icon lucide-chevron-down\"><path d=\"m6 9 6 6 6-6\"/></svg>')",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/icons.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/icons.json",
       "isSource": true,
       "original": {
         "value": "url('data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-chevron-down-icon lucide-chevron-down\"><path d=\"m6 9 6 6 6-6\"/></svg>')"
@@ -896,7 +896,7 @@ export const tokens = {
   "radius": {
     "none": {
       "value": "0",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/radius.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/radius.json",
       "isSource": true,
       "original": {
         "value": "0"
@@ -913,7 +913,7 @@ export const tokens = {
     },
     "base": {
       "value": "var(--size-xs)",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/radius.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/radius.json",
       "isSource": true,
       "original": {
         "value": "var(--size-xs)"
@@ -930,7 +930,7 @@ export const tokens = {
     },
     "sm": {
       "value": "var(--size-sm)",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/radius.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/radius.json",
       "isSource": true,
       "original": {
         "value": "var(--size-sm)"
@@ -947,7 +947,7 @@ export const tokens = {
     },
     "md": {
       "value": "var(--size-md)",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/radius.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/radius.json",
       "isSource": true,
       "original": {
         "value": "var(--size-md)"
@@ -964,7 +964,7 @@ export const tokens = {
     },
     "lg": {
       "value": "var(--size-lg)",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/radius.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/radius.json",
       "isSource": true,
       "original": {
         "value": "var(--size-lg)"
@@ -981,7 +981,7 @@ export const tokens = {
     },
     "xl": {
       "value": "var(--size-xl)",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/radius.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/radius.json",
       "isSource": true,
       "original": {
         "value": "var(--size-xl)"
@@ -998,7 +998,7 @@ export const tokens = {
     },
     "2xl": {
       "value": "var(--size-2xl)",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/radius.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/radius.json",
       "isSource": true,
       "original": {
         "value": "var(--size-2xl)"
@@ -1015,7 +1015,7 @@ export const tokens = {
     },
     "pill": {
       "value": "999rem",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/radius.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/radius.json",
       "isSource": true,
       "original": {
         "value": "999rem"
@@ -1034,7 +1034,7 @@ export const tokens = {
   "box-shadow": {
     "color": {
       "value": "var(--primary)",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/shadows.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/shadows.json",
       "isSource": true,
       "original": {
         "value": "var(--primary)"
@@ -1051,7 +1051,7 @@ export const tokens = {
     },
     "xs": {
       "value": "0 1px 2px 0 color-mix(in srgb, var(--box-shadow-color), transparent 80%)",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/shadows.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/shadows.json",
       "isSource": true,
       "original": {
         "value": "0 1px 2px 0 color-mix(in srgb, var(--box-shadow-color), transparent 80%)"
@@ -1068,7 +1068,7 @@ export const tokens = {
     },
     "sm": {
       "value": "0 1px 3px 0 color-mix(in srgb, var(--box-shadow-color), transparent 80%)",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/shadows.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/shadows.json",
       "isSource": true,
       "original": {
         "value": "0 1px 3px 0 color-mix(in srgb, var(--box-shadow-color), transparent 80%)"
@@ -1085,7 +1085,7 @@ export const tokens = {
     },
     "md": {
       "value": "0 4px 6px -1px color-mix(in srgb, var(--box-shadow-color), transparent 80%)",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/shadows.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/shadows.json",
       "isSource": true,
       "original": {
         "value": "0 4px 6px -1px color-mix(in srgb, var(--box-shadow-color), transparent 80%)"
@@ -1102,7 +1102,7 @@ export const tokens = {
     },
     "lg": {
       "value": "0 10px 15px -3px color-mix(in srgb, var(--box-shadow-color), transparent 80%)",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/shadows.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/shadows.json",
       "isSource": true,
       "original": {
         "value": "0 10px 15px -3px color-mix(in srgb, var(--box-shadow-color), transparent 80%)"
@@ -1119,7 +1119,7 @@ export const tokens = {
     },
     "xl": {
       "value": "0 20px 25px -5px color-mix(in srgb, var(--box-shadow-color), transparent 80%)",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/shadows.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/shadows.json",
       "isSource": true,
       "original": {
         "value": "0 20px 25px -5px color-mix(in srgb, var(--box-shadow-color), transparent 80%)"
@@ -1136,7 +1136,7 @@ export const tokens = {
     },
     "2xl": {
       "value": "0 25px 50px -12px color-mix(in srgb, var(--box-shadow-color), transparent 80%)",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/shadows.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/shadows.json",
       "isSource": true,
       "original": {
         "value": "0 25px 50px -12px color-mix(in srgb, var(--box-shadow-color), transparent 80%)"
@@ -1153,7 +1153,7 @@ export const tokens = {
     },
     "outline": {
       "value": "0 0 2px 4px color-mix(in srgb, var(--box-shadow-color), transparent 80%)",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/shadows.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/shadows.json",
       "isSource": true,
       "original": {
         "value": "0 0 2px 4px color-mix(in srgb, var(--box-shadow-color), transparent 80%)"
@@ -1170,7 +1170,7 @@ export const tokens = {
     },
     "inset": {
       "value": "inset 0 0 6px 0 color-mix(in srgb, var(--box-shadow-color), transparent 80%)",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/shadows.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/shadows.json",
       "isSource": true,
       "original": {
         "value": "inset 0 0 6px 0 color-mix(in srgb, var(--box-shadow-color), transparent 80%)"
@@ -1187,7 +1187,7 @@ export const tokens = {
     },
     "none": {
       "value": "0 0 0 0 color-mix(in srgb, var(--box-shadow-color), transparent 80%)",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/shadows.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/shadows.json",
       "isSource": true,
       "original": {
         "value": "0 0 0 0 color-mix(in srgb, var(--box-shadow-color), transparent 80%)"
@@ -1206,7 +1206,7 @@ export const tokens = {
   "size": {
     "0": {
       "value": "0",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/size.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/size.json",
       "isSource": true,
       "original": {
         "value": "0"
@@ -1223,7 +1223,7 @@ export const tokens = {
     },
     "1": {
       "value": "0.25rem",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/size.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/size.json",
       "isSource": true,
       "original": {
         "value": "0.25rem"
@@ -1240,7 +1240,7 @@ export const tokens = {
     },
     "2": {
       "value": "0.5rem",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/size.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/size.json",
       "isSource": true,
       "original": {
         "value": "0.5rem"
@@ -1257,7 +1257,7 @@ export const tokens = {
     },
     "3": {
       "value": "0.75rem",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/size.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/size.json",
       "isSource": true,
       "original": {
         "value": "0.75rem"
@@ -1274,7 +1274,7 @@ export const tokens = {
     },
     "4": {
       "value": "1rem",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/size.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/size.json",
       "isSource": true,
       "original": {
         "value": "1rem"
@@ -1291,7 +1291,7 @@ export const tokens = {
     },
     "5": {
       "value": "1.25rem",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/size.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/size.json",
       "isSource": true,
       "original": {
         "value": "1.25rem"
@@ -1308,7 +1308,7 @@ export const tokens = {
     },
     "6": {
       "value": "1.5rem",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/size.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/size.json",
       "isSource": true,
       "original": {
         "value": "1.5rem"
@@ -1325,7 +1325,7 @@ export const tokens = {
     },
     "7": {
       "value": "1.75rem",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/size.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/size.json",
       "isSource": true,
       "original": {
         "value": "1.75rem"
@@ -1342,7 +1342,7 @@ export const tokens = {
     },
     "8": {
       "value": "2rem",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/size.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/size.json",
       "isSource": true,
       "original": {
         "value": "2rem"
@@ -1359,7 +1359,7 @@ export const tokens = {
     },
     "9": {
       "value": "2.25rem",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/size.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/size.json",
       "isSource": true,
       "original": {
         "value": "2.25rem"
@@ -1376,7 +1376,7 @@ export const tokens = {
     },
     "10": {
       "value": "2.5rem",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/size.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/size.json",
       "isSource": true,
       "original": {
         "value": "2.5rem"
@@ -1393,7 +1393,7 @@ export const tokens = {
     },
     "12": {
       "value": "3rem",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/size.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/size.json",
       "isSource": true,
       "original": {
         "value": "3rem"
@@ -1410,7 +1410,7 @@ export const tokens = {
     },
     "14": {
       "value": "3.5rem",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/size.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/size.json",
       "isSource": true,
       "original": {
         "value": "3.5rem"
@@ -1427,7 +1427,7 @@ export const tokens = {
     },
     "16": {
       "value": "4rem",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/size.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/size.json",
       "isSource": true,
       "original": {
         "value": "4rem"
@@ -1444,7 +1444,7 @@ export const tokens = {
     },
     "20": {
       "value": "5rem",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/size.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/size.json",
       "isSource": true,
       "original": {
         "value": "5rem"
@@ -1461,7 +1461,7 @@ export const tokens = {
     },
     "24": {
       "value": "6rem",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/size.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/size.json",
       "isSource": true,
       "original": {
         "value": "6rem"
@@ -1478,7 +1478,7 @@ export const tokens = {
     },
     "28": {
       "value": "7rem",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/size.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/size.json",
       "isSource": true,
       "original": {
         "value": "7rem"
@@ -1495,7 +1495,7 @@ export const tokens = {
     },
     "32": {
       "value": "8rem",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/size.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/size.json",
       "isSource": true,
       "original": {
         "value": "8rem"
@@ -1512,7 +1512,7 @@ export const tokens = {
     },
     "36": {
       "value": "9rem",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/size.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/size.json",
       "isSource": true,
       "original": {
         "value": "9rem"
@@ -1529,7 +1529,7 @@ export const tokens = {
     },
     "40": {
       "value": "10rem",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/size.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/size.json",
       "isSource": true,
       "original": {
         "value": "10rem"
@@ -1546,7 +1546,7 @@ export const tokens = {
     },
     "44": {
       "value": "11rem",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/size.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/size.json",
       "isSource": true,
       "original": {
         "value": "11rem"
@@ -1563,7 +1563,7 @@ export const tokens = {
     },
     "48": {
       "value": "12rem",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/size.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/size.json",
       "isSource": true,
       "original": {
         "value": "12rem"
@@ -1580,7 +1580,7 @@ export const tokens = {
     },
     "52": {
       "value": "13rem",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/size.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/size.json",
       "isSource": true,
       "original": {
         "value": "13rem"
@@ -1597,7 +1597,7 @@ export const tokens = {
     },
     "56": {
       "value": "14rem",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/size.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/size.json",
       "isSource": true,
       "original": {
         "value": "14rem"
@@ -1614,7 +1614,7 @@ export const tokens = {
     },
     "60": {
       "value": "15rem",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/size.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/size.json",
       "isSource": true,
       "original": {
         "value": "15rem"
@@ -1631,7 +1631,7 @@ export const tokens = {
     },
     "64": {
       "value": "16rem",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/size.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/size.json",
       "isSource": true,
       "original": {
         "value": "16rem"
@@ -1648,7 +1648,7 @@ export const tokens = {
     },
     "72": {
       "value": "18rem",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/size.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/size.json",
       "isSource": true,
       "original": {
         "value": "18rem"
@@ -1665,7 +1665,7 @@ export const tokens = {
     },
     "80": {
       "value": "20rem",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/size.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/size.json",
       "isSource": true,
       "original": {
         "value": "20rem"
@@ -1682,7 +1682,7 @@ export const tokens = {
     },
     "96": {
       "value": "24rem",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/size.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/size.json",
       "isSource": true,
       "original": {
         "value": "24rem"
@@ -1700,7 +1700,7 @@ export const tokens = {
     "none": {
       "value": "var(--size-0)",
       "name": "SIZE_NONE",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/size-default.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/size-default.json",
       "isSource": true,
       "original": {
         "value": "var(--size-0)",
@@ -1718,7 +1718,7 @@ export const tokens = {
     "xs": {
       "value": "var(--size-1)",
       "name": "SIZE_XS",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/size-default.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/size-default.json",
       "isSource": true,
       "original": {
         "value": "var(--size-1)",
@@ -1736,7 +1736,7 @@ export const tokens = {
     "sm": {
       "value": "var(--size-2)",
       "name": "SIZE_SM",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/size-default.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/size-default.json",
       "isSource": true,
       "original": {
         "value": "var(--size-2)",
@@ -1754,7 +1754,7 @@ export const tokens = {
     "md": {
       "value": "var(--size-4)",
       "name": "SIZE_MD",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/size-default.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/size-default.json",
       "isSource": true,
       "original": {
         "value": "var(--size-4)",
@@ -1772,7 +1772,7 @@ export const tokens = {
     "lg": {
       "value": "var(--size-8)",
       "name": "SIZE_LG",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/size-default.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/size-default.json",
       "isSource": true,
       "original": {
         "value": "var(--size-8)",
@@ -1790,7 +1790,7 @@ export const tokens = {
     "xl": {
       "value": "var(--size-16)",
       "name": "SIZE_XL",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/size-default.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/size-default.json",
       "isSource": true,
       "original": {
         "value": "var(--size-16)",
@@ -1808,7 +1808,7 @@ export const tokens = {
     "2xl": {
       "value": "var(--size-32)",
       "name": "SIZE_2XL",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/size-default.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/size-default.json",
       "isSource": true,
       "original": {
         "value": "var(--size-32)",
@@ -1826,7 +1826,7 @@ export const tokens = {
     "3xl": {
       "value": "var(--size-64)",
       "name": "SIZE_3XL",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/size-default.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/size-default.json",
       "isSource": true,
       "original": {
         "value": "var(--size-64)",
@@ -1844,7 +1844,7 @@ export const tokens = {
     "4xl": {
       "value": "var(--size-80)",
       "name": "SIZE_4XL",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/size-default.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/size-default.json",
       "isSource": true,
       "original": {
         "value": "var(--size-80)",
@@ -1864,7 +1864,7 @@ export const tokens = {
     "none": {
       "value": "var(--size-0)",
       "name": "SPACING_NONE",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/spacing.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/spacing.json",
       "isSource": true,
       "original": {
         "value": "var(--size-0)",
@@ -1882,7 +1882,7 @@ export const tokens = {
     "xs": {
       "value": "var(--size-1)",
       "name": "SPACING_XS",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/spacing.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/spacing.json",
       "isSource": true,
       "original": {
         "value": "var(--size-1)",
@@ -1900,7 +1900,7 @@ export const tokens = {
     "sm": {
       "value": "var(--size-2)",
       "name": "SPACING_SM",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/spacing.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/spacing.json",
       "isSource": true,
       "original": {
         "value": "var(--size-2)",
@@ -1918,7 +1918,7 @@ export const tokens = {
     "md": {
       "value": "var(--size-4)",
       "name": "SPACING_MD",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/spacing.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/spacing.json",
       "isSource": true,
       "original": {
         "value": "var(--size-4)",
@@ -1936,7 +1936,7 @@ export const tokens = {
     "lg": {
       "value": "var(--size-8)",
       "name": "SPACING_LG",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/spacing.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/spacing.json",
       "isSource": true,
       "original": {
         "value": "var(--size-8)",
@@ -1954,7 +1954,7 @@ export const tokens = {
     "xl": {
       "value": "var(--size-16)",
       "name": "SPACING_XL",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/spacing.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/spacing.json",
       "isSource": true,
       "original": {
         "value": "var(--size-16)",
@@ -1972,7 +1972,7 @@ export const tokens = {
     "2xl": {
       "value": "var(--size-32)",
       "name": "SPACING_2XL",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/spacing.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/spacing.json",
       "isSource": true,
       "original": {
         "value": "var(--size-32)",
@@ -1990,7 +1990,7 @@ export const tokens = {
     "3xl": {
       "value": "var(--size-64)",
       "name": "SPACING_3XL",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/spacing.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/spacing.json",
       "isSource": true,
       "original": {
         "value": "var(--size-64)",
@@ -2008,7 +2008,7 @@ export const tokens = {
     "4xl": {
       "value": "var(--size-80)",
       "name": "SPACING_4XL",
-      "filePath": "/Users/macvincent/Desktop/zuii/tokens/spacing.json",
+      "filePath": "/Users/innovdata/Desktop/projet-web/zuii/tokens/spacing.json",
       "isSource": true,
       "original": {
         "value": "var(--size-80)",
