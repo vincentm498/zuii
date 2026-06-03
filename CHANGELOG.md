@@ -1,5 +1,11 @@
 ## [1.5.1](https://github.com/vincentm498/zuii/compare/v1.5.0...v1.5.1) (2026-03-27)
 
+## 1.5.5
+
+### Patch Changes
+
+- c2de151: fix: restore select height to match input height by re-enabling select.scss import
+
 ## 1.5.3
 
 ### Patch Changes
