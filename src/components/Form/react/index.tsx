@@ -27,9 +27,21 @@ interface FormControlProps extends React.ComponentPropsWithRef<typeof BootstrapF
 	 */
 	floating?: boolean;
 	/**
-	 * Nom de l'icône à afficher.
+	 * Nom de l'icône à afficher à gauche.
 	 */
 	icon?: string;
+	/**
+	 * Nom de l'icône à afficher à droite.
+	 */
+	iconRight?: string;
+	/**
+	 * Texte à afficher à gauche de l'input.
+	 */
+	textLeft?: string;
+	/**
+	 * Texte à afficher à droite de l'input.
+	 */
+	textRight?: string;
 }
 
 /**
@@ -43,6 +55,9 @@ const FormControl = ({
 	label,
 	floating,
 	icon,
+	iconRight,
+	textLeft,
+	textRight,
 	children,
 	onKeyDown,
 	...props
@@ -63,6 +78,7 @@ const FormControl = ({
 		return (
 			<FloatingLabel label={label} controlId={props.id || props.name}>
 				<div className="form__input">
+					{textLeft && <span className="form__input-adornment">{textLeft}</span>}
 					{icon && <Icon name={icon} size="sm" />}
 					<BootstrapForm.Control
 						{...props}
@@ -71,6 +87,8 @@ const FormControl = ({
 					>
 						{children}
 					</BootstrapForm.Control>
+					{iconRight && <Icon name={iconRight} size="sm" />}
+					{textRight && <span className="form__input-adornment">{textRight}</span>}
 				</div>
 			</FloatingLabel>
 		);
@@ -78,6 +96,7 @@ const FormControl = ({
 
 	return (
 		<div className="form__input">
+			{textLeft && <span className="form__input-adornment">{textLeft}</span>}
 			{icon && <Icon name={icon} size="sm" />}
 			<BootstrapForm.Control
 				{...props}
@@ -86,6 +105,8 @@ const FormControl = ({
 			>
 				{children}
 			</BootstrapForm.Control>
+			{iconRight && <Icon name={iconRight} size="sm" />}
+			{textRight && <span className="form__input-adornment">{textRight}</span>}
 		</div>
 	);
 };
