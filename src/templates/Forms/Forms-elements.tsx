@@ -32,6 +32,12 @@ export const FormsElements = () => {
 				<Form.Control id="search" type="search" placeholder="Enter search" name="search" icon="icon-search" />
 				<Form.Control id="email" type="email" placeholder="Enter email" name="email" icon="icon-at-sign" />
 				<Form.Control id="number" type="number" placeholder="Enter number" name="number" icon="icon-number" />
+				<Form.Control id="icon-right" type="text" placeholder="Icône à droite" name="icon-right" iconRight="icon-eye" />
+				<Form.Control id="icon-both" type="text" placeholder="Icônes des deux côtés" name="icon-both" icon="icon-user" iconRight="icon-eye" />
+				<Form.Control id="text-left" type="text" placeholder="Montant" name="text-left" textLeft="€" />
+				<Form.Control id="text-right" type="text" placeholder="Poids" name="text-right" textRight="kg" />
+				<Form.Control id="text-both" type="text" placeholder="Valeur" name="text-both" textLeft="$" textRight=".00" />
+				<Form.Control id="icon-text" type="text" placeholder="Nom d'utilisateur" name="icon-text" icon="icon-user" textRight="@domain.com" />
 					<Form.Number id="number-button" placeholder="Enter number" name="number-button" onChange={(val) => console.log(val)} step={1} min={0} max={10}  required={true} className='fees-field__input' />
 				<fieldset disabled>
 					<Form.Number id="number-button" placeholder="Enter number" name="number-button" onChange={(val) => console.log(val)} step={1} min={0} max={10}  required={true} className='fees-field__input' />

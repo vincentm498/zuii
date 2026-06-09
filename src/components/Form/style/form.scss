@@ -121,13 +121,21 @@ input[type="radio"]{
 }
 
 
+.form__input-adornment {
+	color: var(--form-placeholder-color);
+	font-size: var(--text-sm);
+	white-space: nowrap;
+	user-select: none;
+}
+
 .form__input:has(.form-control:disabled){
 	border-color: var(--gray-200);
 	background-color: var(--gray-100);
 
 	.form-control,
 	.form-control::placeholder,
-	.icon{
+	.icon,
+	.form__input-adornment{
 		color: var(--form-placeholder-color);
 	}
 }
