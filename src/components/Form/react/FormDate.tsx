@@ -86,7 +86,11 @@ export const FormDate = forwardRef<HTMLInputElement, FormDateProps>(({
 			}
 		);
 
-		return () => flatpickrInstance.current?.destroy();
+		return () => {
+			if (flatpickrInstance.current) {
+				flatpickrInstance.current?.destroy();
+			}
+		};
 	}, [flatpickrOptions, onChange]);
 
 	useEffect(() => {
@@ -104,25 +108,25 @@ export const FormDate = forwardRef<HTMLInputElement, FormDateProps>(({
 
 	return (
 		<>
-		<div className={`form__input ${className}`.trim()}>
-			{icon && <Icon name={icon} size="sm" />}
-			<BootstrapForm.Control
-				{...props}
-				ref={visibleInputRef}
-				autoComplete="off"
-				value={inputVal}
-				onChange={(e) => setInputVal(e.target.value)}
-				onClick={handleOpen}
-				disabled={disabled}
-				placeholder={placeholder}
-				className="form-date-control"
-			/>
+			<div className={`form__input ${className}`.trim()}>
+				{icon && <Icon name={icon} size="sm" />}
+				<BootstrapForm.Control
+					{...props}
+					ref={visibleInputRef}
+					autoComplete="off"
+					value={inputVal}
+					onChange={(e) => setInputVal(e.target.value)}
+					onClick={handleOpen}
+					disabled={disabled}
+					placeholder={placeholder}
+					className="form-date-control"
+				/>
 
-			<span ref={positionRef} className="form-date-anchor"></span>
+				<span ref={positionRef} className="form-date-anchor"></span>
 
-		</div>
-		<input ref={hiddenPickerRef} style={{ display: "none" }} tabIndex={-1} aria-hidden="true" />
-		<input type="hidden" name={name} value={formatHiddenDateValue(inputVal, separator, flatpickrInstance.current)} />
+			</div>
+			<input ref={hiddenPickerRef} style={{ display: "none" }} tabIndex={-1} aria-hidden="true" />
+			<input type="hidden" name={name} value={formatHiddenDateValue(inputVal, separator, flatpickrInstance.current)} />
 		</>
 	);
 });
