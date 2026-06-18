@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm publish *)",
+      "Bash(npm view *)",
+      "Bash(npm whoami *)"
+    ]
+  }
+}

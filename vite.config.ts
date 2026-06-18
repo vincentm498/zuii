@@ -16,7 +16,8 @@ export default defineConfig({
       entryRoot: resolve(__dirname, 'src'),
       exclude: ['src/playground.tsx', '**/playground/**'],
       outDir: resolve(__dirname, 'dist'),
-      staticImport: true
+      staticImport: true,
+      skipDiagnostics: true
     })
   ],
   optimizeDeps: {
