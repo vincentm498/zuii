@@ -175,15 +175,15 @@ export const Select = ({
 				variant,
 				...i18n
 			}, (val) => {
-				const el = selectRef.current;
-				if (el) {
-					el.hidden = false;
-				}
 				valueRef.current = val;
 				if (onChangeRef.current) {
 					onChangeRef.current(val);
 				}
 			});
+
+
+			const el = selectRef.current;
+			el.hidden = false;
 		}
 
 		return () => {
