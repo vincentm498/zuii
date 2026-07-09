@@ -88,3 +88,15 @@
 	color: color-mix(in srgb, currentColor, transparent 70%);
 
 }
+
+.choices select {
+	display: block !important;
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	opacity: 0;
+	pointer-events: none;
+	margin: 0;
+	padding: 0;
+	border: 0;
+}

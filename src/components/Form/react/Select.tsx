@@ -67,6 +67,11 @@ export interface SelectProps {
 	 * Langue pour les traductions (ex: 'fr', 'en').
 	 */
 	lang?: string;
+	/**
+	 * Indique si le champ est requis.
+	 * @default false
+	 */
+	required?: boolean;
 }
 
 /**
@@ -100,6 +105,7 @@ const SELECT_TRANSLATIONS: Record<string, any> = {
  * @returns {JSX.Element} Le composant Select rendu.
  */
 export const Select = ({
+	required = false,
 	options,
 	value,
 	onChange,
@@ -169,6 +175,10 @@ export const Select = ({
 				variant,
 				...i18n
 			}, (val) => {
+				const el = selectRef.current;
+				if (el) {
+					el.hidden = false;
+				}
 				valueRef.current = val;
 				if (onChangeRef.current) {
 					onChangeRef.current(val);
@@ -228,6 +238,7 @@ export const Select = ({
 				disabled={disabled}
 				className="select"
 				name={name}
+				required={required}
 			/>
 		</div>
 	);
