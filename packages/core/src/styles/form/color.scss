@@ -1,5 +1,4 @@
-@use "../../Button/style/mixins" as *;
-@use "../style/form.scss" as *;
+@use "./form.scss" as *;
 
 .form__input.form__input--color {
 	--form-border: none;
@@ -37,9 +36,17 @@
 }
 
 .pcr-app .pcr-interaction input[type="button"] {
-	@include btn-primary;
+	background-color: var(--primary);
+	color: var(--primary-contrast);
+	border: 1px solid var(--primary);
 	margin-top: .5rem;
 	margin-left: .2rem;
+
+	&:hover,
+	&:focus {
+		background-color: var(--primary-dark);
+		border-color: var(--primary-dark);
+	}
 
 	&.active{
 		box-shadow: none;
