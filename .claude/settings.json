@@ -3,7 +3,17 @@
     "allow": [
       "Bash(pnpm publish *)",
       "Bash(npm view *)",
-      "Bash(npm whoami *)"
+      "Bash(npm whoami *)",
+      "Skill(agent-browser)",
+      "Skill(agent-browser:*)",
+      "Bash(pkill -f \"vite\")",
+      "Bash(agent-browser open *)",
+      "Bash(agent-browser snapshot *)",
+      "Bash(agent-browser click *)",
+      "Bash(agent-browser fill *)",
+      "Bash(agent-browser scrollintoview *)",
+      "Bash(agent-browser screenshot *)",
+      "Bash(agent-browser close *)"
     ]
   }
 }
