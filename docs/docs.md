@@ -1,35 +1,35 @@
-# Convention des Commits (Semantic Release)
+# Versioning et publication
 
-Ce projet utilise la convention **Angular** pour automatiser les versions avec `semantic-release`.
+## 📦 Package racine `zuii`
 
-## 🚀 Préfixes déclenchant une version
+Le package racine (`zuii` sur npm) est versionné automatiquement à chaque commit poussé sur `main` :
 
-Ces préfixes analysent tes commits pour décider s'il faut publier une nouvelle version :
+- Le **minor** est incrémenté de +1 (le patch repasse à 0). Exemple : `1.5.13` → `1.6.0`.
+- Ça se fait quel que soit le contenu du commit (pas de convention de préfixe à respecter).
+- Le workflow GitHub Actions correspondant (`.github/workflows/root-version-bump.yml`) commit le bump et publie automatiquement sur npm.
 
-| Préfixe | Type de version | Exemple |
+Aucune action manuelle n'est nécessaire pour ce package.
+
+## 🧩 Packages `@zuii/*` (booking, calendar, core, cookie-consent, ...)
+
+Ces packages sont gérés séparément via **Changesets**, car ils ne changent pas à chaque commit et n'ont pas besoin d'être republiés systématiquement.
+
+Pour qu'un de ces packages soit versionné et publié, il faut ajouter un changeset dans la PR qui le modifie :
+
+```bash
+pnpm changeset
+```
+
+Cette commande demande interactivement :
+- quels packages sont impactés,
+- quel type de bump (`patch` / `minor` / `major`),
+- un résumé du changement.
+
+Elle génère un fichier dans `.changeset/` à committer avec le reste de la PR. Sans ce fichier, la CI ne publie rien pour ces packages.
+
+## 🚀 Résumé
+
+| Package | Déclenchement | Action requise |
 | :--- | :--- | :--- |
-| `feat` | **Minor** (ex: 1.1.0) | `feat: ajout du composant Modal` |
-| `fix` | **Patch** (ex: 1.0.1) | `fix: correction du bug sur le bouton` |
-| `perf` | **Patch** (ex: 1.0.1) | `perf: optimisation du rendu CSS` |
-
-## 🛠️ Préfixes sans déclenchement de version
-
-Par défaut, ces types ne déclenchent **pas** de nouvelle version :
-
-- **`docs`** : Changements uniquement dans la documentation.
-- **`style`** : Changements de style de code (formatage, etc.) sans modifier la logique.
-- **`refactor`** : Modification du code sans ajout de fonctionnalité ni correction.
-- **`test`** : Ajout ou correction de tests.
-- **`build`** : Changements du système de build ou dépendances.
-- **`ci`** : Changements dans les fichiers de configuration CI.
-- **`chore`** : Tâches diverses (maintenance, etc.).
-- **`revert`** : Annulation d'un commit précédent.
-
-## ⚠️ Breaking Changes (Versions Majeures)
-
-Pour déclencher une version **Major** (ex: 2.0.0), tu as deux options :
-
-1. **Le point d'exclamation** : Ajouter un `!` après le type .
-   - Exemple : `feat!: changement majeur de l'API`
-2. **Le footer** : Ajouter `BREAKING CHANGE:` au début du pied de page du commit.
-
+| `zuii` (racine) | Chaque commit sur `main` | Aucune |
+| `@zuii/*` | Changeset présent dans la PR | `pnpm changeset` avant de merger |
