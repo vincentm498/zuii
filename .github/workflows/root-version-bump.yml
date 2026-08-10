@@ -71,4 +71,6 @@ jobs:
         run: npm install -g npm@latest
 
       - name: Publish zuii
-        run: npm publish --access public
+        run: |
+          npm pkg delete private
+          npm publish --access public
