@@ -13,7 +13,10 @@
       "Bash(agent-browser fill *)",
       "Bash(agent-browser scrollintoview *)",
       "Bash(agent-browser screenshot *)",
-      "Bash(agent-browser close *)"
+      "Bash(agent-browser close *)",
+      "Bash(node -p \"require\\('./package.json'\\).version\")",
+      "Bash(npm publish *)",
+      "Bash(echo \"EXIT:$?\")"
     ]
   }
 }
