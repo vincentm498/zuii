@@ -62,12 +62,13 @@ jobs:
           git commit -m "chore: bump version to $VERSION"
           git push origin "$BRANCH"
           gh pr create --base main --head "$BRANCH" --title "chore: bump version to $VERSION" --body "Bump automatique de version."
-          gh pr merge "$BRANCH" --merge --admin --subject "chore: bump version to $VERSION [skip ci]"
+          gh pr merge "$BRANCH" --merge --admin --delete-branch --subject "chore: bump version to $VERSION [skip ci]"
 
       - name: Build
         run: pnpm run build
 
+      - name: Update npm for Trusted Publishing
+        run: npm install -g npm@latest
+
       - name: Publish zuii
-        run: pnpm publish --no-git-checks
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish --access public
