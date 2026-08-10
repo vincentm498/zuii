@@ -4,7 +4,7 @@
 
 Le package racine (`zuii` sur npm) est versionné automatiquement à chaque commit poussé sur `main` :
 
-- Le **minor** est incrémenté de +1 (le patch repasse à 0). Exemple : `1.5.13` → `1.6.0`.
+- Le **patch** est incrémenté de +1. Exemple : `1.7.0` → `1.7.1`.
 - Ça se fait quel que soit le contenu du commit (pas de convention de préfixe à respecter).
 - Le workflow GitHub Actions correspondant (`.github/workflows/root-version-bump.yml`) commit le bump et publie automatiquement sur npm.
 
