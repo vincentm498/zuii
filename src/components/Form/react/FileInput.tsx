@@ -39,6 +39,8 @@ interface FileInputProps {
 		/** Si l'enregistrement vidéo est autorisé (défaut: true). */
 		allowVideo?: boolean;
 	};
+	/** Le champ est requis. */
+	required?: boolean;
 }
 
 /**
@@ -55,7 +57,8 @@ export const FileInput = ({
 	onComplete,
 	onError,
 	files,
-	webcam
+	webcam,
+	required
 }: FileInputProps) => {
 	const inputRef = useRef<HTMLInputElement>(null);
 	const dashboardRef = useRef<HTMLDivElement>(null);
@@ -138,7 +141,14 @@ export const FileInput = ({
 						type="file"
 						name={isMultiple ? `${name}[]` : name}
 						multiple={isMultiple}
-						style={{ display: 'none' }}
+						style={{
+							position: 'absolute',
+							opacity: '0',
+							width: '1px',
+							height: '1px',
+							pointerEvents: 'none'
+						}}
+						required={required}
 					/>
 				)}
 			</div>

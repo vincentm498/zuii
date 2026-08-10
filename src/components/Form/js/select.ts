@@ -18,6 +18,8 @@ export const initSelect = (
 		itemSelectText: '',
 		removeItemButton: config.removeItemButton || false,
 		searchEnabled: config.searchEnabled !== undefined ? config.searchEnabled : true,
+		searchResultLimit: config.searchResultLimit || -1,
+		fuseOptions: { threshold: 0.1, ...config.fuseOptions },
 		shouldSort: false,
 		placeholder: true,
 		placeholderValue: config.placeholderValue || 'Sélectionnez une option',

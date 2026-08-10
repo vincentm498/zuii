@@ -38,9 +38,9 @@ export const FormsElements = () => {
 				<Form.Control id="text-right" type="text" placeholder="Poids" name="text-right" textRight="kg" />
 				<Form.Control id="text-both" type="text" placeholder="Valeur" name="text-both" textLeft="$" textRight=".00" />
 				<Form.Control id="icon-text" type="text" placeholder="Nom d'utilisateur" name="icon-text" icon="icon-user" textRight="@domain.com" />
-					<Form.Number id="number-button" placeholder="Enter number" name="number-button" onChange={(val) => console.log(val)} step={1} min={0} max={10}  required={true} className='fees-field__input' />
+				<Form.Number id="number-button" placeholder="Enter number" name="number-button" onChange={(val) => console.log(val)} step={1} min={0} max={10} required={true} className='fees-field__input' />
 				<fieldset disabled>
-					<Form.Number id="number-button" placeholder="Enter number" name="number-button" onChange={(val) => console.log(val)} step={1} min={0} max={10}  required={true} className='fees-field__input' />
+					<Form.Number id="number-button" placeholder="Enter number" name="number-button" onChange={(val) => console.log(val)} step={1} min={0} max={10} required={true} className='fees-field__input' />
 				</fieldset>
 				{/* <Form.File id="file-simple" label="Upload simple" name="file_simple" />
 				<Form.File
@@ -63,35 +63,35 @@ export const FormsElements = () => {
 					name="file-dashboard"
 				/>
 				<fieldset disabled>
-				<Form.File
-					restrictions={{ maxNumberOfFiles: 5 }}
-					webcam={{
-						allowVideo: false
-					}}
-					lang='fr'
-					name="file-upload"
-					files={[
-						{
-							route: 'https://placehold.co/286x180.png',
-							options: {
-								method: 'GET',
-								headers: {
-									'Content-Type': 'multipart/form-data'
+					<Form.File
+						restrictions={{ maxNumberOfFiles: 5 }}
+						webcam={{
+							allowVideo: false
+						}}
+						lang='fr'
+						name="file-upload"
+						files={[
+							{
+								route: 'https://placehold.co/286x180.png',
+								options: {
+									method: 'GET',
+									headers: {
+										'Content-Type': 'multipart/form-data'
+									}
 								}
 							}
-						}
-					]}
-				/>
+						]}
+					/>
 				</fieldset>
 				<Form.Check id="checkbox1" type="checkbox" label="Enter checkbox" name="checkbox" />
 				<Form.Check id="checkbox2" type="checkbox" label="Enter checkbox checked" name="checkbox" defaultChecked />
 				<Form.Check id="radio1" type="radio" label="Enter radio option 1" name="radio" defaultChecked />
-				<Form.Check id="radio2" type="radio" label="Enter radio option 2" name="radio"  />
+				<Form.Check id="radio2" type="radio" label="Enter radio option 2" name="radio" />
 				{/* Button disable active */}
 				{/* <Form.Button variant="primary">Primary</Form.Button>
 				<Form.Button variant="primary" disabled>Primary disabled</Form.Button> */}
 				<fieldset disabled>
-				<Form.Select name="select" value={selectValue} onChange={(val) => setSelectValue(val)} options={[]}></Form.Select>
+					<Form.Select name="select" value={selectValue} onChange={(val) => setSelectValue(val)} options={[]}></Form.Select>
 				</fieldset>
 				<Form.Select name="select" value={selectValue} onChange={(val) => setSelectValue(val)} options={[]}></Form.Select>
 				<Form.Select name="select" value={selectValue} onChange={(val) => setSelectValue(val)} options={[
@@ -109,6 +109,7 @@ export const FormsElements = () => {
 						value: '3'
 					}
 				]} />
+				ici
 				<Form.Select
 					name="select-country"
 					variant="country"
@@ -119,7 +120,15 @@ export const FormsElements = () => {
 						{ text: 'Allemagne', value: 'DE', flag: 'de' },
 						{ text: 'Espagne', value: 'ES', flag: 'es' },
 						{ text: 'Italie', value: 'IT', flag: 'it' },
-						{ text: 'Portugal', value: 'PT', flag: 'pt' }
+						{ text: 'Portugal', value: 'PT', flag: 'pt' },
+						{ text: 'Belgique', value: 'BE', flag: 'be' },
+						{ text: 'Pays-Bas', value: 'NL', flag: 'nl' },
+						{ text: 'Suisse', value: 'CH', flag: 'ch' },
+						{ text: 'Autriche', value: 'AT', flag: 'at' },
+						{ text: 'Suede', value: 'SE', flag: 'se' },
+						{ text: 'Norvege', value: 'NO', flag: 'no' },
+						{ text: 'Danemark', value: 'DK', flag: 'dk' }
+
 					]}
 				/>
 				<Form.Select name="selectMultiple[]" value={multiValue} onChange={(val) => setMultiValue(val)} multiple={true} options={[
