@@ -10,7 +10,7 @@ const CookieConsent = () => {
 	useEffect(() => {
 		initCookieConsent();
 	}, []); // Le tableau vide [] assure que ça ne s'exécute qu'une fois
-	return null; // Le composant ne rend rien lui-même, il initialise juste la modale
+	return null; // Le composant ne rend rien lui-même, il initialise juste la modale.
 };
 
 
