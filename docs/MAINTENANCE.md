@@ -21,7 +21,7 @@ La branche `main` est critique car elle déclenche automatiquement la publicatio
 
 ### Nettoyage des builds
 ```bash
-# Supprimer le dossier dist..
+# Supprimer le dossier dist...
 rm -rf dist
 ```
 
