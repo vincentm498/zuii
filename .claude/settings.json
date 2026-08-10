@@ -16,7 +16,16 @@
       "Bash(agent-browser close *)",
       "Bash(node -p \"require\\('./package.json'\\).version\")",
       "Bash(npm publish *)",
-      "Bash(echo \"EXIT:$?\")"
+      "Bash(echo \"EXIT:$?\")",
+      "Bash(gh secret *)",
+      "Bash(gh workflow *)",
+      "Bash(gh run *)",
+      "Bash(pnpm --version)",
+      "Bash(npm --version)",
+      "WebFetch(domain:docs.npmjs.com)",
+      "WebFetch(domain:philna.sh)",
+      "WebFetch(domain:github.com)",
+      "Bash(gh pr *)"
     ]
   }
 }
