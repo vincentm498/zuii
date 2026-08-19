@@ -41,6 +41,8 @@ export interface FormDateProps {
 	 * Désactiver le champ.
 	 */
 	disabled?: boolean;
+
+	onReady?: (flatpickerInstance: any) => void;
 }
 
 /**
@@ -85,7 +87,7 @@ export const FormDate = forwardRef<HTMLInputElement, FormDateProps>(({
 				onChange?.(dateStr);
 			}
 		);
-
+		props.onReady?.(flatpickrInstance.current); 
 		return () => {
 			if (flatpickrInstance.current) {
 				flatpickrInstance.current?.destroy();
