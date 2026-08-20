@@ -1,6 +1,6 @@
 {
 	"name": "zuii",
-	"version": "1.7.5",
+	"version": "1.7.6",
 	"private": true,
 	"packageManager": "pnpm@9.9.0",
 	"description": "Bibliothèque de composants UI légère, intuitive et modulaire pour les interfaces web modernes.",
