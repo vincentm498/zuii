@@ -67,7 +67,7 @@ export const FormDate = forwardRef<HTMLInputElement, FormDateProps>(({
 	const visibleInputRef = ref as any;
 	const hiddenPickerRef = useRef<HTMLInputElement>(null);
 	const positionRef = useRef<HTMLSpanElement>(null);
-
+	const lastEmitted = useRef<string>(value || "");
 	const flatpickrInstance = useRef<any>(null);
 	const [inputVal, setInputVal] = useState(value || "");
 
@@ -83,6 +83,7 @@ export const FormDate = forwardRef<HTMLInputElement, FormDateProps>(({
 			flatpickrOptions,
 			positionRef.current,
 			(dateStr) => {
+    			lastEmitted.current = dateStr;
 				setInputVal(dateStr);
 				onChange?.(dateStr);
 			}
@@ -119,6 +120,7 @@ export const FormDate = forwardRef<HTMLInputElement, FormDateProps>(({
 					value={inputVal}
 					onChange={(e) => {
 						const v = e.target.value;
+						lastEmitted.current = v;
 						setInputVal(v);
 						onChange?.(v);
 					}}
