@@ -117,7 +117,11 @@ export const FormDate = forwardRef<HTMLInputElement, FormDateProps>(({
 					ref={visibleInputRef}
 					autoComplete="off"
 					value={inputVal}
-					onChange={(e) => setInputVal(e.target.value)}
+					onChange={(e) => {
+						const v = e.target.value;
+						setInputVal(v);
+						onChange?.(v);
+					}}
 					onClick={handleOpen}
 					disabled={disabled}
 					placeholder={placeholder}
