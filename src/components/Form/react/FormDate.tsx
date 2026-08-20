@@ -96,18 +96,19 @@ export const FormDate = forwardRef<HTMLInputElement, FormDateProps>(({
 		};
 	}, [flatpickrOptions, onChange]);
 
-	useEffect(() => {
-		if (value !== undefined && value !== inputVal) {
-			setInputVal(value || "");
-			flatpickrInstance.current?.setDate(value || "", false);
-		}
-	}, [value]);
 
 	const handleOpen = () => {
 		if (!disabled) {
 			flatpickrInstance.current?.open();
 		}
 	};
+	useEffect(() => {
+		if (value === lastEmitted.current) return;
+		if (value !== undefined && value !== inputVal) {
+			setInputVal(value || "");
+			flatpickrInstance.current?.setDate(value || "", false);
+		}
+	}, [value]);
 
 	return (
 		<>
