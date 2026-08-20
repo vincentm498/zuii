@@ -67,10 +67,10 @@ export const FormDate = forwardRef<HTMLInputElement, FormDateProps>(({
 	const visibleInputRef = ref as any;
 	const hiddenPickerRef = useRef<HTMLInputElement>(null);
 	const positionRef = useRef<HTMLSpanElement>(null);
-	const lastEmitted = useRef<string>(value || "");
+
 	const flatpickrInstance = useRef<any>(null);
 	const [inputVal, setInputVal] = useState(value || "");
-
+const lastEmitted = useRef<string>(value || "");
 	const separator = useMemo(() => {
 		return getRangeSeparator(flatpickrOptions?.locale);
 	}, [flatpickrOptions?.locale]);
@@ -83,7 +83,7 @@ export const FormDate = forwardRef<HTMLInputElement, FormDateProps>(({
 			flatpickrOptions,
 			positionRef.current,
 			(dateStr) => {
-    			lastEmitted.current = dateStr;
+				lastEmitted.current = dateStr;
 				setInputVal(dateStr);
 				onChange?.(dateStr);
 			}
@@ -96,24 +96,23 @@ export const FormDate = forwardRef<HTMLInputElement, FormDateProps>(({
 		};
 	}, [flatpickrOptions, onChange]);
 
-
-	const handleOpen = () => {
-		if (!disabled) {
-			flatpickrInstance.current?.open();
-		}
-	};
 	useEffect(() => {
-		if (value === lastEmitted.current) return;
+    	if (value === lastEmitted.current) return;   // ← ligne ajoutée
 		if (value !== undefined && value !== inputVal) {
 			setInputVal(value || "");
 			flatpickrInstance.current?.setDate(value || "", false);
 		}
 	}, [value]);
 
+	const handleOpen = () => {
+		if (!disabled) {
+			flatpickrInstance.current?.open();
+		}
+	};
+
 	return (
 		<>
 			<div className={`form__input ${className}`.trim()}>
-				{icon && <Icon name={icon} size="sm" />}
 				<BootstrapForm.Control
 					{...props}
 					ref={visibleInputRef}
