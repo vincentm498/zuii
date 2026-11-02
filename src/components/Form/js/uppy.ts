@@ -72,7 +72,7 @@ export const createUppyInstance = (
 };
 
 /**
- * Synchronise les fichiers d'Uppy vers un élément input HTML de type file.
+ * Synchronise les fichiers d'Uppy vers un élément input HTML de type file.s
  *
  * @param {Uppy} uppy - L'instance Uppy.
  * @param {HTMLInputElement} input - L'élément input cible.
