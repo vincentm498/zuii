@@ -38,6 +38,7 @@ interface FileInputProps {
 	webcam?: {
 		/** Si l'enregistrement vidéo est autorisé (défaut: true). */
 		allowVideo?: boolean;
+		allowPhoto?: boolean;
 	};
 	/** Le champ est requis. */
 	required?: boolean;

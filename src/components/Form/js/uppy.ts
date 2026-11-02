@@ -45,7 +45,7 @@ export const getUppyLocale = (lang?: string): any => {
 export const createUppyInstance = (
 	restrictions: UppyRestrictions,
 	locale: any,
-	webcamConfig?: { allowVideo?: boolean }
+	webcamConfig?: { allowVideo?: boolean, allowPhoto?: boolean }
 ): Uppy => {
 	const uppy = new Uppy({
 		locale,
@@ -64,7 +64,9 @@ export const createUppyInstance = (
 	const webcamModes: ('video-audio' | 'picture')[] =
 		webcamConfig?.allowVideo === false ? ['picture'] : ['video-audio', 'picture'];
 
-	uppy.use(Webcam, { modes: webcamModes });
+	if (webcamConfig?.allowPhoto || webcamConfig?.allowPhoto == undefined) {
+		uppy.use(Webcam, { modes: webcamModes });
+	}
 
 	return uppy;
 };
