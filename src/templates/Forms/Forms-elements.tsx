@@ -59,6 +59,9 @@ export const FormsElements = () => {
 				 <Form.File id="file-multiple" label="Upload multiple" name="file_multiple" multiple={true} maxFiles={5} /> */}
 				<Form.File
 					restrictions={{ maxNumberOfFiles: 5 }}
+						webcam={{
+							allowPhoto: false
+						}}
 					lang='fr'
 					name="file-dashboard"
 				/>
