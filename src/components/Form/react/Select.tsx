@@ -123,6 +123,7 @@ export const Select = ({
 	const choicesRef = useRef<any>(null);
 	const onChangeRef = useRef(onChange);
 	const valueRef = useRef(value);
+	const syncingRef = useRef(false);
 
 	// Déterminer la langue et les traductions
 	const activeLang = lang || (typeof document !== 'undefined' ? document.documentElement.lang : 'fr') || 'fr';
@@ -175,6 +176,9 @@ export const Select = ({
 				variant,
 				...i18n
 			}, (val) => {
+				if (syncingRef.current) {
+					return;
+				}
 				valueRef.current = val;
 				if (onChangeRef.current) {
 					onChangeRef.current(val);
@@ -198,12 +202,19 @@ export const Select = ({
 	useEffect(() => {
 		if (choicesRef.current && value !== undefined) {
 			const currentValue = choicesRef.current.getValue(true);
-			const newValue = Array.isArray(value) ? value : [value];
+			const newValue = Array.isArray(value) ? value : (value === null ? [] : [value]);
 			const currentArray = Array.isArray(currentValue) ? currentValue : [currentValue];
+			const toKey = (values: any[]) => JSON.stringify(values.filter((v) => v !== undefined && v !== null && v !== '').map(String).sort());
 
-			// Comparaison simple pour éviter les boucles de mise à jour inutiles
-			if (JSON.stringify(newValue.sort()) !== JSON.stringify(currentArray.sort())) {
-				choicesRef.current.setChoiceByValue(value);
+			if (toKey(newValue) !== toKey(currentArray)) {
+				syncingRef.current = true;
+				if (multiple) {
+					choicesRef.current.removeActiveItems();
+				}
+				if (newValue.length) {
+					choicesRef.current.setChoiceByValue(newValue);
+				}
+				syncingRef.current = false;
 			}
 		}
 	}, [value]);
