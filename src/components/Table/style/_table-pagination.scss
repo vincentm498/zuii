@@ -18,4 +18,13 @@
 			display: flex;
 			gap: var(--size-1);
 		}
+
+		.form__input.datagrid__pagination-select {
+			--form-font-size: 13px;
+			--form-line-height: 1.25;
+
+			.choices {
+				padding-block: 0;
+			}
+		}
 	}
