@@ -146,6 +146,10 @@ export const FormsElements = () => {
 					{
 						text: 'Option 3',
 						value: '3'
+					},
+					{
+						text: 'Option dqzdqzqdzdqzqdzdqzdqz3',
+						value: '3ddd'
 					}
 				]} />
 				<Form.Date />
