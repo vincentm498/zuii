@@ -150,6 +150,11 @@ export interface TableOptions {
 	isFullWidthRow?: (params: any) => boolean;
 	fullWidthCellRenderer?: any;
 	fullWidthCellRendererParams?: any;
+	paginationMode?: 'client' | 'server';
+	currentPage?: number;
+	totalRows?: number;
+	onPageChange?: (page: number) => void;
+	onPageSizeChange?: (size: number) => void;
 }
 
 /**

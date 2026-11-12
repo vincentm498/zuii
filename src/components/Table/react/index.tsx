@@ -63,6 +63,11 @@ export const Table = forwardRef<AgGridReact, Props>(({
 	isFullWidthRow,
 	fullWidthCellRenderer,
 	fullWidthCellRendererParams,
+	paginationMode = 'client',
+	currentPage = 0,
+	totalRows = 0,
+	onPageChange: onServerPageChange,
+	onPageSizeChange: onServerPageSizeChange,
 }, ref) => {
 	const baseClass = "datagrid";
 	const wrapperClass = `${baseClass} ${theme} ${className}`.trim();
@@ -75,6 +80,9 @@ export const Table = forwardRef<AgGridReact, Props>(({
 		pageSize: paginationPageSize,
 		totalRows: 0,
 	});
+
+	const isServer = paginationMode === 'server';
+	const nbLignes = isServer ? totalRows : paginationState.totalRows;
 
 	const processedColumnDefs = useMemo(() => processColumnDefs(columnDefs), [columnDefs]);
 	const localeText = useMemo(() => getLocaleText(locale), [locale]);
@@ -125,10 +133,10 @@ export const Table = forwardRef<AgGridReact, Props>(({
 
 		const floatingBottom = containerRef.current.querySelector('.ag-floating-bottom');
 		if (floatingBottom instanceof HTMLElement) {
-			const hasData = paginationState.totalRows > 0;
+			const hasData = nbLignes > 0;
 			floatingBottom.style.minHeight = hasData ? '0' : `${emptyRowsHeight}`;
 		}
-	}, [emptyRowsHeight, gridApi, rowData, datasource, paginationState.totalRows]);
+	}, [emptyRowsHeight, gridApi, rowData, datasource, nbLignes]);
 
 	const isAutoHeight = autoHeight !== null && autoHeight !== false;
 
@@ -141,7 +149,7 @@ export const Table = forwardRef<AgGridReact, Props>(({
 					rowData={rowModelType === 'infinite' ? undefined : (rowData || [])}
 					columnDefs={processedColumnDefs}
 					domLayout={isAutoHeight ? 'autoHeight' : undefined}
-					pagination={pagination}
+					pagination={pagination && !isServer}
 					paginationPageSize={paginationState.pageSize}
 					paginationPageSizeSelector={false}
 					suppressPaginationPanel={true}
@@ -207,7 +215,19 @@ export const Table = forwardRef<AgGridReact, Props>(({
 					fullWidthCellRendererParams={fullWidthCellRendererParams}
 				/>
 			</div>
-			{pagination && (
+			{pagination && isServer && (
+				<TablePagination
+					currentPage={currentPage}
+					totalPages={Math.ceil(totalRows / paginationPageSize)}
+					pageSize={paginationPageSize}
+					totalRows={totalRows}
+					pageSizeOptions={pageSizeOptions}
+					onPageChange={(page) => onServerPageChange?.(page)}
+					onPageSizeChange={(size) => onServerPageSizeChange?.(size)}
+					localeText={localeText}
+				/>
+			)}
+			{pagination && !isServer && (
 				<TablePagination
 					currentPage={paginationState.currentPage}
 					totalPages={paginationState.totalPages}
