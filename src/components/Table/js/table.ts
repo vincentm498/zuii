@@ -133,6 +133,23 @@ export interface TableOptions {
 	 * Fonction pour obtenir la hauteur des lignes.
 	 */
 	getRowHeight?: (params: any) => number;
+	onSortChanged?: (event: any) => void;
+	onSelectionChanged?: (event: any) => void;
+	onRowClicked?: (event: any) => void;
+	onRowDoubleClicked?: (event: any) => void;
+	onCellContextMenu?: (params: any) => void;
+	getRowClass?: (params: any) => string | string[] | undefined;
+	getRowId?: (params: any) => string;
+	postSortRows?: (params: any) => void;
+	groupDisplayType?: 'singleColumn' | 'multipleColumns' | 'groupRows' | 'custom';
+	groupDefaultExpanded?: number;
+	autoGroupColumnDef?: any;
+	groupRowRenderer?: any;
+	groupRowRendererParams?: any;
+	suppressAggFuncInHeader?: boolean;
+	isFullWidthRow?: (params: any) => boolean;
+	fullWidthCellRenderer?: any;
+	fullWidthCellRendererParams?: any;
 }
 
 /**
@@ -142,10 +159,10 @@ export interface TableOptions {
  * @returns {ColumnDef[]} Colonnes traitées avec la propriété 'pinned'.
  */
 export const processColumnDefs = (columnDefs: ColumnDef[]): ColumnDef[] => {
-	return columnDefs.map(col => ({
+	return columnDefs.map(({ fixed, ...col }) => ({
 		...col,
-		pinned: (col.fixed === true ? 'left' : col.fixed) as any
-	}));
+		...(fixed !== undefined && { pinned: (fixed === true ? 'left' : fixed) as any }),
+	}) as ColumnDef);
 };
 
 /**
@@ -221,6 +238,9 @@ export const initTable = (
 			maxWidth: 40,
 			headerClass: 'table-cell--center',
 			cellClass: 'table-cell--center',
+			suppressHeaderMenuButton: true,
+			suppressHeaderFilterButton: true,
+			resizable: false,
 			...options.selectionColumnDef
 		} : undefined,
 		suppressMovableColumns: suppressMovableColumns,

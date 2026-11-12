@@ -1,4 +1,4 @@
-import { useMemo, useState, useCallback, useEffect, useRef } from 'react';
+import { forwardRef, useMemo, useState, useCallback, useEffect, useRef } from 'react';
 import { AgGridReact } from 'ag-grid-react';
 import { AllCommunityModule, ModuleRegistry, GridApi } from 'ag-grid-community';
 import { processColumnDefs, getLocaleText, TableOptions, RowData, ColumnDef } from '../js/table';
@@ -21,7 +21,7 @@ interface Props extends TableOptions {
  * @param {Props} props - Les propriétés du composant.
  * @returns {JSX.Element} Le rendu du composant.
  */
-export const Table = ({
+export const Table = forwardRef<AgGridReact, Props>(({
 	rowData,
 	columnDefs = [],
 	theme = "ag-theme-alpine",
@@ -45,8 +45,25 @@ export const Table = ({
 	rowHeight = 25,
 	getRowHeight,
 	isRowSelectable,
-	autoHeight = true
-}: Props) => {
+	autoHeight = true,
+	onSortChanged,
+	onSelectionChanged,
+	onRowClicked,
+	onRowDoubleClicked,
+	onCellContextMenu,
+	getRowClass,
+	getRowId,
+	postSortRows,
+	groupDisplayType,
+	groupDefaultExpanded,
+	autoGroupColumnDef,
+	groupRowRenderer,
+	groupRowRendererParams,
+	suppressAggFuncInHeader,
+	isFullWidthRow,
+	fullWidthCellRenderer,
+	fullWidthCellRendererParams,
+}, ref) => {
 	const baseClass = "datagrid";
 	const wrapperClass = `${baseClass} ${theme} ${className}`.trim();
 	const containerRef = useRef<HTMLDivElement>(null);
@@ -119,12 +136,14 @@ export const Table = ({
 		<div className={wrapperClass} style={{ width: '100%', height: isAutoHeight ? undefined : '100%' }} ref={containerRef}>
 			<div className="datagrid__container" style={{ height: isAutoHeight ? undefined : '100%' }}>
 				<AgGridReact
+					ref={ref}
 					theme="legacy"
 					rowData={rowModelType === 'infinite' ? undefined : (rowData || [])}
 					columnDefs={processedColumnDefs}
 					domLayout={isAutoHeight ? 'autoHeight' : undefined}
 					pagination={pagination}
 					paginationPageSize={paginationState.pageSize}
+					paginationPageSizeSelector={false}
 					suppressPaginationPanel={true}
 					onPaginationChanged={onPaginationChanged}
 					rowModelType={rowModelType}
@@ -132,6 +151,14 @@ export const Table = ({
 					cacheBlockSize={cacheBlockSize}
 					maxBlocksInCache={maxBlocksInCache}
 					onGridReady={handleGridReady}
+					onSortChanged={onSortChanged}
+					onSelectionChanged={onSelectionChanged}
+					onRowClicked={onRowClicked}
+					onRowDoubleClicked={onRowDoubleClicked}
+					onCellContextMenu={onCellContextMenu}
+					getRowClass={getRowClass}
+					getRowId={getRowId}
+					postSortRows={postSortRows}
 					localeText={localeText}
 					rowClassRules={rowClassRules}
 					icons={icons ? icons :
@@ -154,8 +181,8 @@ export const Table = ({
 						maxWidth: 40,
 						headerClass: 'table-cell--center',
 						cellClass: 'table-cell--center',
-						suppressHeaderMenu: true,
-						suppressHeaderFilter: true,
+						suppressHeaderMenuButton: true,
+						suppressHeaderFilterButton: true,
 						resizable: false,
 						...selectionColumnDef
 					} : undefined}
@@ -169,6 +196,15 @@ export const Table = ({
 						sortable: sortable,
 						unSortIcon: sortable,
 					}}
+					groupDisplayType={groupDisplayType}
+					groupDefaultExpanded={groupDefaultExpanded}
+					autoGroupColumnDef={autoGroupColumnDef}
+					groupRowRenderer={groupRowRenderer}
+					groupRowRendererParams={groupRowRendererParams}
+					suppressAggFuncInHeader={suppressAggFuncInHeader}
+					isFullWidthRow={isFullWidthRow}
+					fullWidthCellRenderer={fullWidthCellRenderer}
+					fullWidthCellRendererParams={fullWidthCellRendererParams}
 				/>
 			</div>
 			{pagination && (
@@ -185,7 +221,9 @@ export const Table = ({
 			)}
 		</div>
 	);
-};
+});
+
+Table.displayName = 'Table';
 
 // Exporter les types pour utilisation externe
 export type { RowData, ColumnDef, TableOptions };
