@@ -46,6 +46,7 @@ export interface SelectProps {
 	 * Activer/Désactiver la recherche (par défaut: true).
 	 */
 	searchable?: boolean;
+	clearable?: boolean;
 	/**
 	 * Classe CSS additionnelle.
 	 */
@@ -113,6 +114,7 @@ export const Select = ({
 	placeholder = "Sélectionnez une option",
 	disabled = false,
 	searchable = true,
+	clearable = false,
 	className = "",
 	name,
 	variant = "default",
@@ -169,7 +171,7 @@ export const Select = ({
 
 			choicesRef.current = initSelect(selectRef.current, {
 				choices: choicesOptions,
-				removeItemButton: multiple,
+				removeItemButton: multiple || clearable,
 				placeholderValue: activePlaceholder,
 				searchEnabled: searchable,
 				silent: true,
@@ -196,7 +198,7 @@ export const Select = ({
 				choicesRef.current = null;
 			}
 		};
-	}, [optionsKey, multiple, activePlaceholder, variant, searchable, i18n]);
+	}, [optionsKey, multiple, clearable, activePlaceholder, variant, searchable, i18n]);
 
 	// Mise à jour de la valeur si elle change de l'extérieur
 	useEffect(() => {
