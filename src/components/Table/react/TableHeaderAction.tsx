@@ -26,7 +26,7 @@ export const TableHeaderAction = ({ displayName, action, actif = false, onAction
 		};
 	}, [onAction]);
 
-	const contenuAction = action ?? (onAction ? <Button size="sm" variant="secondary" transparent btnIcon icon={actif ? 'icon-minus' : 'icon-plus'} /> : null);
+	const contenuAction = action ?? (onAction ? <Button size="sm" variant="secondary" transparent btnIcon icon={actif ? 'icon-eye' : 'icon-eye-closed'} /> : null);
 
 	return (
 		<Group gap="sm" align="center-left" className="datagrid-header-action">
