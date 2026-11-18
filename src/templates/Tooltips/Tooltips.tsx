@@ -2,7 +2,7 @@ import { Group, Tooltip } from '../../index';
 import { Button, Badge } from '../../index';
 
 /**
- * Template de démonstration pour le composant Tooltip.
+ * Template de démonstration pour le composant Tooltip..
  */
 export const Tooltips = () => {
 	return (
