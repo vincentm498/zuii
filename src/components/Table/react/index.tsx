@@ -247,3 +247,6 @@ Table.displayName = 'Table';
 
 // Exporter les types pour utilisation externe
 export type { RowData, ColumnDef, TableOptions };
+
+export { TableHeaderAction } from './TableHeaderAction';
+export type { TableHeaderActionProps } from './TableHeaderAction';
