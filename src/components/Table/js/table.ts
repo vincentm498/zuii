@@ -68,6 +68,7 @@ export interface TableOptions {
 	 * Active le redimensionnement des colonnes (par défaut: false).
 	 */
 	resizable?: boolean;
+	copyable?: boolean;
 	/**
 	 * Langue du tableau (par défaut: 'fr').
 	 */
