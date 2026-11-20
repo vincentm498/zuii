@@ -31,6 +31,7 @@ export const Table = forwardRef<AgGridReact, Props>(({
 	paginationPageSize = 10,
 	pageSizeOptions,
 	resizable = false,
+	copyable = true,
 	locale = 'fr',
 	selectionColumnDef,
 	rowClassRules,
@@ -213,6 +214,8 @@ export const Table = forwardRef<AgGridReact, Props>(({
 					isFullWidthRow={isFullWidthRow}
 					fullWidthCellRenderer={fullWidthCellRenderer}
 					fullWidthCellRendererParams={fullWidthCellRendererParams}
+					enableCellTextSelection={copyable}
+					ensureDomOrder={copyable}
 				/>
 			</div>
 			{pagination && isServer && (

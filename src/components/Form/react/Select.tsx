@@ -39,6 +39,7 @@ export interface SelectProps {
 	 * Texte de recherche si vide.
 	 */
 	placeholder?: string;
+	searchPlaceholder?: string;
 	/**
 	 * Désactiver le composant.
 	 */
@@ -82,6 +83,7 @@ export interface SelectProps {
 const SELECT_TRANSLATIONS: Record<string, any> = {
 	fr: {
 		placeholder: "Sélectionnez une option",
+		searchPlaceholder: "Rechercher…",
 		noResultsText: "Aucun résultat trouvé",
 		noChoicesText: "Aucun choix disponible",
 		uniqueItemText: "Seules les valeurs uniques peuvent être ajoutées",
@@ -91,6 +93,7 @@ const SELECT_TRANSLATIONS: Record<string, any> = {
 	},
 	en: {
 		placeholder: "Select an option",
+		searchPlaceholder: "Search…",
 		noResultsText: "No results found",
 		noChoicesText: "No choices to choose from",
 		uniqueItemText: "Only unique values can be added",
@@ -113,6 +116,7 @@ export const Select = ({
 	onChange,
 	multiple = false,
 	placeholder = "Sélectionnez une option",
+	searchPlaceholder,
 	disabled = false,
 	searchable = true,
 	clearable = false,
@@ -132,6 +136,7 @@ export const Select = ({
 	const activeLang = lang || (typeof document !== 'undefined' ? document.documentElement.lang : 'fr') || 'fr';
 	const i18n = SELECT_TRANSLATIONS[activeLang.startsWith('en') ? 'en' : 'fr'];
 	const activePlaceholder = placeholder === "Sélectionnez une option" ? i18n.placeholder : placeholder;
+	const activeSearchPlaceholder = searchPlaceholder ?? i18n.searchPlaceholder;
 
 	// Garder les refs à jour sans déclencher d'effet inutile
 	useEffect(() => {
@@ -179,7 +184,8 @@ export const Select = ({
 				searchFields: ['label', 'customProperties.searchText'],
 				silent: true,
 				variant,
-				...i18n
+				...i18n,
+				searchPlaceholderValue: activeSearchPlaceholder
 			}, (val) => {
 				if (syncingRef.current) {
 					return;
@@ -201,7 +207,7 @@ export const Select = ({
 				choicesRef.current = null;
 			}
 		};
-	}, [optionsKey, multiple, clearable, activePlaceholder, variant, searchable, i18n]);
+	}, [optionsKey, multiple, clearable, activePlaceholder, activeSearchPlaceholder, variant, searchable, i18n]);
 
 	// Mise à jour de la valeur si elle change de l'extérieur
 	useEffect(() => {
