@@ -12,6 +12,7 @@ export interface SelectOption {
 	 * Code du drapeau (ex: 'fr', 'en').
 	 */
 	flag?: string;
+	searchText?: string;
 }
 
 /**
@@ -155,7 +156,8 @@ export const Select = ({
 				label: opt.text,
 				selected: Array.isArray(currentVal) ? currentVal.includes(opt.value) : currentVal === opt.value,
 				customProperties: {
-					flag: opt.flag
+					flag: opt.flag,
+					searchText: opt.searchText ?? ''
 				}
 			}));
 
@@ -174,6 +176,7 @@ export const Select = ({
 				removeItemButton: multiple || clearable,
 				placeholderValue: activePlaceholder,
 				searchEnabled: searchable,
+				searchFields: ['label', 'customProperties.searchText'],
 				silent: true,
 				variant,
 				...i18n
