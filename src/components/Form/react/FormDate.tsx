@@ -111,7 +111,7 @@ const lastEmitted = useRef<string>(value || "");
 	};
 
 	return (
-		<>
+		<div className="form-date">
 			<div className={`form__input ${className}`.trim()}>
 				<BootstrapForm.Control
 					{...props}
@@ -135,7 +135,7 @@ const lastEmitted = useRef<string>(value || "");
 			</div>
 			<input ref={hiddenPickerRef} style={{ display: "none" }} tabIndex={-1} aria-hidden="true" />
 			<input type="hidden" name={name} value={formatHiddenDateValue(inputVal, separator, flatpickrInstance.current)} />
-		</>
+		</div>
 	);
 });
 
