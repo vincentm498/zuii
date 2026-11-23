@@ -152,7 +152,13 @@ export const FormsElements = () => {
 						value: '3ddd'
 					}
 				]} />
-				<Form.Date />
+				<Form.Date 
+					placeholder="__/__/____ - __/__/____"
+					flatpickrOptions={{
+						dateFormat: 'd/m/Y',
+						altFormat: 'Y-m-d',
+						mode: 'range',
+					}}/>
 				<Form.Color />
 				<Form.Group className="mb-3">
 					<Form.Label>Label</Form.Label>
